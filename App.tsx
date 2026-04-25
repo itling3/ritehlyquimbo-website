@@ -27,6 +27,7 @@ import AIAutomationPricingView from './components/AIAutomationPricingView';
 import SEMPricingView from './components/SEMPricingView';
 import AboutView from './components/AboutView';
 import ContactView from './components/ContactView';
+import NotFound from './components/NotFound';
 import Home from './pages/Home';
 import { SERVICES, SERVICE_DETAILS, REVIEWS, TOOL_LOGOS, FAQS, CERTIFICATES, CASE_STUDIES } from './constants';
 import { ServiceContent, CaseStudy } from './types';
@@ -241,6 +242,7 @@ const AppContent: React.FC = () => {
             <WebDevPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} onForm={handleOpenForm} />
           </div>
         } />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer onNavigate={handleNavigate} onBook={handleBookConsultation} />
