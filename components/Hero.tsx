@@ -1,12 +1,31 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface HeroProps {
   onAuditClick?: (e: React.MouseEvent) => void;
   onFormClick?: (e: React.MouseEvent) => void;
 }
 
+const EXPERTISE = [
+  "SEO Expert",
+  "Web Developer",
+  "AI Automation Specialist",
+  "Search Engine Marketing",
+  "Growth Engineer",
+  "Lead Generation"
+];
+
 const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % EXPERTISE.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 overflow-hidden min-h-[90vh] flex items-center">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
@@ -20,9 +39,22 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6 md:mb-8 text-white uppercase italic tracking-tighter">
-            SEO Expert from <br className="hidden sm:block" />
-            <span className="gradient-text">Philippines</span>: <br className="hidden sm:block" />
-            Full-Stack Solutions <br className="hidden sm:block" />
+            <div className="mb-2">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={EXPERTISE[index]}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "circOut" }}
+                  className="gradient-text block"
+                >
+                  {EXPERTISE[index]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+            from <span className="text-blue-500">Philippines</span>: <br className="hidden sm:block" />
+            <span className="text-white">Full-Stack Solutions</span> <br className="hidden sm:block" />
             for Growth
           </h1>
 
