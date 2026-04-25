@@ -77,7 +77,8 @@ const LocalSEOPricingView: React.FC<LocalSEOPricingViewProps> = ({ onBack, onBoo
     <div className="min-h-screen bg-[#030712] pt-32 pb-20 px-4 md:px-6">
       <SEO 
         title="Local SEO Pricing | Dominate Your City Rankings | Ritehly Quimbo" 
-        description="Transparent local SEO pricing tiers designed to help your business dominate the local map pack and search results." 
+        description="Transparent local SEO pricing tiers designed to help your business dominate the local map pack and neighbor search results. Scale your local visibility." 
+        keywords="local seo pricing, gmb optimization cost, local map pack services, neighborhood rankings, affordable seo philippines, city targeting"
       />
       <div className="max-w-7xl mx-auto">
         <button 

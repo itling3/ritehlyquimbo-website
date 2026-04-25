@@ -33,7 +33,8 @@ const Home: React.FC<HomeProps> = ({
     <>
       <SEO 
         title="Hire SEO Specialist | Dominate Rankings & Growth" 
-        description="Ritehly Quimbo is the top Full-Stack SEO & Growth Marketing Specialist in the Philippines. Build autonomous systems for scale." 
+        description="Ritehly Quimbo is the top Full-Stack SEO & Growth Marketing Specialist in the Philippines. Build autonomous systems for scale, dominate the local map pack, and scale your sales with data-driven growth engineering." 
+        keywords="hire seo specialist, growth marketing philippines, full stack seo expert, ecommerce seo expert, local seo specialist, ai automation systems, ritehly quimbo"
       />
       <main>
         <Hero onAuditClick={onBook} onFormClick={onOpenForm} />

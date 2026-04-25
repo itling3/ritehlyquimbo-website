@@ -76,7 +76,8 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
     <div className="min-h-screen bg-[#030712] pt-24 pb-32 px-6">
       <SEO 
         title="WordPress & Elementor Pricing | SEO-Ready Web Engines | Ritehly Quimbo" 
-        description="High-performance, secure, and SEO-optimized WordPress web builds. See our Elementor development pricing packages." 
+        description="High-performance, secure, and SEO-optimized WordPress web builds using Elementor. See our web development pricing packages for growth-ready sites." 
+        keywords="wordpress development pricing, elementor web design cost, seo friendly websites, fast loading wordpress, high performance web engines"
       />
       <div className="max-w-7xl mx-auto">
         <motion.button 

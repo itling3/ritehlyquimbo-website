@@ -11,6 +11,8 @@ export interface CaseStudy {
   };
   chartData: { name: string; value: number }[];
   description: string;
+  metaDescription?: string;
+  keywords?: string;
   image: string;
   challenge?: string;
   strategy?: string;
@@ -38,6 +40,8 @@ export interface ServiceContent {
   title: string;
   icon: string;
   description: string;
+  metaDescription?: string;
+  keywords?: string;
   painPoint: string;
   problem: string;
   solution: string;

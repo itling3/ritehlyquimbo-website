@@ -152,7 +152,8 @@ const AppContent: React.FC = () => {
           <div className="min-h-screen">
             <SEO 
               title="About SEO Specialist | Growth Engineer Mission" 
-              description="Learn about Ritehly Quimbo, an SEO specialist & growth engineer helping SMBs scale sales with autonomous growth systems." 
+              description="Learn about Ritehly Quimbo, an SEO specialist & growth engineer from the Philippines helping SMBs scale sales with autonomous growth systems." 
+              keywords="ritehly quimbo, seo specialist philippines, growth marketing engineer, seo consultant, digital marketing expert"
             />
             <AboutView onBack={() => navigate('/')} onBook={handleBookConsultation} />
           </div>
@@ -162,7 +163,8 @@ const AppContent: React.FC = () => {
           <div className="min-h-screen">
             <SEO 
               title="SEO Specialist Resume | Growth Engineer Track Record" 
-              description="View the professional trajectory and technical mastery of Ritehly Quimbo, a top-tier SEO specialist and growth marketing engineer." 
+              description="View the professional trajectory and technical mastery of Ritehly Quimbo, a top-tier SEO specialist and growth marketing engineer with a proven track record." 
+              keywords="seo resume, ritehly quimbo portfolio, search analyst experience, growth engineering background, technical seo expert"
             />
             <ResumeView onBack={() => navigate('/')} />
           </div>
@@ -172,7 +174,8 @@ const AppContent: React.FC = () => {
           <div className="min-h-screen">
             <SEO 
               title="Contact SEO Expert | Scale Your Business Leads" 
-              description="Ready to scale your leads? Contact Ritehly Quimbo, the top SEO & Growth Specialist in the Philippines for strategy inquiries." 
+              description="Ready to scale your leads? Contact Ritehly Quimbo, the top SEO & Growth Specialist in the Philippines for strategy inquiries and consultations." 
+              keywords="contact seo expert, hire growth marketer, seo consultation philippines, business scaling strategy, digital growth leads"
             />
             <ContactView onBack={() => navigate('/')} onBook={handleBookConsultation} />
           </div>
@@ -202,7 +205,8 @@ const AppContent: React.FC = () => {
           <div className="min-h-screen">
             <SEO 
               title="Local SEO Pricing | Dominate Your City Rankings" 
-              description="Transparent local SEO pricing tiers designed to help your business dominate the local map pack and search results." 
+              description="Transparent local SEO pricing tiers designed to help your business dominate the local map pack and neighborhood search results. Affordable growth plans." 
+              keywords="local seo pricing, gmb optimization cost, local map pack services, affordable seo philippines, city ranking strategy"
             />
             <LocalSEOPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} onForm={handleOpenForm} />
           </div>
@@ -211,7 +215,8 @@ const AppContent: React.FC = () => {
           <div className="min-h-screen">
             <SEO 
               title="AI Automation Pricing | High-Performance Marketing Ops" 
-              description="Scale your marketing operations with AI-driven automation. See our pricing plans for custom AI workflows and growth systems." 
+              description="Scale your marketing operations with AI-driven automation. See our pricing plans for custom AI workflows, agents, and autonomous growth systems." 
+              keywords="ai automation pricing, marketing automation cost, n8n workflow services, ai agent development, business automation plans"
             />
             <AIAutomationPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} onForm={handleOpenForm} />
           </div>
@@ -220,7 +225,8 @@ const AppContent: React.FC = () => {
           <div className="min-h-screen">
             <SEO 
               title="Google Ads Pricing | Immediate Demand Capture" 
-              description="Accelerate your growth with precision managed Google Ads. View our PPC management pricing and ROI-focused strategies." 
+              description="Accelerate your growth with precision managed Google Ads. View our ROI-focused PPC management pricing and immediate demand capture strategies." 
+              keywords="google ads management pricing, ppc management cost, sem services price, google ads expert philippines, roi focused ads"
             />
             <SEMPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} />
           </div>
@@ -229,7 +235,8 @@ const AppContent: React.FC = () => {
           <div className="min-h-screen">
             <SEO 
               title="WordPress & Elementor Pricing | SEO-Ready Web Engines" 
-              description="High-performance, secure, and SEO-optimized WordPress web builds. See our Elementor development pricing packages." 
+              description="High-performance, secure, and SEO-optimized WordPress web builds using Elementor. See our web development pricing packages for growth-ready sites." 
+              keywords="wordpress development pricing, elementor web design cost, seo friendly web builds, high performance websites, custom wordpress developer"
             />
             <WebDevPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} onForm={handleOpenForm} />
           </div>

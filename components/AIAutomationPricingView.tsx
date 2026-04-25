@@ -82,7 +82,8 @@ const AIAutomationPricingView: React.FC<AIAutomationPricingViewProps> = ({ onBac
     <div className="min-h-screen bg-[#030712] pt-32 pb-20 px-4 md:px-6">
       <SEO 
         title="AI Automation Pricing | High-Performance Marketing Ops | Ritehly Quimbo" 
-        description="Scale your marketing operations with AI-driven automation. See our pricing plans for custom AI workflows and growth systems." 
+        description="Scale your marketing operations with AI-driven automation. See our pricing plans for custom AI workflows, agents, and autonomous growth systems." 
+        keywords="ai automation pricing, marketing automation cost, custom ai agents, n8n workflows, business automation scale, ai efficiency"
       />
       <div className="max-w-7xl mx-auto">
         <motion.button 

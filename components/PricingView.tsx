@@ -78,6 +78,7 @@ const PricingView: React.FC<PricingViewProps> = ({ onBack, onBook, onForm }) => 
       <SEO 
         title="SEO Pricing Blueprints | Scalable ROI Strategies | Ritehly Quimbo" 
         description="Transparent SEO pricing for any business size. Choose from Local Growth, Multi-Location, or Enterprise Programmatic blueprints with Ritehly Quimbo." 
+        keywords="seo pricing, seo packages, affordable seo services, local seo cost, enterprise seo price, monthly seo retainer, digital marketing rates"
       />
       <div className="max-w-7xl mx-auto">
         <motion.button 
