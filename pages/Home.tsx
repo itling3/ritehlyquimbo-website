@@ -32,7 +32,7 @@ const Home: React.FC<HomeProps> = ({
   return (
     <>
       <SEO 
-        title="Hire SEO Specialist | Dominate Rankings & Growth | Ritehly Quimbo" 
+        title="Hire SEO Specialist | Dominate Rankings & Growth" 
         description="Ritehly Quimbo is the top Full-Stack SEO & Growth Marketing Specialist in the Philippines. Build autonomous systems for scale." 
       />
       <main>

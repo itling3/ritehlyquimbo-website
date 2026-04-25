@@ -151,7 +151,7 @@ const AppContent: React.FC = () => {
         <Route path="/about" element={
           <div className="min-h-screen">
             <SEO 
-              title="About SEO Specialist | Growth Engineer Mission | Ritehly Quimbo" 
+              title="About SEO Specialist | Growth Engineer Mission" 
               description="Learn about Ritehly Quimbo, an SEO specialist & growth engineer helping SMBs scale sales with autonomous growth systems." 
             />
             <AboutView onBack={() => navigate('/')} onBook={handleBookConsultation} />
@@ -161,7 +161,7 @@ const AppContent: React.FC = () => {
         <Route path="/resume" element={
           <div className="min-h-screen">
             <SEO 
-              title="SEO Specialist Resume | Growth Engineer Track Record | Ritehly Quimbo" 
+              title="SEO Specialist Resume | Growth Engineer Track Record" 
               description="View the professional trajectory and technical mastery of Ritehly Quimbo, a top-tier SEO specialist and growth marketing engineer." 
             />
             <ResumeView onBack={() => navigate('/')} />
@@ -171,7 +171,7 @@ const AppContent: React.FC = () => {
         <Route path="/contact" element={
           <div className="min-h-screen">
             <SEO 
-              title="Contact SEO Expert | Scale Your Business Leads | Ritehly Quimbo" 
+              title="Contact SEO Expert | Scale Your Business Leads" 
               description="Ready to scale your leads? Contact Ritehly Quimbo, the top SEO & Growth Specialist in the Philippines for strategy inquiries." 
             />
             <ContactView onBack={() => navigate('/')} onBook={handleBookConsultation} />
@@ -201,7 +201,7 @@ const AppContent: React.FC = () => {
         <Route path="/pricing/local-seo-strategy" element={
           <div className="min-h-screen">
             <SEO 
-              title="Local SEO Pricing | Dominate Your City Rankings | Ritehly Quimbo" 
+              title="Local SEO Pricing | Dominate Your City Rankings" 
               description="Transparent local SEO pricing tiers designed to help your business dominate the local map pack and search results." 
             />
             <LocalSEOPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} onForm={handleOpenForm} />
@@ -210,7 +210,7 @@ const AppContent: React.FC = () => {
         <Route path="/pricing/ai-automation-plans" element={
           <div className="min-h-screen">
             <SEO 
-              title="AI Automation Pricing | High-Performance Marketing Ops | Ritehly Quimbo" 
+              title="AI Automation Pricing | High-Performance Marketing Ops" 
               description="Scale your marketing operations with AI-driven automation. See our pricing plans for custom AI workflows and growth systems." 
             />
             <AIAutomationPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} onForm={handleOpenForm} />
@@ -219,7 +219,7 @@ const AppContent: React.FC = () => {
         <Route path="/pricing/google-ads-sem" element={
           <div className="min-h-screen">
             <SEO 
-              title="Google Ads Pricing | Immediate Demand Capture | Ritehly Quimbo" 
+              title="Google Ads Pricing | Immediate Demand Capture" 
               description="Accelerate your growth with precision managed Google Ads. View our PPC management pricing and ROI-focused strategies." 
             />
             <SEMPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} />
@@ -228,7 +228,7 @@ const AppContent: React.FC = () => {
         <Route path="/pricing/web-dev-packages" element={
           <div className="min-h-screen">
             <SEO 
-              title="WordPress & Elementor Pricing | SEO-Ready Web Engines | Ritehly Quimbo" 
+              title="WordPress & Elementor Pricing | SEO-Ready Web Engines" 
               description="High-performance, secure, and SEO-optimized WordPress web builds. See our Elementor development pricing packages." 
             />
             <WebDevPricingView onBack={() => navigate('/')} onBook={handleBookConsultation} onForm={handleOpenForm} />

@@ -36,7 +36,7 @@ const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({ onBack, onCaseStu
   return (
     <div className="min-h-screen bg-[#030712] pt-24 md:pt-32 pb-24 px-4 md:px-6 animate-in fade-in duration-500">
       <SEO 
-        title="SEO Case Studies Portfolio | Proven Search Results | Ritehly Quimbo" 
+        title="SEO Case Studies Portfolio | Proven Search Results" 
         description="Browse Ritehly Quimbo's SEO portfolio and case studies. technical scaling, local pack domination, and authority building for diverse industries." 
       />
       <div className="max-w-7xl mx-auto">

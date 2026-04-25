@@ -16,7 +16,7 @@ const CaseStudyDetailView: React.FC<CaseStudyDetailViewProps> = ({ study, onBack
   return (
     <div className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-6 animate-in fade-in duration-500 min-h-screen">
       <SEO 
-        title={`${study.title.split('–')[0]} | ${study.industry} Growth Result | Ritehly Quimbo`} 
+        title={`${study.title.split('–')[0]} | ${study.industry} Growth Result`} 
         description={study.description} 
       />
       <div className="max-w-5xl mx-auto relative z-10">
