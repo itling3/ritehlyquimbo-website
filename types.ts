@@ -1,6 +1,7 @@
 
 export interface CaseStudy {
   id: string;
+  slug: string;
   title: string;
   industry: string;
   results: {
@@ -33,6 +34,7 @@ export enum ServiceType {
 
 export interface ServiceContent {
   id: string;
+  slug: string;
   title: string;
   icon: string;
   description: string;

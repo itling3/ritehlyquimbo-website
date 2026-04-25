@@ -289,14 +289,14 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
 
       {/* Mobile Menu Overlay - TRANSLUCENT BACKGROUND */}
       <div 
-        className={`lg:hidden fixed inset-0 bg-[#030712]/98 backdrop-blur-2xl z-[200] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col ${
+        className={`lg:hidden fixed inset-0 bg-[#030712] z-[200] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col ${
           isMobileMenuOpen 
             ? 'opacity-100 translate-x-0' 
             : 'opacity-0 translate-x-full pointer-events-none'
         }`}
       >
-        {/* Mobile Header Inside Menu - TRANSLUCENT */}
-        <div className="h-[72px] flex items-center justify-between px-6 border-b border-white/10 bg-[#030712]/40 shrink-0">
+        {/* Mobile Header Inside Menu */}
+        <div className="h-[72px] flex items-center justify-between px-6 border-b border-white/10 bg-[#030712] shrink-0">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg overflow-hidden border border-blue-500/30 bg-blue-600/20">
               <img src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" alt="" className="w-full h-full object-cover" />
@@ -317,7 +317,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
           
           <div className="space-y-4">
             {/* Services Accordion */}
-            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'services' ? 'bg-white/5 border-blue-500/30' : 'bg-transparent border-white/5'}`}>
+            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'services' ? 'bg-[#080c18] border-blue-500/30' : 'bg-[#080c18] border-white/5'}`}>
               <button 
                 onClick={() => toggleMobileSubmenu('services')}
                 className="w-full flex items-center justify-between p-6 text-left"
@@ -346,7 +346,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                           <button 
                             key={s.id} 
                             onClick={(e) => { e.stopPropagation(); handleLinkClick(s.id, true); }}
-                            className="flex flex-col items-center justify-center gap-2 p-3 bg-white/5 rounded-xl border border-white/10 text-center active:bg-blue-600/20 active:border-blue-500/30 transition-all"
+                            className="flex flex-col items-center justify-center gap-2 p-3 bg-[#0f172a] rounded-xl border border-white/10 text-center active:bg-blue-600/20 active:border-blue-500/30 transition-all"
                           >
                             <span className="text-2xl bg-white/5 w-10 h-10 flex items-center justify-center rounded-lg overflow-hidden mb-0.5">{s.icon}</span>
                             <span className="text-white text-[9px] font-black uppercase italic leading-tight">{s.title}</span>
@@ -366,7 +366,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             </div>
 
             {/* Portfolio Accordion */}
-            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'portfolio' ? 'bg-white/5 border-purple-500/30' : 'bg-transparent border-white/5'}`}>
+            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'portfolio' ? 'bg-[#080c18] border-purple-500/30' : 'bg-[#080c18] border-white/5'}`}>
               <button 
                 onClick={() => toggleMobileSubmenu('portfolio')}
                 className="w-full flex items-center justify-between p-6 text-left"
@@ -395,7 +395,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                           <button 
                             key={s.id} 
                             onClick={(e) => { e.stopPropagation(); handleLinkClick(s.id, false); }}
-                            className="flex items-center gap-3 w-full p-3 bg-white/5 rounded-xl border border-white/10 text-left active:bg-purple-600/20 active:border-purple-500/30 transition-all"
+                            className="flex items-center gap-3 w-full p-3 bg-[#0f172a] rounded-xl border border-white/10 text-left active:bg-purple-600/20 active:border-purple-500/30 transition-all"
                           >
                             <div className="w-12 h-12 rounded-lg overflow-hidden bg-white/10 border border-white/5 shrink-0">
                               <img src={s.image} alt="" className="w-full h-full object-cover" />
@@ -423,7 +423,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             </div>
 
             {/* Pricing Accordion */}
-            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'pricing' ? 'bg-white/5 border-blue-500/30' : 'bg-transparent border-white/5'}`}>
+            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'pricing' ? 'bg-[#080c18] border-blue-500/30' : 'bg-[#080c18] border-white/5'}`}>
               <button 
                 onClick={() => toggleMobileSubmenu('pricing')}
                 className="w-full flex items-center justify-between p-6 text-left"
@@ -443,35 +443,35 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 <div className="px-6 pb-6 space-y-3">
                   <button 
                     onClick={() => handleLinkClick('pricing')}
-                    className="flex items-center justify-between w-full p-5 bg-white/5 rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">SEO Strategy Pricing</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
                   </button>
                   <button 
                     onClick={() => handleLinkClick('local-seo-pricing')}
-                    className="flex items-center justify-between w-full p-5 bg-white/5 rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Local SEO Strategy</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
                   </button>
                   <button 
                     onClick={() => handleLinkClick('web-dev-pricing')}
-                    className="flex items-center justify-between w-full p-5 bg-white/5 rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Web Dev Packages</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
                   </button>
                   <button 
                     onClick={() => handleLinkClick('ai-automation-pricing')}
-                    className="flex items-center justify-between w-full p-5 bg-white/5 rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">AI Automation Plans</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
                   </button>
                   <button 
                     onClick={() => handleLinkClick('sem-pricing')}
-                    className="flex items-center justify-between w-full p-5 bg-white/5 rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Google Ads Plans</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
@@ -490,7 +490,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 <button 
                   key={link.id} 
                   onClick={() => handleLinkClick(link.id)} 
-                  className="flex items-center justify-between p-5 bg-white/5 rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                  className="flex items-center justify-between p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                 >
                   <span className={`text-xs font-black uppercase tracking-[0.2em] italic ${link.color}`}>{link.label}</span>
                   <ArrowRight className="w-4 h-4 text-blue-500" />
