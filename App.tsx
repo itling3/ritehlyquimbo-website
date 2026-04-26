@@ -193,7 +193,7 @@ const ServiceSlugWrapper: React.FC<{ navigate: any, handleBook: any, handleNavig
   const { slug } = useParams();
   const service = Object.values(SERVICE_DETAILS).find(s => s.slug === slug);
   
-  if (!service) return <div className="min-h-screen flex items-center justify-center text-white">Service Not Found</div>;
+  if (!service) return <NotFound />;
 
   return (
     <ServiceDetailView 
@@ -209,7 +209,7 @@ const PortfolioSlugWrapper: React.FC<{ navigate: any, handleBook: any }> = ({ na
   const { slug } = useParams();
   const study = CASE_STUDIES.find(s => s.slug === slug);
   
-  if (!study) return <div className="min-h-screen flex items-center justify-center text-white">Case Study Not Found</div>;
+  if (!study) return <NotFound />;
 
   return (
     <CaseStudyDetailView 

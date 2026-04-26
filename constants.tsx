@@ -6,6 +6,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'maewellness',
     slug: 'mae-wellness-scaling-holistic-growth',
+    permalink: '/portfolio/mae-wellness-scaling-holistic-growth',
     title: 'Mae Wellness – Scaling Holistic Growth',
     industry: 'Wellness & Healthcare',
     results: {
@@ -35,6 +36,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'monstore',
     slug: 'monstore-self-storage-uk',
+    permalink: '/portfolio/monstore-self-storage-uk',
     title: 'Monstore Self Storage UK',
     industry: 'Storage & Logistics',
     results: {
@@ -62,6 +64,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'excel',
     slug: 'excel-scotland-custom-homes',
+    permalink: '/portfolio/excel-scotland-custom-homes',
     title: 'Excel Scotland – Custom Homes',
     industry: 'Construction',
     results: {
@@ -90,6 +93,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'kinloss',
     slug: 'kinloss-self-storage',
+    permalink: '/portfolio/kinloss-self-storage',
     title: 'Kinloss Self Storage',
     industry: 'Storage & Moving',
     results: {
@@ -121,6 +125,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'bsl',
     slug: 'british-school-of-languages',
+    permalink: '/portfolio/british-school-of-languages',
     title: 'British School of Languages',
     industry: 'Education',
     results: {
@@ -142,6 +147,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'chattanooga',
     slug: 'ryan-king-team-chattanooga-real-estate',
+    permalink: '/portfolio/ryan-king-team-chattanooga-real-estate',
     title: 'The Chattanooga Life (Ryan King Team)',
     industry: 'Real Estate',
     results: {
@@ -210,6 +216,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'keyword-research': {
     id: 'keyword-research',
     slug: 'keyword-research-intent-mapping',
+    permalink: '/services/keyword-research-intent-mapping',
     title: 'Keyword Research',
     icon: '🔍',
     description: 'The foundation of every successful search strategy. We don\'t just look for words; we find the language your customers use when they are ready to buy.',
@@ -236,6 +243,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'on-page-seo': {
     id: 'on-page-seo',
     slug: 'technical-on-page-seo-optimization',
+    permalink: '/services/technical-on-page-seo-optimization',
     title: 'Technical On-Page SEO',
     icon: '⚙️',
     description: 'The science of tuning your website for search engines while keeping it human-friendly. We optimize every pixel and tag for maximum relevance.',
@@ -262,6 +270,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'off-page': {
     id: 'off-page',
     slug: 'digital-pr-authority-backlinks',
+    permalink: '/services/digital-pr-authority-backlinks',
     title: 'Digital PR & Authority',
     icon: '🔗',
     description: 'Building the digital reputation your brand deserves. We secure high-authority endorsements from the most trusted names in your industry.',
@@ -288,6 +297,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'content-creation': {
     id: 'content-creation',
     slug: 'seo-content-creation-strategy',
+    permalink: '/services/seo-content-creation-strategy',
     title: 'Content Strategy',
     icon: '✍️',
     description: 'Strategic storytelling engineered for search. We produce high-authority content that satisfies users and dominates keywords simultaneously.',
@@ -314,6 +324,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'local-seo': {
     id: 'local-seo',
     slug: 'local-seo-specialist-google-maps',
+    permalink: '/services/local-seo-specialist-google-maps',
     title: 'Local SEO Specialist',
     icon: '📍',
     description: 'Dominating your immediate geographic area. We make sure that when someone nearby searches for your service, you are the first name they see.',
@@ -341,6 +352,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'ecommerce-seo': {
     id: 'ecommerce-seo',
     slug: 'ecommerce-seo-specialist-sales-growth',
+    permalink: '/services/ecommerce-seo-specialist-sales-growth',
     title: 'Ecommerce Specialist',
     icon: '🛍️',
     description: 'Scaling online stores through search. We optimize product pages and category structures to capture customers at the exact moment of purchase.',
@@ -367,6 +379,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'google-ads': {
     id: 'google-ads',
     slug: 'google-ads-sem-ppc-management',
+    permalink: '/services/google-ads-sem-ppc-management',
     title: 'Search Engine Marketing',
     icon: '📈',
     description: 'Immediate market penetration. We build high-ROI PPC campaigns that bypass the wait and put your brand at the top of the search results today.',
@@ -394,6 +407,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'ai-automation': {
     id: 'ai-automation',
     slug: 'ai-automation-specialist-business-scaling',
+    permalink: '/services/ai-automation-specialist-business-scaling',
     title: 'AI Automation Specialist',
     icon: '🤖',
     description: 'Scaling your growth with precision. We integrate advanced AI models (Gemini, GPT) and custom agent workflows to automate the heavy lifting of data analysis, content scaling, and business operations.',
@@ -421,6 +435,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'lead-generation': {
     id: 'lead-generation',
     slug: 'b2b-lead-generation-sales-pipeline',
+    permalink: '/services/b2b-lead-generation-sales-pipeline',
     title: 'B2B Lead Generation',
     icon: '🎯',
     description: 'Predictable pipeline building. We combine SEO authority with strategic outreach to ensure your sales team always has a calendar full of prospects.',
@@ -447,6 +462,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'virtual-assistance': {
     id: 'virtual-assistance',
     slug: 'virtual-assistant-operational-support',
+    permalink: '/services/virtual-assistant-operational-support',
     title: 'Operational Support',
     icon: '💼',
     description: 'Operational excellence on autopilot. We provide elite administrative support to handle the technical and repetitive tasks of your business.',
@@ -473,6 +489,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'web-design': {
     id: 'web-design',
     slug: 'full-stack-web-development-seo-performance',
+    permalink: '/services/full-stack-web-development-seo-performance',
     title: 'Full-Stack Web Dev',
     icon: '💻',
     description: 'High-performance digital architecture. We build websites that don\'t just look beautiful—they are engineered to rank and optimized to convert.',
@@ -500,6 +517,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'topical-maps': {
     id: 'topical-maps',
     slug: 'topical-maps-semantic-authority',
+    permalink: '/services/topical-maps-semantic-authority',
     title: 'Topical Maps',
     icon: '🗺️',
     description: 'Building semantic authority. We map out every sub-topic in your niche to prove to Google that you are the ultimate expert.',

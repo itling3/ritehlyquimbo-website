@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import { CASE_STUDIES } from '../constants';
 
@@ -43,13 +44,13 @@ const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({ onBack, onCaseStu
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6 md:gap-8">
           <div>
-            <button 
-              onClick={onBack}
+            <Link 
+              to="/"
               className="group mb-4 md:mb-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
             >
               <span className="transition-transform group-hover:-translate-x-1">←</span> 
               Back to Home
-            </button>
+            </Link>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4">
               PROVEN <br className="md:hidden" />
               <span className="text-purple-500">RESULTS</span>
@@ -78,9 +79,9 @@ const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({ onBack, onCaseStu
 
               <div className="space-y-10 md:space-y-12">
                 {cat.studies.map((study) => (
-                  <button 
+                  <Link 
                     key={study.id}
-                    onClick={() => onCaseStudyClick(study.id)}
+                    to={study.permalink}
                     className="flex items-start gap-4 md:gap-5 group text-left w-full transition-all active:scale-95"
                   >
                     <div className={`relative w-16 md:w-20 h-16 md:h-20 flex-shrink-0 bg-white/5 rounded-xl md:rounded-2xl border border-white/10 overflow-hidden transition-all ${cat.glow} flex-shrink-0`}>
@@ -119,7 +120,7 @@ const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({ onBack, onCaseStu
                          </svg>
                       </div>
                     </div>
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>

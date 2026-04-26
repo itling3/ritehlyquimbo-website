@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { CASE_STUDIES } from '../constants';
 
@@ -34,14 +35,14 @@ const Portfolio: React.FC<PortfolioProps> = ({ onViewCaseStudy }) => {
                     <h3 className="text-2xl md:text-3xl font-black mt-2 text-white uppercase italic tracking-tighter">{study.title}</h3>
                   </div>
                   {onViewCaseStudy && (
-                    <button 
-                      onClick={() => onViewCaseStudy(study.id)}
+                    <Link 
+                      to={study.permalink}
                       className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white hover:bg-blue-600 transition-all group/btn"
                     >
                       <svg className="w-5 h-5 group-hover/btn:scale-125 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
-                    </button>
+                    </Link>
                   )}
                 </div>
                 <p className="text-gray-400 mb-8 font-medium line-clamp-2">{study.description}</p>
@@ -62,12 +63,12 @@ const Portfolio: React.FC<PortfolioProps> = ({ onViewCaseStudy }) => {
                 </div>
 
                 {onViewCaseStudy && (
-                  <button 
-                    onClick={() => onViewCaseStudy(study.id)}
-                    className="w-full py-4 mb-6 border border-white/10 rounded-xl text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-white hover:border-white transition-all bg-white/[0.01]"
+                  <Link 
+                    to={study.permalink}
+                    className="w-full py-4 mb-6 border border-white/10 rounded-xl text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-white hover:border-white transition-all bg-white/[0.01] flex items-center justify-center"
                   >
                     View Full Case Study Narrative
-                  </button>
+                  </Link>
                 )}
               </div>
 

@@ -1,7 +1,8 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SEO from './SEO';
-import { SERVICES } from '../constants';
+import { SERVICES, SERVICE_DETAILS } from '../constants';
 
 interface ServicesOverviewProps {
   onBack: () => void;
@@ -44,13 +45,13 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6 md:gap-8">
           <div className="relative">
-            <button 
-              onClick={onBack}
+            <Link 
+              to="/"
               className="group mb-4 md:mb-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
             >
               <span className="transition-transform group-hover:-translate-x-1">←</span> 
               Back to Home
-            </button>
+            </Link>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4">
               CAPABILITIES <br className="md:hidden" />
               <span className="text-blue-500">MAP</span>
@@ -79,9 +80,9 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
 
               <div className="space-y-10 md:space-y-12">
                 {cat.services.map((service) => (
-                  <button 
+                  <Link 
                     key={service.id}
-                    onClick={() => onServiceClick(service.id)}
+                    to={SERVICE_DETAILS[service.id]?.permalink || '/services'}
                     className="flex items-start gap-4 md:gap-5 group text-left w-full transition-all active:scale-95"
                   >
                     <div className={`text-2xl md:text-3xl bg-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl border border-white/10 group-hover:border-blue-500/50 group-hover:bg-blue-600/10 transition-all ${cat.glow} shadow-2xl flex-shrink-0`}>
@@ -100,8 +101,8 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
                           <span 
                             role="button"
                             tabIndex={0}
-                            onClick={(e) => { e.stopPropagation(); onBook(); }}
-                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); onBook(); } }}
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); onBook(); }}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onBook(); } }}
                             className="text-[7px] font-black uppercase tracking-widest text-white/40 hover:text-blue-400 underline underline-offset-2 transition-colors cursor-pointer"
                           >
                             Calendar
@@ -110,11 +111,13 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
                             role="button"
                             tabIndex={0}
                             onClick={(e) => { 
+                              e.preventDefault();
                               e.stopPropagation(); 
                               window.open('https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview', '_blank'); 
                             }}
                             onKeyDown={(e) => { 
                               if (e.key === 'Enter' || e.key === ' ') { 
+                                e.preventDefault();
                                 e.stopPropagation(); 
                                 window.open('https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview', '_blank'); 
                               } 
@@ -126,7 +129,7 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
                         </div>
                       </div>
                     </div>
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
