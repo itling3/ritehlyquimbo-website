@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { SERVICES, SERVICE_DETAILS } from '../constants';
 
 interface FooterProps {
@@ -26,8 +25,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
           {/* Brand & Contact */}
           <div className="space-y-6">
             <div>
-              <Link 
-                to="/"
+              <a 
+                href="/"
                 className="flex items-center gap-3 mb-4 group cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-lg overflow-hidden border border-blue-500/30 bg-blue-600/20 flex-shrink-0 shadow-lg shadow-blue-500/10">
@@ -38,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
                   />
                 </div>
                 <span className="text-xl font-bold tracking-tight text-white uppercase italic">RITEHLY<span className="text-blue-500">QUIMBO</span></span>
-              </Link>
+              </a>
               <p className="text-sm text-gray-500 leading-relaxed max-w-xs mb-6">
                 Precision Search Engineering for ambitious brands. Data-driven growth through elite technical and content excellence.
               </p>
@@ -107,14 +106,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
             </h4>
             <div className="grid grid-cols-2 gap-x-8 gap-y-3">
               {SERVICES.map((service, i) => (
-                <Link 
+                <a 
                   key={i} 
-                  to={SERVICE_DETAILS[service.id]?.permalink || '/services'}
+                  href={SERVICE_DETAILS[service.id]?.permalink || '/services'}
                   className="text-sm text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2 group text-left"
                 >
                   <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">▶</span>
                   {service.title}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -125,15 +124,15 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
               <span className="w-4 h-[1px] bg-blue-500"></span> Explore
             </h4>
             <div className="flex flex-col gap-4">
-              <Link to="/about" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">About Me (Mission)</Link>
-              <Link to="/contact" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Contact Me</Link>
-              <Link to="/portfolio" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</Link>
+              <a href="/about" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">About Me (Mission)</a>
+              <a href="/contact" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Contact Me</a>
+              <a href="/portfolio" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</a>
               <button onClick={(e) => handleLinkClick(e, 'certificates')} className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Certificates & Recognition</button>
               <button onClick={(e) => handleLinkClick(e, 'faq')} className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Knowledge Base</button>
-              <Link to="/pricing" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">SEO Pricing Blueprints</Link>
-              <Link to="/pricing/local-seo-strategy" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Local SEO Pricing Tiers</Link>
-              <Link to="/pricing/web-dev-packages" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Web Dev Pricing Packages</Link>
-              <Link to="/resume" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Download Resume (CV)</Link>
+              <a href="/pricing" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">SEO Pricing Blueprints</a>
+              <a href="/pricing/local-seo-strategy" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Local SEO Pricing Tiers</a>
+              <a href="/pricing/web-dev-packages" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Web Dev Pricing Packages</a>
+              <a href="/resume" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Download Resume (CV)</a>
               <div className="pt-2 flex flex-col gap-2">
                 <button onClick={(e) => { onBook(e); }} className="text-sm text-white hover:text-blue-400 transition-colors font-black uppercase italic tracking-tighter text-left">Schedule Booking (Calendar)</button>
                 <button onClick={handleFormLink} className="text-[10px] text-blue-500 hover:text-blue-400 transition-colors font-black uppercase tracking-widest text-left">Quick Inquiry (Form) →</button>

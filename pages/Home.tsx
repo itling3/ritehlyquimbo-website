@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import ClientsMarquee from '../components/ClientsMarquee';
 import SectionCTA from '../components/SectionCTA';
@@ -63,8 +62,8 @@ const Home: React.FC<HomeProps> = ({
                   key={i} 
                   className="glass-morphism p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all group flex flex-col h-full"
                 >
-                  <Link 
-                    to={SERVICE_DETAILS[service.id]?.permalink || '/services'}
+                  <a 
+                    href={SERVICE_DETAILS[service.id]?.permalink || '/services'}
                     className="text-left w-full flex-1"
                   >
                     <div className="text-3xl mb-4 group-hover:scale-110 transition-transform inline-block">{service.icon}</div>
@@ -73,7 +72,7 @@ const Home: React.FC<HomeProps> = ({
                       <span className="text-[10px] text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">EXPLORE →</span>
                     </h3>
                     <p className="text-xs text-gray-500 leading-relaxed mb-6">{service.description}</p>
-                  </Link>
+                  </a>
                   <div className="mt-auto pt-4 border-t border-white/5 flex flex-col gap-2">
                     <button 
                       onClick={onBook}
@@ -93,12 +92,12 @@ const Home: React.FC<HomeProps> = ({
             </div>
             
             <div className="mt-12 text-center">
-               <Link 
-                 to="/services"
+               <a 
+                 href="/services"
                  className="px-10 py-4 bg-white/5 border border-white/10 text-white font-black rounded-xl hover:bg-white/10 transition-all uppercase tracking-widest text-xs italic inline-block"
                >
                  View Complete Capabilities Map →
-               </Link>
+               </a>
             </div>
           </div>
         </section>
@@ -305,9 +304,9 @@ const Home: React.FC<HomeProps> = ({
               >
                 Schedule Session
               </button>
-              <Link to="/services" className="px-10 py-5 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-all text-lg uppercase tracking-tighter inline-block">
+              <a href="/services" className="px-10 py-5 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-all text-lg uppercase tracking-tighter inline-block">
                 Explore Services
-              </Link>
+              </a>
             </div>
           </div>
         </section>

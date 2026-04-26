@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import { SERVICES, SERVICE_DETAILS } from '../constants';
 
@@ -45,13 +44,13 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6 md:gap-8">
           <div className="relative">
-            <Link 
-              to="/"
+            <a 
+              href="/"
               className="group mb-4 md:mb-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
             >
               <span className="transition-transform group-hover:-translate-x-1">←</span> 
               Back to Home
-            </Link>
+            </a>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4">
               CAPABILITIES <br className="md:hidden" />
               <span className="text-blue-500">MAP</span>
@@ -80,9 +79,9 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
 
               <div className="space-y-10 md:space-y-12">
                 {cat.services.map((service) => (
-                  <Link 
+                  <a 
                     key={service.id}
-                    to={SERVICE_DETAILS[service.id]?.permalink || '/services'}
+                    href={SERVICE_DETAILS[service.id]?.permalink || '/services'}
                     className="flex items-start gap-4 md:gap-5 group text-left w-full transition-all active:scale-95"
                   >
                     <div className={`text-2xl md:text-3xl bg-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl border border-white/10 group-hover:border-blue-500/50 group-hover:bg-blue-600/10 transition-all ${cat.glow} shadow-2xl flex-shrink-0`}>
@@ -129,7 +128,7 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>

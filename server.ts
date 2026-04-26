@@ -54,11 +54,15 @@ async function startServer() {
       let keywords = "seo specialist philippines, growth marketing specialist ph, technical seo consultant";
       let is404 = false;
 
-      const cleanPath = url.split('?')[0].split('#')[0];
+      let cleanPath = url.split('?')[0].split('#')[0];
+      if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+        cleanPath = cleanPath.slice(0, -1);
+      }
+      
       const pathParts = cleanPath.split('/').filter(Boolean);
 
       // Routing Logic for Meta Tags
-      if (cleanPath === '/') {
+      if (cleanPath === '/' || !cleanPath) {
         // Home meta already set as default
       } else if (validStaticRoutes.includes(cleanPath) || pricingSubRoutes.includes(cleanPath)) {
         if (cleanPath === '/about') {
@@ -69,6 +73,16 @@ async function startServer() {
           description = "Ready to scale? Contact Ritehly Quimbo for SEO and growth strategy inquiries in the Philippines.";
         } else if (cleanPath === '/pricing') {
           title = "SEO Pricing Blueprints | Scalable ROI Strategies | Ritehly Quimbo";
+          description = "Transparent SEO pricing for ambitious brands. Technical blueprints designed for maximum ROI and organic dominance.";
+        } else if (cleanPath === '/services') {
+          title = "Search Engineering Capabilities | SEO & Growth Services | Ritehly Quimbo";
+          description = "Full-service growth engine including Technical SEO, Content Strategy, AI Automation, and Google Ads management.";
+        } else if (cleanPath === '/portfolio') {
+          title = "SEO Results Portfolio | Data-Driven Success Stories | Ritehly Quimbo";
+          description = "Verified case studies demonstrating massive traffic growth and revenue scaling for global brands.";
+        } else if (cleanPath === '/resume') {
+          title = "Ritehly Quimbo | Senior SEO & Growth Specialist Resume";
+          description = "Professional experience, skill set, and technical certifications of Ritehly Quimbo, Growth Marketing Specialist.";
         }
       } else if (pathParts[0] === 'services' && pathParts[1]) {
         const service = Object.values(SERVICE_DETAILS).find(s => s.slug === pathParts[1]);
@@ -86,6 +100,8 @@ async function startServer() {
         } else {
           is404 = true;
         }
+      } else if (pathParts[0] === 'pricing' && pathParts[1]) {
+         // Handle sub-pricing routes if needed specifically, otherwise they fall into pricingSubRoutes
       } else {
         is404 = true;
       }

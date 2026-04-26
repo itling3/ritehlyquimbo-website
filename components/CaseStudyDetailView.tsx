@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import SEO from './SEO';
 import { CaseStudy } from '../types';
@@ -22,13 +21,13 @@ const CaseStudyDetailView: React.FC<CaseStudyDetailViewProps> = ({ study, onBack
         keywords={study.keywords}
       />
       <div className="max-w-5xl mx-auto relative z-10">
-        <Link 
-          to="/portfolio"
+        <a 
+          href="/portfolio"
           className="group mb-8 md:mb-12 flex items-center gap-2 text-[10px] md:text-xs font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
         >
           <span className="transition-transform group-hover:-translate-x-1">←</span> 
           Back to Portfolio
-        </Link>
+        </a>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16 md:mb-24">
           <div>
