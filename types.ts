@@ -14,7 +14,6 @@ export interface CaseStudy {
   metaDescription?: string;
   keywords?: string;
   image: string;
-  permalink: string;
   challenge?: string;
   strategy?: string;
   outcome?: string;
@@ -48,7 +47,6 @@ export interface ServiceContent {
   solution: string;
   importance: string;
   features: string[];
-  permalink: string;
   faqs?: { question: string; answer: string }[];
   pricingId?: string;
 }

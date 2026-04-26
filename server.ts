@@ -33,7 +33,7 @@ async function startServer() {
   const validStaticRoutes = ['/', '/about', '/contact', '/resume', '/services', '/portfolio', '/pricing'];
   const pricingSubRoutes = ['/pricing/local-seo-strategy', '/pricing/ai-automation-plans', '/pricing/google-ads-sem', '/pricing/web-dev-packages'];
   
-  app.get(/.*/, async (req, res, next) => {
+  app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
     
     // Check if it's an asset or dynamic route
@@ -54,17 +54,13 @@ async function startServer() {
       let keywords = "seo specialist philippines, growth marketing specialist ph, technical seo consultant";
       let is404 = false;
 
-      let cleanPath = url.split('?')[0].split('#')[0];
-      if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
-        cleanPath = cleanPath.slice(0, -1);
-      }
-      
+      const cleanPath = url.split('?')[0].split('#')[0];
       const pathParts = cleanPath.split('/').filter(Boolean);
 
-      // Explicit Routing Logic for Meta Tags & Validation
-      if (cleanPath === '/' || !cleanPath) {
+      // Routing Logic for Meta Tags
+      if (cleanPath === '/') {
         // Home meta already set as default
-      } else if (validStaticRoutes.includes(cleanPath)) {
+      } else if (validStaticRoutes.includes(cleanPath) || pricingSubRoutes.includes(cleanPath)) {
         if (cleanPath === '/about') {
           title = "About Ritehly Quimbo | The Growth Engineer Mission";
           description = "Learn how Ritehly Quimbo helps SMBs scale sales with autonomous growth systems and expert technical SEO.";
@@ -73,24 +69,7 @@ async function startServer() {
           description = "Ready to scale? Contact Ritehly Quimbo for SEO and growth strategy inquiries in the Philippines.";
         } else if (cleanPath === '/pricing') {
           title = "SEO Pricing Blueprints | Scalable ROI Strategies | Ritehly Quimbo";
-          description = "Transparent SEO pricing for ambitious brands. Technical blueprints designed for maximum ROI and organic dominance.";
-        } else if (cleanPath === '/services') {
-          title = "Search Engineering Capabilities | SEO & Growth Services | Ritehly Quimbo";
-          description = "Full-service growth engine including Technical SEO, Content Strategy, AI Automation, and Google Ads management.";
-        } else if (cleanPath === '/portfolio') {
-          title = "SEO Results Portfolio | Data-Driven Success Stories | Ritehly Quimbo";
-          description = "Verified case studies demonstrating massive traffic growth and revenue scaling for global brands.";
-        } else if (cleanPath === '/resume') {
-          title = "Ritehly Quimbo | Senior SEO & Growth Specialist Resume";
-          description = "Professional experience, skill set, and technical certifications of Ritehly Quimbo, Growth Marketing Specialist.";
         }
-      } else if (pricingSubRoutes.includes(cleanPath)) {
-          title = "Selective Growth Pricing | Ritehly Quimbo";
-          if (cleanPath.includes('local-seo')) title = "Local SEO Pricing Tiers | Ritehly Quimbo";
-          if (cleanPath.includes('ai-automation')) title = "AI Automation Strategy Pricing | Ritehly Quimbo";
-          if (cleanPath.includes('google-ads')) title = "SEM & Google Ads Pricing | Ritehly Quimbo";
-          if (cleanPath.includes('web-dev')) title = "Web Development Packages | Ritehly Quimbo";
-          description = "Detailed pricing breakdown for specialized growth channels. Tailored for maximum impact and ROI.";
       } else if (pathParts[0] === 'services' && pathParts[1]) {
         const service = Object.values(SERVICE_DETAILS).find(s => s.slug === pathParts[1]);
         if (service) {

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { SERVICES, SERVICE_DETAILS, CASE_STUDIES } from '../constants';
 
@@ -75,8 +76,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
     <nav className="fixed top-0 left-0 right-0 z-[100] glass-morphism border-b border-white/10 h-[72px] flex items-center px-4 md:px-6">
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full relative">
         {/* Logo */}
-        <a 
-          href="/"
+        <Link 
+          to="/"
           onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
           className="flex items-center gap-2 md:gap-3 group transition-transform active:scale-95"
         >
@@ -88,7 +89,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             />
           </div>
           <span className="text-lg md:text-xl font-bold tracking-tight uppercase text-white">RITEHLY<span className="text-blue-500">QUIMBO</span></span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-400">
@@ -109,8 +110,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               }
             }}
           >
-            <a 
-              href="/services"
+            <Link 
+              to="/services"
               onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}
               className={`flex items-center gap-1 hover:text-white transition-colors ${isServicesOpen ? 'text-white' : ''}`}
             >
@@ -118,7 +119,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               <svg className={`w-3 h-3 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
               </svg>
-            </a>
+            </Link>
 
             <div className={`absolute top-full -left-[400px] pt-4 transition-all duration-300 ${isServicesOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
               <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[900px] flex overflow-hidden relative">
@@ -128,9 +129,9 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                       <h4 className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic`}>{cat.title}</h4>
                       <div className="space-y-2">
                         {cat.services.map((s) => (
-                          <a 
+                          <Link 
                             key={s.id} 
-                            href={SERVICE_DETAILS[s.id]?.permalink || '/services'}
+                            to={SERVICE_DETAILS[s.id]?.permalink || '/services'}
                             onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}
                             className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/5 transition-all text-left w-full group/item"
                           >
@@ -139,7 +140,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                               <div className={`text-white text-xs font-black mb-1 ${cat.hover} uppercase tracking-tight italic`}>{s.title}</div>
                               <div className="text-gray-400 text-[10px] font-medium leading-relaxed line-clamp-2">{s.description}</div>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -165,8 +166,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               }
             }}
           >
-            <a 
-              href="/portfolio"
+            <Link 
+              to="/portfolio"
               onClick={() => { setIsPortfolioOpen(false); setIsMobileMenuOpen(false); }}
               className={`flex items-center gap-1 hover:text-white transition-colors ${isPortfolioOpen ? 'text-white' : ''}`}
             >
@@ -174,7 +175,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               <svg className={`w-3 h-3 transition-transform duration-300 ${isPortfolioOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
               </svg>
-            </a>
+            </Link>
 
             <div className={`absolute top-full -left-[450px] pt-4 transition-all duration-300 ${isPortfolioOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
               <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[900px] flex overflow-hidden relative">
@@ -184,9 +185,9 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                       <h4 className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic`}>{cat.title}</h4>
                       <div className="space-y-2">
                         {cat.studies.map((s) => (
-                          <a 
+                          <Link 
                             key={s.id} 
-                            href={s.permalink || '/portfolio'}
+                            to={s.permalink || '/portfolio'}
                             onClick={() => { setIsPortfolioOpen(false); setIsMobileMenuOpen(false); }}
                             className="flex items-center gap-4 p-3 rounded-2xl hover:bg-white/5 transition-all text-left w-full group/item"
                           >
@@ -197,7 +198,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                               <div className={`text-white text-xs font-black mb-0.5 ${cat.hover} uppercase tracking-tight italic truncate`}>{s.title.split('–')[0]}</div>
                               <div className="text-gray-500 text-[9px] font-black uppercase tracking-widest">{s.results.traffic.split(' ')[0]} {s.results.traffic.split(' ')[1] || 'Growth'}</div>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -223,8 +224,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               }
             }}
           >
-            <a 
-              href="/pricing"
+            <Link 
+              to="/pricing"
               onClick={() => { setIsPricingOpen(false); setIsMobileMenuOpen(false); }}
               className={`flex items-center gap-1 hover:text-white transition-colors ${isPricingOpen ? 'text-white' : ''}`}
             >
@@ -232,57 +233,57 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               <svg className={`w-3 h-3 transition-transform duration-300 ${isPricingOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
               </svg>
-            </a>
+            </Link>
 
             <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${isPricingOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
               <div className="bg-[#080c18] border border-white/10 rounded-3xl p-4 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[240px] flex flex-col gap-1">
-                <a 
-                  href="/pricing"
+                <Link 
+                  to="/pricing"
                   onClick={() => { setIsPricingOpen(false); setIsMobileMenuOpen(false); }}
                   className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 group/item transition-all text-left"
                 >
                   <span className="text-white text-[11px] font-black uppercase tracking-tight italic group-hover/item:text-blue-400">SEO Blueprints</span>
                   <ArrowRight className="w-3 h-3 text-gray-600 group-hover/item:text-blue-500 transition-colors" />
-                </a>
-                <a 
-                  href="/pricing/local-seo-strategy"
+                </Link>
+                <Link 
+                  to="/pricing/local-seo-strategy"
                   onClick={() => { setIsPricingOpen(false); setIsMobileMenuOpen(false); }}
                   className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 group/item transition-all text-left"
                 >
                   <span className="text-white text-[11px] font-black uppercase tracking-tight italic group-hover/item:text-blue-400">Local SEO Plans</span>
                   <ArrowRight className="w-3 h-3 text-gray-600 group-hover/item:text-blue-500 transition-colors" />
-                </a>
-                <a 
-                  href="/pricing/web-dev-packages"
+                </Link>
+                <Link 
+                  to="/pricing/web-dev-packages"
                   onClick={() => { setIsPricingOpen(false); setIsMobileMenuOpen(false); }}
                   className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 group/item transition-all text-left"
                 >
                   <span className="text-white text-[11px] font-black uppercase tracking-tight italic group-hover/item:text-blue-400">Web Dev Packages</span>
                   <ArrowRight className="w-3 h-3 text-gray-600 group-hover/item:text-blue-500 transition-colors" />
-                </a>
-                <a 
-                  href="/pricing/ai-automation-plans"
+                </Link>
+                <Link 
+                  to="/pricing/ai-automation-plans"
                   onClick={() => { setIsPricingOpen(false); setIsMobileMenuOpen(false); }}
                   className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 group/item transition-all text-left"
                 >
                   <span className="text-white text-[11px] font-black uppercase tracking-tight italic group-hover/item:text-blue-400">AI Automation Plans</span>
                   <ArrowRight className="w-3 h-3 text-gray-600 group-hover/item:text-blue-500 transition-colors" />
-                </a>
-                <a 
-                  href="/pricing/google-ads-sem"
+                </Link>
+                <Link 
+                  to="/pricing/google-ads-sem"
                   onClick={() => { setIsPricingOpen(false); setIsMobileMenuOpen(false); }}
                   className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 group/item transition-all text-left"
                 >
                   <span className="text-white text-[11px] font-black uppercase tracking-tight italic group-hover/item:text-blue-400">Google Ads Plans</span>
                   <ArrowRight className="w-3 h-3 text-gray-600 group-hover/item:text-blue-500 transition-colors" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
-          <a href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">About</a>
-          <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Contact</a>
-          <a href="/resume" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-500 hover:text-blue-400 font-black transition-colors">Resume</a>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">About</Link>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Contact</Link>
+          <Link to="/resume" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-500 hover:text-blue-400 font-black transition-colors">Resume</Link>
           <button onClick={(e) => { onBook(e); setIsMobileMenuOpen(false); }} className="px-4 py-2 bg-blue-600/10 border border-blue-500/30 rounded-lg hover:bg-blue-600 transition-all text-blue-500 hover:text-white font-black animate-shine glow-blue">Book Now</button>
         </div>
 
@@ -354,26 +355,26 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         {cat.services.map(s => (
-                          <a 
+                          <Link 
                             key={s.id} 
-                            href={SERVICE_DETAILS[s.id]?.permalink || '/services'}
+                            to={SERVICE_DETAILS[s.id]?.permalink || '/services'}
                             onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                             className="flex flex-col items-center justify-center gap-2 p-3 bg-[#0f172a] rounded-xl border border-white/10 text-center active:bg-blue-600/20 active:border-blue-500/30 transition-all"
                           >
                             <span className="text-2xl bg-white/5 w-10 h-10 flex items-center justify-center rounded-lg overflow-hidden mb-0.5">{s.icon}</span>
                             <span className="text-white text-[9px] font-black uppercase italic leading-tight">{s.title}</span>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
                   ))}
-                  <a 
-                    href="/services"
+                  <Link 
+                    to="/services"
                     onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                     className="w-full py-5 border border-blue-500/30 bg-blue-600/10 rounded-xl text-blue-400 font-black text-[11px] uppercase tracking-widest italic flex items-center justify-center"
                   >
                     View Capabilities Map →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -405,9 +406,9 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                       </div>
                       <div className="space-y-3">
                         {cat.studies.map(s => (
-                          <a 
+                          <Link 
                             key={s.id} 
-                            href={s.permalink || '/portfolio'}
+                            to={s.permalink || '/portfolio'}
                             onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                             className="flex items-center gap-3 w-full p-3 bg-[#0f172a] rounded-xl border border-white/10 text-left active:bg-purple-600/20 active:border-purple-500/30 transition-all"
                           >
@@ -421,18 +422,18 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                             <svg className="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
                   ))}
-                  <a 
-                    href="/portfolio"
+                  <Link 
+                    to="/portfolio"
                     onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                     className="w-full py-5 border border-purple-500/30 bg-purple-600/10 rounded-xl text-purple-400 font-black text-[11px] uppercase tracking-widest italic flex items-center justify-center"
                   >
                     View Results Portfolio →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -456,46 +457,46 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               
               <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'pricing' ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
                 <div className="px-6 pb-6 space-y-3">
-                  <a 
-                    href="/pricing"
+                  <Link 
+                    to="/pricing"
                     onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                     className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">SEO Strategy Pricing</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
-                  </a>
-                  <a 
-                    href="/pricing/local-seo-strategy"
+                  </Link>
+                  <Link 
+                    to="/pricing/local-seo-strategy"
                     onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                     className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Local SEO Strategy</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
-                  </a>
-                  <a 
-                    href="/pricing/web-dev-packages"
+                  </Link>
+                  <Link 
+                    to="/pricing/web-dev-packages"
                     onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                     className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Web Dev Packages</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
-                  </a>
-                  <a 
-                    href="/pricing/ai-automation-plans"
+                  </Link>
+                  <Link 
+                    to="/pricing/ai-automation-plans"
                     onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                     className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">AI Automation Plans</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
-                  </a>
-                  <a 
-                    href="/pricing/google-ads-sem"
+                  </Link>
+                  <Link 
+                    to="/pricing/google-ads-sem"
                     onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                     className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                   >
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Google Ads Plans</span>
                     <ArrowRight className="w-4 h-4 text-blue-500" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -507,15 +508,15 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 { id: 'contact', label: 'Contact', color: 'text-gray-300', path: '/contact' },
                 { id: 'resume', label: 'Resume', color: 'text-blue-500', path: '/resume' }
               ].map(link => (
-                <a 
+                <Link 
                   key={link.id} 
-                  href={link.path}
+                  to={link.path}
                   onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
                   className="flex items-center justify-between p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
                 >
                   <span className={`text-xs font-black uppercase tracking-[0.2em] italic ${link.color}`}>{link.label}</span>
                   <ArrowRight className="w-4 h-4 text-blue-500" />
-                </a>
+                </Link>
               ))}
             </div>
 

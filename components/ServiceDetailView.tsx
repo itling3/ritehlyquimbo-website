@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import { ServiceContent } from '../types';
 
@@ -19,13 +20,13 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
         keywords={service.keywords}
       />
       <div className="max-w-5xl mx-auto">
-        <a 
-          href="/services"
+        <Link 
+          to="/services"
           className="group mb-8 md:mb-12 flex items-center gap-2 text-[10px] md:text-xs font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
         >
           <span className="transition-transform group-hover:-translate-x-1">←</span> 
           Back to Overview
-        </a>
+        </Link>
 
         <div className="grid lg:grid-cols-3 gap-8 md:gap-12 items-start mb-12 md:mb-20">
           <div className="lg:col-span-2">
