@@ -61,10 +61,10 @@ async function startServer() {
       
       const pathParts = cleanPath.split('/').filter(Boolean);
 
-      // Routing Logic for Meta Tags
+      // Explicit Routing Logic for Meta Tags & Validation
       if (cleanPath === '/' || !cleanPath) {
         // Home meta already set as default
-      } else if (validStaticRoutes.includes(cleanPath) || pricingSubRoutes.includes(cleanPath)) {
+      } else if (validStaticRoutes.includes(cleanPath)) {
         if (cleanPath === '/about') {
           title = "About Ritehly Quimbo | The Growth Engineer Mission";
           description = "Learn how Ritehly Quimbo helps SMBs scale sales with autonomous growth systems and expert technical SEO.";
@@ -84,6 +84,13 @@ async function startServer() {
           title = "Ritehly Quimbo | Senior SEO & Growth Specialist Resume";
           description = "Professional experience, skill set, and technical certifications of Ritehly Quimbo, Growth Marketing Specialist.";
         }
+      } else if (pricingSubRoutes.includes(cleanPath)) {
+          title = "Selective Growth Pricing | Ritehly Quimbo";
+          if (cleanPath.includes('local-seo')) title = "Local SEO Pricing Tiers | Ritehly Quimbo";
+          if (cleanPath.includes('ai-automation')) title = "AI Automation Strategy Pricing | Ritehly Quimbo";
+          if (cleanPath.includes('google-ads')) title = "SEM & Google Ads Pricing | Ritehly Quimbo";
+          if (cleanPath.includes('web-dev')) title = "Web Development Packages | Ritehly Quimbo";
+          description = "Detailed pricing breakdown for specialized growth channels. Tailored for maximum impact and ROI.";
       } else if (pathParts[0] === 'services' && pathParts[1]) {
         const service = Object.values(SERVICE_DETAILS).find(s => s.slug === pathParts[1]);
         if (service) {
@@ -100,8 +107,6 @@ async function startServer() {
         } else {
           is404 = true;
         }
-      } else if (pathParts[0] === 'pricing' && pathParts[1]) {
-         // Handle sub-pricing routes if needed specifically, otherwise they fall into pricingSubRoutes
       } else {
         is404 = true;
       }
