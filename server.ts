@@ -8,20 +8,20 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Import constants to access SEO data for server-side injection
-// We use a dynamic import or relative require if needed, but since server.ts is run via tsx, we can import
-import { SERVICE_DETAILS, CASE_STUDIES } from './constants.js';
+// Import constants safely for server use
+// Note: In ESM node, we might need a dynamic import if extensions are tricky
+// But tsx handles this well
+import { SERVICE_DETAILS, CASE_STUDIES } from './constants';
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Vite middleware for development
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {
     vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: 'custom', // Use custom to handle routing ourselves
+      appType: 'custom',
     });
     app.use(vite.middlewares);
   } else {
@@ -29,9 +29,16 @@ async function startServer() {
     app.use(express.static(distPath, { index: false }));
   }
 
+  // Define valid routes to distinguish from real 404s
+  const validStaticRoutes = ['/', '/about', '/contact', '/resume', '/services', '/portfolio', '/pricing'];
+  const pricingSubRoutes = ['/pricing/local-seo-strategy', '/pricing/ai-automation-plans', '/pricing/google-ads-sem', '/pricing/web-dev-packages'];
+  
   app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
     
+    // Check if it's an asset or dynamic route
+    if (url.includes('.') && !url.includes('.html')) return next();
+
     try {
       let template: string;
       if (process.env.NODE_ENV !== 'production') {
@@ -41,57 +48,97 @@ async function startServer() {
         template = await fs.readFile(path.join(process.cwd(), 'dist/index.html'), 'utf-8');
       }
 
-      // SEO Logic: Determine meta tags based on URL
+      // Default Meta
       let title = "SEO Specialist Philippines | Full-Stack Growth Expert | Ritehly Quimbo";
-      let description = "Expert SEO, Google Ads, and AI growth systems for PH businesses. Build your scalable revenue engine.";
-      let keywords = "seo specialist philippines, growth marketing, technical seo expert";
-      let image = "https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo";
+      let description = "Expert SEO, Google Ads, and AI growth systems for PH businesses. We build and maintain your scalable growth engine with AI automation & VA support.";
+      let keywords = "seo specialist philippines, growth marketing specialist ph, technical seo consultant";
+      let is404 = false;
 
-      const pathParts = url.split('/').filter(Boolean);
+      const cleanPath = url.split('?')[0].split('#')[0];
+      const pathParts = cleanPath.split('/').filter(Boolean);
 
-      if (pathParts[0] === 'services' && pathParts[1]) {
-        const service = SERVICE_DETAILS[pathParts[1]];
+      // Routing Logic for Meta Tags
+      if (cleanPath === '/') {
+        // Home meta already set as default
+      } else if (validStaticRoutes.includes(cleanPath) || pricingSubRoutes.includes(cleanPath)) {
+        if (cleanPath === '/about') {
+          title = "About Ritehly Quimbo | The Growth Engineer Mission";
+          description = "Learn how Ritehly Quimbo helps SMBs scale sales with autonomous growth systems and expert technical SEO.";
+        } else if (cleanPath === '/contact') {
+          title = "Contact SEO Expert | Scale Your Business Leads | Ritehly Quimbo";
+          description = "Ready to scale? Contact Ritehly Quimbo for SEO and growth strategy inquiries in the Philippines.";
+        } else if (cleanPath === '/pricing') {
+          title = "SEO Pricing Blueprints | Scalable ROI Strategies | Ritehly Quimbo";
+        }
+      } else if (pathParts[0] === 'services' && pathParts[1]) {
+        const service = Object.values(SERVICE_DETAILS).find(s => s.slug === pathParts[1]);
         if (service) {
-          title = `${service.title} | Ritehly Quimbo SEO`;
+          title = `${service.title} | Ritehly Quimbo`;
           description = service.metaDescription || service.description;
-          keywords = service.keywords || keywords;
+        } else {
+          is404 = true;
         }
       } else if (pathParts[0] === 'portfolio' && pathParts[1]) {
-        const study = CASE_STUDIES.find(s => s.id === pathParts[1]);
+        const study = CASE_STUDIES.find(s => s.slug === pathParts[1]);
         if (study) {
-          title = `${study.title.split('–')[0]} Case Study | Ritehly Quimbo`;
+          title = `${study.title.split('–')[0]} | SEO Case Study | Ritehly Quimbo`;
           description = study.metaDescription || study.description;
-          keywords = study.keywords || keywords;
+        } else {
+          is404 = true;
         }
-      } else if (pathParts[0] === 'pricing') {
-        title = "SEO Pricing & Blueprints | Measurable ROI Plans | Ritehly Quimbo";
-        description = "View our transparent SEO and growth marketing pricing plans tailored for scale.";
-      } else if (pathParts[0] === 'about') {
-        title = "About Ritehly Quimbo | The Growth Engineer behind the Code";
-        description = "Learn more about Ritehly's mission to help PH businesses dominate global and local search.";
+      } else {
+        is404 = true;
       }
 
-      // Inject Meta Tags into Template
-      const metaTags = `
-    <title>${title}</title>
-    <meta name="description" content="${description}">
-    <meta name="keywords" content="${keywords}">
-    <meta property="og:title" content="${title}">
-    <meta property="og:description" content="${description}">
-    <meta property="og:image" content="${image}">
-    <meta property="og:url" content="https://ritehlyquimbo.com${url}">
-    <meta name="twitter:title" content="${title}">
-    <meta name="twitter:description" content="${description}">
-    <meta name="twitter:image" content="${image}">
-    <link rel="canonical" href="https://ritehlyquimbo.com${url}">
-      `;
+      if (is404) {
+        // Return custom 404 HTML matching user template
+        const html404 = `
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>This Page Does Not Exist</title>
+    <meta name="description" content="Oops, looks like the page is lost.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <style>
+        body { color: #1d1e20; background: #f4f5ff; font-size: 14px; font-family: "DM Sans", sans-serif; font-weight: 400; }
+        .page-not-found { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; padding: 0 16px; }
+        .image { max-width: 100%; margin-bottom: 32px; height: auto; object-fit: contain; }
+        .title { text-align: center; margin-top: 0; margin-bottom: 8px; font-size: 24px; line-height: 32px; font-weight: 700; }
+        .text { text-align: center; max-width: 650px; margin-bottom: 24px; font-size: 16px; line-height: 24px; font-weight: 400; color: #6D7081; }
+        .back-btn { background: #3b82f6; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="page-not-found">
+        <img class="image" alt="Page Not Found" src="https://lh3.googleusercontent.com/d/1MToveZaYCNtEpfPNhFDhv8ylDPhqngKR" width="400" />
+        <h1 class="title">This Page Does Not Exist</h1>
+        <p class="text">
+            Sorry, the page you are looking for could not be found. It's just an
+            accident that was not intentional.
+        </p>
+        <a href="/" class="back-btn">Back to Home</a>
+    </div>
+</body>
+</html>`;
+        return res.status(404).set({ 'Content-Type': 'text/html' }).send(html404);
+      }
 
-      // Replace placeholders or existing meta tags
-      // This is a simple regex injection approach for the demo
+      // Inject Meta Tags into Template for valid pages
       let html = template
         .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
         .replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${description}">`)
-        .replace('</head>', `${metaTags}\n</head>`);
+        .replace('</head>', `
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${description}">
+    <meta property="og:url" content="https://ritehlyquimbo.com${url}">
+    <meta name="twitter:title" content="${title}">
+    <meta name="twitter:description" content="${description}">
+    <link rel="canonical" href="https://ritehlyquimbo.com${url}">
+    </head>`);
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e) {
