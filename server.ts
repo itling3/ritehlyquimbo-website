@@ -33,11 +33,15 @@ async function startServer() {
   const validStaticRoutes = ['/', '/about', '/contact', '/resume', '/services', '/portfolio', '/pricing'];
   const pricingSubRoutes = ['/pricing/local-seo-strategy', '/pricing/ai-automation-plans', '/pricing/google-ads-sem', '/pricing/web-dev-packages'];
   
-  app.use('*', async (req, res, next) => {
+  app.get('*', async (req, res, next) => {
     const url = req.originalUrl;
+    const cleanPath = req.path.length > 1 && req.path.endsWith('/') ? req.path.slice(0, -1) : req.path;
     
-    // Check if it's an asset or dynamic route
+    // Check if it's an asset
     if (url.includes('.') && !url.includes('.html')) return next();
+
+    // Debugging path issues
+    console.log(`[GrowthServer] Request Path: ${cleanPath} | Original: ${url}`);
 
     try {
       let template: string;
@@ -53,18 +57,15 @@ async function startServer() {
       let description = "Expert SEO, Google Ads, and AI growth systems for PH businesses. We build and maintain your scalable growth engine with AI automation & VA support.";
       let keywords = "seo specialist philippines, growth marketing specialist ph, technical seo consultant";
       let is404 = false;
+      let pageId = "home";
 
-      let cleanPath = url.split('?')[0].split('#')[0];
-      if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
-        cleanPath = cleanPath.slice(0, -1);
-      }
-      
       const pathParts = cleanPath.split('/').filter(Boolean);
 
       // Explicit Routing Logic for Meta Tags & Validation
       if (cleanPath === '/' || !cleanPath) {
-        // Home meta already set as default
+        pageId = "home";
       } else if (validStaticRoutes.includes(cleanPath)) {
+        pageId = cleanPath.slice(1);
         if (cleanPath === '/about') {
           title = "About Ritehly Quimbo | The Growth Engineer Mission";
           description = "Learn how Ritehly Quimbo helps SMBs scale sales with autonomous growth systems and expert technical SEO.";
@@ -85,15 +86,17 @@ async function startServer() {
           description = "Professional experience, skill set, and technical certifications of Ritehly Quimbo, Growth Marketing Specialist.";
         }
       } else if (pricingSubRoutes.includes(cleanPath)) {
+          pageId = `pricing-${pathParts[1]}`;
           title = "Selective Growth Pricing | Ritehly Quimbo";
           if (cleanPath.includes('local-seo')) title = "Local SEO Pricing Tiers | Ritehly Quimbo";
-          if (cleanPath.includes('ai-automation')) title = "AI Automation Strategy Pricing | Ritehly Quimbo";
-          if (cleanPath.includes('google-ads')) title = "SEM & Google Ads Pricing | Ritehly Quimbo";
-          if (cleanPath.includes('web-dev')) title = "Web Development Packages | Ritehly Quimbo";
+          else if (cleanPath.includes('ai-automation')) title = "AI Automation Strategy Pricing | Ritehly Quimbo";
+          else if (cleanPath.includes('google-ads')) title = "SEM & Google Ads Pricing | Ritehly Quimbo";
+          else if (cleanPath.includes('web-dev')) title = "Web Development Packages | Ritehly Quimbo";
           description = "Detailed pricing breakdown for specialized growth channels. Tailored for maximum impact and ROI.";
       } else if (pathParts[0] === 'services' && pathParts[1]) {
         const service = Object.values(SERVICE_DETAILS).find(s => s.slug === pathParts[1]);
         if (service) {
+          pageId = `service-${service.id}`;
           title = `${service.title} | Ritehly Quimbo`;
           description = service.metaDescription || service.description;
         } else {
@@ -102,6 +105,7 @@ async function startServer() {
       } else if (pathParts[0] === 'portfolio' && pathParts[1]) {
         const study = CASE_STUDIES.find(s => s.slug === pathParts[1]);
         if (study) {
+          pageId = `portfolio-${study.id}`;
           title = `${study.title.split('–')[0]} | SEO Case Study | Ritehly Quimbo`;
           description = study.metaDescription || study.description;
         } else {
@@ -159,9 +163,15 @@ async function startServer() {
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${description}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
-    </head>`);
+    <!-- Site built by Growth Engine Server -->
+    </head>`)
+        .replace('<body', `<body data-page-id="${pageId}"`);
 
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+      res.status(200).set({ 
+        'Content-Type': 'text/html',
+        'X-Powered-By': 'GrowthEngine-Server',
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate'
+      }).end(html);
     } catch (e) {
       if (vite) vite.ssrFixStacktrace(e as Error);
       console.error(e);
