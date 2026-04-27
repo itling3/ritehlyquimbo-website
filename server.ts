@@ -39,18 +39,29 @@ async function startServer() {
       server: { middlewareMode: true },
       appType: 'custom',
     });
+    // Assets handled by vite
+    app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
+    // Important: serve assets BUT NOT index.html yet
     app.use(express.static(distPath, { index: false }));
   }
+
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length
+    });
+  });
 
   app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
-    // Pass assets to Vite or static middleware
-    if (url.includes('.') && !url.endsWith('.html')) {
-      if (vite) return vite.middlewares(req, res, next);
+    // Ignore assets that might have slipped through
+    if (pathOnly.includes('.') && !pathOnly.endsWith('.html')) {
       return next();
     }
 
@@ -58,38 +69,39 @@ async function startServer() {
       let template: string;
       if (process.env.NODE_ENV !== 'production') {
         const tPath = path.resolve(__dirname, 'index.html');
-        console.log(`[SEO] Reading dev template from: ${tPath}`);
         template = await fs.readFile(tPath, 'utf-8');
         template = await vite.transformIndexHtml(url, template);
       } else {
         const tPath = path.join(process.cwd(), 'dist/index.html');
-        console.log(`[SEO] Reading prod template from: ${tPath}`);
         template = await fs.readFile(tPath, 'utf-8');
       }
 
-      // Default Meta
+      // Default Meta (Homepage)
       let title = "Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue";
       let description = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
       let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
       let is404 = false;
 
-      // Normalize path: handle trailing slashes and normalize to lowercase for matching
+      // Normalize path
       let cleanPath = pathOnly.toLowerCase();
       if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
         cleanPath = cleanPath.slice(0, -1);
       }
       if (cleanPath === '' || cleanPath === undefined) cleanPath = '/';
 
-      const pathParts = cleanPath.split('/').filter(Boolean);
-      await fs.appendFile(path.join(process.cwd(), 'seo-analysis.txt'), `[ANALYSIS] ${new Date().toISOString()} | Path: ${cleanPath} | Parts: ${JSON.stringify(pathParts)}\n`).catch(() => {});
+      // Advanced Matching Logic
+      const matchedService = Object.values(SERVICE_DETAILS).find(s => 
+        cleanPath === s.permalink.toLowerCase() || 
+        cleanPath === `/services/${s.slug.toLowerCase()}`
+      );
       
-      const logEntry = `[${new Date().toISOString()}] Path: ${cleanPath} | URL: ${url}\n`;
-      await fs.appendFile(path.join(process.cwd(), 'seo-logs.txt'), logEntry).catch(() => {});
+      const matchedCaseStudy = CASE_STUDIES.find(s => 
+        cleanPath === s.permalink.toLowerCase() || 
+        cleanPath === `/portfolio/${s.slug.toLowerCase()}`
+      );
 
-      // Routing Logic for Meta Tags
-      // Normalize to handle home page and various path formats
-      if (cleanPath === '/' || cleanPath === '/index' || cleanPath === '') {
-        // Home meta already set as default
+      if (cleanPath === '/' || cleanPath === '/index') {
+        // Home meta (already default)
       } else if (cleanPath === '/about') {
         title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
         description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
@@ -117,106 +129,52 @@ async function startServer() {
       } else if (cleanPath === '/pricing/local-seo-strategy') {
         title = "Local SEO Pricing Plans | Affordable Strategies for Local Business Growth";
         description = "Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack.";
-        keywords = "local seo pricing, map pack ranking cost";
       } else if (cleanPath === '/pricing/ai-automation-plans') {
         title = "AI Automation Pricing | Invest in Efficient Business Scaling";
         description = "Choose an AI automation plan that fits your workflow. Automate your repetitive tasks and focus on high-level growth.";
-        keywords = "ai automation pricing, workflow automation cost";
       } else if (cleanPath === '/pricing/google-ads-sem') {
         title = "Google Ads Management Pricing | Transparent PPC Fees for Maximum ROI";
         description = "Professional SEM management pricing. Get the most out of your ad budget with our expert-led PPC strategies.";
-        keywords = "google ads pricing, ppc management fees";
       } else if (cleanPath === '/pricing/web-dev-packages') {
         title = "Web Development Packages | Quality Coding for Better Performance";
         description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
-        keywords = "web development pricing, full stack packages";
-      } else if (pathParts[0] === 'services' && pathParts[1]) {
-        const service = Object.values(SERVICE_DETAILS).find(s => s.slug.toLowerCase() === pathParts[1].toLowerCase());
-        if (service) {
-          title = service.seoTitle || `${service.title} | Ritehly Quimbo`;
-          description = service.metaDescription || service.description;
-          keywords = service.keywords || keywords;
-        } else {
-          is404 = true;
-        }
-      } else if (pathParts[0] === 'portfolio' && pathParts[1]) {
-        const study = CASE_STUDIES.find(s => s.slug.toLowerCase() === pathParts[1].toLowerCase());
-        if (study) {
-          title = study.seoTitle || `${study.title.split('–')[0]} | SEO Case Study | Ritehly Quimbo`;
-          description = study.metaDescription || study.description;
-          keywords = study.keywords || keywords;
-        } else {
-          is404 = true;
-        }
+      } else if (matchedService) {
+        title = matchedService.seoTitle || `${matchedService.title} | Ritehly Quimbo`;
+        description = matchedService.metaDescription || matchedService.description;
+        keywords = matchedService.keywords || keywords;
+      } else if (matchedCaseStudy) {
+        title = matchedCaseStudy.seoTitle || `${matchedCaseStudy.title} | Ritehly Quimbo`;
+        description = matchedCaseStudy.metaDescription || matchedCaseStudy.description;
+        keywords = matchedCaseStudy.keywords || keywords;
+      } else if (['/audit', '/calculator', '/privacy'].includes(cleanPath)) {
+        // Basic meta for these
+        title = `${cleanPath.slice(1).charAt(0).toUpperCase() + cleanPath.slice(2)} | Ritehly Quimbo`;
       } else {
-        // Fallback for other valid static routes if any missed
-        const knownPaths = [
-          '/', '/about', '/contact', '/resume', '/services', '/portfolio', '/pricing',
-          '/pricing/local-seo-strategy', '/pricing/ai-automation-plans', '/pricing/google-ads-sem', '/pricing/web-dev-packages',
-          '/audit', '/calculator', '/privacy'
-        ];
-        if (!knownPaths.includes(cleanPath)) {
-          is404 = true;
-        }
+        is404 = true;
       }
 
-      console.log(`[SEO] Serving Title: ${title}`);
-
-
       if (is404) {
-        // Return custom 404 HTML matching user template
-        const html404 = `
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>This Page Does Not Exist</title>
-    <meta name="description" content="Oops, looks like the page is lost.">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <style>
-        body { color: #1d1e20; background: #f4f5ff; font-size: 14px; font-family: "DM Sans", sans-serif; font-weight: 400; }
-        .page-not-found { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; padding: 0 16px; }
-        .image { max-width: 100%; margin-bottom: 32px; height: auto; object-fit: contain; }
-        .title { text-align: center; margin-top: 0; margin-bottom: 8px; font-size: 24px; line-height: 32px; font-weight: 700; }
-        .text { text-align: center; max-width: 650px; margin-bottom: 24px; font-size: 16px; line-height: 24px; font-weight: 400; color: #6D7081; }
-        .back-btn { background: #3b82f6; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
-    </style>
-</head>
-<body>
-    <div class="page-not-found">
-        <img class="image" alt="Page Not Found" src="https://lh3.googleusercontent.com/d/1MToveZaYCNtEpfPNhFDhv8ylDPhqngKR" width="400" />
-        <h1 class="title">This Page Does Not Exist</h1>
-        <p class="text">
-            Sorry, the page you are looking for could not be found. It's just an
-            accident that was not intentional.
-        </p>
-        <a href="/" class="back-btn">Back to Home</a>
-    </div>
-</body>
-</html>`;
+        // Return 404 HTML
+        const html404 = `<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><title>404 - Page Not Found</title><meta name="description" content="Oops, page lost."><style>body{font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#f4f5ff;color:#1d1e20;}a{background:#3b82f6;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:20px;}</style></head><body><h1>This Page Does Not Exist</h1><p>Sorry, we couldn't find what you were looking for.</p><a href="/">Back Home</a></body></html>`;
         return res.status(404).set({ 'Content-Type': 'text/html' }).send(html404);
       }
 
-      // Inject Meta Tags into Template for valid pages
+      // Final Meta Injection
       let html = template;
       
-      // Extremely aggressive replacement
-      const newTitle = `<title>${title}</title>`;
-      const newMetaDesc = `<meta name="description" content="${description}">`;
-
-      // Try title replacement
-      if (html.includes('<title>')) {
-        html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/i, newTitle);
+      // Replace Title
+      const titleTagRegex = /<title[^>]*>([\s\S]*?)<\/title>/i;
+      if (titleTagRegex.test(html)) {
+        html = html.replace(titleTagRegex, `<title>${title}</title>`);
       } else {
-        html = html.replace('<head>', `<head>${newTitle}`);
+        html = html.replace('<head>', `<head><title>${title}</title>`);
       }
 
-      // Try description replacement
-      if (html.includes('name="description"')) {
-        html = html.replace(/<meta[^>]*?name=["']description["'][^>]*?>/i, newMetaDesc);
+      // Replace/Inject Meta Description
+      const descTagRegex = /<meta[^>]*?name=["']description["'][^>]*?>/i;
+      const newMetaDesc = `<meta name="description" content="${description}">`;
+      if (descTagRegex.test(html)) {
+        html = html.replace(descTagRegex, newMetaDesc);
       } else {
         html = html.replace('<head>', `<head>${newMetaDesc}`);
       }
@@ -231,14 +189,20 @@ async function startServer() {
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${description}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
-    <script id="ssr-log">console.log("SSR Applied for: " + window.location.pathname);</script>
+    <script id="ssr-info">console.log("SSR Active:", ${JSON.stringify({ path: cleanPath, title: title.slice(0, 20) + '...' })});</script>
 `;
       html = html.replace('</head>', `${extraMeta}</head>`);
 
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+      // Add a debug header
+      res.status(200).set({ 
+        'Content-Type': 'text/html',
+        'X-SSR-Generated': 'true',
+        'X-SSR-Path': cleanPath
+      }).end(html);
+
     } catch (e) {
       if (vite) vite.ssrFixStacktrace(e as Error);
-      console.error(e);
+      console.error('[SSR ERROR]', e);
       res.status(500).end((e as Error).message);
     }
   });
