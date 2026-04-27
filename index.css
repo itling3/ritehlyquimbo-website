@@ -216,27 +216,41 @@ body {
 /* Prose Table Overrides */
 .prose table {
     width: 100% !important;
-    border-collapse: collapse !important;
-    margin: 2rem 0 !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin: 2.5rem 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
 }
 
 .prose th {
-    font-weight: 900 !important;
+    font-weight: 800 !important;
     text-transform: uppercase !important;
-    font-size: 0.75rem !important;
-    letter-spacing: 0.1em !important;
+    font-size: 11px !important;
+    letter-spacing: 0.15em !important;
     color: white !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-    padding: 1rem 0.5rem !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 1.25rem 1rem !important;
 }
 
 .prose td {
-    padding: 1.25rem 0.5rem !important;
+    padding: 1.25rem 1rem !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-    font-size: 0.875rem !important;
+    font-size: 0.9rem !important;
+    color: #9ca3af !important;
+}
+
+.prose tr:last-child td {
+    border-bottom: none !important;
 }
 
 .prose tr:hover td {
     color: white !important;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(59, 130, 246, 0.05); /* Slight blue tint on hover */
+}
+
+.prose strong {
+    color: #60a5fa !important; /* Brighter blue for bold text in tables */
 }

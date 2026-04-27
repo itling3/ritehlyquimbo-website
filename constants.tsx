@@ -246,7 +246,9 @@ Most businesses waste 70% of their content budget on keywords that drive traffic
 * **Content Gaps:** Your competitors are answering questions you haven't even thought of yet.
 
 ### Our High-Impact Framework
+
 We use a data-driven approach to align your content with the four stages of the buyer’s journey:
+
 
 | Intent Type | User Psychology | Strategic Goal |
 | :--- | :--- | :--- |
