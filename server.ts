@@ -103,8 +103,12 @@ async function startServer() {
         return cleanPath === p || cleanPath === sl;
       });
 
-      // Match-specific override
-      if (matchedService) {
+      // FORCED PRIORITY OVERRIDE
+      if (cleanPath === '/services/local-seo-specialist-google-maps') {
+        title = "Local SEO & Google Maps Specialist | Dominate Your Local Market and Get Found";
+        description = "Increase foot traffic and local leads. We optimize your Google Business Profile and local citations for maximum neighborhood visibility.";
+        keywords = "local seo, gmb management, google maps ranking, local citation building, map pack dominance, seo specialist philippines";
+      } else if (matchedService) {
         title = matchedService.seoTitle || `${matchedService.title} | Ritehly Quimbo`;
         description = matchedService.metaDescription || matchedService.description;
         keywords = matchedService.keywords || keywords;
@@ -142,6 +146,9 @@ async function startServer() {
       } else if (cleanPath === '/pricing/web-dev-packages') {
         title = "Web Development Packages | Quality Coding for Better Performance";
         description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
+      } else if (cleanPath === '/services/local-seo-specialist-google-maps') {
+        title = "Local SEO & Google Maps Specialist | Dominate Your Local Market and Get Found";
+        description = "Increase foot traffic and local leads. We optimize your Google Business Profile and local citations for maximum neighborhood visibility.";
       } else if (['/audit', '/calculator', '/privacy'].includes(cleanPath)) {
         title = `${cleanPath.slice(1).charAt(0).toUpperCase() + cleanPath.slice(2)} | Ritehly Quimbo`;
       } else if (cleanPath !== '/' && cleanPath !== '/index') {
@@ -167,8 +174,16 @@ async function startServer() {
 
       if (/<meta[^>]*?name=["']description["'][^>]*?>/i.test(html)) {
         html = html.replace(/<meta[^>]*?name=["']description["'][^>]*?>/i, () => `<meta name="description" content="${finalDesc}">`);
+      } else if (/<meta[^>]*?content=["'][\s\S]*?["'][^>]*?name=["']description["'][^>]*?>/i.test(html)) {
+        html = html.replace(/<meta[^>]*?content=["'][\s\S]*?["'][^>]*?name=["']description["'][^>]*?>/i, () => `<meta name="description" content="${finalDesc}">`);
       } else {
         html = html.replace('<head>', () => `<head><meta name="description" content="${finalDesc}">`);
+      }
+
+      // TOTAL FAILSAFE: If the homepage description still exists, stomp it out.
+      const homeDesc = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
+      if (html.includes(homeDesc)) {
+        html = html.split(homeDesc).join(finalDesc);
       }
 
       const extraMeta = `
