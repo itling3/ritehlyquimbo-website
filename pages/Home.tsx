@@ -33,9 +33,9 @@ const Home: React.FC<HomeProps> = ({
   return (
     <>
       <SEO 
-        title="Hire SEO Specialist | Dominate Rankings & Growth" 
-        description="Ritehly Quimbo is the top Full-Stack SEO & Growth Marketing Specialist in the Philippines. Build autonomous systems for scale, dominate the local map pack, and scale your sales with data-driven growth engineering." 
-        keywords="hire seo specialist, growth marketing philippines, full stack seo expert, ecommerce seo expert, local seo specialist, ai automation systems, ritehly quimbo"
+        title="Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue" 
+        description="Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies." 
+        keywords="hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo"
       />
       <main>
         <Hero onAuditClick={onBook} onFormClick={onOpenForm} />

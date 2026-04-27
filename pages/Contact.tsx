@@ -9,9 +9,9 @@ const ContactPage: React.FC<{ onBook: (e?: React.MouseEvent) => void }> = ({ onB
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Contact SEO Expert | Scale Your Business Leads" 
-        description="Ready to scale your leads? Contact Ritehly Quimbo, the top SEO & Growth Specialist in the Philippines for strategy inquiries and consultations." 
-        keywords="contact seo expert, hire growth marketer, seo consultation philippines, business scaling strategy, digital growth leads"
+        title="Book an SEO Consultation | Start Dominating the Search Results Today" 
+        description="Ready to grow? Contact Ritehly Quimbo for a personalized SEO strategy and consultation to take your business to the next level." 
+        keywords="seo consultation, book seo expert, personalized seo strategy, grow business online, contact ritehly quimbo"
       />
       <ContactView onBack={() => navigate('/')} onBook={onBook} />
     </div>

@@ -14,8 +14,9 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBook, handleNavigate }) =
   return (
     <div className="min-h-screen">
       <SEO 
-        title="SEO & Growth Services | Philippines Growth Engineer" 
-        description="Comprehensive SEO, Google Ads, and AI Growth systems. View our full list of services designed to scale your revenue."
+        title="Professional SEO & Growth Services | Comprehensive Digital Marketing Solutions" 
+        description="Discover a full suite of digital services including SEO, AI automation, and web development designed to accelerate business growth." 
+        keywords="seo services, growth marketing, ai automation, web development, digital marketing solutions, ritehly quimbo"
       />
       <ServicesOverview 
         onBack={() => navigate('/')} 

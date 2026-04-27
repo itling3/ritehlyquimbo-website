@@ -14,9 +14,9 @@ const PricingAIPage: React.FC<PricingAIPageProps> = ({ onBook, onForm }) => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="AI Automation Pricing | High-Performance Marketing Ops" 
-        description="Scale your marketing operations with AI-driven automation. See our pricing plans for custom AI workflows, agents, and autonomous growth systems." 
-        keywords="ai automation pricing, marketing automation cost, n8n workflow services, ai agent development, business automation plans"
+        title="AI Automation Pricing | Invest in Efficient Business Scaling" 
+        description="Choose an AI automation plan that fits your workflow. Automate your repetitive tasks and focus on high-level growth." 
+        keywords="ai automation pricing, business scaling, efficient workflow, task automation, growth focused ai, ritehly quimbo"
       />
       <AIAutomationPricingView onBack={() => navigate('/')} onBook={onBook} onForm={onForm} />
     </div>

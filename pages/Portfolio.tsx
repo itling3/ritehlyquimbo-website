@@ -9,8 +9,9 @@ const PortfolioPage: React.FC<{ handleNavigate: (id: string) => void }> = ({ han
   return (
     <div className="min-h-screen">
       <SEO 
-        title="SEO Portfolio | Growth Engineering Case Studies" 
-        description="Explore real results and growth case studies from Ritehly Quimbo. Data-driven SEO and marketing performance for global and local brands."
+        title="SEO Case Studies & Results | Real Examples of Search Engine Success" 
+        description="View our portfolio of successful SEO campaigns and digital projects that delivered measurable results for clients worldwide." 
+        keywords="seo case studies, seo results, successful seo campaigns, search engine success, digital projects portfolio, ritehly quimbo"
       />
       <PortfolioOverview 
         onBack={() => navigate('/')} 

@@ -15,7 +15,7 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
   return (
     <div className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-6 animate-in fade-in duration-500">
       <SEO 
-        title={`${service.title} | ${service.features[0] || 'Scale Your Results'}`} 
+        title={service.seoTitle || `${service.title} | ${service.features[0] || 'Scale Your Results'}`} 
         description={service.metaDescription || service.description} 
         keywords={service.keywords}
       />

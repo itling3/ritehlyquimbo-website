@@ -9,9 +9,9 @@ const AboutPage: React.FC<{ onBook: (e?: React.MouseEvent) => void }> = ({ onBoo
   return (
     <div className="min-h-screen">
       <SEO 
-        title="About SEO Specialist | Growth Engineer Mission" 
-        description="Learn about Ritehly Quimbo, an SEO specialist & growth engineer from the Philippines helping SMBs scale sales with autonomous growth systems." 
-        keywords="ritehly quimbo, seo specialist philippines, growth marketing engineer, seo consultant, digital marketing expert"
+        title="Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth" 
+        description="Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands." 
+        keywords="ritehly quimbo, seo specialist, digital growth expert, seo solutions, global brands seo"
       />
       <AboutView onBack={() => navigate('/')} onBook={onBook} />
     </div>

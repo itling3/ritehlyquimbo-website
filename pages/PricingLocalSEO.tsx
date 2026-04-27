@@ -14,9 +14,9 @@ const PricingLocalSEOPage: React.FC<PricingLocalSEOPageProps> = ({ onBook, onFor
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Local SEO Pricing | Dominate Your City Rankings" 
-        description="Transparent local SEO pricing tiers designed to help your business dominate the local map pack and neighborhood search results. Affordable growth plans." 
-        keywords="local seo pricing, gmb optimization cost, local map pack services, affordable seo philippines, city ranking strategy"
+        title="Local SEO Pricing Plans | Affordable Strategies for Local Business Growth" 
+        description="Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack." 
+        keywords="local seo pricing, small business growth, local map pack, affordable seo strategies, ritehly quimbo"
       />
       <LocalSEOPricingView onBack={() => navigate('/')} onBook={onBook} onForm={onForm} />
     </div>

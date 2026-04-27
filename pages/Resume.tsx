@@ -9,9 +9,9 @@ const ResumePage: React.FC = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="SEO Specialist Resume | Growth Engineer Track Record" 
-        description="View the professional trajectory and technical mastery of Ritehly Quimbo, a top-tier SEO specialist and growth marketing engineer with a proven track record." 
-        keywords="seo resume, ritehly quimbo portfolio, search analyst experience, growth engineering background, technical seo expert"
+        title="Expert SEO Consultant Resume | Proven Track Record of Digital Success" 
+        description="Explore Ritehly Quimbo’s professional background, technical skills, and years of experience in delivering ROI-focused marketing." 
+        keywords="seo consultant resume, digital marketing experience, technical seo skills, roi focused marketing, ritehly quimbo"
       />
       <ResumeView onBack={() => navigate('/')} />
     </div>

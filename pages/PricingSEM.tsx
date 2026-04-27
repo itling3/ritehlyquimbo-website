@@ -9,9 +9,9 @@ const PricingSEMPage: React.FC<{ onBook: (e?: React.MouseEvent) => void }> = ({ 
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Google Ads Pricing | Immediate Demand Capture" 
-        description="Accelerate your growth with precision managed Google Ads. View our ROI-focused PPC management pricing and immediate demand capture strategies." 
-        keywords="google ads management pricing, ppc management cost, sem services price, google ads expert philippines, roi focused ads"
+        title="Google Ads Management Pricing | Transparent PPC Fees for Maximum ROI" 
+        description="Professional SEM management pricing. Get the most out of your ad budget with our expert-led PPC strategies." 
+        keywords="google ads management, ppc pricing, sem fees, maximum roi, ppc strategy, ritehly quimbo"
       />
       <SEMPricingView onBack={() => navigate('/')} onBook={onBook} />
     </div>

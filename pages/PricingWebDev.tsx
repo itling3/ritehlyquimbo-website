@@ -14,9 +14,9 @@ const PricingWebDevPage: React.FC<PricingWebDevPageProps> = ({ onBook, onForm })
   return (
     <div className="min-h-screen">
       <SEO 
-        title="WordPress & Elementor Pricing | SEO-Ready Web Engines" 
-        description="High-performance, secure, and SEO-optimized WordPress web builds using Elementor. See our web development pricing packages for growth-ready sites." 
-        keywords="wordpress development pricing, elementor web design cost, seo friendly web builds, high performance websites, custom wordpress developer"
+        title="Web Development Packages | Quality Coding for Better Performance" 
+        description="Find the right web development package for your needs, from simple landing pages to complex full-stack solutions." 
+        keywords="web development packages, quality coding, site performance, landing pages, full-stack solutions, ritehly quimbo"
       />
       <WebDevPricingView onBack={() => navigate('/')} onBook={onBook} onForm={onForm} />
     </div>

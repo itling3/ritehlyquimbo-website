@@ -11,6 +11,7 @@ export interface CaseStudy {
   };
   chartData: { name: string; value: number }[];
   description: string;
+  seoTitle?: string;
   metaDescription?: string;
   keywords?: string;
   image: string;
@@ -41,6 +42,7 @@ export interface ServiceContent {
   title: string;
   icon: string;
   description: string;
+  seoTitle?: string;
   metaDescription?: string;
   keywords?: string;
   painPoint: string;
