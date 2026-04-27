@@ -81,43 +81,55 @@ async function startServer() {
       console.log(`[SEO] Request path: ${cleanPath} (Original: ${url})`);
 
       // Routing Logic for Meta Tags
-      if (cleanPath === '/') {
+      // Normalize to handle home page and various path formats
+      if (cleanPath === '/' || cleanPath === '/index' || cleanPath === '') {
         // Home meta already set as default
       } else if (cleanPath === '/about') {
         title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
         description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
+        keywords = "ritehly quimbo, seo specialist journey, digital marketing mission";
       } else if (cleanPath === '/contact') {
         title = "Book an SEO Consultation | Start Dominating the Search Results Today";
         description = "Ready to grow? Contact Ritehly Quimbo for a personalized SEO strategy and consultation to take your business to the next level.";
+        keywords = "book seo consultation, hire seo expert, organic growth contact";
       } else if (cleanPath === '/resume') {
         title = "Expert SEO Consultant Resume | Proven Track Record of Digital Success";
         description = "Explore Ritehly Quimbo’s professional background, technical skills, and years of experience in delivering ROI-focused marketing.";
+        keywords = "seo resume, digital marketing track record, seo technical skills";
       } else if (cleanPath === '/services') {
         title = "Professional SEO & Growth Services | Comprehensive Digital Marketing Solutions";
         description = "Discover a full suite of digital services including SEO, AI automation, and web development designed to accelerate business growth.";
+        keywords = "seo services, ai automation, growth marketing solutions";
       } else if (cleanPath === '/portfolio') {
         title = "SEO Case Studies & Results | Real Examples of Search Engine Success";
         description = "View our portfolio of successful SEO campaigns and digital projects that delivered measurable results for clients worldwide.";
+        keywords = "seo case studies, search engine success examples, portfolio";
       } else if (cleanPath === '/pricing') {
         title = "SEO Service Packages & Pricing | Affordable Growth Plans for Every Business";
         description = "Transparent pricing for SEO, Google Ads, and AI automation. Choose the perfect plan to fit your business goals and budget.";
+        keywords = "seo pricing, seo packages, google ads pricing";
       } else if (cleanPath === '/pricing/local-seo-strategy') {
         title = "Local SEO Pricing Plans | Affordable Strategies for Local Business Growth";
         description = "Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack.";
+        keywords = "local seo pricing, map pack ranking cost";
       } else if (cleanPath === '/pricing/ai-automation-plans') {
         title = "AI Automation Pricing | Invest in Efficient Business Scaling";
         description = "Choose an AI automation plan that fits your workflow. Automate your repetitive tasks and focus on high-level growth.";
+        keywords = "ai automation pricing, workflow automation cost";
       } else if (cleanPath === '/pricing/google-ads-sem') {
         title = "Google Ads Management Pricing | Transparent PPC Fees for Maximum ROI";
         description = "Professional SEM management pricing. Get the most out of your ad budget with our expert-led PPC strategies.";
+        keywords = "google ads pricing, ppc management fees";
       } else if (cleanPath === '/pricing/web-dev-packages') {
         title = "Web Development Packages | Quality Coding for Better Performance";
         description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
+        keywords = "web development pricing, full stack packages";
       } else if (pathParts[0] === 'services' && pathParts[1]) {
         const service = Object.values(SERVICE_DETAILS).find(s => s.slug.toLowerCase() === pathParts[1].toLowerCase());
         if (service) {
           title = service.seoTitle || `${service.title} | Ritehly Quimbo`;
           description = service.metaDescription || service.description;
+          keywords = service.keywords || keywords;
         } else {
           is404 = true;
         }
@@ -126,14 +138,19 @@ async function startServer() {
         if (study) {
           title = study.seoTitle || `${study.title.split('–')[0]} | SEO Case Study | Ritehly Quimbo`;
           description = study.metaDescription || study.description;
+          keywords = study.keywords || keywords;
         } else {
           is404 = true;
         }
       } else {
         // Fallback for other valid static routes if any missed
-        const genericRoutes = ['/audit', '/calculator', '/privacy']; // Add if needed
-        if (!genericRoutes.includes(cleanPath)) {
-          is404 = false; // Stay on home if not a known 404
+        const knownPaths = [
+          '/', '/about', '/contact', '/resume', '/services', '/portfolio', '/pricing',
+          '/pricing/local-seo-strategy', '/pricing/ai-automation-plans', '/pricing/google-ads-sem', '/pricing/web-dev-packages',
+          '/audit', '/calculator', '/privacy'
+        ];
+        if (!knownPaths.includes(cleanPath)) {
+          is404 = true;
         }
       }
 
@@ -181,23 +198,28 @@ async function startServer() {
       // Use more robust regex to handle variations in index.html and vite transforms
       let html = template;
       
-      const titleRegex = /<title>[\s\S]*?<\/title>/i;
-      const descRegex = /<meta\s+name=["']description["']\s+content=["'][\s\S]*?["']\s*\/?>/i;
+      const titleRegex = /<title[^>]*>[\s\S]*?<\/title>/i;
+      const descRegex = /<meta[^>]*?name=["']description["'][^>]*?>/i;
 
       if (titleRegex.test(html)) {
         html = html.replace(titleRegex, `<title>${title}</title>`);
       } else {
         console.warn('[SEO] Could not find <title> tag in template');
+        // If not found, inject at the start of head
+        html = html.replace(/<head[^>]*>/i, `$&<title>${title}</title>`);
       }
 
       if (descRegex.test(html)) {
         html = html.replace(descRegex, `<meta name="description" content="${description}">`);
       } else {
         console.warn('[SEO] Could not find meta description tag in template');
+        // If not found, inject at the start of head
+        html = html.replace(/<head[^>]*>/i, `$&<meta name="description" content="${description}">`);
       }
 
       // Inject extra meta tags before </head>
       const extraMeta = `
+    <meta name="ssr-marker" content="v3-applied">
     <meta name="keywords" content="${keywords}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
