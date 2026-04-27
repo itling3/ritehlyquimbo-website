@@ -155,20 +155,32 @@ async function startServer() {
 
       let html = template;
       
-      // Surgical replacement to avoid formatting issues
-      html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
-      html = html.replace(/<meta[^>]*?name=["']description["'][^>]*?>/i, `<meta name="description" content="${description}">`);
+      // Aggressive replacement using functions to avoid any $ interpolation issues
+      const finalTitle = title.trim();
+      const finalDesc = description.trim();
+
+      if (/<title[^>]*>[\s\S]*?<\/title>/i.test(html)) {
+        html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/i, () => `<title>${finalTitle}</title>`);
+      } else {
+        html = html.replace('<head>', () => `<head><title>${finalTitle}</title>`);
+      }
+
+      if (/<meta[^>]*?name=["']description["'][^>]*?>/i.test(html)) {
+        html = html.replace(/<meta[^>]*?name=["']description["'][^>]*?>/i, () => `<meta name="description" content="${finalDesc}">`);
+      } else {
+        html = html.replace('<head>', () => `<head><meta name="description" content="${finalDesc}">`);
+      }
 
       const extraMeta = `
     <!-- SSR-INFO: ${cleanPath} | ${matchedService ? 'matched-service' : matchedCaseStudy ? 'matched-case' : 'static-route'} -->
     <meta name="keywords" content="${keywords}">
-    <meta property="og:title" content="${title}">
-    <meta property="og:description" content="${description}">
+    <meta property="og:title" content="${finalTitle}">
+    <meta property="og:description" content="${finalDesc}">
     <meta property="og:url" content="https://ritehlyquimbo.com${url}">
-    <meta name="twitter:title" content="${title}">
-    <meta name="twitter:description" content="${description}">
+    <meta name="twitter:title" content="${finalTitle}">
+    <meta name="twitter:description" content="${finalDesc}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
-    <script id="ssr-debug">console.log("SSR DEBUG:", ${JSON.stringify({ path: cleanPath, title, service: !!matchedService, case: !!matchedCaseStudy })});</script>
+    <script id="ssr-debug">console.log("SSR DEBUG:", ${JSON.stringify({ path: cleanPath, title: finalTitle, desc: finalDesc.slice(0, 30) + '...', service: !!matchedService, case: !!matchedCaseStudy })});</script>
 `;
       html = html.replace('</head>', `${extraMeta}</head>`);
 
