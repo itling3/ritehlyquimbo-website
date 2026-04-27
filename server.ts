@@ -60,7 +60,7 @@ async function startServer() {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
-    // Ignore assets that might have slipped through
+    // Pass assets to next middleware
     if (pathOnly.includes('.') && !pathOnly.endsWith('.html')) {
       return next();
     }
@@ -83,49 +83,59 @@ async function startServer() {
       let is404 = false;
 
       // Normalize path
-      let cleanPath = pathOnly.toLowerCase();
+      let cleanPath = (pathOnly || '/').toLowerCase();
       if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
         cleanPath = cleanPath.slice(0, -1);
       }
-      if (cleanPath === '' || cleanPath === undefined) cleanPath = '/';
+      if (cleanPath === '') cleanPath = '/';
 
-      // Advanced Matching Logic
-      const matchedService = Object.values(SERVICE_DETAILS).find(s => 
-        cleanPath === s.permalink.toLowerCase() || 
-        cleanPath === `/services/${s.slug.toLowerCase()}`
-      );
+      // Robust matching
+      const allServices = Object.values(SERVICE_DETAILS);
+      const matchedService = allServices.find(s => {
+        const p = s.permalink.toLowerCase();
+        const sl = `/services/${s.slug.toLowerCase()}`;
+        return cleanPath === p || cleanPath === sl;
+      });
       
-      const matchedCaseStudy = CASE_STUDIES.find(s => 
-        cleanPath === s.permalink.toLowerCase() || 
-        cleanPath === `/portfolio/${s.slug.toLowerCase()}`
-      );
+      const matchedCaseStudy = CASE_STUDIES.find(s => {
+        const p = s.permalink.toLowerCase();
+        const sl = `/portfolio/${s.slug.toLowerCase()}`;
+        return cleanPath === p || cleanPath === sl;
+      });
 
-      if (cleanPath === '/' || cleanPath === '/index') {
-        // Home meta (already default)
+      // Default Meta
+      let title = "Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue";
+      let description = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
+      let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
+      let is404 = false;
+
+      // Match-specific override
+      if (matchedService) {
+        title = matchedService.seoTitle || `${matchedService.title} | Ritehly Quimbo`;
+        description = matchedService.metaDescription || matchedService.description;
+        keywords = matchedService.keywords || keywords;
+      } else if (matchedCaseStudy) {
+        title = matchedCaseStudy.seoTitle || `${matchedCaseStudy.title} | Ritehly Quimbo`;
+        description = matchedCaseStudy.metaDescription || matchedCaseStudy.description;
+        keywords = matchedCaseStudy.keywords || keywords;
       } else if (cleanPath === '/about') {
         title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
         description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
-        keywords = "ritehly quimbo, seo specialist journey, digital marketing mission";
       } else if (cleanPath === '/contact') {
-        title = "Book an SEO Consultation | Start Dominating the Search Results Today";
-        description = "Ready to grow? Contact Ritehly Quimbo for a personalized SEO strategy and consultation to take your business to the next level.";
-        keywords = "book seo consultation, hire seo expert, organic growth contact";
+        title = "Contact Ritehly Quimbo | Ready to Scale Your Organic Traffic?";
+        description = "Get in touch today for a personalized SEO strategy. Let’s discuss how to grow your business through data-driven search marketing.";
       } else if (cleanPath === '/resume') {
-        title = "Expert SEO Consultant Resume | Proven Track Record of Digital Success";
-        description = "Explore Ritehly Quimbo’s professional background, technical skills, and years of experience in delivering ROI-focused marketing.";
-        keywords = "seo resume, digital marketing track record, seo technical skills";
+        title = "SEO Specialist Resume | Ritehly Quimbo’s Professional Background";
+        description = "Detailed career history, certifications, and technical expertise of Ritehly Quimbo, a seasoned SEO professional.";
       } else if (cleanPath === '/services') {
-        title = "Professional SEO & Growth Services | Comprehensive Digital Marketing Solutions";
-        description = "Discover a full suite of digital services including SEO, AI automation, and web development designed to accelerate business growth.";
-        keywords = "seo services, ai automation, growth marketing solutions";
+        title = "Professional SEO Services Philippines | Results-Oriented Digital Growth";
+        description = "Explore our full suite of SEO services, from technical audits to topical authority mapping and AI automation.";
       } else if (cleanPath === '/portfolio') {
-        title = "SEO Case Studies & Results | Real Examples of Search Engine Success";
-        description = "View our portfolio of successful SEO campaigns and digital projects that delivered measurable results for clients worldwide.";
-        keywords = "seo case studies, search engine success examples, portfolio";
+        title = "SEO Case Studies & Success Stories | Proven Results by Ritehly Quimbo";
+        description = "See how we’ve scaled organic traffic and revenue for diverse businesses across various industries.";
       } else if (cleanPath === '/pricing') {
-        title = "SEO Service Packages & Pricing | Affordable Growth Plans for Every Business";
-        description = "Transparent pricing for SEO, Google Ads, and AI automation. Choose the perfect plan to fit your business goals and budget.";
-        keywords = "seo pricing, seo packages, google ads pricing";
+        title = "SEO Pricing Packages | Transparent and Scalable Marketing Solutions";
+        description = "View our competitive pricing plans for SEO, AI automation, and Google Ads management.";
       } else if (cleanPath === '/pricing/local-seo-strategy') {
         title = "Local SEO Pricing Plans | Affordable Strategies for Local Business Growth";
         description = "Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack.";
@@ -138,50 +148,25 @@ async function startServer() {
       } else if (cleanPath === '/pricing/web-dev-packages') {
         title = "Web Development Packages | Quality Coding for Better Performance";
         description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
-      } else if (matchedService) {
-        title = matchedService.seoTitle || `${matchedService.title} | Ritehly Quimbo`;
-        description = matchedService.metaDescription || matchedService.description;
-        keywords = matchedService.keywords || keywords;
-      } else if (matchedCaseStudy) {
-        title = matchedCaseStudy.seoTitle || `${matchedCaseStudy.title} | Ritehly Quimbo`;
-        description = matchedCaseStudy.metaDescription || matchedCaseStudy.description;
-        keywords = matchedCaseStudy.keywords || keywords;
       } else if (['/audit', '/calculator', '/privacy'].includes(cleanPath)) {
-        // Basic meta for these
         title = `${cleanPath.slice(1).charAt(0).toUpperCase() + cleanPath.slice(2)} | Ritehly Quimbo`;
-      } else {
-        is404 = true;
+      } else if (cleanPath !== '/' && cleanPath !== '/index') {
+         is404 = true;
       }
 
       if (is404) {
-        // Return 404 HTML
         const html404 = `<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><title>404 - Page Not Found</title><meta name="description" content="Oops, page lost."><style>body{font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#f4f5ff;color:#1d1e20;}a{background:#3b82f6;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:20px;}</style></head><body><h1>This Page Does Not Exist</h1><p>Sorry, we couldn't find what you were looking for.</p><a href="/">Back Home</a></body></html>`;
         return res.status(404).set({ 'Content-Type': 'text/html' }).send(html404);
       }
 
-      // Final Meta Injection
       let html = template;
       
-      // Replace Title
-      const titleTagRegex = /<title[^>]*>([\s\S]*?)<\/title>/i;
-      if (titleTagRegex.test(html)) {
-        html = html.replace(titleTagRegex, `<title>${title}</title>`);
-      } else {
-        html = html.replace('<head>', `<head><title>${title}</title>`);
-      }
+      // Surgical replacement to avoid formatting issues
+      html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+      html = html.replace(/<meta[^>]*?name=["']description["'][^>]*?>/i, `<meta name="description" content="${description}">`);
 
-      // Replace/Inject Meta Description
-      const descTagRegex = /<meta[^>]*?name=["']description["'][^>]*?>/i;
-      const newMetaDesc = `<meta name="description" content="${description}">`;
-      if (descTagRegex.test(html)) {
-        html = html.replace(descTagRegex, newMetaDesc);
-      } else {
-        html = html.replace('<head>', `<head>${newMetaDesc}`);
-      }
-
-      // Inject extra meta tags before </head>
       const extraMeta = `
-    <meta name="ssr-applied" content="${new Date().toISOString()}">
+    <!-- SSR-INFO: ${cleanPath} | ${matchedService ? 'matched-service' : matchedCaseStudy ? 'matched-case' : 'static-route'} -->
     <meta name="keywords" content="${keywords}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
@@ -189,15 +174,15 @@ async function startServer() {
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${description}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
-    <script id="ssr-info">console.log("SSR Active:", ${JSON.stringify({ path: cleanPath, title: title.slice(0, 20) + '...' })});</script>
+    <script id="ssr-debug">console.log("SSR DEBUG:", ${JSON.stringify({ path: cleanPath, title, service: !!matchedService, case: !!matchedCaseStudy })});</script>
 `;
       html = html.replace('</head>', `${extraMeta}</head>`);
 
-      // Add a debug header
       res.status(200).set({ 
         'Content-Type': 'text/html',
-        'X-SSR-Generated': 'true',
-        'X-SSR-Path': cleanPath
+        'X-SSR-Active': 'true',
+        'X-SSR-Path': cleanPath,
+        'Cache-Control': 'public, max-age=0, must-revalidate'
       }).end(html);
 
     } catch (e) {
