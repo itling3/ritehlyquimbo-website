@@ -241,14 +241,14 @@ Turn Search Intent into Revenue with Strategic Keyword Research & Mapping.
 Most businesses waste 70% of their content budget on keywords that drive traffic but zero conversions. We don’t just find words; we map the psychology of your buyer to ensure every click has a purpose.
 
 ### Why Most SEO Strategies Fail
-* **Targeting "Vanity" Metrics:** High volume doesn't mean high value.
-* **Ignoring Intent:** Ranking for "What is CRM" when you sell "Enterprise CRM Software" leads to bounces, not leads.
-* **Content Gaps:** Your competitors are answering questions you haven't even thought of yet.
+
+*   **Targeting "Vanity" Metrics:** High volume doesn't mean high value.
+*   **Ignoring Intent:** Ranking for "What is CRM" when you sell "Enterprise CRM Software" leads to bounces, not leads.
+*   **Content Gaps:** Your competitors are answering questions you haven't even thought of yet.
 
 ### Our High-Impact Framework
 
 We use a data-driven approach to align your content with the four stages of the buyer’s journey:
-
 
 | Intent Type | User Psychology | Strategic Goal |
 | :--- | :--- | :--- |
@@ -258,17 +258,20 @@ We use a data-driven approach to align your content with the four stages of the 
 | **Transactional** | "Buy [Product] Online" | **Capture the Sale** |
 
 ### What You Get
-* **The Master Keyword Matrix:** A prioritized list of high-opportunity keywords filtered by difficulty, volume, and business value.
-* **Search Intent Mapping:** Every keyword assigned to a specific stage of your funnel so you know exactly what to write.
-* **Competitor Gap Analysis:** We identify the "low-hanging fruit" keywords your competitors are currently dominating.
-* **Content Roadmap:** A 6-month execution plan designed to maximize ROI.
+
+*   **The Master Keyword Matrix:** A prioritized list of high-opportunity keywords filtered by difficulty, volume, and business value.
+*   **Search Intent Mapping:** Every keyword assigned to a specific stage of your funnel so you know exactly what to write.
+*   **Competitor Gap Analysis:** We identify the "low-hanging fruit" keywords your competitors are currently dominating.
+*   **Content Roadmap:** A 6-month execution plan designed to maximize ROI.
 
 ### Ready to dominate the SERPs?
+
 Don't throw darts in the dark. Let’s build a search strategy that actually moves the needle for your bottom line.
 
 > "The best place to hide a dead body is page two of Google." > Don't let your business stay buried.
 
 **[ Get Your Custom Keyword Audit ]**
+
 *Free 15-minute strategy consultation for new partners.*`,
     faqs: [
       { question: 'Why am I getting traffic but no sales?', answer: 'You are likely targeting "Informational" keywords when you need "Transactional" ones. Our research identifies exactly where your customers are in the buying journey to ensure every click has a high chance of converting. We stop the bleeding of wasted ad spend and effort on low-value traffic.' },

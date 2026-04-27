@@ -40,7 +40,7 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
               </h1>
             </div>
             {service.contentBody ? (
-              <div className="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white prose-strong:text-blue-400 prose-ul:list-disc prose-li:text-gray-400 prose-table:border-collapse prose-th:text-left prose-th:p-4 prose-td:p-4 prose-th:border-b prose-th:border-white/10 prose-td:border-b prose-td:border-white/5">
+              <div className="prose prose-invert max-w-none prose-table:my-8 prose-p:mb-6 prose-headings:mb-4">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{service.contentBody}</ReactMarkdown>
               </div>
             ) : (
