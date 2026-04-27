@@ -33,8 +33,7 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
 
         <div className="grid lg:grid-cols-3 gap-8 md:gap-12 items-start mb-12 md:mb-20">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-4 mb-4 md:mb-6">
-              <div className="text-3xl md:text-4xl">{service.icon}</div>
+            <div className="mb-4 md:mb-6">
               <h1 className="text-3xl md:text-[40px] font-black text-white uppercase italic tracking-tighter leading-none">
                 {service.titleH1 || service.title}
               </h1>
