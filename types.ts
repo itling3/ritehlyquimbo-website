@@ -40,6 +40,7 @@ export interface ServiceContent {
   id: string;
   slug: string;
   title: string;
+  titleH1?: string;
   icon: string;
   description: string;
   seoTitle?: string;
@@ -53,4 +54,5 @@ export interface ServiceContent {
   faqs?: { question: string; answer: string }[];
   pricingId?: string;
   permalink?: string;
+  contentBody?: string;
 }

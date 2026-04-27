@@ -224,6 +224,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
     slug: 'keyword-research-intent-mapping',
     permalink: '/services/keyword-research-intent-mapping',
     title: 'Keyword Research',
+    titleH1: 'Strategic Keyword Research & Search Intent Mapping',
     icon: '🔍',
     description: 'The foundation of every successful search strategy. We don\'t just look for words; we find the language your customers use when they are ready to buy.',
     seoTitle: 'Keyword Research & Intent Mapping | Target the Right Audience for Better Leads',
@@ -234,6 +235,39 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
     solution: 'We perform multi-layered intent analysis. We categorize keywords into Informational, Navigational, Commercial, and Transactional buckets to build a funnel that works.',
     importance: 'Without correct keyword targeting, every other SEO effort is a waste of time and money. It is the compass for your entire digital presence.',
     features: ['Search Intent Mapping', 'Competitor Keyword Gap Analysis', 'Long-Tail Opportunity Discovery', 'CPC & Difficulty Evaluation'],
+    contentBody: `Stop Guessing. Start Ranking.
+Turn Search Intent into Revenue with Strategic Keyword Research & Mapping.
+
+Most businesses waste 70% of their content budget on keywords that drive traffic but zero conversions. We don’t just find words; we map the psychology of your buyer to ensure every click has a purpose.
+
+### Why Most SEO Strategies Fail
+* **Targeting "Vanity" Metrics:** High volume doesn't mean high value.
+* **Ignoring Intent:** Ranking for "What is CRM" when you sell "Enterprise CRM Software" leads to bounces, not leads.
+* **Content Gaps:** Your competitors are answering questions you haven't even thought of yet.
+
+### Our High-Impact Framework
+We use a data-driven approach to align your content with the four stages of the buyer’s journey:
+
+| Intent Type | User Psychology | Strategic Goal |
+| :--- | :--- | :--- |
+| **Informational** | "How do I fix..." | Build Authority & Trust |
+| **Navigational** | "Brand Name Login" | Retention & Ease of Access |
+| **Commercial** | "Best software for..." | Influence the Decision |
+| **Transactional** | "Buy [Product] Online" | Capture the Sale |
+
+### What You Get
+* **The Master Keyword Matrix:** A prioritized list of high-opportunity keywords filtered by difficulty, volume, and business value.
+* **Search Intent Mapping:** Every keyword assigned to a specific stage of your funnel so you know exactly what to write.
+* **Competitor Gap Analysis:** We identify the "low-hanging fruit" keywords your competitors are currently dominating.
+* **Content Roadmap:** A 6-month execution plan designed to maximize ROI.
+
+### Ready to dominate the SERPs?
+Don't throw darts in the dark. Let’s build a search strategy that actually moves the needle for your bottom line.
+
+> "The best place to hide a dead body is page two of Google." > Don't let your business stay buried.
+
+**[ Get Your Custom Keyword Audit ]**
+*Free 15-minute strategy consultation for new partners.*`,
     faqs: [
       { question: 'Why am I getting traffic but no sales?', answer: 'You are likely targeting "Informational" keywords when you need "Transactional" ones. Our research identifies exactly where your customers are in the buying journey to ensure every click has a high chance of converting. We stop the bleeding of wasted ad spend and effort on low-value traffic.' },
       { question: 'Is my competitor stealing my best customers?', answer: 'Yes, if you aren\'t ranking for their brand alternatives or specific pain-point keywords they currently own. We perform a deep gap analysis to find exactly which terms they are profiting from and build a strategy to reclaim that market share. This turns their success into your roadmap for growth.' },

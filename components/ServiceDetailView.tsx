@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import { ServiceContent } from '../types';
 
+import ReactMarkdown from 'react-markdown';
+
 interface ServiceDetailViewProps {
   service: ServiceContent;
   onBack: () => void;
@@ -33,14 +35,20 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
             <div className="flex items-center gap-4 mb-4 md:mb-6">
               <div className="text-3xl md:text-4xl">{service.icon}</div>
               <h1 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">
-                {service.title}
+                {service.titleH1 || service.title}
               </h1>
             </div>
-            <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
-              {service.description}
-            </p>
+            {service.contentBody ? (
+              <div className="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white prose-strong:text-blue-400 prose-ul:list-disc prose-li:text-gray-400">
+                <ReactMarkdown>{service.contentBody}</ReactMarkdown>
+              </div>
+            ) : (
+              <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
+                {service.description}
+              </p>
+            )}
           </div>
-          <div className="glass-morphism p-6 md:p-8 rounded-2xl md:rounded-3xl border border-blue-500/20 bg-blue-500/5">
+          <div className="glass-morphism p-6 md:p-8 rounded-2xl md:rounded-3xl border border-blue-500/20 bg-blue-500/5 lg:sticky lg:top-32">
              <div className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 mb-4">Core Focus</div>
              <ul className="space-y-2 md:space-y-3">
                {service.features.map((feat, i) => (
@@ -59,11 +67,11 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
                </button>
                {service.pricingId && onPricingClick && (
                  <button 
-                   onClick={() => onPricingClick(service.pricingId!)}
-                   className="w-full py-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 font-black rounded-lg hover:bg-blue-500 hover:text-white transition-all uppercase tracking-tighter text-[10px]"
-                 >
-                   View Pricing & Plans
-                 </button>
+                    onClick={() => onPricingClick(service.pricingId!)}
+                    className="w-full py-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 font-black rounded-lg hover:bg-blue-500 hover:text-white transition-all uppercase tracking-tighter text-[10px]"
+                  >
+                    View Pricing & Plans
+                  </button>
                )}
                <a 
                  href="tel:09611525318"
@@ -78,37 +86,39 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          <div className="glass-morphism p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-red-500/10 hover:border-red-500/30 transition-all group">
-            <div className="text-red-500 font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-4">The Pain Point</div>
-            <h3 className="text-xl md:text-2xl font-black text-white mb-6 uppercase italic tracking-tighter leading-none">
-              "I'm Invisible"
-            </h3>
-            <p className="text-gray-400 leading-relaxed text-sm">
-              {service.painPoint}
-            </p>
-          </div>
+        {!service.contentBody && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="glass-morphism p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-red-500/10 hover:border-red-500/30 transition-all group">
+              <div className="text-red-500 font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-4">The Pain Point</div>
+              <h3 className="text-xl md:text-2xl font-black text-white mb-6 uppercase italic tracking-tighter leading-none">
+                "I'm Invisible"
+              </h3>
+              <p className="text-gray-400 leading-relaxed text-sm">
+                {service.painPoint}
+              </p>
+            </div>
 
-          <div className="glass-morphism p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-orange-500/10 hover:border-orange-500/30 transition-all group">
-            <div className="text-orange-500 font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-4">The Real Problem</div>
-            <h3 className="text-xl md:text-2xl font-black text-white mb-6 uppercase italic tracking-tighter leading-none">
-              Hidden Leakage
-            </h3>
-            <p className="text-gray-400 leading-relaxed text-sm">
-              {service.problem}
-            </p>
-          </div>
+            <div className="glass-morphism p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-orange-500/10 hover:border-orange-500/30 transition-all group">
+              <div className="text-orange-500 font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-4">The Real Problem</div>
+              <h3 className="text-xl md:text-2xl font-black text-white mb-6 uppercase italic tracking-tighter leading-none">
+                Hidden Leakage
+              </h3>
+              <p className="text-gray-400 leading-relaxed text-sm">
+                {service.problem}
+              </p>
+            </div>
 
-          <div className="glass-morphism p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-green-500/10 hover:border-green-500/30 transition-all group md:col-span-2 lg:col-span-1 shadow-2xl shadow-green-500/5 bg-green-500/[0.02]">
-            <div className="text-green-500 font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-4">The Solution</div>
-            <h3 className="text-xl md:text-2xl font-black text-white mb-6 uppercase italic tracking-tighter leading-none">
-              Precision Engineering
-            </h3>
-            <p className="text-gray-400 leading-relaxed text-sm">
-              {service.solution}
-            </p>
+            <div className="glass-morphism p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-green-500/10 hover:border-green-500/30 transition-all group md:col-span-2 lg:col-span-1 shadow-2xl shadow-green-500/5 bg-green-500/[0.02]">
+              <div className="text-green-500 font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-4">The Solution</div>
+              <h3 className="text-xl md:text-2xl font-black text-white mb-6 uppercase italic tracking-tighter leading-none">
+                Precision Engineering
+              </h3>
+              <p className="text-gray-400 leading-relaxed text-sm">
+                {service.solution}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {service.faqs && service.faqs.length > 0 && (
           <div className="mt-12 md:mt-20">
