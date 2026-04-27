@@ -76,7 +76,7 @@ async function startServer() {
         template = await fs.readFile(tPath, 'utf-8');
       }
 
-      // Default Meta (Homepage)
+      // Initial Default Meta (Homepage)
       let title = "Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue";
       let description = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
       let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
@@ -102,12 +102,6 @@ async function startServer() {
         const sl = `/portfolio/${s.slug.toLowerCase()}`;
         return cleanPath === p || cleanPath === sl;
       });
-
-      // Default Meta
-      let title = "Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue";
-      let description = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
-      let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
-      let is404 = false;
 
       // Match-specific override
       if (matchedService) {
