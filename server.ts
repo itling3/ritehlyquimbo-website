@@ -49,6 +49,7 @@ async function startServer() {
   
   app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
+    const pathOnly = req.path;
     
     // Check if it's an asset or dynamic route
     if (url.includes('.') && !url.includes('.html')) return next();
@@ -68,46 +69,52 @@ async function startServer() {
       let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
       let is404 = false;
 
-      const cleanPath = url.split('?')[0].split('#')[0];
+      // Normalize path: handle trailing slashes and normalize to lowercase for matching
+      let cleanPath = pathOnly.toLowerCase();
+      if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+        cleanPath = cleanPath.slice(0, -1);
+      }
+      if (cleanPath === '') cleanPath = '/';
+
       const pathParts = cleanPath.split('/').filter(Boolean);
+      
+      console.log(`[SEO] Request path: ${cleanPath} (Original: ${url})`);
 
       // Routing Logic for Meta Tags
       if (cleanPath === '/') {
         // Home meta already set as default
-      } else if (validStaticRoutes.includes(cleanPath) || pricingSubRoutes.includes(cleanPath)) {
-        if (cleanPath === '/about') {
-          title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
-          description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
-        } else if (cleanPath === '/contact') {
-          title = "Book an SEO Consultation | Start Dominating the Search Results Today";
-          description = "Ready to grow? Contact Ritehly Quimbo for a personalized SEO strategy and consultation to take your business to the next level.";
-        } else if (cleanPath === '/resume') {
-          title = "Expert SEO Consultant Resume | Proven Track Record of Digital Success";
-          description = "Explore Ritehly Quimbo’s professional background, technical skills, and years of experience in delivering ROI-focused marketing.";
-        } else if (cleanPath === '/services') {
-          title = "Professional SEO & Growth Services | Comprehensive Digital Marketing Solutions";
-          description = "Discover a full suite of digital services including SEO, AI automation, and web development designed to accelerate business growth.";
-        } else if (cleanPath === '/portfolio') {
-          title = "SEO Case Studies & Results | Real Examples of Search Engine Success";
-          description = "View our portfolio of successful SEO campaigns and digital projects that delivered measurable results for clients worldwide.";
-        } else if (cleanPath === '/pricing') {
-          title = "SEO Service Packages & Pricing | Affordable Growth Plans for Every Business";
-          description = "Transparent pricing for SEO, Google Ads, and AI automation. Choose the perfect plan to fit your business goals and budget.";
-        } else if (cleanPath === '/pricing/local-seo-strategy') {
-          title = "Local SEO Pricing Plans | Affordable Strategies for Local Business Growth";
-          description = "Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack.";
-        } else if (cleanPath === '/pricing/ai-automation-plans') {
-          title = "AI Automation Pricing | Invest in Efficient Business Scaling";
-          description = "Choose an AI automation plan that fits your workflow. Automate your repetitive tasks and focus on high-level growth.";
-        } else if (cleanPath === '/pricing/google-ads-sem') {
-          title = "Google Ads Management Pricing | Transparent PPC Fees for Maximum ROI";
-          description = "Professional SEM management pricing. Get the most out of your ad budget with our expert-led PPC strategies.";
-        } else if (cleanPath === '/pricing/web-dev-packages') {
-          title = "Web Development Packages | Quality Coding for Better Performance";
-          description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
-        }
+      } else if (cleanPath === '/about') {
+        title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
+        description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
+      } else if (cleanPath === '/contact') {
+        title = "Book an SEO Consultation | Start Dominating the Search Results Today";
+        description = "Ready to grow? Contact Ritehly Quimbo for a personalized SEO strategy and consultation to take your business to the next level.";
+      } else if (cleanPath === '/resume') {
+        title = "Expert SEO Consultant Resume | Proven Track Record of Digital Success";
+        description = "Explore Ritehly Quimbo’s professional background, technical skills, and years of experience in delivering ROI-focused marketing.";
+      } else if (cleanPath === '/services') {
+        title = "Professional SEO & Growth Services | Comprehensive Digital Marketing Solutions";
+        description = "Discover a full suite of digital services including SEO, AI automation, and web development designed to accelerate business growth.";
+      } else if (cleanPath === '/portfolio') {
+        title = "SEO Case Studies & Results | Real Examples of Search Engine Success";
+        description = "View our portfolio of successful SEO campaigns and digital projects that delivered measurable results for clients worldwide.";
+      } else if (cleanPath === '/pricing') {
+        title = "SEO Service Packages & Pricing | Affordable Growth Plans for Every Business";
+        description = "Transparent pricing for SEO, Google Ads, and AI automation. Choose the perfect plan to fit your business goals and budget.";
+      } else if (cleanPath === '/pricing/local-seo-strategy') {
+        title = "Local SEO Pricing Plans | Affordable Strategies for Local Business Growth";
+        description = "Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack.";
+      } else if (cleanPath === '/pricing/ai-automation-plans') {
+        title = "AI Automation Pricing | Invest in Efficient Business Scaling";
+        description = "Choose an AI automation plan that fits your workflow. Automate your repetitive tasks and focus on high-level growth.";
+      } else if (cleanPath === '/pricing/google-ads-sem') {
+        title = "Google Ads Management Pricing | Transparent PPC Fees for Maximum ROI";
+        description = "Professional SEM management pricing. Get the most out of your ad budget with our expert-led PPC strategies.";
+      } else if (cleanPath === '/pricing/web-dev-packages') {
+        title = "Web Development Packages | Quality Coding for Better Performance";
+        description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
       } else if (pathParts[0] === 'services' && pathParts[1]) {
-        const service = Object.values(SERVICE_DETAILS).find(s => s.slug === pathParts[1]);
+        const service = Object.values(SERVICE_DETAILS).find(s => s.slug.toLowerCase() === pathParts[1].toLowerCase());
         if (service) {
           title = service.seoTitle || `${service.title} | Ritehly Quimbo`;
           description = service.metaDescription || service.description;
@@ -115,7 +122,7 @@ async function startServer() {
           is404 = true;
         }
       } else if (pathParts[0] === 'portfolio' && pathParts[1]) {
-        const study = CASE_STUDIES.find(s => s.slug === pathParts[1]);
+        const study = CASE_STUDIES.find(s => s.slug.toLowerCase() === pathParts[1].toLowerCase());
         if (study) {
           title = study.seoTitle || `${study.title.split('–')[0]} | SEO Case Study | Ritehly Quimbo`;
           description = study.metaDescription || study.description;
@@ -123,8 +130,15 @@ async function startServer() {
           is404 = true;
         }
       } else {
-        is404 = true;
+        // Fallback for other valid static routes if any missed
+        const genericRoutes = ['/audit', '/calculator', '/privacy']; // Add if needed
+        if (!genericRoutes.includes(cleanPath)) {
+          is404 = false; // Stay on home if not a known 404
+        }
       }
+
+      console.log(`[SEO] Serving Title: ${title}`);
+
 
       if (is404) {
         // Return custom 404 HTML matching user template
@@ -164,17 +178,39 @@ async function startServer() {
       }
 
       // Inject Meta Tags into Template for valid pages
-      let html = template
-        .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
-        .replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${description}">`)
-        .replace('</head>', `
+      // Use more robust regex to handle variations in index.html and vite transforms
+      let html = template;
+      
+      const titleRegex = /<title>[\s\S]*?<\/title>/i;
+      const descRegex = /<meta\s+name=["']description["']\s+content=["'][\s\S]*?["']\s*\/?>/i;
+
+      if (titleRegex.test(html)) {
+        html = html.replace(titleRegex, `<title>${title}</title>`);
+      } else {
+        console.warn('[SEO] Could not find <title> tag in template');
+      }
+
+      if (descRegex.test(html)) {
+        html = html.replace(descRegex, `<meta name="description" content="${description}">`);
+      } else {
+        console.warn('[SEO] Could not find meta description tag in template');
+      }
+
+      // Inject extra meta tags before </head>
+      const extraMeta = `
+    <meta name="keywords" content="${keywords}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
     <meta property="og:url" content="https://ritehlyquimbo.com${url}">
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${description}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
-    </head>`);
+`;
+      if (html.includes('</head>')) {
+        html = html.replace(/<\/head>/i, `${extraMeta}</head>`);
+      } else {
+        html = html.replace('</head>', `${extraMeta}</head>`); // Fallback
+      }
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e) {
