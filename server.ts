@@ -63,9 +63,9 @@ async function startServer() {
       }
 
       // Default Meta
-      let title = "SEO Specialist Philippines | Full-Stack Growth Expert | Ritehly Quimbo";
-      let description = "Expert SEO, Google Ads, and AI growth systems for PH businesses. We build and maintain your scalable growth engine with AI automation & VA support.";
-      let keywords = "seo specialist philippines, growth marketing specialist ph, technical seo consultant";
+      let title = "Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue";
+      let description = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
+      let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
       let is404 = false;
 
       const cleanPath = url.split('?')[0].split('#')[0];
@@ -76,18 +76,40 @@ async function startServer() {
         // Home meta already set as default
       } else if (validStaticRoutes.includes(cleanPath) || pricingSubRoutes.includes(cleanPath)) {
         if (cleanPath === '/about') {
-          title = "About Ritehly Quimbo | The Growth Engineer Mission";
-          description = "Learn how Ritehly Quimbo helps SMBs scale sales with autonomous growth systems and expert technical SEO.";
+          title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
+          description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
         } else if (cleanPath === '/contact') {
-          title = "Contact SEO Expert | Scale Your Business Leads | Ritehly Quimbo";
-          description = "Ready to scale? Contact Ritehly Quimbo for SEO and growth strategy inquiries in the Philippines.";
+          title = "Book an SEO Consultation | Start Dominating the Search Results Today";
+          description = "Ready to grow? Contact Ritehly Quimbo for a personalized SEO strategy and consultation to take your business to the next level.";
+        } else if (cleanPath === '/resume') {
+          title = "Expert SEO Consultant Resume | Proven Track Record of Digital Success";
+          description = "Explore Ritehly Quimbo’s professional background, technical skills, and years of experience in delivering ROI-focused marketing.";
+        } else if (cleanPath === '/services') {
+          title = "Professional SEO & Growth Services | Comprehensive Digital Marketing Solutions";
+          description = "Discover a full suite of digital services including SEO, AI automation, and web development designed to accelerate business growth.";
+        } else if (cleanPath === '/portfolio') {
+          title = "SEO Case Studies & Results | Real Examples of Search Engine Success";
+          description = "View our portfolio of successful SEO campaigns and digital projects that delivered measurable results for clients worldwide.";
         } else if (cleanPath === '/pricing') {
-          title = "SEO Pricing Blueprints | Scalable ROI Strategies | Ritehly Quimbo";
+          title = "SEO Service Packages & Pricing | Affordable Growth Plans for Every Business";
+          description = "Transparent pricing for SEO, Google Ads, and AI automation. Choose the perfect plan to fit your business goals and budget.";
+        } else if (cleanPath === '/pricing/local-seo-strategy') {
+          title = "Local SEO Pricing Plans | Affordable Strategies for Local Business Growth";
+          description = "Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack.";
+        } else if (cleanPath === '/pricing/ai-automation-plans') {
+          title = "AI Automation Pricing | Invest in Efficient Business Scaling";
+          description = "Choose an AI automation plan that fits your workflow. Automate your repetitive tasks and focus on high-level growth.";
+        } else if (cleanPath === '/pricing/google-ads-sem') {
+          title = "Google Ads Management Pricing | Transparent PPC Fees for Maximum ROI";
+          description = "Professional SEM management pricing. Get the most out of your ad budget with our expert-led PPC strategies.";
+        } else if (cleanPath === '/pricing/web-dev-packages') {
+          title = "Web Development Packages | Quality Coding for Better Performance";
+          description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
         }
       } else if (pathParts[0] === 'services' && pathParts[1]) {
         const service = Object.values(SERVICE_DETAILS).find(s => s.slug === pathParts[1]);
         if (service) {
-          title = `${service.title} | Ritehly Quimbo`;
+          title = service.seoTitle || `${service.title} | Ritehly Quimbo`;
           description = service.metaDescription || service.description;
         } else {
           is404 = true;
@@ -95,7 +117,7 @@ async function startServer() {
       } else if (pathParts[0] === 'portfolio' && pathParts[1]) {
         const study = CASE_STUDIES.find(s => s.slug === pathParts[1]);
         if (study) {
-          title = `${study.title.split('–')[0]} | SEO Case Study | Ritehly Quimbo`;
+          title = study.seoTitle || `${study.title.split('–')[0]} | SEO Case Study | Ritehly Quimbo`;
           description = study.metaDescription || study.description;
         } else {
           is404 = true;
