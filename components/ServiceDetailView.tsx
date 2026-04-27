@@ -5,6 +5,7 @@ import SEO from './SEO';
 import { ServiceContent } from '../types';
 
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface ServiceDetailViewProps {
   service: ServiceContent;
@@ -39,8 +40,8 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
               </h1>
             </div>
             {service.contentBody ? (
-              <div className="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white prose-strong:text-blue-400 prose-ul:list-disc prose-li:text-gray-400">
-                <ReactMarkdown>{service.contentBody}</ReactMarkdown>
+              <div className="prose prose-invert max-w-none prose-p:text-gray-400 prose-headings:text-white prose-strong:text-blue-400 prose-ul:list-disc prose-li:text-gray-400 prose-table:border-collapse prose-th:text-left prose-th:p-4 prose-td:p-4 prose-th:border-b prose-th:border-white/10 prose-td:border-b prose-td:border-white/5">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{service.contentBody}</ReactMarkdown>
               </div>
             ) : (
               <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">

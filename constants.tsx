@@ -253,7 +253,7 @@ We use a data-driven approach to align your content with the four stages of the 
 | **Informational** | "How do I fix..." | Build Authority & Trust |
 | **Navigational** | "Brand Name Login" | Retention & Ease of Access |
 | **Commercial** | "Best software for..." | Influence the Decision |
-| **Transactional** | "Buy [Product] Online" | Capture the Sale |
+| **Transactional** | "Buy [Product] Online" | **Capture the Sale** |
 
 ### What You Get
 * **The Master Keyword Matrix:** A prioritized list of high-opportunity keywords filtered by difficulty, volume, and business value.
