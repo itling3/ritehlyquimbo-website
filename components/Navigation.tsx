@@ -80,11 +80,14 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
           to="/"
           onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
           className="flex items-center gap-2 md:gap-3 group transition-transform active:scale-95"
+          aria-label="Ritehly Quimbo Home"
         >
           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg overflow-hidden border border-blue-500/30 flex-shrink-0 bg-blue-600/20">
             <img 
               src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" 
-              alt="Ritehly Quimbo" 
+              alt="" 
+              width="36"
+              height="36"
               className="w-full h-full object-cover transition-all duration-300 scale-[1.1]"
             />
           </div>
@@ -318,6 +321,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
           <button 
             onClick={closeMobileMenu} 
             className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white"
+            aria-label="Close menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

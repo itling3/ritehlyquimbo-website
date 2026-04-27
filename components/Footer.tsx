@@ -29,11 +29,15 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
               <Link 
                 to="/"
                 className="flex items-center gap-3 mb-4 group cursor-pointer"
+                aria-label="Ritehly Quimbo Home"
               >
                 <div className="w-10 h-10 rounded-lg overflow-hidden border border-blue-500/30 bg-blue-600/20 flex-shrink-0 shadow-lg shadow-blue-500/10">
                   <img 
                     src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" 
-                    alt="Ritehly Quimbo" 
+                    alt="" 
+                    width="40"
+                    height="40"
+                    loading="lazy"
                     className="w-full h-full object-cover scale-[1.1]"
                   />
                 </div>
@@ -143,11 +147,11 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold text-gray-600">
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold text-gray-500">
           <div>&copy; {new Date().getFullYear()} Ritehly Quimbo. All rights reserved.</div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

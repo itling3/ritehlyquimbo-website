@@ -1,5 +1,6 @@
 
 import express from 'express';
+import compression from 'compression';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs/promises';
@@ -17,6 +18,8 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  app.use(compression());
+
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {
     vite = await createViteServer({
@@ -26,7 +29,18 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath, { index: false }));
+    // Static assets with long-term caching
+    app.use(express.static(distPath, { 
+      index: false,
+      maxAge: '1y',
+      immutable: true,
+      setHeaders: (res, path) => {
+        if (path.endsWith('.html')) {
+          // Don't cache HTML files
+          res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+        }
+      }
+    }));
   }
 
   // Define valid routes to distinguish from real 404s

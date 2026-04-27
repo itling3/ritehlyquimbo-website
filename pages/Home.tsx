@@ -132,6 +132,9 @@ const Home: React.FC<HomeProps> = ({
                     <img 
                       src={cert.url} 
                       alt={cert.title} 
+                      width="400"
+                      height="300"
+                      loading="lazy"
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.02] group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
@@ -224,6 +227,9 @@ const Home: React.FC<HomeProps> = ({
                   <img 
                     src={tool.url} 
                     alt={tool.name} 
+                    width="28"
+                    height="28"
+                    loading="lazy"
                     className="h-7 w-auto object-contain"
                   />
                   <span className="tool-label">{tool.name}</span>

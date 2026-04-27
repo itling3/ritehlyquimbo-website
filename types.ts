@@ -18,6 +18,7 @@ export interface CaseStudy {
   strategy?: string;
   outcome?: string;
   keyActionPoints?: string[];
+  permalink?: string;
 }
 
 export interface AuditResult {
@@ -49,4 +50,5 @@ export interface ServiceContent {
   features: string[];
   faqs?: { question: string; answer: string }[];
   pricingId?: string;
+  permalink?: string;
 }
