@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
 import Navigation from './components/Navigation';
+import Breadcrumbs from './components/Breadcrumbs';
 import Hero from './components/Hero';
 import WhyChooseMe from './components/WhyChooseMe';
 import HowItWorks from './components/HowItWorks';
@@ -144,6 +145,7 @@ const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Navigation onNavigate={handleNavigate} onBook={handleBookConsultation} />
+      <Breadcrumbs />
       
       <Routes>
         <Route path="/" element={

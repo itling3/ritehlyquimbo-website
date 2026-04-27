@@ -71,7 +71,7 @@ const SEMPricingView: React.FC<SEMPricingViewProps> = ({ onBack, onBook }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] pt-32 pb-20 px-4 md:px-6">
+    <div className="min-h-screen bg-[#030712] pt-4 md:pt-6 pb-20 px-4 md:px-6">
       <SEO 
         title="Google Ads Pricing | Immediate Demand Capture | Ritehly Quimbo" 
         description="Accelerate your growth with precision managed Google Ads. View our ROI-focused PPC management pricing and immediate demand capture strategies." 

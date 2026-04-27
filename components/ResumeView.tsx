@@ -14,7 +14,7 @@ const ResumeView: React.FC<ResumeViewProps> = ({ onBack }) => {
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${resumeId}`;
 
   return (
-    <div className="min-h-screen bg-[#030712] pt-24 pb-20 px-6">
+    <div className="min-h-screen bg-[#030712] pt-4 md:pt-6 pb-20 px-6">
       <SEO 
         title="SEO Specialist Resume | Growth Engineer Track Record | Ritehly Quimbo" 
         description="View the professional trajectory and technical mastery of Ritehly Quimbo, a top-tier SEO specialist and growth marketing engineer." 

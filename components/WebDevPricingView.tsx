@@ -73,7 +73,7 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] pt-24 pb-32 px-6">
+    <div className="min-h-screen bg-[#030712] pt-4 md:pt-6 pb-32 px-6">
       <SEO 
         title="WordPress & Elementor Pricing | SEO-Ready Web Engines | Ritehly Quimbo" 
         description="High-performance, secure, and SEO-optimized WordPress web builds using Elementor. See our web development pricing packages for growth-ready sites." 

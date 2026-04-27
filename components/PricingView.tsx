@@ -74,7 +74,7 @@ const PricingView: React.FC<PricingViewProps> = ({ onBack, onBook, onForm }) => 
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] pt-24 pb-32 px-6">
+    <div className="min-h-screen bg-[#030712] pt-4 md:pt-6 pb-32 px-6">
       <SEO 
         title="SEO Pricing Blueprints | Scalable ROI Strategies | Ritehly Quimbo" 
         description="Transparent SEO pricing for any business size. Choose from Local Growth, Multi-Location, or Enterprise Programmatic blueprints with Ritehly Quimbo." 

@@ -36,7 +36,7 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] pt-24 md:pt-32 pb-24 px-4 md:px-6 animate-in fade-in duration-500">
+    <div className="min-h-screen bg-[#030712] pt-4 md:pt-6 pb-24 px-4 md:px-6 animate-in fade-in duration-500">
       <SEO 
         title="SEO & Marketing Capabilities Map | Elite Growth Strategy" 
         description="Explore the complete SEO and growth marketing capabilities of Ritehly Quimbo. From search strategy to market domination and automated ops. We build systems for predictable revenue." 
