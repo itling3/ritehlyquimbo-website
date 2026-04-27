@@ -21,9 +21,10 @@ async function startServer() {
   const PORT = 3000;
 
   // Track if server is actually handling requests
-  app.use((req, res, next) => {
+  app.use(async (req, res, next) => {
     if (req.url === '/api/seo-health') return next();
-    console.log(`[REQUEST] ${req.method} ${req.url}`);
+    const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
+    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
     next();
   });
 
@@ -94,13 +95,13 @@ async function startServer() {
       const matchedService = allServices.find(s => {
         const p = s.permalink.toLowerCase();
         const sl = `/services/${s.slug.toLowerCase()}`;
-        return cleanPath === p || cleanPath === sl;
+        return cleanPath === p || cleanPath === sl || cleanPath.endsWith(s.slug.toLowerCase());
       });
       
       const matchedCaseStudy = CASE_STUDIES.find(s => {
         const p = s.permalink.toLowerCase();
         const sl = `/portfolio/${s.slug.toLowerCase()}`;
-        return cleanPath === p || cleanPath === sl;
+        return cleanPath === p || cleanPath === sl || cleanPath.endsWith(s.slug.toLowerCase());
       });
 
       // FORCED PRIORITY OVERRIDE
@@ -162,29 +163,16 @@ async function startServer() {
 
       let html = template;
       
-      // Aggressive replacement using functions to avoid any $ interpolation issues
       const finalTitle = title.trim();
       const finalDesc = description.trim();
 
-      if (/<title[^>]*>[\s\S]*?<\/title>/i.test(html)) {
-        html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/i, () => `<title>${finalTitle}</title>`);
-      } else {
-        html = html.replace('<head>', () => `<head><title>${finalTitle}</title>`);
-      }
-
-      if (/<meta[^>]*?name=["']description["'][^>]*?>/i.test(html)) {
-        html = html.replace(/<meta[^>]*?name=["']description["'][^>]*?>/i, () => `<meta name="description" content="${finalDesc}">`);
-      } else if (/<meta[^>]*?content=["'][\s\S]*?["'][^>]*?name=["']description["'][^>]*?>/i.test(html)) {
-        html = html.replace(/<meta[^>]*?content=["'][\s\S]*?["'][^>]*?name=["']description["'][^>]*?>/i, () => `<meta name="description" content="${finalDesc}">`);
-      } else {
-        html = html.replace('<head>', () => `<head><meta name="description" content="${finalDesc}">`);
-      }
-
-      // TOTAL FAILSAFE: If the homepage description still exists, stomp it out.
-      const homeDesc = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
-      if (html.includes(homeDesc)) {
-        html = html.split(homeDesc).join(finalDesc);
-      }
+      // Since we removed defaults from index.html, we inject them fresh into the <head>
+      // We'll inject them right after the <meta charset="UTF-8"> tag for consistency
+      const injectedTags = `
+    <title>${finalTitle}</title>
+    <meta name="description" content="${finalDesc}">`;
+      
+      html = html.replace('<meta charset="UTF-8">', `<meta charset="UTF-8">${injectedTags}`);
 
       const extraMeta = `
     <!-- SSR-INFO: ${cleanPath} | ${matchedService ? 'matched-service' : matchedCaseStudy ? 'matched-case' : 'static-route'} -->
