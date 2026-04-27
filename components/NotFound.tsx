@@ -102,9 +102,7 @@ const NotFound: React.FC = () => {
                 Sorry, the page you are looking for could not be found. It's just an
                 accident that was not intentional.
             </p>
-            <button onClick={() => navigate('/')} className="back-btn">
-              Back to Home
-            </button>
+
         </div>
       </div>
     </>

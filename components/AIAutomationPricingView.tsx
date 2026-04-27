@@ -86,16 +86,6 @@ const AIAutomationPricingView: React.FC<AIAutomationPricingViewProps> = ({ onBac
         keywords="ai automation pricing, marketing automation cost, custom ai agents, n8n workflows, business automation scale, ai efficiency"
       />
       <div className="max-w-7xl mx-auto">
-        <motion.button 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          onClick={onBack}
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12 group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span className="text-xs font-black uppercase tracking-widest italic">Return to home</span>
-        </motion.button>
-
         <div className="text-center mb-20">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}

@@ -81,15 +81,7 @@ const PricingView: React.FC<PricingViewProps> = ({ onBack, onBook, onForm }) => 
         keywords="seo pricing, seo packages, affordable seo services, local seo cost, enterprise seo price, monthly seo retainer, digital marketing rates"
       />
       <div className="max-w-7xl mx-auto">
-        <motion.button 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          onClick={onBack}
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12 group"
-        >
-          <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-black uppercase tracking-widest text-xs italic">Back to Home</span>
-        </motion.button>
+
 
         <div className="text-center mb-20">
           <motion.h1 

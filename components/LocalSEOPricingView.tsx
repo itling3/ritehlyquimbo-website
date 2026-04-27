@@ -81,14 +81,6 @@ const LocalSEOPricingView: React.FC<LocalSEOPricingViewProps> = ({ onBack, onBoo
         keywords="local seo pricing, gmb optimization cost, local map pack services, neighborhood rankings, affordable seo philippines, city targeting"
       />
       <div className="max-w-7xl mx-auto">
-        <button 
-          onClick={onBack}
-          className="flex items-center gap-2 text-gray-500 hover:text-white transition-colors mb-12 group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span className="text-xs font-black uppercase tracking-widest italic">Return to growth</span>
-        </button>
-
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter mb-6 leading-none">
             Local SEO <span className="text-blue-500">Pricing</span> Tiers

@@ -44,13 +44,7 @@ const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({ onBack, onCaseStu
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6 md:gap-8">
           <div>
-            <Link 
-              to="/"
-              className="group mb-4 md:mb-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="transition-transform group-hover:-translate-x-1">←</span> 
-              Back to Home
-            </Link>
+
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4">
               PROVEN <br className="md:hidden" />
               <span className="text-purple-500">RESULTS</span>

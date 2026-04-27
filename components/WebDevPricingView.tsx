@@ -80,16 +80,6 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
         keywords="wordpress development pricing, elementor web design cost, seo friendly websites, fast loading wordpress, high performance web engines"
       />
       <div className="max-w-7xl mx-auto">
-        <motion.button 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          onClick={onBack}
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12 group"
-        >
-          <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-black uppercase tracking-widest text-xs italic">Back to Home</span>
-        </motion.button>
-
         <div className="text-center mb-20 text-balance">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -266,12 +256,6 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
                 title="Google Form"
               >
                 Submit Request Form
-              </button>
-              <button 
-                onClick={onBack}
-                className="px-8 py-5 bg-white/5 hover:bg-white/10 text-white font-black rounded-2xl border border-white/10 uppercase tracking-widest text-xs italic transition-all"
-              >
-                Back To Services
               </button>
             </div>
           </div>

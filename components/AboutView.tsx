@@ -90,15 +90,7 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end px-6 pb-12">
-          <motion.button 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={onBack}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 group w-fit"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-xs font-black uppercase tracking-widest italic">Return to home</span>
-          </motion.button>
+
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}

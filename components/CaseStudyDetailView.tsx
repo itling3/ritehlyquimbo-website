@@ -22,14 +22,6 @@ const CaseStudyDetailView: React.FC<CaseStudyDetailViewProps> = ({ study, onBack
         keywords={study.keywords}
       />
       <div className="max-w-5xl mx-auto relative z-10">
-        <Link 
-          to="/portfolio"
-          className="group mb-8 md:mb-12 flex items-center gap-2 text-[10px] md:text-xs font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
-        >
-          <span className="transition-transform group-hover:-translate-x-1">←</span> 
-          Back to Portfolio
-        </Link>
-
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16 md:mb-24">
           <div>
             <div className={`inline-flex items-center gap-2 text-[10px] font-black ${isGscVerified ? 'bg-purple-600/20 text-purple-400 border-purple-500/20' : 'bg-blue-600/20 text-blue-400 border-blue-500/20'} px-3 py-1 rounded-full uppercase tracking-widest mb-6 italic border`}>
