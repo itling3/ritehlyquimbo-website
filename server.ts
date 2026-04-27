@@ -15,8 +15,21 @@ const __dirname = path.dirname(__filename);
 import { SERVICE_DETAILS, CASE_STUDIES } from './constants';
 
 async function startServer() {
+  console.log('--- SERVER STARTING ---');
+  await fs.writeFile(path.join(process.cwd(), 'server-boot-log.txt'), `Boot at ${new Date().toISOString()}\n`).catch(() => {});
   const app = express();
   const PORT = 3000;
+
+  // Track if server is actually handling requests
+  app.use((req, res, next) => {
+    if (req.url === '/api/seo-health') return next();
+    console.log(`[REQUEST] ${req.method} ${req.url}`);
+    next();
+  });
+
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ status: 'ok', time: new Date().toISOString() });
+  });
 
   app.use(compression());
 
@@ -26,41 +39,32 @@ async function startServer() {
       server: { middlewareMode: true },
       appType: 'custom',
     });
-    app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    // Static assets with long-term caching
-    app.use(express.static(distPath, { 
-      index: false,
-      maxAge: '1y',
-      immutable: true,
-      setHeaders: (res, path) => {
-        if (path.endsWith('.html')) {
-          // Don't cache HTML files
-          res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
-        }
-      }
-    }));
+    app.use(express.static(distPath, { index: false }));
   }
 
-  // Define valid routes to distinguish from real 404s
-  const validStaticRoutes = ['/', '/about', '/contact', '/resume', '/services', '/portfolio', '/pricing'];
-  const pricingSubRoutes = ['/pricing/local-seo-strategy', '/pricing/ai-automation-plans', '/pricing/google-ads-sem', '/pricing/web-dev-packages'];
-  
   app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
-    // Check if it's an asset or dynamic route
-    if (url.includes('.') && !url.includes('.html')) return next();
+    // Pass assets to Vite or static middleware
+    if (url.includes('.') && !url.endsWith('.html')) {
+      if (vite) return vite.middlewares(req, res, next);
+      return next();
+    }
 
     try {
       let template: string;
       if (process.env.NODE_ENV !== 'production') {
-        template = await fs.readFile(path.resolve(__dirname, 'index.html'), 'utf-8');
+        const tPath = path.resolve(__dirname, 'index.html');
+        console.log(`[SEO] Reading dev template from: ${tPath}`);
+        template = await fs.readFile(tPath, 'utf-8');
         template = await vite.transformIndexHtml(url, template);
       } else {
-        template = await fs.readFile(path.join(process.cwd(), 'dist/index.html'), 'utf-8');
+        const tPath = path.join(process.cwd(), 'dist/index.html');
+        console.log(`[SEO] Reading prod template from: ${tPath}`);
+        template = await fs.readFile(tPath, 'utf-8');
       }
 
       // Default Meta
@@ -74,11 +78,13 @@ async function startServer() {
       if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
         cleanPath = cleanPath.slice(0, -1);
       }
-      if (cleanPath === '') cleanPath = '/';
+      if (cleanPath === '' || cleanPath === undefined) cleanPath = '/';
 
       const pathParts = cleanPath.split('/').filter(Boolean);
+      await fs.appendFile(path.join(process.cwd(), 'seo-analysis.txt'), `[ANALYSIS] ${new Date().toISOString()} | Path: ${cleanPath} | Parts: ${JSON.stringify(pathParts)}\n`).catch(() => {});
       
-      console.log(`[SEO] Request path: ${cleanPath} (Original: ${url})`);
+      const logEntry = `[${new Date().toISOString()}] Path: ${cleanPath} | URL: ${url}\n`;
+      await fs.appendFile(path.join(process.cwd(), 'seo-logs.txt'), logEntry).catch(() => {});
 
       // Routing Logic for Meta Tags
       // Normalize to handle home page and various path formats
@@ -195,31 +201,29 @@ async function startServer() {
       }
 
       // Inject Meta Tags into Template for valid pages
-      // Use more robust regex to handle variations in index.html and vite transforms
       let html = template;
       
-      const titleRegex = /<title[^>]*>[\s\S]*?<\/title>/i;
-      const descRegex = /<meta[^>]*?name=["']description["'][^>]*?>/i;
+      // Extremely aggressive replacement
+      const newTitle = `<title>${title}</title>`;
+      const newMetaDesc = `<meta name="description" content="${description}">`;
 
-      if (titleRegex.test(html)) {
-        html = html.replace(titleRegex, `<title>${title}</title>`);
+      // Try title replacement
+      if (html.includes('<title>')) {
+        html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/i, newTitle);
       } else {
-        console.warn('[SEO] Could not find <title> tag in template');
-        // If not found, inject at the start of head
-        html = html.replace(/<head[^>]*>/i, `$&<title>${title}</title>`);
+        html = html.replace('<head>', `<head>${newTitle}`);
       }
 
-      if (descRegex.test(html)) {
-        html = html.replace(descRegex, `<meta name="description" content="${description}">`);
+      // Try description replacement
+      if (html.includes('name="description"')) {
+        html = html.replace(/<meta[^>]*?name=["']description["'][^>]*?>/i, newMetaDesc);
       } else {
-        console.warn('[SEO] Could not find meta description tag in template');
-        // If not found, inject at the start of head
-        html = html.replace(/<head[^>]*>/i, `$&<meta name="description" content="${description}">`);
+        html = html.replace('<head>', `<head>${newMetaDesc}`);
       }
 
       // Inject extra meta tags before </head>
       const extraMeta = `
-    <meta name="ssr-marker" content="v3-applied">
+    <meta name="ssr-applied" content="${new Date().toISOString()}">
     <meta name="keywords" content="${keywords}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
@@ -227,12 +231,9 @@ async function startServer() {
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:description" content="${description}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
+    <script id="ssr-log">console.log("SSR Applied for: " + window.location.pathname);</script>
 `;
-      if (html.includes('</head>')) {
-        html = html.replace(/<\/head>/i, `${extraMeta}</head>`);
-      } else {
-        html = html.replace('</head>', `${extraMeta}</head>`); // Fallback
-      }
+      html = html.replace('</head>', `${extraMeta}</head>`);
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e) {
