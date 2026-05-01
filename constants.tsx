@@ -215,7 +215,8 @@ export const SERVICES = [
   { id: 'ai-automation', title: 'AI Automation Specialist', description: 'Expert implementation of custom AI workflows and agents to scale business operations and content production.', icon: '🤖' },
   { id: 'lead-generation', title: 'B2B Lead Generation', description: 'Strategic prospecting and automated outreach systems to build a predictable sales pipeline.', icon: '🎯' },
   { id: 'virtual-assistance', title: 'Operational Support', description: 'High-level operational and technical support to streamline your business workflows and scale capacity.', icon: '💼' },
-  { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' }
+  { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' },
+  { id: 'seo-cebu', title: 'SEO Cebu', description: 'Hyper-local dominance strategies to capture the high-intent market in the Queen City of the South.', icon: '🏝️' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -569,6 +570,57 @@ Don't throw darts in the dark. Let’s build a search strategy that actually mov
       { question: 'Will a new website really pay for itself in terms of growth?', answer: 'Your website is your only "24/7 Salesperson"; if it\'s failing to convert, you are burning your entire marketing budget. A high-performance, SEO-first site is an investment that compounds over time by gathering more leads and higher rankings every single month. It\'s the single most important foundation for your total digital success.' }
     ],
     pricingId: 'web-dev-pricing'
+  },
+  'seo-cebu': {
+    id: 'seo-cebu',
+    slug: 'seo-cebu',
+    permalink: '/seo-cebu',
+    title: 'SEO Cebu',
+    titleH1: 'Cebu SEO Services for Small Business',
+    icon: '🏝️',
+    description: 'Get Found by the Right Customers in Cebu. SEO Cebu services that help businesses rank higher, attract qualified traffic, and turn searchers into paying customers.',
+    seoTitle: 'Cebu SEO Services for Small Business | Rank #1 in Cebu City',
+    metaDescription: 'Boost your local visibility with expert SEO services in Cebu. We help small businesses in Cebu City, Mandaue, and Lapu-Lapu rank higher and attract more high-intent customers.',
+    keywords: 'seo cebu, cebu seo services, seo specialist cebu city, digital marketing cebu, local seo cebu, cebu seo agency',
+    painPoint: 'Cebu is booming, but your business is invisible in the local search results. You\'re losing customers to competitors who rank higher on Google Maps.',
+    problem: 'Local competition in Cebu City, Mandaue, and Lapu-Lapu is fierce. Without proximity-based optimization and localized authority, your business stays buried under national brands and older competitors.',
+    solution: 'A hyper-local Cebu SEO dominance strategy. We optimize your Google Business Profile for the Cebu market, build local citations, and create content that speaks to the Cebuano audience.',
+    importance: 'Cebu is the economic heart of the Visayas. Ranking for "near me" and specific Cebu-targeted keywords is the most direct way to capture high-intent local traffic and grow your revenue.',
+    features: ['Hyper-Local Keyword Targeting', 'Cebu Google Maps Dominance', 'Local Citation & NAP Cleanup', 'Geo-Targeted Content Silos'],
+    contentBody: `Rank #1 in the Queen City of the South.
+Get Found by the Right Customers in Cebu with ROI-Focused SEO.
+
+Whether you run a local business in **Cebu City**, a service company in **Mandaue**, an ecommerce brand, or a growing startup in **IT Park**, your customers are searching for you online right now. If you aren't on the first page, you don't exist.
+
+### Why Your Cebu Business Needs a Local SEO Specialist
+
+Cebu is a unique economic landscape. From the bustling commerce in **Colon** to the high-tech hubs of **Cebu IT Park** and **Business Park**, to the industrial powerhouses in **Mandaue** and tourism in **Lapu-Lapu**, your SEO needs to be as dynamic as the city itself.
+
+*   **Hyper-Local Relevance:** We don't just target Philippines keywords. We target the neighborhoods that matter to your bottom line.
+*   **Mobile-First for Cebuanos:** Most searches in Cebu happen on the go. We ensure your site is lightning-fast and mobile-optimized.
+*   **Google Maps Dominance:** We optimize your Google Business Profile (GBP) so you appear in the "Local 3-Pack" for high-intent searches.
+
+### Our Cebu SEO Dominance Framework
+
+1.  **Cebu-Specific Keyword Research:** We identify the exact terms Cebuanos use to find your services, including localized dialect nuances and landmark-based searches.
+2.  **Google Maps Optimization:** We turn your Map listing into a lead-generation machine with optimized descriptions, regular updates, and a proactive review strategy.
+3.  **Local Authority Moat:** We build links from local Cebuano directories and industry-specific sites to prove your local prominence to Google.
+4.  **Conversion Optimization:** We don't just drive traffic; we ensure your website is built to convert Cebuano visitors into paying clients.
+
+### Dominate the Cebu Market Today
+
+Don't let your competitors take the lead in one of the world's fastest-growing regions. Let’s build an unshakeable search presence that targets the heart of Cebu's economy.
+
+> "The best time to start SEO was yesterday. The second best time is now."
+
+**[ Get Your Free Cebu SEO Audit ]**
+`,
+    faqs: [
+      { question: 'Why is my Cebu business not appearing on Google Maps?', answer: 'Proximity and local relevance are key. If your address isn\'t verified or your categories are wrong, Google won\'t show you. We fix your local footprint so you show up where your customers are.' },
+      { question: 'How long does it take to rank for "SEO Cebu"?', answer: 'Local rankings in Cebu can often be seen in 2-4 months. It depends on the competition in your specific niche and your current site health.' },
+      { question: 'Do you provide SEO services for businesses in Lapu-Lapu and Mandaue?', answer: 'Yes! Our strategies cover the entire Metro Cebu area, including Mandaue City, Lapu-Lapu, Talisay, and even the growing northern and southern municipalities.' },
+      { question: 'Can you help my resort in Mactan get more international bookings?', answer: 'Absolutely. We combine local "Mactan" targeting with broader "Cebu Resort" and "Philippines Travel" SEO to capture both local and global tourist intent.' }
+    ]
   },
   'topical-maps': {
     id: 'topical-maps',

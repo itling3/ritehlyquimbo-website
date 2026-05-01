@@ -183,7 +183,7 @@ const PricingView: React.FC<PricingViewProps> = ({ onBack, onBook, onForm }) => 
               >
                 <div className="flex items-center gap-4 mb-4 text-gray-400 group-hover:text-blue-500 transition-colors">
                   <div className="bg-white/5 p-2 rounded-lg border border-white/5">
-                    {React.cloneElement(addon.icon as React.ReactElement, { className: "w-5 h-5 cursor-default" })}
+                    {addon.icon && React.isValidElement(addon.icon) ? React.cloneElement(addon.icon as React.ReactElement<any>, { className: "w-5 h-5 cursor-default" }) : null}
                   </div>
                   <h3 className="font-black text-white text-xs uppercase italic tracking-tight">{addon.title}</h3>
                 </div>

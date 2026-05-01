@@ -217,7 +217,7 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
               >
                 <div className="mb-6 flex items-center justify-between">
                   <div className="p-3 bg-white/5 rounded-2xl border border-white/10 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 transition-all text-gray-400 group-hover:text-blue-500">
-                    {React.cloneElement(service.icon as React.ReactElement, { className: "w-6 h-6" })}
+                    {service.icon && React.isValidElement(service.icon) ? React.cloneElement(service.icon as React.ReactElement<any>, { className: "w-6 h-6" }) : null}
                   </div>
                   <div className="text-right">
                     <div className="text-blue-500 font-black uppercase tracking-widest text-[10px] italic">Standalone Fix</div>

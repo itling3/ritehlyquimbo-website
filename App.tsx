@@ -182,6 +182,7 @@ const AppContent: React.FC = () => {
         <Route path="/pricing/google-ads-sem" element={<PricingSEMPage onBook={handleBookConsultation} />} />
         
         <Route path="/pricing/web-dev-packages" element={<PricingWebDevPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
+        <Route path="/seo-cebu" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-cebu" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
@@ -191,9 +192,10 @@ const AppContent: React.FC = () => {
   );
 };
 
-const ServiceSlugWrapper: React.FC<{ navigate: any, handleBook: any, handleNavigate: any }> = ({ navigate, handleBook, handleNavigate }) => {
+const ServiceSlugWrapper: React.FC<{ navigate: any, handleBook: any, handleNavigate: any, slugOverride?: string }> = ({ navigate, handleBook, handleNavigate, slugOverride }) => {
   const { slug } = useParams();
-  const service = Object.values(SERVICE_DETAILS).find(s => s.slug === slug);
+  const currentSlug = slugOverride || slug;
+  const service = Object.values(SERVICE_DETAILS).find(s => s.slug === currentSlug);
   
   if (!service) return <NotFound />;
 
