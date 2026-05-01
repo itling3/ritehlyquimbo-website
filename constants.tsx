@@ -589,34 +589,129 @@ Don't throw darts in the dark. Let’s build a search strategy that actually mov
     features: ['Hyper-Local Keyword Targeting', 'Cebu Google Maps Dominance', 'Local Citation & NAP Cleanup', 'Geo-Targeted Content Silos'],
     landmarkImage: 'https://lh3.googleusercontent.com/gpms-cs-s/ABJJf52m8rcccRHVL6383PrLnUsfmlkATq1CzJf7Jny7yieHnDnzkzm_zatdrAlWGpCgcwVW9sYPhk4sjlv1az0gioZYIEmaEs-jAz9BMcdXPaY0iHzCpz8NhO_3-gQxJaiT_YqEa10Z=s680-w680-h510-rw',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125586.32273837285!2d123.76589178092061!3d10.37601886449907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x4c34030cdbd33507!2sCebu%20City%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777618502352!5m2!1sen!2sph',
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Cebu SEO Services",
-      "description": "Professional local SEO services in Cebu City, Philippines. Rank higher on Google Maps and search results.",
-      "provider": {
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://ritehlyquimbo.com/#local-business",
+        "name": "Cebu SEO Services - Ritehly Quimbo",
+        "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
+        "description": "Expert Local SEO services in Cebu City, Mandaue, and Lapu-Lapu. We specialize in Google Business Profile optimization, hyper-local keyword targeting, and ROI-focused search strategies for Cebuano businesses.",
+        "url": "https://ritehlyquimbo.com/seo-cebu/",
+        "telephone": "+639611525318",
+        "email": "Ritehlyquimbo@gmail.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cebu City",
+          "addressRegion": "Cebu",
+          "addressCountry": "PH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 10.3157,
+          "longitude": 123.8854
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Cebu City" },
+          { "@type": "City", "name": "Mandaue City" },
+          { "@type": "City", "name": "Lapu-Lapu City" },
+          { "@type": "City", "name": "Talisay City" },
+          { "@type": "Place", "name": "Cebu IT Park" },
+          { "@type": "Place", "name": "Cebu Business Park" }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/ritehlyquimbo"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://ritehlyquimbo.com/#organization",
+        "name": "Ritehly Quimbo SEO",
+        "url": "https://ritehlyquimbo.com/",
+        "logo": "https://ritehlyquimbo.com/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+639611525318",
+          "contactType": "sales",
+          "areaServed": "PH",
+          "availableLanguage": ["English", "Cebuano"]
+        }
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://ritehlyquimbo.com/#person",
         "name": "Ritehly Quimbo",
-        "url": "https://ritehlyquimbo.com"
+        "jobTitle": "Local SEO Specialist & Precision Search Engineer",
+        "description": "A seasoned SEO specialist with over 30 years of experience in Local SEO, technical on-page optimization, and AI automation.",
+        "url": "https://ritehlyquimbo.com/about/",
+        "knowsAbout": ["Local SEO", "Technical SEO", "Google Business Profile", "Programmatic SEO", "AI Automation"]
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Cebu City"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "SEO Services",
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
         "itemListElement": [
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Local SEO"
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ritehlyquimbo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "SEO Services",
+            "item": "https://ritehlyquimbo.com/services/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cebu SEO",
+            "item": "https://ritehlyquimbo.com/seo-cebu/"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is my Cebu business not appearing on Google Maps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Proximity and local relevance are key. If your address isn't verified or your categories are wrong, Google won't show you. We fix your local footprint so you show up where your customers are."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take to rank for 'SEO Cebu'?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Local rankings in Cebu can often be seen in 2-4 months. It depends on the competition in your specific niche and your current site health."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide SEO services for businesses in Lapu-Lapu and Mandaue?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our strategies cover the entire Metro Cebu area, including Mandaue City, Lapu-Lapu City, Talisay, and even the growing northern and southern municipalities."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you help my resort in Mactan get more international bookings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. We combine local 'Mactan' targeting with broader 'Cebu Resort' and 'Philippines Travel' SEO to capture both local and global tourist intent."
             }
           }
         ]
       }
-    },
+    ],
     contentBody: `Rank #1 in the Queen City of the South.
 Get Found by the Right Customers in Cebu with ROI-Focused SEO.
 
