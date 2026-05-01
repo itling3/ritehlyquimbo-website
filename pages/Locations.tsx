@@ -63,7 +63,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
 
               <div className="flex flex-col gap-3">
                 <Link 
-                  to="/seo-cebu"
+                  to="/locations/seo-cebu"
                   className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
                 >
                   View Cebu Strategy →

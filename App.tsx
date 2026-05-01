@@ -188,7 +188,7 @@ const AppContent: React.FC = () => {
         
         <Route path="/pricing/web-dev-packages" element={<PricingWebDevPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
         <Route path="/locations" element={<LocationsPage onBook={handleBookConsultation} />} />
-        <Route path="/seo-cebu" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-cebu" />} />
+        <Route path="/locations/seo-cebu" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-cebu" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

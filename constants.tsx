@@ -573,7 +573,7 @@ Don't throw darts in the dark. Let’s build a search strategy that actually mov
   'seo-cebu': {
     id: 'seo-cebu',
     slug: 'seo-cebu',
-    permalink: '/seo-cebu',
+    permalink: '/locations/seo-cebu',
     title: 'SEO Cebu',
     titleH1: 'Cebu SEO Services for Small Business',
     icon: '🏝️',
@@ -596,7 +596,7 @@ Don't throw darts in the dark. Let’s build a search strategy that actually mov
         "name": "Cebu SEO Services - Ritehly Quimbo",
         "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
         "description": "Expert Local SEO services in Cebu City, Mandaue, and Lapu-Lapu. We specialize in Google Business Profile optimization, hyper-local keyword targeting, and ROI-focused search strategies for Cebuano businesses.",
-        "url": "https://ritehlyquimbo.com/seo-cebu/",
+        "url": "https://ritehlyquimbo.com/locations/seo-cebu/",
         "telephone": "+639611525318",
         "email": "Ritehlyquimbo@gmail.com",
         "priceRange": "$$",
@@ -668,7 +668,7 @@ Don't throw darts in the dark. Let’s build a search strategy that actually mov
             "@type": "ListItem",
             "position": 3,
             "name": "Cebu SEO",
-            "item": "https://ritehlyquimbo.com/seo-cebu/"
+            "item": "https://ritehlyquimbo.com/locations/seo-cebu/"
           }
         ]
       },
