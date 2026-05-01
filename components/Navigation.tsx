@@ -129,7 +129,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 <div className="relative z-10 grid grid-cols-3 gap-10 w-full">
                   {serviceCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-6">
-                      <h4 className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic`}>{cat.title}</h4>
+                      <span className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic block`}>{cat.title}</span>
                       <div className="space-y-2">
                         {cat.services.map((s) => (
                           <Link 
@@ -185,7 +185,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 <div className="relative z-10 grid grid-cols-3 gap-10 w-full">
                   {portfolioCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-6">
-                      <h4 className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic`}>{cat.title}</h4>
+                      <span className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic block`}>{cat.title}</span>
                       <div className="space-y-2">
                         {cat.studies.map((s) => (
                           <Link 
@@ -340,7 +340,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 className="w-full flex items-center justify-between p-6 text-left"
               >
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Full-Stack Services</h3>
+                  <span className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Full-Stack Services</span>
                   <span className="text-[9px] text-blue-500 font-bold uppercase tracking-widest">12 Specialized Growth Solutions</span>
                 </div>
                 <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-blue-500 transition-transform duration-300 ${mobileExpanded === 'services' ? 'rotate-180' : ''}`}>
@@ -391,7 +391,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 className="w-full flex items-center justify-between p-6 text-left"
               >
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Growth Portfolio</h3>
+                  <span className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Growth Portfolio</span>
                   <span className="text-[9px] text-purple-500 font-bold uppercase tracking-widest">Verified Case Studies</span>
                 </div>
                 <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-purple-500 transition-transform duration-300 ${mobileExpanded === 'portfolio' ? 'rotate-180' : ''}`}>
@@ -450,7 +450,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 className="w-full flex items-center justify-between p-6 text-left"
               >
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Pricing Plans</h3>
+                  <span className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Pricing Plans</span>
                   <span className="text-[9px] text-blue-500 font-bold uppercase tracking-widest">SEO & Web Development Blueprints</span>
                 </div>
                 <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-blue-500 transition-transform duration-300 ${mobileExpanded === 'pricing' ? 'rotate-180' : ''}`}>
