@@ -15,15 +15,16 @@ body {
 }
 
 .glass-morphism {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .gradient-text {
     background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    will-change: transform;
 }
 
 /* Marquee Styles */
@@ -38,12 +39,14 @@ body {
     white-space: nowrap;
     position: relative;
     width: 100%;
+    contain: paint;
 }
 
 .marquee-content {
     display: flex;
     animation: marquee 30s linear infinite;
     width: max-content;
+    will-change: transform;
 }
 
 /* Review Marquee Specifics */

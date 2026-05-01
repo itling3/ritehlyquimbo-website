@@ -84,11 +84,12 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         >
           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg overflow-hidden border border-blue-500/30 flex-shrink-0 bg-blue-600/20">
             <img 
-              src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" 
-              alt="" 
+              src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w80-rw" 
+              alt="Ritehly Quimbo Portfolio" 
               width="36"
               height="36"
               className="w-full h-full object-cover transition-all duration-300 scale-[1.1]"
+              loading="lazy"
             />
           </div>
           <span className="text-lg md:text-xl font-bold tracking-tight uppercase text-white">RITEHLY<span className="text-blue-500">QUIMBO</span></span>
@@ -294,7 +295,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         <button 
           className="lg:hidden text-gray-400 hover:text-white transition-colors p-4 -mr-4 flex flex-col items-center justify-center gap-1.5"
           onClick={() => setIsMobileMenuOpen(true)}
-          aria-label="Open menu"
+          aria-label="Open navigation menu"
+          aria-expanded={isMobileMenuOpen}
         >
           <span className="w-6 h-0.5 bg-current rounded-full"></span>
           <span className="w-6 h-0.5 bg-current rounded-full"></span>
@@ -337,6 +339,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               <button 
                 onClick={() => toggleMobileSubmenu('services')}
                 className="w-full flex items-center justify-between p-6 text-left"
+                aria-expanded={mobileExpanded === 'services'}
+                aria-controls="mobile-services-menu"
               >
                 <div className="flex flex-col gap-1">
                   <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Full-Stack Services</h3>
@@ -349,7 +353,10 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 </div>
               </button>
               
-              <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'services' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <div 
+                id="mobile-services-menu"
+                className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'services' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
+              >
                 <div className="px-6 pb-6 pt-2 space-y-8">
                   {serviceCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-4">

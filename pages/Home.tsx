@@ -354,9 +354,9 @@ const Home: React.FC<HomeProps> = ({
 
         <section className="py-20 bg-black/60 border-y border-white/5 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 mb-12">
-            <h3 className="text-xl font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+            <h2 className="text-xl font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
               <span className="w-8 h-[2px] bg-blue-500"></span> Technical Stack
-            </h3>
+            </h2>
             <p className="text-sm text-gray-500 mt-2">I leverage enterprise-grade data and automation tools to drive precision results.</p>
           </div>
           
