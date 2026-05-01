@@ -84,13 +84,11 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         >
           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg overflow-hidden border border-blue-500/30 flex-shrink-0 bg-blue-600/20">
             <img 
-              src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w50-rw" 
-              alt="Ritehly Quimbo Portfolio" 
-              width="25"
-              height="25"
-              decoding="async"
+              src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" 
+              alt="" 
+              width="36"
+              height="36"
               className="w-full h-full object-cover transition-all duration-300 scale-[1.1]"
-              loading="lazy"
             />
           </div>
           <span className="text-lg md:text-xl font-bold tracking-tight uppercase text-white">RITEHLY<span className="text-blue-500">QUIMBO</span></span>
@@ -296,8 +294,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         <button 
           className="lg:hidden text-gray-400 hover:text-white transition-colors p-4 -mr-4 flex flex-col items-center justify-center gap-1.5"
           onClick={() => setIsMobileMenuOpen(true)}
-          aria-label="Open navigation menu"
-          aria-expanded={isMobileMenuOpen}
+          aria-label="Open menu"
         >
           <span className="w-6 h-0.5 bg-current rounded-full"></span>
           <span className="w-6 h-0.5 bg-current rounded-full"></span>
@@ -305,243 +302,240 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         </button>
       </div>
 
-        {/* Mobile Menu Overlay - TRANSLUCENT BACKGROUND */}
-        {isMobileMenuOpen && (
-          <div 
-            className={`lg:hidden fixed inset-0 bg-[#030712] z-[200] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col`}
+      {/* Mobile Menu Overlay - TRANSLUCENT BACKGROUND */}
+      <div 
+        className={`lg:hidden fixed inset-0 bg-[#030712] z-[200] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col ${
+          isMobileMenuOpen 
+            ? 'opacity-100 translate-x-0' 
+            : 'opacity-0 translate-x-full pointer-events-none'
+        }`}
+      >
+        {/* Mobile Header Inside Menu */}
+        <div className="h-[72px] flex items-center justify-between px-6 border-b border-white/10 bg-[#030712] shrink-0">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg overflow-hidden border border-blue-500/30 bg-blue-600/20">
+              <img src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" alt="" className="w-full h-full object-cover" />
+            </div>
+            <span className="text-base font-black uppercase text-white tracking-tighter italic">RITEHLY<span className="text-blue-500">QUIMBO</span></span>
+          </div>
+          <button 
+            onClick={closeMobileMenu} 
+            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white"
+            aria-label="Close menu"
           >
-            {/* Mobile Header Inside Menu */}
-            <div className="h-[72px] flex items-center justify-between px-6 border-b border-white/10 bg-[#030712] shrink-0">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg overflow-hidden border border-blue-500/30 bg-blue-600/20">
-                  <img src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w50-rw" alt="" className="w-full h-full object-cover" />
-                </div>
-                <span className="text-base font-black uppercase text-white tracking-tighter italic">RITEHLY<span className="text-blue-500">QUIMBO</span></span>
-              </div>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto bg-transparent px-6 pt-2 pb-72">
+          
+          <div className="space-y-4">
+            {/* Services Accordion */}
+            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'services' ? 'bg-[#080c18] border-blue-500/30' : 'bg-[#080c18] border-white/5'}`}>
               <button 
-                onClick={closeMobileMenu} 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white"
-                aria-label="Close menu"
+                onClick={() => toggleMobileSubmenu('services')}
+                className="w-full flex items-center justify-between p-6 text-left"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Full-Stack Services</h3>
+                  <span className="text-[9px] text-blue-500 font-bold uppercase tracking-widest">12 Specialized Growth Solutions</span>
+                </div>
+                <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-blue-500 transition-transform duration-300 ${mobileExpanded === 'services' ? 'rotate-180' : ''}`}>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'services' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+                <div className="px-6 pb-6 pt-2 space-y-8">
+                  {serviceCategories.map((cat, idx) => (
+                    <div key={idx} className="space-y-4">
+                      <div className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2`}>
+                        <span className="w-4 h-px bg-current opacity-30"></span>
+                        {cat.title}
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {cat.services.map(s => (
+                          <Link 
+                            key={s.id} 
+                            to={SERVICE_DETAILS[s.id]?.permalink || '/services'}
+                            onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                            className="flex flex-col items-center justify-center gap-2 p-3 bg-[#0f172a] rounded-xl border border-white/10 text-center active:bg-blue-600/20 active:border-blue-500/30 transition-all"
+                          >
+                            <span className="text-2xl bg-white/5 w-10 h-10 flex items-center justify-center rounded-lg overflow-hidden mb-0.5">{s.icon}</span>
+                            <span className="text-white text-[9px] font-black uppercase italic leading-tight">{s.title}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <Link 
+                    to="/services"
+                    onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                    className="w-full py-5 border border-blue-500/30 bg-blue-600/10 rounded-xl text-blue-400 font-black text-[11px] uppercase tracking-widest italic flex items-center justify-center"
+                  >
+                    View Capabilities Map →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Portfolio Accordion */}
+            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'portfolio' ? 'bg-[#080c18] border-purple-500/30' : 'bg-[#080c18] border-white/5'}`}>
+              <button 
+                onClick={() => toggleMobileSubmenu('portfolio')}
+                className="w-full flex items-center justify-between p-6 text-left"
+              >
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Growth Portfolio</h3>
+                  <span className="text-[9px] text-purple-500 font-bold uppercase tracking-widest">Verified Case Studies</span>
+                </div>
+                <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-purple-500 transition-transform duration-300 ${mobileExpanded === 'portfolio' ? 'rotate-180' : ''}`}>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+
+              <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'portfolio' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+                <div className="px-6 pb-6 pt-2 space-y-8">
+                  {portfolioCategories.map((cat, idx) => (
+                    <div key={idx} className="space-y-4">
+                      <div className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2`}>
+                        <span className="w-4 h-px bg-current opacity-30"></span>
+                        {cat.title}
+                      </div>
+                      <div className="space-y-3">
+                        {cat.studies.map(s => (
+                          <Link 
+                            key={s.id} 
+                            to={s.permalink || '/portfolio'}
+                            onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                            className="flex items-center gap-3 w-full p-3 bg-[#0f172a] rounded-xl border border-white/10 text-left active:bg-purple-600/20 active:border-purple-500/30 transition-all"
+                          >
+                            <div className="w-12 h-12 rounded-lg overflow-hidden bg-white/10 border border-white/5 shrink-0">
+                              <img src={s.image} alt="" className="w-full h-full object-cover" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-white text-[11px] font-black uppercase italic tracking-tight truncate border-b border-white/10 pb-0.5 mb-0.5">{s.title.split('–')[0]}</div>
+                              <div className={`text-[9px] font-bold uppercase tracking-wider ${cat.color}`}>{s.results.traffic.split(' ')[0]} Growth</div>
+                            </div>
+                            <svg className="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <Link 
+                    to="/portfolio"
+                    onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                    className="w-full py-5 border border-purple-500/30 bg-purple-600/10 rounded-xl text-purple-400 font-black text-[11px] uppercase tracking-widest italic flex items-center justify-center"
+                  >
+                    View Results Portfolio →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Pricing Accordion */}
+            <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'pricing' ? 'bg-[#080c18] border-blue-500/30' : 'bg-[#080c18] border-white/5'}`}>
+              <button 
+                onClick={() => toggleMobileSubmenu('pricing')}
+                className="w-full flex items-center justify-between p-6 text-left"
+              >
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Pricing Plans</h3>
+                  <span className="text-[9px] text-blue-500 font-bold uppercase tracking-widest">SEO & Web Development Blueprints</span>
+                </div>
+                <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-blue-500 transition-transform duration-300 ${mobileExpanded === 'pricing' ? 'rotate-180' : ''}`}>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'pricing' ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+                <div className="px-6 pb-6 space-y-3">
+                  <Link 
+                    to="/pricing"
+                    onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                  >
+                    <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">SEO Strategy Pricing</span>
+                    <ArrowRight className="w-4 h-4 text-blue-500" />
+                  </Link>
+                  <Link 
+                    to="/pricing/local-seo-strategy"
+                    onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                  >
+                    <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Local SEO Strategy</span>
+                    <ArrowRight className="w-4 h-4 text-blue-500" />
+                  </Link>
+                  <Link 
+                    to="/pricing/web-dev-packages"
+                    onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                  >
+                    <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Web Dev Packages</span>
+                    <ArrowRight className="w-4 h-4 text-blue-500" />
+                  </Link>
+                  <Link 
+                    to="/pricing/ai-automation-plans"
+                    onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                  >
+                    <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">AI Automation Plans</span>
+                    <ArrowRight className="w-4 h-4 text-blue-500" />
+                  </Link>
+                  <Link 
+                    to="/pricing/google-ads-sem"
+                    onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                    className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                  >
+                    <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Google Ads Plans</span>
+                    <ArrowRight className="w-4 h-4 text-blue-500" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Other Mobile Links */}
+            <div className="grid grid-cols-1 gap-3 pt-6">
+              {[
+                { id: 'about', label: 'About Me', color: 'text-gray-300', path: '/about' },
+                { id: 'contact', label: 'Contact', color: 'text-gray-300', path: '/contact' },
+                { id: 'resume', label: 'Resume', color: 'text-blue-500', path: '/resume' }
+              ].map(link => (
+                <Link 
+                  key={link.id} 
+                  to={link.path}
+                  onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                  className="flex items-center justify-between p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
+                >
+                  <span className={`text-xs font-black uppercase tracking-[0.2em] italic ${link.color}`}>{link.label}</span>
+                  <ArrowRight className="w-4 h-4 text-blue-500" />
+                </Link>
+              ))}
+            </div>
+
+            <div className="pt-6">
+              <button 
+                onClick={(e) => { onBook(e); setIsMobileMenuOpen(false); }} 
+                className="w-full py-6 bg-blue-600 active:bg-blue-700 text-white font-black rounded-2xl uppercase tracking-tighter text-xl italic shadow-2xl shadow-blue-500/30 transition-all active:scale-[0.98]"
+              >
+                Inquire (Google Form)
               </button>
             </div>
-
-            <div className="flex-1 overflow-y-auto bg-transparent px-6 pt-2 pb-72">
-              
-              <div className="space-y-4">
-                {/* Services Accordion */}
-                <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'services' ? 'bg-[#080c18] border-blue-500/30' : 'bg-[#080c18] border-white/5'}`}>
-                  <button 
-                    onClick={() => toggleMobileSubmenu('services')}
-                    className="w-full flex items-center justify-between p-6 text-left"
-                    aria-expanded={mobileExpanded === 'services'}
-                    aria-controls="mobile-services-menu"
-                  >
-                    <div className="flex flex-col gap-1">
-                      <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Full-Stack Services</h3>
-                      <span className="text-[9px] text-blue-500 font-bold uppercase tracking-widest">12 Specialized Growth Solutions</span>
-                    </div>
-                    <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-blue-500 transition-transform duration-300 ${mobileExpanded === 'services' ? 'rotate-180' : ''}`}>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </button>
-                  
-                  <div 
-                    id="mobile-services-menu"
-                    className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'services' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
-                  >
-                    <div className="px-6 pb-6 pt-2 space-y-8">
-                      {serviceCategories.map((cat, idx) => (
-                        <div key={idx} className="space-y-4">
-                          <div className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2`}>
-                            <span className="w-4 h-px bg-current opacity-30"></span>
-                            {cat.title}
-                          </div>
-                          <div className="grid grid-cols-2 gap-3">
-                            {cat.services.map(s => (
-                              <Link 
-                                key={s.id} 
-                                to={SERVICE_DETAILS[s.id]?.permalink || '/services'}
-                                onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                                className="flex flex-col items-center justify-center gap-2 p-3 bg-[#0f172a] rounded-xl border border-white/10 text-center active:bg-blue-600/20 active:border-blue-500/30 transition-all"
-                              >
-                                <span className="text-2xl bg-white/5 w-10 h-10 flex items-center justify-center rounded-lg overflow-hidden mb-0.5">{s.icon}</span>
-                                <span className="text-white text-[9px] font-black uppercase italic leading-tight">{s.title}</span>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                      <Link 
-                        to="/services"
-                        onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                        className="w-full py-5 border border-blue-500/30 bg-blue-600/10 rounded-xl text-blue-400 font-black text-[11px] uppercase tracking-widest italic flex items-center justify-center"
-                      >
-                        View Capabilities Map →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Portfolio Accordion */}
-                <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'portfolio' ? 'bg-[#080c18] border-purple-500/30' : 'bg-[#080c18] border-white/5'}`}>
-                  <button 
-                    onClick={() => toggleMobileSubmenu('portfolio')}
-                    className="w-full flex items-center justify-between p-6 text-left"
-                  >
-                    <div className="flex flex-col gap-1">
-                      <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Growth Portfolio</h3>
-                      <span className="text-[9px] text-purple-500 font-bold uppercase tracking-widest">Verified Case Studies</span>
-                    </div>
-                    <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-purple-500 transition-transform duration-300 ${mobileExpanded === 'portfolio' ? 'rotate-180' : ''}`}>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </button>
-
-                  <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'portfolio' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-                    <div className="px-6 pb-6 pt-2 space-y-8">
-                      {portfolioCategories.map((cat, idx) => (
-                        <div key={idx} className="space-y-4">
-                          <div className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2`}>
-                            <span className="w-4 h-px bg-current opacity-30"></span>
-                            {cat.title}
-                          </div>
-                          <div className="space-y-3">
-                            {cat.studies.map(s => (
-                              <Link 
-                                key={s.id} 
-                                to={s.permalink || '/portfolio'}
-                                onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                                className="flex items-center gap-3 w-full p-3 bg-[#0f172a] rounded-xl border border-white/10 text-left active:bg-purple-600/20 active:border-purple-500/30 transition-all"
-                              >
-                                <div className="w-12 h-12 rounded-lg overflow-hidden bg-white/10 border border-white/5 shrink-0">
-                                  <img src={s.image} alt="" className="w-full h-full object-cover" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <div className="text-white text-[11px] font-black uppercase italic tracking-tight truncate border-b border-white/10 pb-0.5 mb-0.5">{s.title.split('–')[0]}</div>
-                                  <div className={`text-[9px] font-bold uppercase tracking-wider ${cat.color}`}>{s.results.traffic.split(' ')[0]} Growth</div>
-                                </div>
-                                <svg className="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                      <Link 
-                        to="/portfolio"
-                        onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                        className="w-full py-5 border border-purple-500/30 bg-purple-600/10 rounded-xl text-purple-400 font-black text-[11px] uppercase tracking-widest italic flex items-center justify-center"
-                      >
-                        View Results Portfolio →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pricing Accordion */}
-                <div className={`rounded-3xl border transition-all duration-300 ${mobileExpanded === 'pricing' ? 'bg-[#080c18] border-blue-500/30' : 'bg-[#080c18] border-white/5'}`}>
-                  <button 
-                    onClick={() => toggleMobileSubmenu('pricing')}
-                    className="w-full flex items-center justify-between p-6 text-left"
-                  >
-                    <div className="flex flex-col gap-1">
-                      <h3 className="text-sm font-black text-white uppercase tracking-[0.3em] italic">Pricing Plans</h3>
-                      <span className="text-[9px] text-blue-500 font-bold uppercase tracking-widest">SEO & Web Development Blueprints</span>
-                    </div>
-                    <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-blue-500 transition-transform duration-300 ${mobileExpanded === 'pricing' ? 'rotate-180' : ''}`}>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </button>
-                  
-                  <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'pricing' ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-                    <div className="px-6 pb-6 space-y-3">
-                      <Link 
-                        to="/pricing"
-                        onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                        className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
-                      >
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">SEO Strategy Pricing</span>
-                        <ArrowRight className="w-4 h-4 text-blue-500" />
-                      </Link>
-                      <Link 
-                        to="/pricing/local-seo-strategy"
-                        onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                        className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
-                      >
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Local SEO Strategy</span>
-                        <ArrowRight className="w-4 h-4 text-blue-500" />
-                      </Link>
-                      <Link 
-                        to="/pricing/web-dev-packages"
-                        onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                        className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
-                      >
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Web Dev Packages</span>
-                        <ArrowRight className="w-4 h-4 text-blue-500" />
-                      </Link>
-                      <Link 
-                        to="/pricing/ai-automation-plans"
-                        onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                        className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
-                      >
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">AI Automation Plans</span>
-                        <ArrowRight className="w-4 h-4 text-blue-500" />
-                      </Link>
-                      <Link 
-                        to="/pricing/google-ads-sem"
-                        onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                        className="flex items-center justify-between w-full p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
-                      >
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-300 italic">Google Ads Plans</span>
-                        <ArrowRight className="w-4 h-4 text-blue-500" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Other Mobile Links */}
-                <div className="grid grid-cols-1 gap-3 pt-6">
-                  {[
-                    { id: 'about', label: 'About Me', color: 'text-gray-300', path: '/about' },
-                    { id: 'contact', label: 'Contact', color: 'text-gray-300', path: '/contact' },
-                    { id: 'resume', label: 'Resume', color: 'text-blue-500', path: '/resume' }
-                  ].map(link => (
-                    <Link 
-                      key={link.id} 
-                      to={link.path}
-                      onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
-                      className="flex items-center justify-between p-5 bg-[#0f172a] rounded-2xl border border-white/10 active:bg-white/10 transition-colors"
-                    >
-                      <span className={`text-xs font-black uppercase tracking-[0.2em] italic ${link.color}`}>{link.label}</span>
-                      <ArrowRight className="w-4 h-4 text-blue-500" />
-                    </Link>
-                  ))}
-                </div>
-
-                <div className="pt-6">
-                  <button 
-                    onClick={(e) => { onBook(e); setIsMobileMenuOpen(false); }} 
-                    className="w-full py-6 bg-blue-600 active:bg-blue-700 text-white font-black rounded-2xl uppercase tracking-tighter text-xl italic shadow-2xl shadow-blue-500/30 transition-all active:scale-[0.98]"
-                  >
-                    Inquire (Google Form)
-                  </button>
-                </div>
-              </div>
-
-            </div>
           </div>
-        )}
+
+        </div>
+      </div>
     </nav>
 
   );

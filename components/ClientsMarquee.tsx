@@ -11,14 +11,14 @@ const ClientsMarquee: React.FC = () => {
 
   const validClients = CLIENT_LOGOS.filter(client => client && client.name && client.url);
   if (validClients.length === 0) return null;
-  const duplicatedClients = [...validClients, ...validClients];
+  const duplicatedClients = [...validClients, ...validClients, ...validClients];
 
   return (
     <section className="py-24 bg-black/40 border-y border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
-        <h2 className="text-xl font-bold text-gray-300 uppercase tracking-widest flex items-center justify-center md:justify-start gap-2 italic">
+        <h3 className="text-xl font-bold text-gray-300 uppercase tracking-widest flex items-center justify-center md:justify-start gap-2 italic">
           <span className="w-8 h-[2px] bg-blue-500"></span> Global Client Network
-        </h2>
+        </h3>
         <p className="text-sm text-gray-400 mt-2 font-semibold tracking-tight">Driving organic growth and operational excellence for brands worldwide.</p>
       </div>
       
@@ -37,7 +37,6 @@ const ClientsMarquee: React.FC = () => {
                   height="40"
                   className="h-10 w-auto object-contain transition-all duration-300"
                   loading="lazy"
-                  decoding="async"
                   onError={() => handleImageError(client.name)}
                 />
               ) : (

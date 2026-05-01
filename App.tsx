@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback, lazy, Suspense } from 'react';
+import React, { useState, useCallback } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useParams, Link } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
@@ -26,30 +26,20 @@ import WebDevPricingView from './components/WebDevPricingView';
 import LocalSEOPricingView from './components/LocalSEOPricingView';
 import AIAutomationPricingView from './components/AIAutomationPricingView';
 import SEMPricingView from './components/SEMPricingView';
+import AboutPage from './pages/About';
+import ContactPage from './pages/Contact';
+import ResumePage from './pages/Resume';
+import ServicesPage from './pages/Services';
+import PortfolioPage from './pages/Portfolio';
+import PricingPage from './pages/Pricing';
+import PricingLocalSEOPage from './pages/PricingLocalSEO';
+import PricingAIPage from './pages/PricingAI';
+import PricingSEMPage from './pages/PricingSEM';
+import PricingWebDevPage from './pages/PricingWebDev';
 import NotFound from './components/NotFound';
-
-// Lazy load pages for performance
-const AboutPage = lazy(() => import('./pages/About'));
-const ContactPage = lazy(() => import('./pages/Contact'));
-const ResumePage = lazy(() => import('./pages/Resume'));
-const ServicesPage = lazy(() => import('./pages/Services'));
-const PortfolioPage = lazy(() => import('./pages/Portfolio'));
-const PricingPage = lazy(() => import('./pages/Pricing'));
-const PricingLocalSEOPage = lazy(() => import('./pages/PricingLocalSEO'));
-const PricingAIPage = lazy(() => import('./pages/PricingAI'));
-const PricingSEMPage = lazy(() => import('./pages/PricingSEM'));
-const PricingWebDevPage = lazy(() => import('./pages/PricingWebDev'));
-const Home = lazy(() => import('./pages/Home'));
-
+import Home from './pages/Home';
 import { SERVICES, SERVICE_DETAILS, REVIEWS, TOOL_LOGOS, FAQS, CERTIFICATES, CASE_STUDIES } from './constants';
 import { ServiceContent, CaseStudy } from './types';
-
-// Simple loading fallback
-const LoadingFallback = () => (
-  <div className="min-h-screen bg-black flex items-center justify-center">
-    <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
-  </div>
-);
 
 const App: React.FC = () => {
   return (
@@ -157,46 +147,44 @@ const AppContent: React.FC = () => {
       <Navigation onNavigate={handleNavigate} onBook={handleBookConsultation} />
       <Breadcrumbs />
       
-      <Suspense fallback={<LoadingFallback />}>
-        <Routes>
-          <Route path="/" element={
-            <Home 
-              onNavigate={handleNavigate} 
-              onBook={handleBookConsultation} 
-              onOpenForm={handleOpenForm}
-              onViewCaseStudy={(id) => handleNavigate(id)}
-              activeFaq={activeFaq}
-              setActiveFaq={setActiveFaq}
-            />
-          } />
-          
-          <Route path="/about" element={<AboutPage onBook={handleBookConsultation} />} />
+      <Routes>
+        <Route path="/" element={
+          <Home 
+            onNavigate={handleNavigate} 
+            onBook={handleBookConsultation} 
+            onOpenForm={handleOpenForm}
+            onViewCaseStudy={(id) => handleNavigate(id)}
+            activeFaq={activeFaq}
+            setActiveFaq={setActiveFaq}
+          />
+        } />
+        
+        <Route path="/about" element={<AboutPage onBook={handleBookConsultation} />} />
 
-          <Route path="/resume" element={<ResumePage />} />
+        <Route path="/resume" element={<ResumePage />} />
 
-          <Route path="/contact" element={<ContactPage onBook={handleBookConsultation} />} />
+        <Route path="/contact" element={<ContactPage onBook={handleBookConsultation} />} />
 
-          <Route path="/services" element={<ServicesPage onBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
+        <Route path="/services" element={<ServicesPage onBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 
-          <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
+        <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 
-          <Route path="/portfolio" element={<PortfolioPage handleNavigate={handleNavigate} />} />
+        <Route path="/portfolio" element={<PortfolioPage handleNavigate={handleNavigate} />} />
 
-          <Route path="/portfolio/:slug" element={<PortfolioSlugWrapper navigate={navigate} handleBook={handleBookConsultation} />} />
+        <Route path="/portfolio/:slug" element={<PortfolioSlugWrapper navigate={navigate} handleBook={handleBookConsultation} />} />
 
-          <Route path="/pricing" element={<PricingPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
-          
-          <Route path="/pricing/local-seo-strategy" element={<PricingLocalSEOPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
-          
-          <Route path="/pricing/ai-automation-plans" element={<PricingAIPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
-          
-          <Route path="/pricing/google-ads-sem" element={<PricingSEMPage onBook={handleBookConsultation} />} />
-          
-          <Route path="/pricing/web-dev-packages" element={<PricingWebDevPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
-          <Route path="/seo-cebu" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-cebu" />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+        <Route path="/pricing" element={<PricingPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
+        
+        <Route path="/pricing/local-seo-strategy" element={<PricingLocalSEOPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
+        
+        <Route path="/pricing/ai-automation-plans" element={<PricingAIPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
+        
+        <Route path="/pricing/google-ads-sem" element={<PricingSEMPage onBook={handleBookConsultation} />} />
+        
+        <Route path="/pricing/web-dev-packages" element={<PricingWebDevPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
+        <Route path="/seo-cebu" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-cebu" />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
 
       <Footer onNavigate={handleNavigate} onBook={handleBookConsultation} />
       {isCalendarOpen && <CalendarModal onClose={closeCalendar} />}

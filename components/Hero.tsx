@@ -101,17 +101,16 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
           <div className="relative w-full max-w-[400px] md:max-w-[550px] aspect-square group">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-blue-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] bg-[#FACD15] rounded-full shadow-[0_0_80px_rgba(250,205,21,0.2)] z-0"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[95%] border border-dashed border-white/5 rounded-full z-0"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[95%] border border-dashed border-white/10 rounded-full animate-[spin_60s_linear_infinite] z-0"></div>
 
             <div className="absolute inset-0 z-10 flex items-end justify-center overflow-visible">
               <img 
-                src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w250-rw" 
-                alt="Ritehly Quimbo - Philippines SEO Specialist"
-                width="250"
-                height="312"
+                src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" 
+                alt="Ritehly Quimbo"
+                width="400"
+                height="500"
                 fetchPriority="high"
-                decoding="sync"
-                className="w-auto h-[120%] lg:h-[125%] max-w-none object-contain transition-all duration-700 drop-shadow-[0_40px_60px_rgba(0,0,0,0.4)] group-hover:scale-[1.02]"
+                className="w-auto h-[120%] lg:h-[125%] max-w-none object-contain transition-all duration-700 drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)] group-hover:scale-[1.03]"
                 loading="eager"
               />
             </div>
