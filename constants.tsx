@@ -587,7 +587,8 @@ Don't throw darts in the dark. Let’s build a search strategy that actually mov
     solution: 'A hyper-local Cebu SEO dominance strategy. We optimize your Google Business Profile for the Cebu market, build local citations, and create content that speaks to the Cebuano audience.',
     importance: 'Cebu is the economic heart of the Visayas. Ranking for "near me" and specific Cebu-targeted keywords is the most direct way to capture high-intent local traffic and grow your revenue.',
     features: ['Hyper-Local Keyword Targeting', 'Cebu Google Maps Dominance', 'Local Citation & NAP Cleanup', 'Geo-Targeted Content Silos'],
-    landmarkImage: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&q=80&w=800',
+    landmarkImage: 'https://lh3.googleusercontent.com/gpms-cs-s/ABJJf52m8rcccRHVL6383PrLnUsfmlkATq1CzJf7Jny7yieHnDnzkzm_zatdrAlWGpCgcwVW9sYPhk4sjlv1az0gioZYIEmaEs-jAz9BMcdXPaY0iHzCpz8NhO_3-gQxJaiT_YqEa10Z=s680-w680-h510-rw',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125586.32273837285!2d123.76589178092061!3d10.37601886449907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x4c34030cdbd33507!2sCebu%20City%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777618502352!5m2!1sen!2sph',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",

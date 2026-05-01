@@ -54,6 +54,20 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
                 <div className="absolute bottom-4 left-4 right-4 text-[10px] font-black text-white/50 uppercase tracking-widest italic">Local Authority Peak</div>
               </div>
             )}
+            {service.mapEmbed && (
+              <div className="overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 shadow-2xl h-[250px] md:h-[300px]">
+                <iframe 
+                  src={service.mapEmbed}
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true}
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Service Location Map"
+                ></iframe>
+              </div>
+            )}
             <div className="glass-morphism p-6 md:p-8 rounded-2xl md:rounded-3xl border border-blue-500/20 bg-blue-500/5">
               <div className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 mb-4">Core Focus</div>
               <ul className="space-y-2 md:space-y-3">

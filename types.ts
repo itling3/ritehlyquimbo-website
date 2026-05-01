@@ -56,5 +56,6 @@ export interface ServiceContent {
   permalink?: string;
   contentBody?: string;
   landmarkImage?: string;
+  mapEmbed?: string;
   schema?: any;
 }
