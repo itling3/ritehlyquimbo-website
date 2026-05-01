@@ -33,7 +33,31 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
             </div>
             {service.contentBody ? (
               <div className="prose prose-invert max-w-none prose-table:my-8 prose-p:mb-6 prose-headings:mb-4">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{service.contentBody}</ReactMarkdown>
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    p: ({ node, children, ...props }) => {
+                      if (React.Children.toArray(children).some(child => typeof child === 'string' && child.includes('[CTA-BOOK]'))) {
+                        return (
+                          <div className="my-8">
+                            <button 
+                              onClick={onBook}
+                              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-xl shadow-blue-500/20 uppercase tracking-tighter text-sm flex items-center gap-3 group"
+                            >
+                              <span>Book Your Free Cebu SEO Audit</span>
+                              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                              </svg>
+                            </button>
+                          </div>
+                        );
+                      }
+                      return <p {...props}>{children}</p>;
+                    }
+                  }}
+                >
+                  {service.contentBody}
+                </ReactMarkdown>
               </div>
             ) : (
               <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed">

@@ -717,6 +717,8 @@ Get Found by the Right Customers in Cebu with ROI-Focused SEO.
 
 Whether you run a local business in **Cebu City**, a service company in **Mandaue**, an ecommerce brand, or a growing startup in **IT Park**, your customers are searching for you online right now. If you aren't on the first page, you don't exist. Check out our [full range of SEO services](https://ritehlyquimbo.com/services) or return to our [homepage](https://ritehlyquimbo.com/) to see our overall approach.
 
+[CTA-BOOK]
+
 ### Why Your Cebu Business Needs a Local SEO Specialist
 
 Cebu is a unique economic landscape. From the bustling commerce in **Colon** to the high-tech hubs of **Cebu IT Park** and **Business Park**, to the industrial powerhouses in **Mandaue** and tourism in **Lapu-Lapu**, your SEO needs to be as dynamic as the city itself. Our [transparent pricing models](https://ritehlyquimbo.com/pricing) ensure you get the best ROI for your local investment.
