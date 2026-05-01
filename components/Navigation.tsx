@@ -284,6 +284,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             </div>
           </div>
 
+          <Link to="/locations" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Locations</Link>
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">About</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Contact</Link>
           <Link to="/resume" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-500 hover:text-blue-400 font-black transition-colors">Resume</Link>
@@ -508,6 +509,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             {/* Other Mobile Links */}
             <div className="grid grid-cols-1 gap-3 pt-6">
               {[
+                { id: 'locations', label: 'Locations', color: 'text-gray-300', path: '/locations' },
                 { id: 'about', label: 'About Me', color: 'text-gray-300', path: '/about' },
                 { id: 'contact', label: 'Contact', color: 'text-gray-300', path: '/contact' },
                 { id: 'resume', label: 'Resume', color: 'text-blue-500', path: '/resume' }

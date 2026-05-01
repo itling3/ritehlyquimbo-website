@@ -130,6 +130,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
             </h4>
             <div className="flex flex-col gap-4">
               <Link to="/about" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">About Me (Mission)</Link>
+              <Link to="/locations" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Locations (Cebu)</Link>
               <Link to="/contact" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Contact Me</Link>
               <Link to="/portfolio" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</Link>
               <button onClick={(e) => handleLinkClick(e, 'certificates')} className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Certificates & Recognition</button>

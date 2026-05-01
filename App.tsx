@@ -36,6 +36,7 @@ import PricingLocalSEOPage from './pages/PricingLocalSEO';
 import PricingAIPage from './pages/PricingAI';
 import PricingSEMPage from './pages/PricingSEM';
 import PricingWebDevPage from './pages/PricingWebDev';
+import LocationsPage from './pages/Locations';
 import NotFound from './components/NotFound';
 import Home from './pages/Home';
 import { SERVICES, SERVICE_DETAILS, REVIEWS, TOOL_LOGOS, FAQS, CERTIFICATES, CASE_STUDIES } from './constants';
@@ -114,6 +115,10 @@ const AppContent: React.FC = () => {
       navigate('/portfolio');
       return;
     }
+    if (target === 'locations') {
+      navigate('/locations');
+      return;
+    }
 
     if (isService) {
       const detail = SERVICE_DETAILS[target as keyof typeof SERVICE_DETAILS];
@@ -182,6 +187,7 @@ const AppContent: React.FC = () => {
         <Route path="/pricing/google-ads-sem" element={<PricingSEMPage onBook={handleBookConsultation} />} />
         
         <Route path="/pricing/web-dev-packages" element={<PricingWebDevPage onBook={handleBookConsultation} onForm={handleOpenForm} />} />
+        <Route path="/locations" element={<LocationsPage onBook={handleBookConsultation} />} />
         <Route path="/seo-cebu" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-cebu" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

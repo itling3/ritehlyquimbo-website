@@ -215,8 +215,7 @@ export const SERVICES = [
   { id: 'ai-automation', title: 'AI Automation Specialist', description: 'Expert implementation of custom AI workflows and agents to scale business operations and content production.', icon: '🤖' },
   { id: 'lead-generation', title: 'B2B Lead Generation', description: 'Strategic prospecting and automated outreach systems to build a predictable sales pipeline.', icon: '🎯' },
   { id: 'virtual-assistance', title: 'Operational Support', description: 'High-level operational and technical support to streamline your business workflows and scale capacity.', icon: '💼' },
-  { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' },
-  { id: 'seo-cebu', title: 'SEO Cebu', description: 'Hyper-local dominance strategies to capture the high-intent market in the Queen City of the South.', icon: '🏝️' }
+  { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
