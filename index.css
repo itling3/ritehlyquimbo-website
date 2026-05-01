@@ -39,7 +39,7 @@ body {
     white-space: nowrap;
     position: relative;
     width: 100%;
-    contain: paint;
+    contain: paint layout;
 }
 
 .marquee-content {
@@ -47,6 +47,17 @@ body {
     animation: marquee 30s linear infinite;
     width: max-content;
     will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Performance Hints */
+section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+}
+
+.hero-section {
+    content-visibility: visible !important;
 }
 
 /* Review Marquee Specifics */
