@@ -587,14 +587,43 @@ Don't throw darts in the dark. Let’s build a search strategy that actually mov
     solution: 'A hyper-local Cebu SEO dominance strategy. We optimize your Google Business Profile for the Cebu market, build local citations, and create content that speaks to the Cebuano audience.',
     importance: 'Cebu is the economic heart of the Visayas. Ranking for "near me" and specific Cebu-targeted keywords is the most direct way to capture high-intent local traffic and grow your revenue.',
     features: ['Hyper-Local Keyword Targeting', 'Cebu Google Maps Dominance', 'Local Citation & NAP Cleanup', 'Geo-Targeted Content Silos'],
+    landmarkImage: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&q=80&w=800',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Cebu SEO Services",
+      "description": "Professional local SEO services in Cebu City, Philippines. Rank higher on Google Maps and search results.",
+      "provider": {
+        "@type": "Person",
+        "name": "Ritehly Quimbo",
+        "url": "https://ritehlyquimbo.com"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Cebu City"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "SEO Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Local SEO"
+            }
+          }
+        ]
+      }
+    },
     contentBody: `Rank #1 in the Queen City of the South.
 Get Found by the Right Customers in Cebu with ROI-Focused SEO.
 
-Whether you run a local business in **Cebu City**, a service company in **Mandaue**, an ecommerce brand, or a growing startup in **IT Park**, your customers are searching for you online right now. If you aren't on the first page, you don't exist.
+Whether you run a local business in **Cebu City**, a service company in **Mandaue**, an ecommerce brand, or a growing startup in **IT Park**, your customers are searching for you online right now. If you aren't on the first page, you don't exist. Check out our [full range of SEO services](https://ritehlyquimbo.com/services) or return to our [homepage](https://ritehlyquimbo.com/) to see our overall approach.
 
 ### Why Your Cebu Business Needs a Local SEO Specialist
 
-Cebu is a unique economic landscape. From the bustling commerce in **Colon** to the high-tech hubs of **Cebu IT Park** and **Business Park**, to the industrial powerhouses in **Mandaue** and tourism in **Lapu-Lapu**, your SEO needs to be as dynamic as the city itself.
+Cebu is a unique economic landscape. From the bustling commerce in **Colon** to the high-tech hubs of **Cebu IT Park** and **Business Park**, to the industrial powerhouses in **Mandaue** and tourism in **Lapu-Lapu**, your SEO needs to be as dynamic as the city itself. Our [transparent pricing models](https://ritehlyquimbo.com/pricing) ensure you get the best ROI for your local investment.
 
 *   **Hyper-Local Relevance:** We don't just target Philippines keywords. We target the neighborhoods that matter to your bottom line.
 *   **Mobile-First for Cebuanos:** Most searches in Cebu happen on the go. We ensure your site is lightning-fast and mobile-optimized.

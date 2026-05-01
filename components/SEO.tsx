@@ -7,9 +7,10 @@ interface SEOProps {
   description: string;
   keywords?: string;
   canonical?: string;
+  schema?: any;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical, schema }) => {
   const siteName = "Ritehly Quimbo";
   const baseUrl = "https://ritehlyquimbo.com";
   
@@ -24,6 +25,11 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical }) =>
       <meta data-rh="true" name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
       <link data-rh="true" rel="canonical" href={finalCanonical} />
       
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}      
       <meta data-rh="true" property="og:locale" content="en_US" />
       <meta data-rh="true" property="og:type" content="website" />
       <meta data-rh="true" property="og:title" content={title} />

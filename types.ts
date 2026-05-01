@@ -55,4 +55,6 @@ export interface ServiceContent {
   pricingId?: string;
   permalink?: string;
   contentBody?: string;
+  landmarkImage?: string;
+  schema?: any;
 }
