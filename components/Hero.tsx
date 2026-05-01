@@ -54,12 +54,12 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
               </AnimatePresence>
             </div>
             from <span className="text-blue-500">Philippines</span>: <br className="hidden sm:block" />
-            <span className="text-white">Full-Stack Solutions</span> <br className="hidden sm:block" />
+            <span className="text-white">Business Solutions</span> <br className="hidden sm:block" />
             for Growth
           </h1>
 
           <p className="text-base md:text-xl text-gray-400 mb-8 md:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed px-4 md:px-0 font-medium">
-            We combine <span className="text-white font-bold">Full-Stack SEO, Ads, AI, Lead Gen,</span> and <span className="text-white font-bold">Web Dev</span> into a single system for predictable growth.
+            I don't just do SEO or Ads. I <span className="text-white font-bold">unify Full-Stack SEO, AI Automations, Lead Gen,</span> and <span className="text-white font-bold">high-conversion Web Development</span> into one growth system—so you stop guessing and start scaling.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 md:mb-16 justify-center lg:justify-start px-4 md:px-0">
