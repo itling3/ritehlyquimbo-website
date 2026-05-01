@@ -11,7 +11,7 @@ const ClientsMarquee: React.FC = () => {
 
   const validClients = CLIENT_LOGOS.filter(client => client && client.name && client.url);
   if (validClients.length === 0) return null;
-  const duplicatedClients = [...validClients, ...validClients, ...validClients];
+  const duplicatedClients = [...validClients, ...validClients];
 
   return (
     <section className="py-24 bg-black/40 border-y border-white/5 overflow-hidden">
@@ -37,6 +37,7 @@ const ClientsMarquee: React.FC = () => {
                   height="40"
                   className="h-10 w-auto object-contain transition-all duration-300"
                   loading="lazy"
+                  decoding="async"
                   onError={() => handleImageError(client.name)}
                 />
               ) : (

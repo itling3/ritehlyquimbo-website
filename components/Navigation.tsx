@@ -88,6 +88,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
               alt="Ritehly Quimbo Portfolio" 
               width="36"
               height="36"
+              decoding="async"
               className="w-full h-full object-cover transition-all duration-300 scale-[1.1]"
               loading="lazy"
             />

@@ -307,9 +307,9 @@ const Home: React.FC<HomeProps> = ({
           <div className="max-w-7xl mx-auto px-6 mb-12">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h3 className="text-xl font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                <h2 className="text-xl font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
                   <span className="w-8 h-[2px] bg-blue-500"></span> Verified Results
-                </h3>
+                </h2>
               </div>
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full w-fit">
                 <div className="flex text-yellow-500 text-xs">
@@ -362,7 +362,7 @@ const Home: React.FC<HomeProps> = ({
           
           <div className="marquee-container">
             <div className="marquee-content marquee-fast">
-              {[...TOOL_LOGOS, ...TOOL_LOGOS, ...TOOL_LOGOS, ...TOOL_LOGOS].map((tool, i) => (
+              {[...TOOL_LOGOS, ...TOOL_LOGOS].map((tool, i) => (
                 <div key={i} className="tool-capsule">
                   <img 
                     src={tool.url} 
@@ -370,6 +370,7 @@ const Home: React.FC<HomeProps> = ({
                     width="28"
                     height="28"
                     loading="lazy"
+                    decoding="async"
                     className="h-7 w-auto object-contain"
                   />
                   <span className="tool-label">{tool.name}</span>
