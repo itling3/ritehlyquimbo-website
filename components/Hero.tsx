@@ -105,10 +105,10 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
 
             <div className="absolute inset-0 z-10 flex items-end justify-center overflow-visible">
               <img 
-                src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w300-rw" 
+                src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w250-rw" 
                 alt="Ritehly Quimbo - Philippines SEO Specialist"
-                width="300"
-                height="375"
+                width="250"
+                height="312"
                 fetchPriority="high"
                 decoding="sync"
                 className="w-auto h-[120%] lg:h-[125%] max-w-none object-contain transition-all duration-700 drop-shadow-[0_40px_60px_rgba(0,0,0,0.4)] group-hover:scale-[1.02]"
