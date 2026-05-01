@@ -33,11 +33,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
               >
                 <div className="w-10 h-10 rounded-lg overflow-hidden border border-blue-500/30 bg-blue-600/20 flex-shrink-0 shadow-lg shadow-blue-500/10">
                   <img 
-                    src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w80-rw" 
+                    src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w60-rw" 
                     alt="Ritehly Quimbo" 
                     width="40"
                     height="40"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover scale-[1.1]"
                   />
                 </div>

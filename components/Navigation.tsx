@@ -84,10 +84,10 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         >
           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg overflow-hidden border border-blue-500/30 flex-shrink-0 bg-blue-600/20">
             <img 
-              src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w80-rw" 
+              src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w60-rw" 
               alt="Ritehly Quimbo Portfolio" 
-              width="36"
-              height="36"
+              width="30"
+              height="30"
               decoding="async"
               className="w-full h-full object-cover transition-all duration-300 scale-[1.1]"
               loading="lazy"

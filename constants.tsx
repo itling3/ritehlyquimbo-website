@@ -175,32 +175,32 @@ export const CASE_STUDIES: CaseStudy[] = [
 ];
 
 export const CLIENT_LOGOS = [
-  { name: 'Mae Wellness', url: 'https://lh3.googleusercontent.com/d/1fUPlUwRNudEIykHqs0GIs36Jdbku5g6S=w150-rw' },
-  { name: 'Excel Scotland', url: 'https://lh3.googleusercontent.com/d/13cwKyO0Ze4IuRHfMBalC48YMC5QhLnYW=w150-rw' },
-  { name: 'British School of Languages', url: 'https://lh3.googleusercontent.com/d/1S6T5vHo3Bn4EJAp3J-AGqZuBscX09FHD=w150-rw' },
-  { name: 'Kinloss', url: 'https://lh3.googleusercontent.com/d/1ULlELLfrN2fSckHJ6RVhidQktVijrYKT=w150-rw' },
-  { name: 'Monstore', url: 'https://lh3.googleusercontent.com/d/1MToveZaYCNtEpfPNhFDhv8ylDPhqngKR=w150-rw' },
-  { name: 'Ryan King Team', url: 'https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo=w150-rw' }
+  { name: 'Mae Wellness', url: 'https://lh3.googleusercontent.com/d/1fUPlUwRNudEIykHqs0GIs36Jdbku5g6S=w120-rw' },
+  { name: 'Excel Scotland', url: 'https://lh3.googleusercontent.com/d/13cwKyO0Ze4IuRHfMBalC48YMC5QhLnYW=w120-rw' },
+  { name: 'British School of Languages', url: 'https://lh3.googleusercontent.com/d/1S6T5vHo3Bn4EJAp3J-AGqZuBscX09FHD=w120-rw' },
+  { name: 'Kinloss', url: 'https://lh3.googleusercontent.com/d/1ULlELLfrN2fSckHJ6RVhidQktVijrYKT=w120-rw' },
+  { name: 'Monstore', url: 'https://lh3.googleusercontent.com/d/1MToveZaYCNtEpfPNhFDhv8ylDPhqngKR=w120-rw' },
+  { name: 'Ryan King Team', url: 'https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo=w120-rw' }
 ];
 
 export const TOOL_LOGOS = [
-  { name: 'Ahrefs', url: 'https://lh3.googleusercontent.com/d/1vjIyf-UWP-dfrxWW0x-AjxB75_n2g75R=w60-rw' },
-  { name: 'Bing Webmaster', url: 'https://lh3.googleusercontent.com/d/17gl0A8WNsnwiOt52aqQGDgTeCplm9wAA=w60-rw' },
-  { name: 'Google Ads', url: 'https://lh3.googleusercontent.com/d/1Hs9UnLpiMr1h2NOIOdsqneHcSIZDjz7L=w60-rw' },
-  { name: 'Google Docs', url: 'https://lh3.googleusercontent.com/d/1gotl-QjJ97RBFSFkGrPv6la8JonWvRr0=w60-rw' },
-  { name: 'Google Drive', url: 'https://lh3.googleusercontent.com/d/1zdalO7gFOcr089aO6Da8qy2hInB1msHf=w60-rw' },
-  { name: 'Looker Studio', url: 'https://lh3.googleusercontent.com/d/1UDz5iiHnZftKhWD9ZU8dma_rqBARaSqd=w60-rw' },
-  { name: 'Search Console', url: 'https://lh3.googleusercontent.com/d/1HM0eJoWdOr249XVhkKVvsyiLFUp0bjMX=w60-rw' },
-  { name: 'Google Sheets', url: 'https://lh3.googleusercontent.com/d/1xv68OSUVdU0RKnstn516PV7DyQRlkyf=w60-rw' },
-  { name: 'Google Analytics', url: 'https://lh3.googleusercontent.com/d/1nmHf2upP8o88HuxvoBM4S-lehIPa5fD6=w60-rw' },
-  { name: 'Google Maps', url: 'https://lh3.googleusercontent.com/d/1xy-Qsh_X7z8QuKb9AoCyTYdDdb8qLYL5=w60-rw' },
-  { name: 'Keyword Planner', url: 'https://lh3.googleusercontent.com/d/1p2G0xzsM6tXimsTAnS9nYcdy-ml1yGvC=w60-rw' },
-  { name: 'Microsoft', url: 'https://lh3.googleusercontent.com/d/1ytLfbNsuVJmgP8dejekNEWRLTOD2aIj1=w60-rw' },
-  { name: 'MS Clarity', url: 'https://lh3.googleusercontent.com/d/1rXAT5fFmYLrb3uC3_fIPNnZgmCD7uHn8=w60-rw' },
-  { name: 'n8n', url: 'https://lh3.googleusercontent.com/d/1GAPv3CQbtI5-h3AQqp7pzyotdsoXGsx6=w60-rw' },
-  { name: 'Screaming Frog', url: 'https://lh3.googleusercontent.com/d/1UHzhGuuWV1mYSH_GE3WboBEdzGTPgStM=w60-rw' },
-  { name: 'SEMrush', url: 'https://lh3.googleusercontent.com/d/1FruxIp06eyPxPHcWMS_qmCbCXf1crgxD=w60-rw' },
-  { name: 'Zapier', url: 'https://lh3.googleusercontent.com/d/1GRa8R0ABFZm3Xn0jm2Upwgqmf1DzH0pw=w60-rw' }
+  { name: 'Ahrefs', url: 'https://lh3.googleusercontent.com/d/1vjIyf-UWP-dfrxWW0x-AjxB75_n2g75R=w50-rw' },
+  { name: 'Bing Webmaster', url: 'https://lh3.googleusercontent.com/d/17gl0A8WNsnwiOt52aqQGDgTeCplm9wAA=w50-rw' },
+  { name: 'Google Ads', url: 'https://lh3.googleusercontent.com/d/1Hs9UnLpiMr1h2NOIOdsqneHcSIZDjz7L=w50-rw' },
+  { name: 'Google Docs', url: 'https://lh3.googleusercontent.com/d/1gotl-QjJ97RBFSFkGrPv6la8JonWvRr0=w50-rw' },
+  { name: 'Google Drive', url: 'https://lh3.googleusercontent.com/d/1zdalO7gFOcr089aO6Da8qy2hInB1msHf=w50-rw' },
+  { name: 'Looker Studio', url: 'https://lh3.googleusercontent.com/d/1UDz5iiHnZftKhWD9ZU8dma_rqBARaSqd=w50-rw' },
+  { name: 'Search Console', url: 'https://lh3.googleusercontent.com/d/1HM0eJoWdOr249XVhkKVvsyiLFUp0bjMX=w50-rw' },
+  { name: 'Google Sheets', url: 'https://lh3.googleusercontent.com/d/1xv68OSUVdU0RKnstn516PV7DyQRlkyf=w50-rw' },
+  { name: 'Google Analytics', url: 'https://lh3.googleusercontent.com/d/1nmHf2upP8o88HuxvoBM4S-lehIPa5fD6=w50-rw' },
+  { name: 'Google Maps', url: 'https://lh3.googleusercontent.com/d/1xy-Qsh_X7z8QuKb9AoCyTYdDdb8qLYL5=w50-rw' },
+  { name: 'Keyword Planner', url: 'https://lh3.googleusercontent.com/d/1p2G0xzsM6tXimsTAnS9nYcdy-ml1yGvC=w50-rw' },
+  { name: 'Microsoft', url: 'https://lh3.googleusercontent.com/d/1ytLfbNsuVJmgP8dejekNEWRLTOD2aIj1=w50-rw' },
+  { name: 'MS Clarity', url: 'https://lh3.googleusercontent.com/d/1rXAT5fFmYLrb3uC3_fIPNnZgmCD7uHn8=w50-rw' },
+  { name: 'n8n', url: 'https://lh3.googleusercontent.com/d/1GAPv3CQbtI5-h3AQqp7pzyotdsoXGsx6=w50-rw' },
+  { name: 'Screaming Frog', url: 'https://lh3.googleusercontent.com/d/1UHzhGuuWV1mYSH_GE3WboBEdzGTPgStM=w50-rw' },
+  { name: 'SEMrush', url: 'https://lh3.googleusercontent.com/d/1FruxIp06eyPxPHcWMS_qmCbCXf1crgxD=w50-rw' },
+  { name: 'Zapier', url: 'https://lh3.googleusercontent.com/d/1GRa8R0ABFZm3Xn0jm2Upwgqmf1DzH0pw=w50-rw' }
 ];
 
 export const SERVICES = [

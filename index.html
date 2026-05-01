@@ -12,14 +12,21 @@
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="qgtM6fqR__i9e883lem8XxLEBtrmgluQzCRjhfw7I1U" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TR0ZSQ8F0N"></script>
+    <!-- Google tag (gtag.js) deferred loading -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-TR0ZSQ8F0N');
+      window.addEventListener('load', function() {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-TR0ZSQ8F0N';
+        script.async = true;
+        document.head.appendChild(script);
+        
+        script.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TR0ZSQ8F0N');
+        };
+      });
     </script>
     
     <!-- Resource Hints for faster LCP -->
@@ -28,7 +35,7 @@
     <link rel="preconnect" href="https://lh3.googleusercontent.com">
     <link rel="dns-prefetch" href="https://lh3.googleusercontent.com">
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGkyMZhrib2Bg-4.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" as="image" href="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w420-rw" fetchpriority="high">
+    <link rel="preload" as="image" href="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_=w360-rw" fetchpriority="high">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
