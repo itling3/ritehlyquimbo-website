@@ -780,17 +780,17 @@ Don't let your competitors take the lead in one of the world's fastest-growing r
     ],
     contentBody: `SEO Mandaue City Services That Turn Google Searches into Customers
 
-If potential customers in Mandaue City are searching online for services like yours but your business doesn’t appear on Google, you are losing valuable opportunities. Professional SEO Mandaue City services help local businesses improve search visibility, attract qualified traffic, and convert website visitors into paying customers.
+If potential customers in Mandaue City are searching online for services like yours but your business doesn’t appear on Google, you are losing valuable opportunities. Professional [SEO Mandaue City services](https://ritehlyquimbo.com/services) help local businesses improve search visibility, attract qualified traffic, and convert website visitors into paying customers.
 
 Mandaue City is a thriving commercial hub in Cebu, with a growing number of local businesses and industries. Appearing on Google search results when customers are actively looking for services can significantly increase inquiries, leads, and sales.
 
-With a strategic SEO Mandaue City campaign, your website becomes a reliable channel for consistent traffic, high-quality leads, and long-term growth.
+With a strategic [SEO Mandaue City campaign](https://ritehlyquimbo.com/services), your website becomes a reliable channel for consistent traffic, high-quality leads, and long-term growth.
 
 [CTA-BOOK]
 
 ### The Problem: Customers in Mandaue City Cannot Find Your Business
 
-Many businesses in Mandaue City invest in websites and social media marketing but still struggle to attract customers online. The biggest issue is lack of proper search engine optimization.
+Many businesses in Mandaue City invest in websites and social media marketing but still struggle to attract customers online. The biggest issue is lack of proper [search engine optimization](https://ritehlyquimbo.com/).
 
 When people search for services such as:
 *   restaurant Mandaue City
@@ -810,7 +810,7 @@ Google only displays a limited number of results on the first page. Most users s
 
 ### The Solution: Strategic SEO Mandaue City That Drives Leads
 
-SEO helps your business appear exactly when potential customers are actively searching for your services. A professional SEO Mandaue City strategy focuses on three core outcomes:
+SEO helps your business appear exactly when potential customers are actively searching for your services. A professional [SEO Mandaue City strategy](https://ritehlyquimbo.com/services) focuses on three core outcomes:
 1.  Improve Google search rankings
 2.  Drive targeted website traffic
 3.  Convert visitors into paying customers
@@ -859,7 +859,7 @@ Yes. Local SEO helps businesses appear when nearby customers search for services
 
 ### Final Call to Action
 
-If you want your business to attract more customers online, investing in professional SEO Mandaue City services can significantly improve your visibility and lead generation. Instead of chasing customers, your website can appear directly in front of people already searching for your services.
+If you want your business to attract more customers online, investing in [professional SEO Mandaue City services](https://ritehlyquimbo.com/pricing) can significantly improve your visibility and lead generation. Instead of chasing customers, your website can appear directly in front of people already searching for your services.
 
 > "With the right strategy, SEO becomes a long-term source of traffic, leads, and revenue."
 
