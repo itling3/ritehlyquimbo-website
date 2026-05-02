@@ -105,21 +105,37 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
           </div>
 
           {/* Services Column */}
-          <div className="lg:col-span-2">
+          <div>
             <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
-              <span className="w-4 h-[1px] bg-blue-500"></span> All Services
+              <span className="w-4 h-[1px] bg-blue-500"></span> Services
             </h4>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-              {SERVICES.map((service, i) => (
+            <div className="flex flex-col gap-3">
+              {SERVICES.slice(0, 6).map((service, i) => (
                 <Link 
                   key={i} 
                   to={SERVICE_DETAILS[service.id]?.permalink || '/services'}
-                  className="text-sm text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2 group text-left"
+                  className="text-xs text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2 group text-left"
                 >
-                  <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">▶</span>
                   {service.title}
                 </Link>
               ))}
+              <Link to="/services" className="text-[10px] text-blue-500 hover:text-blue-400 font-black uppercase tracking-widest mt-2">View All Services →</Link>
+            </div>
+          </div>
+
+          {/* Locations Column */}
+          <div>
+            <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
+              <span className="w-4 h-[1px] bg-blue-500"></span> Service Areas
+            </h4>
+            <div className="flex flex-col gap-3">
+              <Link to="/locations/seo-cebu" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Cebu City</Link>
+              <Link to="/locations/seo-mandaue-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Mandaue City</Link>
+              <Link to="/locations/seo-lapu-lapu-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Lapu-Lapu City</Link>
+              <Link to="/locations/seo-talisay-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Talisay City</Link>
+              <Link to="/locations/seo-danao-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Danao City</Link>
+              <Link to="/locations/seo-services-minglanilla" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Minglanilla</Link>
+              <Link to="/locations" className="text-[10px] text-blue-500 hover:text-blue-400 font-black uppercase tracking-widest mt-2">All Locations →</Link>
             </div>
           </div>
 
@@ -128,20 +144,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
             <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
               <span className="w-4 h-[1px] bg-blue-500"></span> Explore
             </h4>
-            <div className="flex flex-col gap-4">
-              <Link to="/about" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">About Me (Mission)</Link>
-              <Link to="/locations" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Locations (Cebu)</Link>
-              <Link to="/contact" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Contact Me</Link>
-              <Link to="/portfolio" className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</Link>
-              <button onClick={(e) => handleLinkClick(e, 'certificates')} className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Certificates & Recognition</button>
-              <button onClick={(e) => handleLinkClick(e, 'faq')} className="text-sm text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Knowledge Base</button>
-              <Link to="/pricing" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">SEO Pricing Blueprints</Link>
-              <Link to="/pricing/local-seo-strategy" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Local SEO Pricing Tiers</Link>
-              <Link to="/pricing/web-dev-packages" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Web Dev Pricing Packages</Link>
-              <Link to="/resume" className="text-sm text-gray-500 hover:text-white transition-colors font-medium text-left">Download Resume (CV)</Link>
+            <div className="flex flex-col gap-3">
+              <Link to="/about" className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">About Me</Link>
+              <Link to="/portfolio" className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</Link>
+              <Link to="/pricing" className="text-xs text-gray-500 hover:text-white transition-colors font-medium text-left">SEO Pricing</Link>
+              <Link to="/contact" className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Contact Me</Link>
+              <button onClick={(e) => handleLinkClick(e, 'certificates')} className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Certificates</button>
               <div className="pt-2 flex flex-col gap-2">
-                <button onClick={(e) => { onBook(e); }} className="text-sm text-white hover:text-blue-400 transition-colors font-black uppercase italic tracking-tighter text-left">Schedule Booking (Calendar)</button>
-                <button onClick={handleFormLink} className="text-[10px] text-blue-500 hover:text-blue-400 transition-colors font-black uppercase tracking-widest text-left">Quick Inquiry (Form) →</button>
+                <button onClick={(e) => { onBook(e); }} className="text-xs text-white hover:text-blue-400 transition-colors font-black uppercase italic tracking-tighter text-left underline decoration-blue-500 underline-offset-4">Schedule Audit</button>
               </div>
             </div>
           </div>
