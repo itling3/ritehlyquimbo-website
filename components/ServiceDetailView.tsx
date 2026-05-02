@@ -37,7 +37,9 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
                   remarkPlugins={[remarkGfm]}
                   components={{
                     p: ({ node, children, ...props }) => {
-                      if (React.Children.toArray(children).some(child => typeof child === 'string' && child.includes('[CTA-BOOK]'))) {
+                      const childrenArray = React.Children.toArray(children);
+                      
+                      if (childrenArray.some(child => typeof child === 'string' && child.includes('[CTA-BOOK]'))) {
                         return (
                           <div className="my-8">
                             <button 
@@ -52,6 +54,37 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
                           </div>
                         );
                       }
+
+                      if (childrenArray.some(child => typeof child === 'string' && child.includes('[CTA-PHONE]'))) {
+                        return (
+                          <div className="my-4">
+                            <a 
+                              href="tel:09611525318"
+                              className="px-8 py-4 bg-white/5 border border-white/10 hover:border-blue-500/50 text-white font-black rounded-xl transition-all uppercase tracking-tighter text-sm flex items-center gap-3 group w-fit"
+                            >
+                              <span className="text-blue-500">📞</span>
+                              <span>Direct: 09611525318</span>
+                            </a>
+                          </div>
+                        );
+                      }
+
+                      if (childrenArray.some(child => typeof child === 'string' && child.includes('[CTA-FORM]'))) {
+                        return (
+                          <div className="my-4">
+                            <a 
+                              href="https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-8 py-4 bg-white/5 border border-white/10 hover:border-purple-500/50 text-white font-black rounded-xl transition-all uppercase tracking-tighter text-sm flex items-center gap-3 group w-fit"
+                            >
+                              <span className="text-purple-500">📝</span>
+                              <span>Submit Audit Request Form</span>
+                            </a>
+                          </div>
+                        );
+                      }
+
                       return <p {...props}>{children}</p>;
                     }
                   }}
