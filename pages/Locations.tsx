@@ -78,6 +78,52 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
             </div>
           </div>
 
+          {/* Mandaue Location Card */}
+          <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
+            <div className="aspect-[16/9] relative overflow-hidden">
+              <img 
+                src="https://triptheislands.com/wp-content/uploads/2015/03/sam_7095.jpg.webp" 
+                alt="Mandaue City" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div className="absolute bottom-6 left-8 flex items-center gap-3">
+                <span className="text-4xl">🏢</span>
+                <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter">Mandaue</h2>
+              </div>
+            </div>
+            
+            <div className="p-8">
+              <p className="text-gray-400 mb-8 line-clamp-3">
+                Strategic SEO for Mandaue's thriving commercial hub. We help local industries and businesses turn Google searches into customers.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                {['Industrial Hub Targeting', 'Local Search Dominance', 'Conversion Focused'].map((feature, i) => (
+                  <div key={i} className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    {feature}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <Link 
+                  to="/locations/seo-mandaue-city"
+                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                >
+                  View Mandaue Strategy →
+                </Link>
+                <button 
+                  onClick={onBook}
+                  className="w-full py-4 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter border border-white/5"
+                >
+                  Book Free Mandaue Audit
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Placeholder for more locations */}
           <div className="glass-morphism rounded-[2.5rem] border border-white/5 flex flex-col items-center justify-center p-12 text-center bg-white/[0.02] border-dashed border-white/10">
             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-gray-600 mb-6">
