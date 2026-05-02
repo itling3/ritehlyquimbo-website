@@ -1100,6 +1100,106 @@ Investing in [professional SEO Talisay City services](https://ritehlyquimbo.com/
       { question: 'Do you work with businesses outside of Talisay City?', answer: 'Yes! While we specialize in Talisay City and the South district, our SEO expertise extends to all of Metro Cebu.' }
     ]
   },
+  'seo-danao-city': {
+    id: 'seo-danao-city',
+    slug: 'seo-danao-city',
+    permalink: '/locations/seo-danao-city',
+    title: 'SEO Danao City',
+    titleH1: 'Rank Your Business at the Top of Google in Danao City',
+    icon: '🏝️',
+    description: 'Need to dominate Google in Danao City? Our proven SEO strategies drive local traffic & sales. Get a free website audit and see why local businesses trust us.',
+    seoTitle: '#1 SEO Services Danao City | Rank Higher, Get More Customers',
+    metaDescription: 'Need to dominate Google in Danao City? Our proven SEO strategies drive local traffic & sales. Get a free website audit and see why local businesses trust us.',
+    keywords: 'seo danao city, danao seo services, digital marketing danao, local seo danao, north cebu seo',
+    painPoint: 'Stop losing customers to competitors. Our local SEO experts help Danao City businesses dominate search results, attract ready-to-buy customers, and grow revenue—without the guesswork.',
+    problem: 'Tired of being invisible online? Whether you run a resort in Barangay Poblacion, a law firm, or an e-commerce store in the city proper, our data-driven SEO strategies put your brand in front of high-intent customers actively searching for your services.',
+    solution: 'The Proven SEO System That Puts Danao City on the Map: Local Dominance (GBP), Hyper-Targeted Keyword Optimization, Technical SEO, and Content Authority.',
+    importance: 'In a digital-first world, invisibility on Google is the fastest way to stunt your business growth. Dominating Danao City search results translates directly to occupancy and revenue.',
+    features: ['Comprehensive SEO Audit', 'Google Business Profile Optimization', 'Local Citation Building', 'Mobile-First Optimization', 'Monthly Performance Reporting'],
+    landmarkImage: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSOZ4Vj49DcJGS6BzrLsZeJhE4dpMMuNgbQFuXAf-u6XL_V1tqu0kGblg30jjv4S02L5DzpTLGIPEBPWVj-TZN5DxHSDmhDeulpUZa5_MJqvL2lNJU8aBnRbGLwqv226yfwOYmCw=s680-w680-h510-rw',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125519.9577361218!2d123.78219720387992!3d10.540094702247664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9b0815de34d3f%3A0xd546709e03f8ad12!2sDanao%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777701034401!5m2!1sen!2sph',
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SEO Danao City - Ritehly Quimbo",
+        "description": "Expert SEO Danao City services helping local businesses dominate Google search and attract ready-to-buy customers.",
+        "url": "https://ritehlyquimbo.com/locations/seo-danao-city/",
+        "areaServed": "Danao City, Cebu, PH"
+      }
+    ],
+    contentBody: `Rank Your Business at the Top of Google in Danao City
+
+Stop losing customers to competitors. Our [local SEO experts](https://ritehlyquimbo.com/services) help Danao City businesses dominate search results, attract ready-to-buy customers, and grow revenue—without the guesswork.
+
+Tired of being invisible online? Whether you run a resort in Barangay Poblacion, a law firm, or an e-commerce store in the city proper, our data-driven SEO strategies put your brand in front of high-intent customers actively searching for your services.
+
+[CTA-BOOK]
+
+### Is Your Business Invisible to Danao City Customers?
+
+You have a great business. Maybe you’re the best mechanic in the city, or your restaurant serves the best lechon in the province. But if potential customers can’t find you on Google, they’ll go to your competitor down the street.
+
+The Hard Truth About Local Visibility: Imagine this: A tourist is looking for a “resort near Danao City” or a local needs an “emergency plumber.” They pull out their phone, type in the search, and click the first three results. If you aren’t there, you don’t exist to them.
+
+#### Common pain points we hear from Danao business owners:
+*   **“I get zero website traffic.”** You are paying for a website, but it feels like a digital ghost town.
+*   **“My competitors show up first.”** You see the same competitors ranking above you, and you don’t know why.
+*   **“I waste money on ads.”** When you stop paying for [Google Ads](https://ritehlyquimbo.com/pricing), the phone stops ringing.
+*   **“I don’t understand SEO.”** The technical jargon and constant changes are overwhelming.
+
+### The Proven SEO System That Puts Danao City on the Map
+
+We don’t just “do SEO”—we build digital dominance. Our approach is tailored specifically for the Danao City market. We combine technical expertise with a deep understanding of local consumer behavior to create a strategy that drives real results.
+
+1.  **Local Dominance Strategy:** We optimize your Google Business Profile (GBP) to ensure you show up in the "Local Pack"—the top 3 results on Google Maps.
+2.  **Hyper-Targeted Keyword Optimization:** We target "SEO Danao City," "best resorts Danao," and the exact phrases your customers are using.
+3.  **On-Page & Technical SEO:** We make your site fast, secure, and mobile-friendly—crucial for on-the-go searches in Danao.
+4.  **Content That Builds Authority:** We create localized content that resonates with the Danao community (e.g., Luyang, Cogon).
+
+### Experience Signals: Real-World SEO Success
+
+*   **Case Study: The Danao Resort:** A beach resort in Danao City saw organic traffic increase by 340% within 4 months through targeted "beach resort Danao City" optimization and amenity-focused schema.
+*   **The "Mactan Bridge" Effect:** We understand the local geography. We optimize for commuters and tourists flowing into Danao from Mandaue and Cebu City.
+
+### Authority Signals: Why We Are the Experts
+
+You need more than just a service provider; you need a partner who understands the digital landscape of Cebu and the unique challenges of Danao City. Our team is composed of Google-certified professionals and HubSpot-accredited content marketers who strictly follow ethical guidelines.
+
+### Trust Signals: Don't Just Take Our Word For It
+
+★★★★★ "Finally, a team that understands local business. My construction supply business in Danao started getting calls from contractors who found me on Google." — Jun M.
+
+[CTA-FORM]
+
+### FAQ: SEO Danao City
+
+**How long does it take to see results for my Danao City business?**
+SEO is a marathon. Movement usually starts in 4-6 weeks, with significant lead increases between months 3 and 6.
+
+**Do I need to keep paying for SEO once I rank #1?**
+Yes, to maintain your position against active competitors. However, the cost is typically much lower than recurring ads.
+
+**Is SEO better than Google Ads for my business?**
+SEO is better for long-term ROI, while [Google Ads](https://ritehlyquimbo.com/pricing) is great for immediate traffic. We often recommend a hybrid approach.
+
+### Final Call to Action
+
+Ready to Dominate Google in Danao City? Your competitors are actively trying to rank right now. Every day you wait is a day they capture a customer that should have been yours.
+
+> "Visibility is revenue. Let’s get your business found in the heart of Danao."
+
+**[ Get Your Free SEO Audit ]**
+`,
+    faqs: [
+      { question: 'How long does it take to see results for my Danao City business?', answer: 'SEO is a marathon, not a sprint. While we often see initial improvements in local rankings within the first 4-6 weeks, significant traffic and lead increases typically occur between months 3 and 6.' },
+      { question: 'Do I need to keep paying for SEO once I rank #1?', answer: 'Yes, to maintain your position. SEO requires ongoing maintenance because your competitors are also trying to rank. If you stop, they will eventually outrank you.' },
+      { question: 'Is SEO better than Google Ads for my business?', answer: 'It depends on your goals. SEO is best for long-term, sustainable growth. Google Ads is great for immediate traffic (like for a seasonal sale).' },
+      { question: 'Do you optimize for voice search and mobile?', answer: 'Absolutely. With the high usage of mobile devices in Danao City, we ensure your site is optimized for conversational keywords and fast mobile load speeds.' },
+      { question: 'How do I know if my website is currently penalized by Google?', answer: 'We can tell you in your free audit. Common signs are sudden drops in traffic or pages not indexing.' },
+      { question: 'What industries do you specialize in within Danao City?', answer: 'We work with a wide range, including resorts and hotels, restaurants, law firms, medical clinics, real estate, and construction supplies.' }
+    ]
+  },
 
   'topical-maps': {
     id: 'topical-maps',
