@@ -886,9 +886,9 @@ If you want your business to attract more customers online, investing in [profes
     metaDescription: 'Looking for SEO Lapu-Lapu City services? Boost your Google rankings, attract more local customers, and grow your business with expert search engine optimization strategies.',
     keywords: 'seo lapu-lapu city, lapu-lapu seo services, digital marketing lapu-lapu, local seo lapu-lapu, cebu tourism seo',
     painPoint: 'If potential customers in Lapu-Lapu City are searching online for services like yours but your business isn’t appearing on Google, you’re missing valuable opportunities.',
-    problem: 'Many businesses in Lapu-Lapu invest in websites and social media but still struggle to attract consistent leads because of a lack of proper search engine optimization (SEO).',
+    problem: 'Many businesses in Lapu-Lapu invest in websites and social media but still struggle to attract consistent leads because of a lack of proper [search engine optimization (SEO)](https://ritehlyquimbo.com/).',
     solution: 'A strategic SEO Lapu-Lapu City campaign that focuses on three core objectives: Improve Google search rankings, Drive targeted website traffic, and Convert visitors into paying customers.',
-    importance: 'Lapu-Lapu City is a major commercial and tourism hub. Appearing on Google search results when customers are actively searching for services can dramatically increase inquiries, leads, and sales.',
+    importance: 'Lapu-Lapu City is a major commercial and tourism hub. Appearing on Google search results when customers are actively looking for services can dramatically increase inquiries, leads, and sales.',
     features: ['Keyword Research', 'On-Page SEO Optimization', 'Technical SEO Improvements', 'Local SEO Optimization', 'Content Strategy', 'Conversion Optimization'],
     landmarkImage: 'https://lh3.googleusercontent.com/grass-cs/ANxoTn39NvdHHuX0lnctvUi8Iw-zEZ6DWaJAwRR02yhHnVME6kT98xMlgikjkg9x6RRkBrilDZ4uoq5iIwhclXIR8x_StggMhu7YFGzhMubvXFy63brZYMU4i_1Q1jr-7KckDuduQh_8=s680-w680-h510-rw',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251258.88671905195!2d123.88200116442313!3d10.268021222735735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999fed973c41b%3A0x1ae9af03b1a02e2c!2sLapu-Lapu%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777698080925!5m2!1sen!2sph',
@@ -983,7 +983,7 @@ Yes. Local SEO helps businesses appear when nearby customers search for services
 
 ### Final Call to Action
 
-If you want your business to attract more customers online, investing in professional [SEO Lapu-Lapu City services](https://ritehlyquimbo.com/pricing) can significantly improve your visibility and lead generation. Instead of chasing customers, your website can appear directly in front of people already searching for your services.
+If you want your business to attract more customers online, investing in [professional SEO Lapu-Lapu City services](https://ritehlyquimbo.com/pricing) can significantly improve your visibility and lead generation. Instead of chasing customers, your website can appear directly in front of people already searching for your services.
 
 > "With the right strategy, SEO becomes a long-term source of traffic, leads, and revenue."
 
@@ -996,6 +996,108 @@ If you want your business to attract more customers online, investing in profess
       { question: 'How much does SEO cost in Lapu-Lapu City?', answer: 'SEO pricing varies depending on competition and project scope. Many agencies offer flexible monthly packages.' },
       { question: 'Can SEO generate local leads?', answer: 'Yes. Local SEO helps businesses appear when nearby customers search for services.' },
       { question: 'What services are included in SEO?', answer: 'Typical services include keyword research, on-page optimization, technical SEO improvements, content strategy, and performance tracking.' }
+    ]
+  },
+  'seo-talisay-city': {
+    id: 'seo-talisay-city',
+    slug: 'seo-talisay-city',
+    permalink: '/locations/seo-talisay-city',
+    title: 'SEO Talisay City',
+    titleH1: 'Dominate Google Maps & Organic Search: #1 SEO Talisay City Experts',
+    icon: '🏢',
+    description: 'Struggling to get customers in Talisay City? Our expert SEO services dominate Google search. We drive targeted traffic, generate leads, and grow your business. Get a free audit today!',
+    seoTitle: '#1 SEO Agency in Talisay City | Guaranteed Google Rankings & Traffic',
+    metaDescription: 'Struggling to get customers in Talisay City? Our expert SEO services dominate Google search. We drive targeted traffic, generate leads, and grow your business. Get a free audit today!',
+    keywords: 'seo talisay city, talisay seo services, digital marketing talisay, local seo talisay, south cebu seo',
+    painPoint: 'Stop letting your competitors in Talisay City steal your customers. We provide data-driven SEO strategies that put your business on Page One—attracting high-intent local buyers who are ready to buy now.',
+    problem: 'The reality for most business owners in Talisay City is frustrating: Your website exists, but it doesn’t bring in calls or foot traffic. When someone searches for “best restaurant near me” or “plumber Talisay,” your competitor shows up at the top of Google Maps, and you are buried on page three.',
+    solution: 'Our proprietary system focuses on three pillars to guarantee growth: Local Dominance (GBP optimization), Content Authority (localized high-quality content), and Technical & Off-Page Excellence (mobile speed and authority links).',
+    importance: 'As real estate and commerce expand southward from Cebu City into Talisay, digital competition is heating up. Capturing the "South Shift" is crucial for businesses from Lawaan to Poblacion.',
+    features: ['Google Business Profile Optimization', 'Local Citation Building', 'Mobile-First Website Optimization', 'Hyper-Local Content Creation', 'Review Generation & Management', 'White-Hat Link Building'],
+    landmarkImage: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFpWFwagFwsw6ZTn9EMh5_Q1fQ71dVxbrV6H8M78mRhKnhE4CCL6FH7SfSvtaKOMgzKEJFoW_oQZNk4Y2OfaC5DJz62lRmXVmjHNUe6UiGVAb4ekqhGkSOanzRtQj9_fC7-lWU=s680-w680-h510-rw',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62811.09023909512!2d123.78404103306944!3d10.286290000585334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99dadf0cb3aed%3A0x8464eb7a98416a00!2sTalisay%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777698973995!5m2!1sen!2sph', // Placeholder map embed
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SEO Talisay City - Ritehly Quimbo",
+        "description": "Expert SEO Talisay City services helping local businesses dominate Google Maps and organic search.",
+        "url": "https://ritehlyquimbo.com/locations/seo-talisay-city/",
+        "areaServed": "Talisay City, Cebu, PH"
+      }
+    ],
+    contentBody: `Dominate Google Maps & Organic Search: #1 SEO Talisay City Experts
+
+Stop letting your competitors in Talisay City steal your customers. We provide data-driven [SEO Talisay City strategies](https://ritehlyquimbo.com/services) that put your business on Page One—attracting high-intent local buyers who are ready to buy now.
+
+[CTA-BOOK]
+
+### Are You Invisible to Talisay City Customers?
+
+You have a great business. Whether you run a café near Robinson’s Place, a dental clinic along A.S. Fortuna, or a hardware supply store in Tabok, you know one thing for sure: if they can’t find you online, they won’t find you at all.
+
+The reality for most business owners in Talisay City is frustrating:
+*   **The “Ghost Town” Website:** Your website exists, but it doesn’t bring in calls or foot traffic.
+*   **Lost to Competitors:** When someone searches for “best restaurant near me” or “plumber Talisay,” your competitor shows up at the top of Google Maps, and you are buried on page three.
+*   **Wasted Ad Spend:** You’ve tried Google Ads, but the moment you stop paying, the leads stop coming. There is no lasting asset.
+*   **Technical Headaches:** You don’t have time to learn about “backlinks,” “schema markup,” or “core web vitals.”
+
+You are losing revenue every single day because local [search engine optimization](https://ritehlyquimbo.com/) in the South (from Lawaan to Poblacion) simply cannot find you when they need your services the most.
+
+### Your Local Visibility Partner in the South
+
+We aren’t just an SEO agency; we are your local marketing partner based in Metro Cebu with a deep focus on the Talisay City market. We bridge the gap between your excellent business and the customers searching for you right now.
+
+Our proprietary system focuses on three pillars to guarantee growth:
+1.  **Local Dominance:** We optimize your Google Business Profile (GBP) to ensure you appear in the “Local Pack” (the top 3 results on Google Maps).
+2.  **Content Authority:** We create high-quality, localized content that answers the specific questions your customers are asking in Talisay City.
+3.  **Technical & Off-Page Excellence:** We ensure your website loads fast on mobile devices and build high-authority backlinks from reputable local sources.
+
+### Experience Signals: Practical Insights
+
+*   **The Restaurant Dilemma:** A local eatery in Brgy. Poblacion moved from position #15 to #2 on Google Maps for “seafood restaurant Talisay” within 8 weeks through GBP optimization.
+*   **The Service Provider:** A roofing repair service in Lawaan and San Isidro now receives an average of 5 qualified calls per week by targeting location-specific service pages.
+
+### Features and Benefits
+
+*   **GBP Optimization:** Dominate the Local Map Pack and turn browsers into visitors instantly.
+*   **Local Citation Building:** Build trust with Google via 50+ consistent local directory listings.
+*   **Mobile-First Optimization:** Capture "Near Me" searches with lightning-fast mobile speeds.
+*   **Hyper-Local Content:** Rank for neighborhood-specific keywords (e.g., “best electrician in Tabok”).
+*   **Review Management:** Boost credibility with systems to gather 5-star reviews.
+*   **White-Hat Link Building:** Establish authority with links from reputable Cebu-based news and business sites.
+
+[CTA-FORM]
+
+### FAQ: SEO Talisay City
+
+**How long does it take to see results from SEO in Talisay City?**
+Typically, you will start seeing movement in keyword rankings within 4–6 weeks. Significant increases in leads usually occur between months 3 and 6.
+
+**Do I need a new website to start SEO?**
+Not necessarily. We audit your existing website first. If it's mobile-friendly and technically sound, we can optimize it.
+
+**How does local SEO differ from regular SEO?**
+Local SEO focuses specifically on "near me" searches and Google Maps, optimizing for neighborhood-specific intent.
+
+### Final Call to Action
+
+Ready to Become the #1 Business in Talisay City? Your competitors are actively trying to rank on Google right now. Every day you wait is a day they capture a customer that should have been yours.
+
+Investing in [professional SEO Talisay City services](https://ritehlyquimbo.com/pricing) can significantly improve your visibility and lead generation.
+
+> "Stop being the best-kept secret in Talisay City. Start dominating Google Maps and organic search."
+
+**[ Get Your Free SEO Audit ]**
+`,
+    faqs: [
+      { question: 'How long does it take to see results from SEO in Talisay City?', answer: 'Typically, you will start seeing movement in keyword rankings within 4–6 weeks. However, significant increases in leads and phone calls usually occur between months 3 and 6.' },
+      { question: 'Do I need a new website to start SEO?', answer: 'Not necessarily. We audit your existing website first. If your site is mobile-friendly and technically sound, we can optimize it.' },
+      { question: 'How does local SEO differ from regular SEO?', answer: 'Local SEO focuses specifically on "near me" searches and Google Maps. We optimize your Google Business Profile, manage local citations, and target location-based keywords.' },
+      { question: 'Can I do SEO myself?', answer: 'You can, but it is time-consuming and risky. Hiring an expert ensures the job is done right the first time.' },
+      { question: 'Is SEO better than Google Ads?', answer: 'They serve different purposes. SEO is a long-term investment that builds a sustainable asset, while Ads provide immediate visibility.' },
+      { question: 'What information do you need from me to get started?', answer: 'We need access to your Google Business Profile, website analytics, and a brief consultation.' },
+      { question: 'Do you work with businesses outside of Talisay City?', answer: 'Yes! While we specialize in Talisay City and the South district, our SEO expertise extends to all of Metro Cebu.' }
     ]
   },
 
