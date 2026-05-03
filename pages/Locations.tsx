@@ -450,7 +450,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Makati_City_Skyline_from_BGC.jpg/1200px-Makati_City_Skyline_from_BGC.jpg" 
+                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ec/59/22/incrocio-tra-ayala-avenue.jpg?w=500&h=500&s=1" 
                 alt="Makati City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
               />

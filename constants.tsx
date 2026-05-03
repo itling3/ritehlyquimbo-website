@@ -1384,7 +1384,7 @@ Ready to Grow With SEO Davao? If your website is not bringing in enough qualifie
     solution: 'Strategic SEO Makati City services built to improve rankings, increase qualified traffic, and turn website visitors into real leads and sales.',
     importance: 'The goal is to help your business show up when your ideal customers are searching, then give them a strong reason to contact you.',
     features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Technical SEO Audit', 'Local Relevance Signals', 'Conversion Optimization'],
-    landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Makati_City_Skyline_from_BGC.jpg/1200px-Makati_City_Skyline_from_BGC.jpg',
+    landmarkImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ec/59/22/incrocio-tra-ayala-avenue.jpg?w=500&h=500&s=1',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15448.243555986895!2d121.0189914!3d14.5547291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90264a01431%3A0xad981a3297a7e11c!2sMakati%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777791880945!5m2!1sen!2sph',
     schema: [
       {
