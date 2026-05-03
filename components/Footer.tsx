@@ -137,6 +137,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
               <Link to="/locations/seo-services-minglanilla" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Minglanilla</Link>
               <Link to="/locations/seo-manila" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Manila</Link>
               <Link to="/locations/seo-quezon-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Quezon City</Link>
+              <Link to="/locations/seo-davao" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Davao</Link>
               <Link to="/locations" className="text-[10px] text-blue-500 hover:text-blue-400 font-black uppercase tracking-widest mt-2">All Locations →</Link>
             </div>
           </div>
