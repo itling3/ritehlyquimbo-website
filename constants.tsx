@@ -1194,6 +1194,95 @@ Ready to Grow with SEO Manila Services That Focus on Real Results? If your websi
       { question: 'Do I need ongoing SEO?', answer: 'Yes. Search is competitive and algorithms change. Ongoing work helps you maintain and improve your rankings over time.' }
     ]
   },
+  'seo-quezon-city': {
+    id: 'seo-quezon-city',
+    slug: 'seo-quezon-city',
+    permalink: '/locations/seo-quezon-city',
+    title: 'SEO Quezon City',
+    titleH1: 'SEO Quezon City: Rank, Get Leads, and Grow',
+    icon: '🏛️',
+    description: 'Get expert SEO Quezon City services built to improve rankings, increase qualified traffic, and turn website visitors into real leads and sales.',
+    seoTitle: 'SEO Quezon City Services That Help Local Businesses Rank, Get Leads, and Grow',
+    metaDescription: 'Get expert SEO Quezon City services built to improve rankings, increase qualified traffic, and turn website visitors into real leads and sales.',
+    keywords: 'seo quezon city, quezon city seo services, digital marketing quezon city, local seo quezon city, metro manila seo',
+    painPoint: 'Looking for SEO Quezon City services that do more than boost rankings? Get a strategy built to help your business attract the right audience and grow revenue.',
+    problem: 'Many businesses in Quezon City struggle to rank due to weak strategy, poor on-page SEO, or slow pages. If people cannot find your business, you are missing high-intent traffic.',
+    solution: 'A smarter SEO Quezon City strategy for sustainable growth. We focus on high-intent keywords, technical precision, content quality, and local relevance.',
+    importance: 'The goal is simple: help your business show up when your ideal customers are searching, then give them a strong reason to contact you.',
+    features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Technical SEO Fixes', 'Local Relevance Signals', 'Performance Tracking'],
+    landmarkImage: 'https://upload.wikimedia.org/wikipedia/en/8/86/Quezon_Memorial_Shrine_monument_%28local_img%29.jpg',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123504.3582590839!2d121.06239464999999!3d14.683659150000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ba0942ef7375%3A0x4a9a32d9fe083d40!2sQuezon%20City%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777789935546!5m2!1sen!2sph',
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SEO Quezon City - Ritehly Quimbo",
+        "description": "Expert SEO Quezon City services built to improve rankings and turn traffic into real business growth.",
+        "url": "https://ritehlyquimbo.com/locations/seo-quezon-city/",
+        "areaServed": "Quezon City, Metro Manila, PH"
+      }
+    ],
+    contentBody: `SEO Quezon City Services That Turn Search Traffic Into Real Business Growth
+
+Looking for [SEO Quezon City services](https://ritehlyquimbo.com/services) that do more than boost rankings? Get a strategy built to help your business attract the right audience, generate qualified leads, and grow revenue through long-term organic search visibility.
+
+Whether you run a local service business, clinic, law office, ecommerce store, agency, or professional practice in Quezon City, the right SEO campaign can help your website become a reliable source of inquiries and sales.
+
+[CTA-BOOK]
+
+### Why Many Businesses in Quezon City Struggle to Rank
+
+A lot of businesses invest in websites, blog posts, or even ads, yet still do not see steady results from Google. The problem is rarely just one issue. It is usually a mix of weak strategy, poor on-page SEO, slow pages, and content that does not match buyer intent.
+
+#### Common problems business owners face:
+*   **Your website is not showing up for valuable local searches:** If people cannot find you, you are missing high-intent traffic.
+*   **You get traffic, but not enough leads:** A page can attract visitors and still fail to convert if the content isn't optimized for buyer needs.
+*   **Competitors outrank you even with weaker services:** They may just have a stronger [SEO structure](https://ritehlyquimbo.com/).
+*   **Paid ads are getting expensive:** [Google Ads](https://ritehlyquimbo.com/pricing) costs rise, while SEO creates a stable, long-term asset.
+
+### A Smarter SEO Quezon City Strategy for Sustainable Growth
+
+Effective SEO Quezon City campaigns are built on research, technical precision, content quality, local relevance, and consistent improvement.
+
+1.  **Keyword Intent Mapping:** Identify keywords your audience actually searches for when ready to buy.
+2.  **On-Page Optimization:** Improve titles, headings, and copy to satisfy both users and search engines.
+3.  **Local SEO Optimization:** Dominate search presence for area-based queries in Quezon City.
+4.  **Technical SEO Improvements:** Fix crawl issues, page speed, and mobile usability.
+
+### Built on Real SEO Experience, Not Templates
+
+SEO works best when grounded in practical experience. Businesses in Quezon City compete in crowded markets. A generic strategy rarely works across every industry. Whether you are a local service provider, a professional firm, or an ecommerce brand, we tailor the path to your specific niche.
+
+[CTA-FORM]
+
+### Frequently Asked Questions About SEO Quezon City
+
+**What is SEO and why does it matter for businesses in Quezon City?**
+SEO helps your website rank higher in Google for relevant searches, increasing visibility among nearby customers actively looking for your services.
+
+**How long does SEO take to show results?**
+SEO usually takes time. Some improvements can be seen within weeks, but stronger growth often takes 3-6 months.
+
+**Is local SEO different from regular SEO?**
+Yes. Local SEO focuses more on location relevance and signals that help your business appear for area-based queries in Quezon City.
+
+### Final Call to Action
+
+Ready to Grow With SEO Quezon City? If your website is not bringing in enough qualified traffic, leads, or sales, SEO may be the missing piece. Stop letting your competitors take your customers.
+
+> "The right SEO work is not about chasing algorithms. It is about understanding your market and creating pages that deserve to rank."
+
+**[ Book Your Free SEO Strategy Call ]**
+`,
+    faqs: [
+      { question: 'What is SEO and why does it matter for businesses in Quezon City?', answer: 'SEO helps your website rank higher for relevant searches, increasing visibility among nearby customers actively looking for your products or services.' },
+      { question: 'How long does SEO take to show results?', answer: 'Some improvements can be seen within weeks, but stronger growth often takes 3-6 months depending on competition and site health.' },
+      { question: 'Is local SEO different from regular SEO?', answer: 'Local SEO focuses more on location relevance and appearing for area-based queries like "services in Quezon City".' },
+      { question: 'Can SEO help generate leads, not just traffic?', answer: 'Yes. By targeting intent-based keywords and improving conversion paths, visitors are more likely to inquire or buy.' },
+      { question: 'Do I need SEO if I already run ads?', answer: 'SEO builds long-term visibility that reduces your dependence on paid clicks over time.' },
+      { question: 'Can you guarantee first-page rankings?', answer: 'No honest provider can guarantee specific rankings, but we provide best-practice optimization focused on measurable improvement.' }
+    ]
+  },
   'seo-danao-city': {
     id: 'seo-danao-city',
     slug: 'seo-danao-city',
