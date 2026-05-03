@@ -1368,6 +1368,96 @@ Ready to Grow With SEO Davao? If your website is not bringing in enough qualifie
       { question: 'Do I still need SEO if I already run ads?', answer: 'SEO builds long-term visibility and reduces dependence on paid clicks over time.' }
     ]
   },
+  'seo-makati-city': {
+    id: 'seo-makati-city',
+    slug: 'seo-makati-city',
+    permalink: '/locations/seo-makati-city',
+    title: 'SEO Makati City',
+    titleH1: 'SEO Makati City Services That Turn Google Searches into Customers',
+    icon: '🏙️',
+    description: 'Looking for SEO Makati City services? Improve Google rankings, drive more traffic, and attract high-value clients with expert search engine optimization.',
+    seoTitle: 'SEO Makati City Services | Rank Higher on Google & Get More Customers',
+    metaDescription: 'Looking for SEO Makati City services? Improve Google rankings, drive more traffic, and attract high-value clients with expert search engine optimization.',
+    keywords: 'seo makati city, makati seo services, digital marketing makati, local seo makati, metro manila seo',
+    painPoint: 'If your business is not visible on Google, potential customers are choosing your competitors instead. Professional SEO Makati City services help businesses increase search visibility, attract targeted traffic, and convert website visitors into paying clients.',
+    problem: 'Makati City is one of the most competitive business districts in the Philippines. Whether you operate a law firm, financial service, restaurant, clinic, real estate agency, or corporate service company, appearing on Google search results can dramatically increase your customer acquisition.',
+    solution: 'Strategic SEO Makati City services built to improve rankings, increase qualified traffic, and turn website visitors into real leads and sales.',
+    importance: 'The goal is to help your business show up when your ideal customers are searching, then give them a strong reason to contact you.',
+    features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Technical SEO Audit', 'Local Relevance Signals', 'Conversion Optimization'],
+    landmarkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Makati_City_Skyline_from_BGC.jpg/1200px-Makati_City_Skyline_from_BGC.jpg',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15448.243555986895!2d121.0189914!3d14.5547291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90264a01431%3A0xad981a3297a7e11c!2sMakati%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777791880945!5m2!1sen!2sph',
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SEO Makati City - Ritehly Quimbo",
+        "description": "Premium SEO Makati City services helping businesses in the financial district rank higher and attract high-value clients.",
+        "url": "https://ritehlyquimbo.com/locations/seo-makati-city/",
+        "areaServed": "Makati City, Metro Manila, PH"
+      }
+    ],
+    contentBody: `SEO Makati City Services That Turn Google Searches into Customers
+
+If your business is not visible on Google, potential customers are choosing your competitors instead. Professional [SEO Makati City services](https://ritehlyquimbo.com/services) help businesses increase search visibility, attract targeted traffic, and convert website visitors into paying clients.
+
+Makati City is one of the most competitive business districts in the Philippines. Whether you operate a law firm, financial service, restaurant, clinic, real estate agency, or corporate service company, appearing on Google search results can dramatically increase your customer acquisition.
+
+Strategic [SEO Makati City](https://ritehlyquimbo.com/) work is built for specific results: rankings that matter, traffic that converts, and local dominance.
+
+[CTA-BOOK]
+
+### Why Visibility in Makati City is Critical for Your Business
+
+Makati is the financial heart of the Philippines. When high-value clients search for services, they usually start with Google. If your website is buried on page two or three, you are effectively invisible to the people who need you most.
+
+#### Common problems businesses in Makati face:
+*   **High Competition:** You are competing with established firms and well-funded brands.
+*   **Low Conversion Rates:** You might get traffic, but those visitors aren't becoming clients.
+*   **Fragmented Strategy:** Random blog posts and social media aren't enough to rank for competitive terms.
+*   **Technical Roadblocks:** Your site might be slow or not optimized for mobile users in Makati.
+
+### A Data-Driven Approach to SEO Makati City
+
+Effective SEO is not about tricks; it is about building a website that deserves to be at the top. We focus on four key areas to ensure your Makati business wins in search:
+
+1.  **Keyword Intent Mapping:** We target the phrases high-value clients use when they are ready to hire or buy.
+2.  **On-Page Precision:** Your content needs to be better, more structured, and more relevant than your competitors.
+3.  **Local Authority:** We strengthen your local relevance so you show up in maps and area-specific searches.
+4.  **Technical Excellence:** A fast, secure, and mobile-friendly site is a requirement for ranking in modern Google.
+
+### Built for Results, Not Just Rankings
+
+The goal of our [SEO Makati services](https://ritehlyquimbo.com/pricing) is not just to get you to number one. It is to help you build a sustainable asset that generates leads and grows your business over time. By aligning your website with search intent and building authority, we create a path for long-term success.
+
+[CTA-FORM]
+
+### Frequently Asked Questions About SEO Makati City
+
+**How long does it take to see results in Makati?**
+Because Makati is competitive, results often take 3-6 months. However, some technical improvements can show impact much sooner.
+
+**Is SEO better than LinkedIn or Facebook ads for Makati businesses?**
+They work together. Social ads are great for awareness, but SEO captures people at the exact moment they are looking for a solution.
+
+**Do you specialize in specific industries in Makati?**
+We work with professional services, law firms, clinics, luxury real estate, and B2B corporate services.
+
+### Final Call to Action
+
+Ready to Dominate Search in Makati? If your business is ready for more visibility, high-quality traffic, and better lead generation, it's time to start.
+
+> "In Makati, being second is often like being last. Let's make sure your business is the one customers find first."
+
+**[ Book Your Free SEO Strategy Call ]**
+`,
+    faqs: [
+      { question: 'What is SEO Makati City?', answer: 'SEO Makati City is a specialized search engine optimization service designed to help businesses in the Makati business district rank higher for high-intent keywords.' },
+      { question: 'Why is SEO competitive in Makati?', answer: 'Makati is the financial hub of the Philippines, meaning many well-funded businesses are competing for the same high-value search terms.' },
+      { question: 'How long does it take to see results?', answer: 'Typically 3-6 months for significant organic growth, though technical fixes can sometimes show results faster.' },
+      { question: 'Can you help with Google Maps in Makati?', answer: 'Yes, local SEO and Google Business Profile optimization are core parts of our Makati strategy.' },
+      { question: 'Do I need ongoing SEO?', answer: 'Yes. Because your competitors are constantly optimizing, staying at the top requires consistent effort and monitoring.' }
+    ]
+  },
   'seo-danao-city': {
     id: 'seo-danao-city',
     slug: 'seo-danao-city',

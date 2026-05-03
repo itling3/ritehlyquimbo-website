@@ -446,6 +446,52 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
             </div>
           </div>
 
+          {/* Makati Location Card */}
+          <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
+            <div className="aspect-[16/9] relative overflow-hidden">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Makati_City_Skyline_from_BGC.jpg/1200px-Makati_City_Skyline_from_BGC.jpg" 
+                alt="Makati City" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div className="absolute bottom-6 left-8 flex items-center gap-3">
+                <span className="text-4xl">🏙️</span>
+                <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter">Makati</h2>
+              </div>
+            </div>
+            
+            <div className="p-8">
+              <p className="text-gray-400 mb-8 line-clamp-3">
+                Strategic SEO Makati City services for high-value client acquisition. Specialized growth for firms in the financial district.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                {['High-Value Lead Gen', 'Financial District SEO', 'Expert Authority Building'].map((feature, i) => (
+                  <div key={i} className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    {feature}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <Link 
+                  to="/locations/seo-makati-city"
+                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                >
+                  View Makati Strategy →
+                </Link>
+                <button 
+                  onClick={onBook}
+                  className="w-full py-4 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter border border-white/5"
+                >
+                  Book Free Makati Audit
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Placeholder for more locations */}
           <div className="glass-morphism rounded-[2.5rem] border border-white/5 flex flex-col items-center justify-center p-12 text-center bg-white/[0.02] border-dashed border-white/10">
             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-gray-600 mb-6">
@@ -454,7 +500,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               </svg>
             </div>
             <h3 className="text-xl font-bold text-gray-500 uppercase tracking-tight mb-2">New Markets Loading</h3>
-            <p className="text-gray-600 text-sm">Expanding the grid to Mactan, Davao, and Manila soon.</p>
+            <p className="text-gray-600 text-sm">Expanding the grid to Mactan, Iloilo, and Bacolod soon.</p>
           </div>
         </div>
 
