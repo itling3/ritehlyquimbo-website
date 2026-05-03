@@ -1549,6 +1549,95 @@ Ready to Grow With SEO Taguig? If your website is not bringing in enough qualifi
       { question: 'Do I still need SEO if I already run ads?', answer: 'Yes. Ads provide short-term visibility, while SEO builds a long-term organic asset.' }
     ]
   },
+  'seo-pasig-city': {
+    id: 'seo-pasig-city',
+    slug: 'seo-pasig-city',
+    permalink: '/locations/seo-pasig-city',
+    title: 'SEO Pasig City',
+    titleH1: 'SEO Pasig City Services for Higher Rankings, Better Leads, and Long-Term Growth',
+    icon: '🏙️',
+    description: 'Get expert SEO Pasig City services designed to improve Google rankings, attract qualified traffic, and turn website visitors into real leads and sales.',
+    seoTitle: 'SEO Pasig City Services for Higher Rankings, Better Leads, and Long-Term Growth',
+    metaDescription: 'Get expert SEO Pasig City services designed to improve Google rankings, attract qualified traffic, and turn website visitors into real leads and sales.',
+    keywords: 'seo pasig city, pasig seo services, digital marketing pasig, local seo pasig, metro manila seo',
+    painPoint: 'Looking for SEO Pasig City services that do more than improve vanity metrics? A strong SEO strategy helps your business appear when people are already searching for your services.',
+    problem: 'Many businesses in Pasig struggle to rank due to heavy competition in the metro. If potential customers can\'t find you, you\'re losing leads to competitors who have a stronger search presence.',
+    solution: 'Effective SEO Pasig City services built to improve rankings, increase qualified traffic, and turn website visitors into real leads and sales.',
+    importance: 'SEO provides businesses a long-term growth channel built on organic visibility, especially important in a city with active business registration and renewal activity.',
+    features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Local SEO & Maps', 'Technical SEO Improvements', 'Conversion Optimization'],
+    landmarkImage: 'https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/vgm9gpuvopozgoporoo7.jpg',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61781.87261077601!2d121.03972649400302!3d14.57814946093772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7dc88f7b24f%3A0x4a592b2b4b34fd89!2sPasig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777795976613!5m2!1sen!2sph',
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SEO Pasig City - Ritehly Quimbo",
+        "description": "Expert SEO Pasig City services helping local businesses rank higher and convert more traffic.",
+        "url": "https://ritehlyquimbo.com/locations/seo-pasig-city/",
+        "areaServed": "Pasig City, Metro Manila, PH"
+      }
+    ],
+    contentBody: `SEO Pasig City Services That Help Your Business Get Found and Grow
+
+### SEO Pasig City That Brings More Qualified Traffic, Leads, and Sales
+
+Looking for [SEO Pasig City services](https://ritehlyquimbo.com/services) that do more than improve vanity metrics? A strong SEO strategy helps your business appear when people are already searching for your services, products, or solutions. In a city like Pasig, where the local market is large and business activity is active, visibility in search can directly affect how many inquiries and customers you get.
+
+[CTA-BOOK]
+
+### The Problem: Why Many Businesses in Pasig City Struggle Online
+
+A lot of businesses launch a website and expect customers to find them. Then the site gets little traction, form submissions stay low, and competitors keep showing up ahead in search results. Usually, the issue is not the business itself. The issue is that the website is not well aligned with how search works and how buyers search locally.
+
+#### Common challenges business owners face:
+*   **Your website is not visible for the right searches:** Potential customers are looking for you, but finding your competitors.
+*   **You get traffic, but not enough inquiries:** Message clarity and intent alignment might be weak.
+*   **Competing in a dense market:** Pasig has a substantial local audience and high business competition.
+*   **Dependence on paid ads:** Advertising costs continue to increase without long-term organic benefits.
+
+### The Solution: SEO Pasig City Built for Rankings and Conversions
+
+Effective [SEO Pasig City work](https://ritehlyquimbo.com/) is about building a stronger search presence that helps your website become easier to discover, easier to understand, and more persuasive.
+
+1.  **Keyword Research based on Intent:** Targeting phrases tied to what your buyers actually want.
+2.  **On-Page SEO Optimization:** Improving titles, headings, content structure, and organization.
+3.  **Local SEO Targeting:** Building stronger Pasig City relevance into your service and landing pages.
+4.  **Technical SEO Improvements:** Addressing site speed, mobile usability, and crawlability.
+
+### Built on Real SEO Experience, Not Templates
+
+Search visibility matters for project pages, neighborhood pages, and lead-generation funnels in Pasig. Whether you are a clinic, a contractor, or a professional firm, we refine your pages to build trust and reduce friction.
+
+[CTA-FORM]
+
+### Frequently Asked Questions About SEO Pasig City
+
+**What is SEO Pasig City?**
+SEO Pasig City refers to search engine optimization services designed to help businesses in Pasig improve search visibility and attract qualified local traffic.
+
+**How long does SEO take to show results?**
+Some improvements appear within weeks, but stronger growth usually takes 3-6 months depending on competition.
+
+**Is local SEO different from regular SEO?**
+Yes. Local SEO places more emphasis on geographic relevance and visibility for users searching in a specific city.
+
+### Final Call to Action
+
+Ready to Grow With SEO Pasig City? If your website is not bringing in enough qualified traffic or real inquiries, SEO may be the missing growth channel. Stop letting your competitors take your customers.
+
+> "Good SEO is not about tricks. It is about stronger pages, clearer relevance, better user experience, and helpful content built for real people."
+
+**[ Book Your Free SEO Strategy Call ]**
+`,
+    faqs: [
+      { question: 'What is SEO Pasig City?', answer: 'SEO Pasig City refers to search engine optimization services designed to help businesses in Pasig improve search visibility, attract qualified local traffic, and generate more leads or sales.' },
+      { question: 'Who needs SEO in Pasig City?', answer: 'Clinics, restaurants, law offices, agencies, service businesses, and local brands can all benefit from stronger search visibility in Pasig.' },
+      { question: 'How long does SEO take to show results?', answer: 'Some improvements appear within weeks, but stronger growth usually takes 3-6 months. Google does not guarantee ranking outcomes.' },
+      { question: 'Is local SEO different from regular SEO?', answer: 'Yes. Local SEO focuses on geographic relevance and visibility for users searching in specific city or service area.' },
+      { question: 'Can SEO help generate leads, not just traffic?', answer: 'Yes. When pages are built around buyer intent and clear calls to action, SEO supports lead generation.' },
+      { question: 'Do I still need SEO if I already run ads?', answer: 'Yes. Ads drive short-term traffic, while SEO builds long-term organic visibility and reduces dependence on paid clicks.' }
+    ]
+  },
   'seo-danao-city': {
     id: 'seo-danao-city',
     slug: 'seo-danao-city',

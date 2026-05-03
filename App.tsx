@@ -199,6 +199,7 @@ const AppContent: React.FC = () => {
         <Route path="/locations/seo-davao" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-davao" />} />
         <Route path="/locations/seo-makati-city" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-makati-city" />} />
         <Route path="/locations/seo-taguig" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-taguig" />} />
+        <Route path="/locations/seo-pasig-city" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-pasig-city" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
