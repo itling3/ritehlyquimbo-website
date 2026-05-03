@@ -1100,6 +1100,100 @@ Investing in [professional SEO Talisay City services](https://ritehlyquimbo.com/
       { question: 'Do you work with businesses outside of Talisay City?', answer: 'Yes! While we specialize in Talisay City and the South district, our SEO expertise extends to all of Metro Cebu.' }
     ]
   },
+  'seo-manila': {
+    id: 'seo-manila',
+    slug: 'seo-manila',
+    permalink: '/locations/seo-manila',
+    title: 'SEO Manila',
+    titleH1: 'SEO Manila: Get Found by the Right Customers in Manila',
+    icon: '🌆',
+    description: 'SEO Manila services that help businesses rank higher, attract qualified traffic, and turn searchers into paying customers.',
+    seoTitle: 'SEO Manila | Expert SEO Services to Grow Your Local Visibility',
+    metaDescription: 'Professional SEO Manila services focused on rankings, leads, and revenue. Get a free consultation and dominate your local search results today.',
+    keywords: 'seo manila, manila seo services, digital marketing manila, local seo manila, metro manila seo',
+    painPoint: 'Your business may be good. But if people cannot find you, it is easy to get overlooked. Hope is not a strategy—you need a clear plan to dominate the Manila market.',
+    problem: 'A lot of businesses in Manila invest in a website but stay buried on page two. If you aren’t on page one, your competitors are getting the clicks, leads, and trust that should be yours.',
+    solution: 'A smarter SEO Manila strategy focused on Rankings, Leads, and Revenue. We focus on Technical SEO, Intent-based Keyword Strategy, and Conversion-Focused Content.',
+    importance: 'The goal is not just more traffic. The goal is better traffic, stronger visibility, and more inquiries in the competitive Manila landscape.',
+    features: ['Technical SEO Audit', 'Keyword Intent Mapping', 'On-Page Optimization', 'Local SEO & Maps', 'Conversion rate optimization'],
+    landmarkImage: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFp7PkxcOj9AnA5mqZsyGTCHvsndEDHUT40jdGlTO79ctM6tl5yorXZ0Hp4Jy_AXBKwxH0LWs1qvAB3IrGHCj8AjTFg62Ds5DglROwZVgBGjgd764HgVO3Q8fV71yS-RCM9GxpVEA=s680-w680-h510-rw',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61775.938862536146!2d120.97948349999999!3d14.599293450000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca03571ec38b%3A0x69d1d5751069c11f!2sManila%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777788371566!5m2!1sen!2sph',
+    schema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "SEO Manila - Ritehly Quimbo",
+        "description": "Premium SEO Manila services helping businesses in the capital rank higher and convert more traffic.",
+        "url": "https://ritehlyquimbo.com/locations/seo-manila/",
+        "areaServed": "Manila, Metro Manila, PH"
+      }
+    ],
+    contentBody: `SEO Manila: Get Found by the Right Customers in Manila
+
+[SEO Manila services](https://ritehlyquimbo.com/services) help businesses rank higher, attract qualified traffic, and turn searchers into paying customers. Whether you run a local business, service company, ecommerce brand, or growing startup, strong SEO helps people find you at the exact moment they are searching for what you offer.
+
+The goal is not just more traffic. The goal is better traffic, stronger visibility, and more inquiries, calls, and sales.
+
+[CTA-BOOK]
+
+### Your Business May Be Good. But If People Cannot Find You, It Is Easy to Get Overlooked.
+
+A lot of businesses in Manila invest in a website, post on social media, and hope customers will come. But hope is not a strategy. If your site is buried on page two, three, or beyond, your competitors are getting the clicks, leads, and trust that should be going to you.
+
+#### This is the problem many business owners face:
+*   Your website looks decent, but it does not rank well.
+*   You are getting traffic, but not enough qualified leads.
+*   Your competitors appear above you for important search terms.
+*   Your Google Business Profile is underperforming.
+
+[SEO Philippines](https://ritehlyquimbo.com/) can feel confusing when you are trying to run a business. You should not have to guess what is wrong or waste money on random tactics.
+
+### A Smarter SEO Manila Strategy Focused on Rankings, Leads, and Revenue
+
+Good SEO is not about chasing shortcuts; it's about building strong visibility through strategy, structure, content, and trust.
+
+1.  **Technical SEO:** Search engines need to crawl, understand, and index your site properly.
+2.  **Keyword Strategy:** Ranking for the right terms brings people who are ready to compare and buy.
+3.  **Content Optimization:** Your pages need to answer search intent clearly and guide visitors toward action.
+4.  **Local SEO:** Optimizing for maps and local search intent helps you reach nearby customers faster.
+5.  **Conversion-Focused SEO:** Traffic without conversions is wasted potential.
+
+### Built on Real Search Behavior, Not Guesswork
+
+Businesses do not need generic SEO. They need strategy rooted in real search behavior. For example, a dental clinic in Manila needs to rank for "emergency dental care" or "dental clinic near me" rather than just generic terms.
+
+Real SEO comes from understanding how users search, how Google evaluates pages, and how content and structure work together.
+
+[CTA-FORM]
+
+### Frequently Asked Questions About SEO Manila
+
+**How long does SEO take to work?**
+SEO usually takes time. Some improvements can happen within weeks, but stronger organic growth often takes several months.
+
+**Is SEO better than paid ads?**
+They serve different purposes. Paid ads give quick visibility, while [SEO Pricing](https://ritehlyquimbo.com/pricing) builds long-term organic traffic and trust.
+
+**What should I look for in an SEO provider?**
+Look for clarity, transparency, strategic thinking, and a focus on both rankings and conversions.
+
+### Final Call to Action
+
+Ready to Grow with SEO Manila Services That Focus on Real Results? If your website is not bringing in enough qualified traffic, leads, or local visibility, SEO may be the missing piece.
+
+> "You do not need more noise. You need a clear path forward. Let’s make your Manila business unmissable."
+
+**[ Book Your Free SEO Strategy Call ]**
+`,
+    faqs: [
+      { question: 'What does SEO Manila mean?', answer: 'SEO Manila refers to search engine optimization services aimed at helping businesses in the capital improve their rankings and visibility in Google search results.' },
+      { question: 'How long does SEO take to work?', answer: 'Some improvements can happen within weeks, but stronger organic growth usually takes 3-6 months depending on competition.' },
+      { question: 'Is SEO better than paid ads?', answer: 'SEO builds long-term organic traffic and trust, while ads provide immediate but temporary visibility. Many businesses use both.' },
+      { question: 'Can local businesses in Manila benefit from SEO?', answer: 'Yes. Local SEO is essential for businesses serving specific neighborhoods to appear in map results.' },
+      { question: 'What industries benefit most from SEO?', answer: 'Almost any industry, especially service businesses, healthcare, professional services, and ecommerce stores.' },
+      { question: 'Do I need ongoing SEO?', answer: 'Yes. Search is competitive and algorithms change. Ongoing work helps you maintain and improve your rankings over time.' }
+    ]
+  },
   'seo-danao-city': {
     id: 'seo-danao-city',
     slug: 'seo-danao-city',
