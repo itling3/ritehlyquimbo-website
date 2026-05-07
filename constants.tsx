@@ -2238,7 +2238,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'May 20, 2024',
     author: 'Ritehly Quimbo',
     category: 'Local SEO',
-    image: 'https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=2000&auto=format&fit=crop',
+    image: '/seo-lapu-lapu-featured.png',
     seoTitle: 'SEO in Lapu-Lapu City: Local SEO Strategy for Mactan Businesses',
     metaDescription: 'Dominate local search in Lapu-Lapu City. Learn how Google Maps optimization and location-based keywords drive leads for Mactan resorts, clinics, and more.',
     keywords: 'seo lapu-lapu city, local seo mactan, cebu seo, google maps seo philippines',
@@ -2247,7 +2247,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "@type": "Article",
       "headline": "SEO in Lapu-Lapu City: How Local SEO Helps Businesses Rank in Google Search",
       "description": "Learn how Local SEO in Lapu-Lapu City helps businesses improve visibility in Google Search, Google Maps, and local search results for customers in Mactan.",
-      "image": "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=2000&auto=format&fit=crop",
+      "image": "/seo-lapu-lapu-featured.png",
       "author": {
         "@type": "Person",
         "name": "Ritehly Quimbo"
