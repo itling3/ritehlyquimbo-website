@@ -5,7 +5,7 @@ import { BlogPost } from '../types';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight, Link as LinkIcon, Globe, Code } from 'lucide-react';
+import { ExternalLink, ArrowRight, Link as LinkIcon, Globe, Code, Video, Share2 } from 'lucide-react';
 
 interface BlogPostViewProps {
   post: BlogPost;
@@ -107,7 +107,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, onBack }) => {
             <div className="relative">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-blue-500/20 shadow-2xl">
                 <img 
-                  src="https://ritehlyquimbo.com/me.jpg" 
+                  src="https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_" 
                   alt="Ritehly Quimbo" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   onError={(e) => {
@@ -128,14 +128,17 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, onBack }) => {
                   <h3 className="text-3xl font-black text-white uppercase italic tracking-tight">{post.author}</h3>
                 </div>
                 <div className="flex items-center justify-center md:justify-end gap-4">
-                  <a href="https://linkedin.com/in/ritehly" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 hover:bg-blue-600 transition-colors rounded-lg group">
+                  <a href="https://www.facebook.com/ritehly/" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 hover:bg-blue-600 transition-colors rounded-lg group" title="Facebook">
+                    <Share2 className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/ritehly-quimbo/" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 hover:bg-blue-700 transition-colors rounded-lg group" title="LinkedIn">
                     <LinkIcon className="w-5 h-5 text-gray-400 group-hover:text-white" />
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 hover:bg-black transition-colors rounded-lg group">
-                    <Globe className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                  <a href="https://www.youtube.com/@ritseo" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 hover:bg-red-600 transition-colors rounded-lg group" title="YouTube">
+                    <Video className="w-5 h-5 text-gray-400 group-hover:text-white" />
                   </a>
-                  <Link to="/about" className="p-2 bg-white/5 hover:bg-white/10 transition-colors rounded-lg group">
-                    <Code className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                  <Link to="/about" className="p-2 bg-white/5 hover:bg-white/10 transition-colors rounded-lg group" title="Learn More">
+                    <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-white" />
                   </Link>
                 </div>
               </div>
