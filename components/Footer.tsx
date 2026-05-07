@@ -167,8 +167,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold text-gray-500">
           <div>&copy; {new Date().getFullYear()} Ritehly Quimbo. All rights reserved.</div>
           <div className="flex items-center gap-6">
-            <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
