@@ -39,9 +39,11 @@ import PricingWebDevPage from './pages/PricingWebDev';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
 import TermsOfServicePage from './pages/TermsOfService';
+import BlogPage from './pages/Blog';
+import BlogPostView from './components/BlogPostView';
 import NotFound from './components/NotFound';
 import Home from './pages/Home';
-import { SERVICES, SERVICE_DETAILS, REVIEWS, TOOL_LOGOS, FAQS, CERTIFICATES, CASE_STUDIES } from './constants';
+import { SERVICES, SERVICE_DETAILS, REVIEWS, TOOL_LOGOS, FAQS, CERTIFICATES, CASE_STUDIES, BLOG_POSTS } from './constants';
 import { ServiceContent, CaseStudy } from './types';
 
 const App: React.FC = () => {
@@ -202,6 +204,8 @@ const AppContent: React.FC = () => {
         <Route path="/locations/seo-makati-city" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-makati-city" />} />
         <Route path="/locations/seo-taguig" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-taguig" />} />
         <Route path="/locations/seo-pasig-city" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-pasig-city" />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostSlugWrapper navigate={navigate} />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="*" element={<NotFound />} />
@@ -241,6 +245,20 @@ const PortfolioSlugWrapper: React.FC<{ navigate: any, handleBook: any }> = ({ na
       study={study} 
       onBack={() => navigate('/portfolio')} 
       onBook={handleBook}
+    />
+  );
+};
+
+const BlogPostSlugWrapper: React.FC<{ navigate: any }> = ({ navigate }) => {
+  const { slug } = useParams();
+  const post = BLOG_POSTS.find(p => p.slug === slug);
+  
+  if (!post) return <NotFound />;
+
+  return (
+    <BlogPostView 
+      post={post} 
+      onBack={() => navigate('/blog')} 
     />
   );
 };
