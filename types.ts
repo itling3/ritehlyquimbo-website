@@ -73,4 +73,5 @@ export interface BlogPost {
   seoTitle?: string;
   metaDescription?: string;
   keywords?: string;
+  schema?: any;
 }
