@@ -2235,7 +2235,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'seo-lapu-lapu-city-how-local-seo-helps-businesses-rank',
     title: 'SEO in Lapu-Lapu City: How Local SEO Helps Businesses Rank in Google Search',
     description: 'Learn how Local SEO in Lapu-Lapu City helps businesses improve visibility in Google Search, Google Maps, and local search results for customers in Mactan.',
-    date: 'May 20, 2024',
+    date: 'May 8, 2026',
     author: 'Ritehly Quimbo',
     category: 'Local SEO',
     image: 'https://lh3.googleusercontent.com/d/1Yce8sLhO0WRT7lU0RFGO5Dc6rwNa2IeF',
@@ -2252,7 +2252,7 @@ export const BLOG_POSTS: BlogPost[] = [
         "@type": "Person",
         "name": "Ritehly Quimbo"
       },
-      "datePublished": "2024-05-20"
+      "datePublished": "2026-05-08"
     },
     content: `SEO in Lapu-Lapu City helps businesses improve visibility in Google Search, Google Maps, and local search results for customers searching within Mactan Island and nearby areas. Effective [Local SEO](/services/local-seo-specialist-google-maps) combines Google Business Profile optimization, location-based keyword targeting, technical website improvements, entity-based content, backlinks, and local relevance signals.
 
@@ -2371,11 +2371,11 @@ SEO in Lapu-Lapu City is essential for businesses that depend on local customers
     slug: 'seo-services-for-small-businesses-guide',
     title: 'SEO Services for Small Businesses: How to Dominate Search Results',
     description: 'Learn how SEO services for small businesses help local companies improve visibility in Google Search, Google Maps, and AI-driven search platforms.',
-    date: 'May 22, 2024',
+    date: 'May 8, 2026',
     author: 'Ritehly Quimbo',
     category: 'Small Business SEO',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop',
-    seoTitle: 'SEO Services for Small Businesses | Grow Your Local Organic Traffic',
+    image: 'https://lh3.googleusercontent.com/d/1IqNNMW3EJTeN5IsAOAteX15rRXsP4Rxw',
+    seoTitle: 'SEO services for Small Businesses | Grow Your Local Organic Traffic',
     metaDescription: 'Boost your business with specialized SEO services for small businesses. Optimize your Google Business Profile, content, and technical SEO for higher rankings.',
     keywords: 'seo services for small businesses, small business seo, local seo services, local seo strategy, budget seo for small business',
     schema: {
@@ -2383,12 +2383,12 @@ SEO in Lapu-Lapu City is essential for businesses that depend on local customers
       "@type": "Article",
       "headline": "SEO Services for Small Businesses: How to Dominate Search Results",
       "description": "Learn how SEO services for small businesses help local companies improve visibility in Google Search, Google Maps, and AI-driven search platforms.",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
+      "image": "https://lh3.googleusercontent.com/d/1IqNNMW3EJTeN5IsAOAteX15rRXsP4Rxw",
       "author": {
         "@type": "Person",
         "name": "Ritehly Quimbo"
       },
-      "datePublished": "2024-05-22"
+      "datePublished": "2026-05-08"
     },
     content: `SEO services for small businesses help local companies improve visibility in Google Search, Google Maps, and AI-driven search platforms by optimizing websites, content, technical performance, and local business signals. Effective [SEO](/services/technical-on-page-seo-optimization) increases qualified traffic, leads, phone calls, and revenue without relying entirely on paid advertising.
 
