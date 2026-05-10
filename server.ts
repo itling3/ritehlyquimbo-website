@@ -20,8 +20,24 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Track if server is actually handling requests - MOVE TO TOP
+  app.use(async (req, res, next) => {
+    // Skip health checks to avoid log bloat
+    if (req.url === '/api/seo-health' || req.url === '/api/seo-ping') return next();
+    
+    try {
+      const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
+      console.log(logMsg.trim());
+      await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
+    } catch (e) {
+      // Ignore log errors
+    }
+    next();
+  });
+
   // Sitemap generation
-  app.get('/sitemap.xml', async (req, res) => {
+  app.get(['/sitemap.xml', '/sitemap'], async (req, res) => {
+    console.log('[SITEMAP GENERATION START]');
     try {
       const baseUrl = 'https://ritehlyquimbo.com';
       const staticRoutes = [
@@ -73,8 +89,8 @@ async function startServer() {
         ...blogRoutes
       ];
 
-      // Remove duplicates and ensure unique paths
       const uniqueRoutes = [...new Set(allRoutes)];
+      console.log(`[SITEMAP] Found ${uniqueRoutes.length} unique routes`);
 
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -86,23 +102,22 @@ ${uniqueRoutes.map(route => `  <url>
 </urlset>`;
 
       res.header('Content-Type', 'application/xml');
-      res.send(sitemap);
+      res.status(200).send(sitemap);
     } catch (e) {
       console.error('[SITEMAP ERROR]', e);
-      res.status(500).end('Error generating sitemap');
+      res.status(500).send('Error generating sitemap');
     }
   });
 
-  // Track if server is actually handling requests
-  app.use(async (req, res, next) => {
-    if (req.url === '/api/seo-health') return next();
-    const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
-    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
-    next();
-  });
-
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ status: 'ok', time: new Date().toISOString() });
+  // Health check
+  app.get(['/api/seo-health', '/api/seo-ping'], (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length,
+      blogCount: BLOG_POSTS.length
+    });
   });
 
   app.use(compression());
@@ -120,15 +135,6 @@ ${uniqueRoutes.map(route => `  <url>
     // Important: serve assets BUT NOT index.html yet
     app.use(express.static(distPath, { index: false }));
   }
-
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
-  });
 
   app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
