@@ -12,13 +12,86 @@ const __dirname = path.dirname(__filename);
 // Import constants safely for server use
 // Note: In ESM node, we might need a dynamic import if extensions are tricky
 // But tsx handles this well
-import { SERVICE_DETAILS, CASE_STUDIES } from './constants';
+import { SERVICE_DETAILS, CASE_STUDIES, BLOG_POSTS } from './constants';
 
 async function startServer() {
   console.log('--- SERVER STARTING ---');
   await fs.writeFile(path.join(process.cwd(), 'server-boot-log.txt'), `Boot at ${new Date().toISOString()}\n`).catch(() => {});
   const app = express();
   const PORT = 3000;
+
+  // Sitemap generation
+  app.get('/sitemap.xml', async (req, res) => {
+    try {
+      const baseUrl = 'https://ritehlyquimbo.com';
+      const staticRoutes = [
+        '',
+        '/about',
+        '/resume',
+        '/contact',
+        '/services',
+        '/portfolio',
+        '/pricing',
+        '/blog',
+        '/locations',
+        '/privacy-policy',
+        '/terms-of-service'
+      ];
+
+      const pricingRoutes = [
+        '/pricing/local-seo-strategy',
+        '/pricing/ai-automation-plans',
+        '/pricing/google-ads-sem',
+        '/pricing/web-dev-packages'
+      ];
+
+      const locationRoutes = [
+        '/locations/seo-cebu',
+        '/locations/seo-mandaue-city',
+        '/locations/seo-lapu-lapu-city',
+        '/locations/seo-talisay-city',
+        '/locations/seo-danao-city',
+        '/locations/seo-services-minglanilla',
+        '/locations/seo-manila',
+        '/locations/seo-quezon-city',
+        '/locations/seo-davao',
+        '/locations/seo-makati-city',
+        '/locations/seo-taguig',
+        '/locations/seo-pasig-city'
+      ];
+
+      const serviceRoutes = Object.values(SERVICE_DETAILS).map(s => `/services/${s.slug}`);
+      const caseStudyRoutes = CASE_STUDIES.map(s => `/portfolio/${s.slug}`);
+      const blogRoutes = BLOG_POSTS.map(p => `/blog/${p.slug}`);
+
+      const allRoutes = [
+        ...staticRoutes,
+        ...pricingRoutes,
+        ...locationRoutes,
+        ...serviceRoutes,
+        ...caseStudyRoutes,
+        ...blogRoutes
+      ];
+
+      // Remove duplicates and ensure unique paths
+      const uniqueRoutes = [...new Set(allRoutes)];
+
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${uniqueRoutes.map(route => `  <url>
+    <loc>${baseUrl}${route}</loc>
+    <changefreq>${route === '' || route === '/blog' ? 'daily' : 'weekly'}</changefreq>
+    <priority>${route === '' ? '1.0' : route.split('/').length <= 2 ? '0.8' : '0.6'}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+      res.header('Content-Type', 'application/xml');
+      res.send(sitemap);
+    } catch (e) {
+      console.error('[SITEMAP ERROR]', e);
+      res.status(500).end('Error generating sitemap');
+    }
+  });
 
   // Track if server is actually handling requests
   app.use(async (req, res, next) => {
