@@ -225,4 +225,27 @@
     <lastmod>2024-05-20</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://ritehlyquimbo.com/blog</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ritehlyquimbo.com/blog/seo-lapu-lapu-city-how-local-seo-helps-businesses-rank</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ritehlyquimbo.com/blog/seo-services-for-small-businesses-guide</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ritehlyquimbo.com/blog/seo-services-for-lawyers-ultimate-guide</loc>
+    <lastmod>2026-05-10</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
