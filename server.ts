@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 // Import constants safely for server use
 // Note: In ESM node, we might need a dynamic import if extensions are tricky
 // But tsx handles this well
-import { SERVICE_DETAILS, CASE_STUDIES, BLOG_POSTS } from './constants';
+import { SERVICE_DETAILS, CASE_STUDIES } from './constants';
 
 async function startServer() {
   console.log('--- SERVER STARTING ---');
@@ -20,104 +20,16 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Track if server is actually handling requests - MOVE TO TOP
+  // Track if server is actually handling requests
   app.use(async (req, res, next) => {
-    // Skip health checks to avoid log bloat
-    if (req.url === '/api/seo-health' || req.url === '/api/seo-ping') return next();
-    
-    try {
-      const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
-      console.log(logMsg.trim());
-      await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
-    } catch (e) {
-      // Ignore log errors
-    }
+    if (req.url === '/api/seo-health') return next();
+    const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
+    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
     next();
   });
 
-  // Sitemap generation
-  app.get(['/sitemap.xml', '/sitemap'], async (req, res) => {
-    const timestamp = new Date().toISOString();
-    console.log(`[${timestamp}] SITEMAP REQUEST: ${req.url}`);
-    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), `[${timestamp}] SITEMAP REQUEST ${req.url}\n`).catch(() => {});
-
-    try {
-      const baseUrl = 'https://ritehlyquimbo.com';
-      
-      const staticRoutes = [
-        '/',
-        '/about',
-        '/resume',
-        '/contact',
-        '/services',
-        '/portfolio',
-        '/pricing',
-        '/pricing/local-seo-strategy',
-        '/pricing/ai-automation-plans',
-        '/pricing/google-ads-sem',
-        '/pricing/web-dev-packages',
-        '/locations',
-        '/blog',
-        '/privacy-policy',
-        '/terms-of-service'
-      ];
-
-      const locationRoutes = [
-        '/locations/seo-cebu',
-        '/locations/seo-mandaue-city',
-        '/locations/seo-lapu-lapu-city',
-        '/locations/seo-talisay-city',
-        '/locations/seo-danao-city',
-        '/locations/seo-services-minglanilla',
-        '/locations/seo-manila',
-        '/locations/seo-quezon-city',
-        '/locations/seo-davao',
-        '/locations/seo-makati-city',
-        '/locations/seo-taguig',
-        '/locations/seo-pasig-city'
-      ];
-
-      const serviceRoutes = Object.values(SERVICE_DETAILS).map(s => `/services/${s.slug}`);
-      const caseStudyRoutes = CASE_STUDIES.map(s => `/portfolio/${s.slug}`);
-      const blogRoutes = BLOG_POSTS.map(p => `/blog/${p.slug}`);
-
-      const allRoutes = [
-        ...staticRoutes,
-        ...locationRoutes,
-        ...serviceRoutes,
-        ...caseStudyRoutes,
-        ...blogRoutes
-      ].map(r => r === '/' ? '' : r);
-
-      const uniqueRoutes = [...new Set(allRoutes)];
-      
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${uniqueRoutes.map(route => `  <url>
-    <loc>${baseUrl}${route}</loc>
-    <changefreq>${route === '' || route === '/blog' ? 'daily' : 'weekly'}</changefreq>
-    <priority>${route === '' ? '1.0' : route.split('/').length <= 2 ? '0.8' : '0.6'}</priority>
-  </url>`).join('\n')}
-</urlset>`;
-
-      res.header('Content-Type', 'application/xml');
-      res.status(200).send(sitemap);
-      console.log(`[${new Date().toISOString()}] SITEMAP SERVED: ${uniqueRoutes.length} urls`);
-    } catch (e) {
-      console.error('[SITEMAP ERROR]', e);
-      res.status(500).send('Error generating sitemap');
-    }
-  });
-
-  // Health check
-  app.get(['/api/seo-health', '/api/seo-ping'], (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length,
-      blogCount: BLOG_POSTS.length
-    });
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ status: 'ok', time: new Date().toISOString() });
   });
 
   app.use(compression());
@@ -135,6 +47,15 @@ ${uniqueRoutes.map(route => `  <url>
     // Important: serve assets BUT NOT index.html yet
     app.use(express.static(distPath, { index: false }));
   }
+
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length
+    });
+  });
 
   app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
