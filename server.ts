@@ -37,28 +37,29 @@ async function startServer() {
 
   // Sitemap generation
   app.get(['/sitemap.xml', '/sitemap'], async (req, res) => {
-    console.log('[SITEMAP GENERATION START]');
+    const timestamp = new Date().toISOString();
+    console.log(`[${timestamp}] SITEMAP REQUEST: ${req.url}`);
+    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), `[${timestamp}] SITEMAP REQUEST ${req.url}\n`).catch(() => {});
+
     try {
       const baseUrl = 'https://ritehlyquimbo.com';
+      
       const staticRoutes = [
-        '',
+        '/',
         '/about',
         '/resume',
         '/contact',
         '/services',
         '/portfolio',
         '/pricing',
-        '/blog',
-        '/locations',
-        '/privacy-policy',
-        '/terms-of-service'
-      ];
-
-      const pricingRoutes = [
         '/pricing/local-seo-strategy',
         '/pricing/ai-automation-plans',
         '/pricing/google-ads-sem',
-        '/pricing/web-dev-packages'
+        '/pricing/web-dev-packages',
+        '/locations',
+        '/blog',
+        '/privacy-policy',
+        '/terms-of-service'
       ];
 
       const locationRoutes = [
@@ -82,16 +83,14 @@ async function startServer() {
 
       const allRoutes = [
         ...staticRoutes,
-        ...pricingRoutes,
         ...locationRoutes,
         ...serviceRoutes,
         ...caseStudyRoutes,
         ...blogRoutes
-      ];
+      ].map(r => r === '/' ? '' : r);
 
       const uniqueRoutes = [...new Set(allRoutes)];
-      console.log(`[SITEMAP] Found ${uniqueRoutes.length} unique routes`);
-
+      
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${uniqueRoutes.map(route => `  <url>
@@ -103,6 +102,7 @@ ${uniqueRoutes.map(route => `  <url>
 
       res.header('Content-Type', 'application/xml');
       res.status(200).send(sitemap);
+      console.log(`[${new Date().toISOString()}] SITEMAP SERVED: ${uniqueRoutes.length} urls`);
     } catch (e) {
       console.error('[SITEMAP ERROR]', e);
       res.status(500).send('Error generating sitemap');
