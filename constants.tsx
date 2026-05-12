@@ -2800,7 +2800,7 @@ If you are ready to dominate your local legal market, explore my [pricing plans]
     date: 'May 12, 2026',
     author: 'Ritehly Quimbo',
     category: 'Digital Marketing',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://lh3.googleusercontent.com/d/19m3L_KYwBumj1cqcpM-pbu86aIGI93cA',
     seoTitle: 'What Is Better: SEO or PPC? | Marketing Strategy Comparison',
     metaDescription: 'Is SEO better than PPC? Discover which marketing strategy fits your business. We compare ROI, speed, and sustainability in this comprehensive guide.',
     keywords: 'seo vs ppc, which is better seo or ppc, search engine optimization vs pay per click, digital marketing strategy',
