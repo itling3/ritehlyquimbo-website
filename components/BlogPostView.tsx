@@ -68,7 +68,32 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, onBack }) => {
           prose-strong:text-white prose-strong:font-black prose-strong:italic
           prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
         ">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown 
+            remarkPlugins={[remarkGfm]}
+            components={{
+              h1: ({ children }) => {
+                const text = React.Children.toArray(children).join('');
+                const idMatch = text.match(/\{#([a-zA-Z0-9_-]+)\}$/);
+                const id = idMatch ? idMatch[1] : undefined;
+                const cleanText = idMatch ? text.replace(/\s\{#[a-zA-Z0-9_-]+\}$/, '') : text;
+                return <h1 id={id} className="text-4xl md:text-5xl font-black mb-8">{cleanText}</h1>;
+              },
+              h2: ({ children }) => {
+                const text = React.Children.toArray(children).join('');
+                const idMatch = text.match(/\{#([a-zA-Z0-9_-]+)\}$/);
+                const id = idMatch ? idMatch[1] : undefined;
+                const cleanText = idMatch ? text.replace(/\s\{#[a-zA-Z0-9_-]+\}$/, '') : text;
+                return <h2 id={id} className="text-3xl md:text-4xl font-black mt-12 mb-6">{cleanText}</h2>;
+              },
+              h3: ({ children }) => {
+                const text = React.Children.toArray(children).join('');
+                const idMatch = text.match(/\{#([a-zA-Z0-9_-]+)\}$/);
+                const id = idMatch ? idMatch[1] : undefined;
+                const cleanText = idMatch ? text.replace(/\s\{#[a-zA-Z0-9_-]+\}$/, '') : text;
+                return <h3 id={id} className="text-2xl md:text-3xl font-black mt-10 mb-4">{cleanText}</h3>;
+              }
+            }}
+          >
             {post.content}
           </ReactMarkdown>
         </article>
