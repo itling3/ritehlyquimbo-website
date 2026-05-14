@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CaseStudy, ServiceContent, BlogPost } from './types';
+import { CaseStudy, ServiceContent, BlogPost, WebProject } from './types';
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
@@ -2226,6 +2226,89 @@ export const FAQS = [
   { 
     question: 'I want to grow my business, but I’m overwhelmed. How can Operational Support help?', 
     answer: 'Growth requires focus. Our Operational Support systems bridge the gap by handling technical maintenance, CRM management, and administrative workflows. This frees you to focus on high-level strategy while your business operations run smoothly on autopilot.' 
+  }
+];
+
+export const WEB_DEVELOPMENT_PORTFOLIO: WebProject[] = [
+  {
+    id: 'junk-removal-austin',
+    title: 'Junk Removal Austin',
+    url: 'https://junk-removal-austin.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1620352224090-e555998a444d?q=80&w=2070&auto=format&fit=crop',
+    description: 'High-performance landing page for a junk removal business in Austin, optimized for local lead generation.',
+    technologies: ['React', 'Tailwind CSS', 'Framer Motion']
+  },
+  {
+    id: 'ritehly-junk-removal',
+    title: 'Ritehly Junk Removal',
+    url: 'https://ritehly-junk-removal.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1544027993-37dbfe43552e?q=80&w=2070&auto=format&fit=crop',
+    description: 'Clean, modern, and conversion-focused junk removal service website template.',
+    technologies: ['React', 'Tailwind CSS', 'Lucide React']
+  },
+  {
+    id: 'ritehly-storage-units-new-york',
+    title: 'Ritehly Storage Units NY',
+    url: 'https://ritehly-storage-units-new-york.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=2070&auto=format&fit=crop',
+    description: 'A comprehensive storage units locator and booking platform for New York City.',
+    technologies: ['Next.js', 'Tailwind CSS', 'TypeScript']
+  },
+  {
+    id: 'plumbing-austin-texas',
+    title: 'Plumbing Austin Texas',
+    url: 'https://plumbing-austin-texas.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?q=80&w=2070&auto=format&fit=crop',
+    description: 'Service-based website for a local plumbing company in Austin with integrated booking features.',
+    technologies: ['React', 'Tailwind CSS', 'Contact Form Integration']
+  },
+  {
+    id: 'electrician-ritehly-miami',
+    title: 'Ritehly Electrician Miami',
+    url: 'https://electrician-ritehly-miami.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop',
+    description: 'Professional electrician services landing page for Miami-based businesses and homeowners.',
+    technologies: ['React', 'Tailwind CSS', 'Framer Motion']
+  },
+  {
+    id: 'ritehly-carpet-cleaning-austin',
+    title: 'Ritehly Carpet Cleaning',
+    url: 'https://ritehly-carpet-cleaning-austin.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop',
+    description: 'A vibrant and trust-building website for a carpet cleaning service in Austin.',
+    technologies: ['React', 'Styled Components', 'Lucide']
+  },
+  {
+    id: 'moving-comapanies-website-template',
+    title: 'Moving Company Template',
+    url: 'https://moving-comapanies-website-template.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1600518464441-9154a4dba216?q=80&w=2070&auto=format&fit=crop',
+    description: 'A versatile and scalable moving company website template designed for growth.',
+    technologies: ['React', 'Tailwind CSS', 'Animations']
+  },
+  {
+    id: 'pest-control-san-diego',
+    title: 'Pest Control San Diego',
+    url: 'https://pest-control-san-diego.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1587582345426-bf07f534b063?q=80&w=2070&auto=format&fit=crop',
+    description: 'Lead generation website for a pest control business in San Diego with local-focused content.',
+    technologies: ['React', 'Tailwind CSS', 'Local SEO']
+  },
+  {
+    id: 'ritehly-appliance-repair-cebu',
+    title: 'Ritehly Appliance Repair',
+    url: 'https://ritehly-appliance-repair-cebu.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop',
+    description: 'Highly responsive appliance repair service website for Cebu-based customers.',
+    technologies: ['React', 'Tailwind CSS', 'Framer Motion']
+  },
+  {
+    id: 'ritehly-garage-door-repair-miami',
+    title: 'Garage Door Repair Miami',
+    url: 'https://ritehly-garage-door-repair-miami.netlify.app/',
+    image: 'https://images.unsplash.com/photo-1593642532400-2682810df593?q=80&w=2069&auto=format&fit=crop',
+    description: 'Modern landing page for garage door repair services with optimized local intent.',
+    technologies: ['React', 'Tailwind CSS', 'Lucide']
   }
 ];
 

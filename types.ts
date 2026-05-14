@@ -75,3 +75,12 @@ export interface BlogPost {
   keywords?: string;
   schema?: any;
 }
+
+export interface WebProject {
+  id: string;
+  title: string;
+  url: string;
+  image: string;
+  description: string;
+  technologies: string[];
+}
