@@ -2234,7 +2234,7 @@ export const WEB_DEVELOPMENT_PORTFOLIO: WebProject[] = [
     id: 'junk-removal-austin',
     title: 'Junk Removal Austin',
     url: 'https://junk-removal-austin.netlify.app/',
-    image: 'https://images.unsplash.com/photo-1620352224090-e555998a444d?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1544027993-37dbfe43552e?q=80&w=2070&auto=format&fit=crop',
     description: 'High-performance landing page for a junk removal business in Austin, optimized for local lead generation.',
     technologies: ['React', 'Tailwind CSS', 'Framer Motion']
   },
@@ -2242,7 +2242,7 @@ export const WEB_DEVELOPMENT_PORTFOLIO: WebProject[] = [
     id: 'ritehly-junk-removal',
     title: 'Ritehly Junk Removal',
     url: 'https://ritehly-junk-removal.netlify.app/',
-    image: 'https://images.unsplash.com/photo-1544027993-37dbfe43552e?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1620352224090-e555998a444d?q=80&w=2070&auto=format&fit=crop',
     description: 'Clean, modern, and conversion-focused junk removal service website template.',
     technologies: ['React', 'Tailwind CSS', 'Lucide React']
   },
@@ -2250,7 +2250,7 @@ export const WEB_DEVELOPMENT_PORTFOLIO: WebProject[] = [
     id: 'ritehly-storage-units-new-york',
     title: 'Ritehly Storage Units NY',
     url: 'https://ritehly-storage-units-new-york.netlify.app/',
-    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1587293855941-9450a8f83724?q=80&w=2070&auto=format&fit=crop',
     description: 'A comprehensive storage units locator and booking platform for New York City.',
     technologies: ['Next.js', 'Tailwind CSS', 'TypeScript']
   },
@@ -2258,7 +2258,7 @@ export const WEB_DEVELOPMENT_PORTFOLIO: WebProject[] = [
     id: 'plumbing-austin-texas',
     title: 'Plumbing Austin Texas',
     url: 'https://plumbing-austin-texas.netlify.app/',
-    image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop',
     description: 'Service-based website for a local plumbing company in Austin with integrated booking features.',
     technologies: ['React', 'Tailwind CSS', 'Contact Form Integration']
   },
@@ -2274,7 +2274,7 @@ export const WEB_DEVELOPMENT_PORTFOLIO: WebProject[] = [
     id: 'ritehly-carpet-cleaning-austin',
     title: 'Ritehly Carpet Cleaning',
     url: 'https://ritehly-carpet-cleaning-austin.netlify.app/',
-    image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1581578731522-745a05ad9ad5?q=80&w=2070&auto=format&fit=crop',
     description: 'A vibrant and trust-building website for a carpet cleaning service in Austin.',
     technologies: ['React', 'Styled Components', 'Lucide']
   },
@@ -2290,7 +2290,7 @@ export const WEB_DEVELOPMENT_PORTFOLIO: WebProject[] = [
     id: 'pest-control-san-diego',
     title: 'Pest Control San Diego',
     url: 'https://pest-control-san-diego.netlify.app/',
-    image: 'https://images.unsplash.com/photo-1587582345426-bf07f534b063?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?q=80&w=2070&auto=format&fit=crop',
     description: 'Lead generation website for a pest control business in San Diego with local-focused content.',
     technologies: ['React', 'Tailwind CSS', 'Local SEO']
   },
