@@ -31,6 +31,15 @@ async function startServer() {
 
   app.use(compression());
   app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+
+  // Debugging Middleware for API requests
+  app.use('/api', (req, res, next) => {
+    const debugMsg = `>>> API REQUEST: ${req.method} ${req.url} | Body Keys: ${Object.keys(req.body || {}).join(', ')}\n`;
+    process.stdout.write(debugMsg);
+    fsSync.appendFileSync(logPath, debugMsg);
+    next();
+  });
 
   // API Routes
   app.get('/api/seo-health', (req, res) => {
@@ -43,49 +52,94 @@ async function startServer() {
   });
 
   let transporter: nodemailer.Transporter | null = null;
-  function getTransporter() {
+  async function getTransporter() {
     if (!transporter) {
       const user = process.env.EMAIL_USER || 'seo@ritehlyquimbo.com';
       const pass = process.env.EMAIL_PASS;
       if (!pass) {
-        console.warn('EMAIL_PASS MISSING');
+        console.warn('EMAIL_PASS MISSING - Email will not be sent');
         return null;
       }
+      const logMsg = `Initializing SMTP for ${user}...\n`;
+      process.stdout.write(logMsg);
+      fsSync.appendFileSync(logPath, logMsg);
       transporter = nodemailer.createTransport({
         host: 'smtp.hostinger.com',
         port: 465,
         secure: true,
         auth: { user, pass },
       });
+      
+      try {
+        await transporter.verify();
+        const successMsg = 'SMTP connection verified successfully.\n';
+        process.stdout.write(successMsg);
+        fsSync.appendFileSync(logPath, successMsg);
+      } catch (err: any) {
+        const errMsg = `SMTP Verification Failed: ${err.message}\n`;
+        console.error(errMsg);
+        fsSync.appendFileSync(logPath, errMsg);
+        transporter = null;
+      }
     }
     return transporter;
   }
 
+  // Pre-verify SMTP on startup
+  getTransporter().catch(e => console.error('Early SMTP error:', e));
+
   app.post('/api/contact', async (req, res) => {
-    console.log('--- CONTACT FORM SUBMISSION ---', req.body);
-    const { name, email, phone, service: bodyService, website, message } = req.body;
+    const rawBody = req.body;
+    console.log('--- CONTACT FORM SUBMISSION ---', rawBody);
+    
+    // Explicitly destructure with fallbacks to avoid 'undefined' strings in email
+    const name = rawBody.name || '';
+    const email = rawBody.email || '';
+    const phone = rawBody.phone || '';
+    const bodyService = rawBody.service || '';
+    const website = rawBody.website || '';
+    const message = rawBody.message || '';
+
     const service = bodyService || 'General Inquiry';
     const safeMessage = message || 'No message provided';
-    const safePhone = phone ? `+63 ${phone}` : 'N/A';
+    
+    // Clean phone number: if it doesn't start with +, add +63
+    let safePhone = phone.trim();
+    if (safePhone && !safePhone.startsWith('+')) {
+      // Remove leading zero if present
+      if (safePhone.startsWith('0')) safePhone = safePhone.substring(1);
+      safePhone = `+63 ${safePhone}`;
+    } else if (!safePhone) {
+      safePhone = 'N/A';
+    }
+
     const safeWebsite = website || 'N/A';
     
     if (!name || !email) {
+      const missingMsg = `Missing name (${!!name}) or email (${!!email})`;
+      console.warn(missingMsg);
       return res.status(400).json({ success: false, message: 'Name and email are required.' });
     }
 
     const leadEntry = {
       timestamp: new Date().toISOString(),
       name, email, phone: safePhone, service, website: safeWebsite, message: safeMessage,
-      ip: req.ip, userAgent: req.get('user-agent')
+      ip: req.ip, userAgent: req.get('user-agent'),
+      raw: rawBody
     };
 
     try {
       await fs.appendFile(path.join(process.cwd(), 'leads.txt'), JSON.stringify(leadEntry) + '\n');
-      const mailTransporter = getTransporter();
+      const mailTransporter = await getTransporter();
+      
       if (mailTransporter) {
+        const sentMsg = `Attempting to send email to seo@ritehlyquimbo.com and Ritehlyquimbo@gmail.com for ${name}...\n`;
+        fsSync.appendFileSync(logPath, sentMsg);
+        
         const mailOptions = {
           from: `"Ritehly Quimbo Leads" <${process.env.EMAIL_USER || 'seo@ritehlyquimbo.com'}>`,
-          to: 'seo@ritehlyquimbo.com',
+          to: 'seo@ritehlyquimbo.com, Ritehlyquimbo@gmail.com',
+          replyTo: email, // Allow replying directly to the lead
           subject: `🚀 [NEW LEAD] ${service} - ${name}`,
           text: `
 --- NEW BUSINESS LEAD ---
@@ -97,71 +151,93 @@ Website: ${safeWebsite}
 
 Project Brief:
 ${safeMessage}
+
+Submission Details:
+Date: ${leadEntry.timestamp}
+IP: ${req.ip}
 -------------------------
           `,
           html: `
-            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
-              <div style="background: #2563eb; padding: 20px; color: white;">
-                <h1 style="margin: 0; font-size: 24px; font-style: italic;">New Business Lead</h1>
-                <p style="margin: 5px 0 0; opacity: 0.8; font-size: 14px;">Inquiry from ritehlyquimbo.com</p>
+            <div style="font-family: 'Inter', system-ui, sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+              <div style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); padding: 32px 24px; color: white; text-align: center;">
+                <div style="display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; font-style: italic;">
+                  New Inquiry Received
+                </div>
+                <h1 style="margin: 0; font-size: 28px; font-weight: 900; font-style: italic; letter-spacing: -0.02em;">New Business Lead</h1>
+                <p style="margin: 8px 0 0; opacity: 0.9; font-size: 14px; font-weight: 500;">Direct from ritehlyquimbo.com</p>
               </div>
-              <div style="padding: 30px; background: white;">
-                <div style="margin-bottom: 25px;">
-                  <h3 style="margin: 0 0 10px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;">Contact Information</h3>
-                  <table style="width: 100%; border-collapse: collapse;">
-                    <tr>
-                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold; width: 100px;">Name:</td>
-                      <td style="padding: 8px 0; color: #111827;">${name}</td>
-                    </tr>
-                    <tr>
-                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Email:</td>
-                      <td style="padding: 8px 0; color: #2563eb;"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></td>
-                    </tr>
-                    <tr>
-                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Phone:</td>
-                      <td style="padding: 8px 0; color: #111827;">${safePhone}</td>
-                    </tr>
-                  </table>
+              
+              <div style="padding: 32px; background: white;">
+                <div style="margin-bottom: 32px;">
+                  <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Lead Profile</h3>
+                  <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #f1f5f9;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                      <tr>
+                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; width: 110px;">Full Name</td>
+                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700;">${name}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600;">Email</td>
+                        <td style="padding: 10px 0; color: #2563eb; font-size: 14px; font-weight: 700;">
+                          <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600;">Phone</td>
+                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700;">${safePhone}</td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
 
-                <div style="margin-bottom: 25px;">
-                  <h3 style="margin: 0 0 10px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;">Project Details</h3>
-                  <table style="width: 100%; border-collapse: collapse;">
-                    <tr>
-                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold; width: 100px;">Service:</td>
-                      <td style="padding: 8px 0; color: #111827;">${service}</td>
-                    </tr>
-                    <tr>
-                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Website:</td>
-                      <td style="padding: 8px 0; color: #111827;">${safeWebsite !== 'N/A' ? `<a href="${safeWebsite}" style="color: #2563eb; text-decoration: none;">${safeWebsite}</a>` : 'N/A'}</td>
-                    </tr>
-                  </table>
+                <div style="margin-bottom: 32px;">
+                  <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Project Context</h3>
+                  <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #f1f5f9;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                      <tr>
+                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; width: 110px;">Service</td>
+                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700; border-bottom: 1px dashed #e2e8f0;">${service}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; padding-top: 20px;">Website</td>
+                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700; padding-top: 20px;">
+                          ${safeWebsite !== 'N/A' ? `<a href="${safeWebsite}" style="color: #2563eb; text-decoration: none;">${safeWebsite}</a>` : 'N/A'}
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
 
-                <div style="margin-top: 30px; padding: 20px; background: #f9fafb; border-radius: 8px; border-left: 4px solid #2563eb;">
-                  <h3 style="margin: 0 0 10px; color: #111827; font-size: 14px;">Project Brief:</h3>
-                  <p style="margin: 0; color: #374151; line-height: 1.6; white-space: pre-wrap;">${safeMessage}</p>
+                <div>
+                  <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Message Contents</h3>
+                  <div style="background: #eff6ff; border-radius: 12px; padding: 24px; border-left: 4px solid #2563eb;">
+                    <p style="margin: 0; color: #1e3a8a; line-height: 1.7; font-size: 15px; font-weight: 500; white-space: pre-wrap;">${safeMessage}</p>
+                  </div>
                 </div>
               </div>
-              <div style="padding: 20px; background: #f3f4f6; text-align: center; color: #9ca3af; font-size: 11px;">
-                <p style="margin: 0;">Sent via Secure Transmission from Backend Environment</p>
-                <p style="margin: 5px 0 0;">Timestamp: ${leadEntry.timestamp} | IP: ${req.ip}</p>
+
+              <div style="padding: 24px; background: #f8fafc; text-align: center; border-t: 1px solid #e2e8f0;">
+                <p style="margin: 0; color: #94a3b8; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Secure Lead Transmission Engine</p>
+                <div style="margin-top: 8px; color: #cbd5e1; font-size: 10px;">
+                  ID: ${leadEntry.timestamp.replace(/[^0-9]/g, '').slice(-12)} | Origin IP: ${req.ip}
+                </div>
               </div>
             </div>`
         };
-        // Fire and forget for "no delay" on client response
-        mailTransporter.sendMail(mailOptions).catch(e => {
-          console.error('Email background send error:', e);
-          fsSync.appendFileSync(logPath, `BACKGROUND EMAIL ERROR: ${e.message}\n`);
-        });
-        console.log(`Email initiated for: ${name}`);
+        
+        await mailTransporter.sendMail(mailOptions);
+        const successMsg = `Email sent successfully for: ${name}\n`;
+        process.stdout.write(successMsg);
+        fsSync.appendFileSync(logPath, successMsg);
       } else {
-        console.warn('EMAIL_PASS missing, lead saved to file.');
+        console.warn('SMTP Transporter not available.');
+        throw new Error('Email configuration error.');
       }
-      res.json({ success: true, message: 'Message received and process initiated.' });
-    } catch (error) {
-      console.error('Lead error:', error);
-      res.status(500).json({ success: false, message: 'Transmission failure.' });
+      res.json({ success: true, message: 'Message successfully sent.' });
+    } catch (error: any) {
+      console.error('Lead process error:', error);
+      fsSync.appendFileSync(logPath, `LEAD ERROR: ${error.message}\n`);
+      res.status(500).json({ success: false, message: `Transmission failure: ${error.message}` });
     }
   });
 
@@ -179,8 +255,11 @@ ${safeMessage}
     app.use(express.static(path.join(process.cwd(), 'dist'), { index: false }));
   }
 
-  // SSR Handler
+  // SSR Handler - Strict GET only
   app.get(/.*/, async (req, res, next) => {
+    // Only handle GET requests for SSR
+    if (req.method !== 'GET') return next();
+    
     const url = req.originalUrl;
     const pathOnly = req.path;
     

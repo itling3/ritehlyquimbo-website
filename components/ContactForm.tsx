@@ -33,11 +33,21 @@ const ContactForm: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const contentType = response.headers.get('content-type');
+      let data: any = {};
+      
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        console.error('Non-JSON response:', text);
+        throw new Error('Server returned an unexpected response format (HTML instead of JSON). This usually means a routing error or server-side crash.');
+      }
 
       if (response.ok) {
         setStatus('success');
