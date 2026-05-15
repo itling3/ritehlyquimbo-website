@@ -46,10 +46,10 @@ const ContactForm: React.FC = () => {
         setStatus('error');
         setErrorMessage(data.message || 'Failed to transmit. Please check your connection or retry later.');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Submission error:', error);
       setStatus('error');
-      setErrorMessage('Network error. Please verify the server is running and try again.');
+      setErrorMessage(`Network error: ${error?.message || 'Unknown'}. Please verify the server is running and try again.`);
     }
   };
 

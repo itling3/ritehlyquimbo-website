@@ -17,16 +17,17 @@ import { SERVICE_DETAILS, CASE_STUDIES } from './constants';
 
 async function startServer() {
   console.log('--- SERVER STARTING ---');
-  await fs.writeFile(path.join(process.cwd(), 'server-boot-log.txt'), `Boot at ${new Date().toISOString()}\n`).catch(() => {});
+  console.log('EMAIL_PASS present:', !!process.env.EMAIL_PASS);
+  const logPath = path.join(process.cwd(), 'server-boot-log.txt');
+  let logContent = `Boot at ${new Date().toISOString()}\n`;
+  await fs.writeFile(logPath, logContent).catch(() => {});
+
   const app = express();
   const PORT = 3000;
 
-  // Track if server is actually handling requests
-  app.use(async (req, res, next) => {
-    if (req.url === '/api/seo-health') return next();
-    const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
-    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
-    next();
+  const server = app.listen(PORT, '0.0.0.0', async () => {
+    console.log(`Server listening on port ${PORT}`);
+    await fs.appendFile(logPath, `Listening on ${PORT} at ${new Date().toISOString()}\n`).catch(() => {});
   });
 
   app.get('/api/seo-health', (req, res) => {
@@ -153,13 +154,26 @@ User Agent: ${leadEntry.userAgent}
 
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {
+    const msg1 = '--- INITIALIZING VITE ---\n';
+    console.log(msg1);
+    await fs.appendFile(logPath, msg1).catch(() => {});
+    
     vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'custom',
     });
+    
+    const msg2 = '--- VITE INITIALIZED ---\n';
+    console.log(msg2);
+    await fs.appendFile(logPath, msg2).catch(() => {});
+    
     // Assets handled by vite
     app.use(vite.middlewares);
   } else {
+    const msg3 = '--- PRODUCTION MODE: SERVING STATIC ---\n';
+    console.log(msg3);
+    await fs.appendFile(logPath, msg3).catch(() => {});
+    
     const distPath = path.join(process.cwd(), 'dist');
     // Important: serve assets BUT NOT index.html yet
     app.use(express.static(distPath, { index: false }));
@@ -317,10 +331,10 @@ User Agent: ${leadEntry.userAgent}
       res.status(500).end((e as Error).message);
     }
   });
-
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running at http://0.0.0.0:${PORT}`);
-  });
 }
 
-startServer();
+startServer().catch(err => {
+  console.error('CRITICAL: Server failed to start:', err);
+  const logPath = path.join(process.cwd(), 'server-boot-log.txt');
+  fs.appendFileSync(logPath, `CRITICAL ERROR: ${err.message}\n${err.stack}\n`);
+});
