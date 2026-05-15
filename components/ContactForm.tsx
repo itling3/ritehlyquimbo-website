@@ -37,7 +37,14 @@ const ContactForm: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        console.error('SERVER RETURNED NON-JSON:', text);
+        throw new Error(`Server returned invalid response (Not JSON). Status: ${response.status}`);
+      }
 
       if (response.ok) {
         setStatus('success');

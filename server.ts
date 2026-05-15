@@ -150,8 +150,8 @@ ${leadEntry.message}
     }
   }
 
-  // API Routes
-  app.post('/api/contact', (req, res) => {
+  // Robust API Routes handling both with and without trailing slashes
+  const handleContact = (req: express.Request, res: express.Response) => {
     const { name, email, phone, service: bodyService, website, message } = req.body;
     
     if (!name || !email) {
@@ -170,29 +170,34 @@ ${leadEntry.message}
       userAgent: req.get('user-agent')
     };
 
-    // Respond IMMEDIATELY with JSON
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json({ success: true, message: 'Success! Your message is being processed.' });
+    fsSync.appendFileSync(logPath, `[API CONTACT SUCCESS] Submitting: ${name} (${email})\n`);
 
-    // Process in background
-    processLead(leadEntry, name, service).catch(err => {
-      const errMsg = `[BACKGROUND ERROR] ${err.message}\n`;
-      fsSync.appendFileSync(logPath, errMsg);
+    res.status(200).json({ 
+      success: true, 
+      message: 'Transmission success. Data received.' 
     });
-  });
+
+    // Background processing
+    (async () => {
+      try {
+        await processLead(leadEntry, name, service);
+        fsSync.appendFileSync(logPath, `[API BACKGROUND SUCCESS] Sent email for ${name}\n`);
+      } catch (err: any) {
+        fsSync.appendFileSync(logPath, `[API BACKGROUND FAIL] ${err.message}\n`);
+      }
+    })();
+  };
+
+  app.post('/api/contact', handleContact);
+  app.post('/api/contact/', handleContact);
 
   app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
+    res.json({ status: 'ok', time: new Date().toISOString() });
   });
 
-  // Strict API 404 (always JSON) - Move this ABOVE other non-api handlers
+  // Ensure any other request to /api always returns JSON
   app.use('/api', (req, res) => {
-    res.status(404).json({ success: false, message: `API Endpoint ${req.method} ${req.originalUrl} not found.` });
+    res.status(404).json({ success: false, message: `API Endpoint ${req.method} ${req.url} not found.` });
   });
 
   // Vite / Static Setup
