@@ -43,7 +43,8 @@ const ContactForm: React.FC = () => {
         data = JSON.parse(text);
       } catch (e) {
         console.error('SERVER RETURNED NON-JSON:', text);
-        throw new Error(`Server returned invalid response (Not JSON). Status: ${response.status}`);
+        const snippet = text.substring(0, 100).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        throw new Error(`Server returned HTML instead of JSON. Snippet: ${snippet}... (Check if URL /api/contact is correct)`);
       }
 
       if (response.ok) {

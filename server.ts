@@ -32,6 +32,69 @@ async function startServer() {
   app.use(compression());
   app.use(express.json());
 
+  // --- API SECTION ---
+  const apiRouter = express.Router();
+  
+  apiRouter.use((req, res, next) => {
+    res.setHeader('Content-Type', 'application/json');
+    next();
+  });
+
+  const handleContact = (req: express.Request, res: express.Response) => {
+    const { name, email, phone, service: bodyService, website, message } = req.body;
+    
+    if (!name || !email) {
+      return res.status(400).json({ success: false, message: 'Name and email are required.' });
+    }
+
+    const service = bodyService || 'General Inquiry';
+    const leadEntry = {
+      timestamp: new Date().toISOString(),
+      name, email, 
+      phone: phone ? `+63 ${phone}` : 'N/A', 
+      service, 
+      website: website || 'N/A', 
+      message: message || 'No message provided',
+      ip: req.ip, 
+      userAgent: req.get('user-agent')
+    };
+
+    fsSync.appendFileSync(logPath, `[API CONTACT] ${name} (${email})\n`);
+
+    res.status(200).json({ 
+      success: true, 
+      message: 'Transmission success.' 
+    });
+
+    // Background processing
+    (async () => {
+      try {
+        await processLead(leadEntry, name, service);
+        fsSync.appendFileSync(logPath, `[API SUCCESS] ${name}\n`);
+      } catch (err: any) {
+        fsSync.appendFileSync(logPath, `[API FAIL] ${err.message}\n`);
+      }
+    })();
+  };
+
+  apiRouter.post('/contact', handleContact);
+  apiRouter.post('/contact/', handleContact);
+  
+  apiRouter.get('/seo-health', (req, res) => {
+    res.json({ status: 'ok', time: new Date().toISOString() });
+  });
+
+  // Catch ALL other /api requests
+  apiRouter.use((req, res) => {
+    res.status(404).json({ 
+      success: false, 
+      message: `API Route ${req.method} ${req.originalUrl} not found.` 
+    });
+  });
+
+  app.use('/api', apiRouter);
+  // --- END API SECTION ---
+
   let transporter: nodemailer.Transporter | null = null;
   async function getTransporter() {
     if (!transporter) {
@@ -150,56 +213,6 @@ ${leadEntry.message}
     }
   }
 
-  // Robust API Routes handling both with and without trailing slashes
-  const handleContact = (req: express.Request, res: express.Response) => {
-    const { name, email, phone, service: bodyService, website, message } = req.body;
-    
-    if (!name || !email) {
-      return res.status(400).json({ success: false, message: 'Name and email are required.' });
-    }
-
-    const service = bodyService || 'General Inquiry';
-    const leadEntry = {
-      timestamp: new Date().toISOString(),
-      name, email, 
-      phone: phone ? `+63 ${phone}` : 'N/A', 
-      service, 
-      website: website || 'N/A', 
-      message: message || 'No message provided',
-      ip: req.ip, 
-      userAgent: req.get('user-agent')
-    };
-
-    fsSync.appendFileSync(logPath, `[API CONTACT SUCCESS] Submitting: ${name} (${email})\n`);
-
-    res.status(200).json({ 
-      success: true, 
-      message: 'Transmission success. Data received.' 
-    });
-
-    // Background processing
-    (async () => {
-      try {
-        await processLead(leadEntry, name, service);
-        fsSync.appendFileSync(logPath, `[API BACKGROUND SUCCESS] Sent email for ${name}\n`);
-      } catch (err: any) {
-        fsSync.appendFileSync(logPath, `[API BACKGROUND FAIL] ${err.message}\n`);
-      }
-    })();
-  };
-
-  app.post('/api/contact', handleContact);
-  app.post('/api/contact/', handleContact);
-
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ status: 'ok', time: new Date().toISOString() });
-  });
-
-  // Ensure any other request to /api always returns JSON
-  app.use('/api', (req, res) => {
-    res.status(404).json({ success: false, message: `API Endpoint ${req.method} ${req.url} not found.` });
-  });
-
   // Vite / Static Setup
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {
@@ -215,7 +228,7 @@ ${leadEntry.message}
     const pathOnly = req.path;
     
     // Skip API and assets with dots
-    if (url.startsWith('/api/')) return next();
+    if (url.startsWith('/api/') || url === '/api' || url.startsWith('/api?')) return next();
     if (pathOnly.includes('.') && !pathOnly.endsWith('.html')) {
       return next();
     }
@@ -261,7 +274,7 @@ ${leadEntry.message}
           case '/pricing': title = "Pricing | Scalable SEO Packages"; break;
           case '/': break;
           default: 
-            if (!cleanPath.startsWith('/api/')) is404 = true;
+            if (!cleanPath.startsWith('/api')) is404 = true;
         }
       }
 
