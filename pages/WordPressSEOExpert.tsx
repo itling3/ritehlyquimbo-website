@@ -79,19 +79,15 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                 <span>Get My Free WP Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <div className="flex items-center gap-4 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl">
-                <div className="flex -space-x-2">
-                  {[1,2,3].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-[#030712] overflow-hidden bg-gray-800">
-                      <img src={`https://i.pravatar.cc/150?u=${i+10}`} alt="avatar" className="w-full h-full object-cover" />
-                    </div>
-                  ))}
-                </div>
+              <Link
+                to="/portfolio"
+                className="flex items-center gap-4 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group"
+              >
                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-tight">
-                  <span className="text-white block">500k+ organic visitors</span>
-                  Generated for clients in 2024
+                  <span className="text-white block group-hover:text-blue-400 transition-colors underline decoration-blue-500/30">View Case Studies →</span>
+                  500k+ organic visitors
                 </div>
-              </div>
+              </Link>
             </div>
           </motion.div>
 
@@ -168,7 +164,7 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               Is Your WordPress Site Being <span className="text-red-500">Held Hostage</span> By Bad SEO?
             </p>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
-              Most WordPress themes are bloated with code that slows you down, confuses Google, and kills your conversion rate.
+              Most WordPress themes are bloated with code that slows you down, confuses Google, and kills your conversion rate. If your foundation is broken, you need <Link to="/services/full-stack-web-development-seo-performance" className="text-white hover:text-red-400 underline decoration-red-500/50">Full-Stack Re-Engineering</Link> before SEO can work.
             </p>
           </div>
 
@@ -209,6 +205,9 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <p className="text-3xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-8">
               We Don't Just Optimize Blogs. <br />
               We Engineer <span className="text-blue-900">Revenue Machines.</span>
+            </p>
+            <p className="text-blue-100/60 text-xs font-bold uppercase tracking-widest mb-8 max-w-md">
+              We combine deep technical audits with <Link to="/services/local-seo-optimization-google-maps" className="text-white hover:text-blue-200 underline decoration-blue-300/30">Local SEO Dominance</Link> to capture high-intent regional traffic.
             </p>
             <div className="space-y-4 mb-10">
               {[
@@ -348,7 +347,11 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                   <p className="text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-none mb-8">
                     Why Companies Prefer My <span className="text-blue-500">WordPress Growth Approach</span>
                   </p>
-                  <p className="text-gray-400 text-lg mb-12 font-medium">Unlike generic agencies, I prioritize Engineering over Art. Every pixel must justify its existence in your bank account.</p>
+                  <p className="text-gray-400 text-lg mb-12 font-medium">
+                    Unlike generic agencies, I prioritize Engineering over Art. Every pixel must justify its existence in your bank account. See my 
+                    <Link to="/portfolio/web-development" className="text-blue-500 hover:text-blue-400 font-black italic mx-2 underline decoration-blue-500/30">Technical Build Portfolio</Link> 
+                    to see the engines behind the rankings.
+                  </p>
                   
                   <div className="space-y-6">
                     {[
