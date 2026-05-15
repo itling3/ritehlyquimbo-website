@@ -215,10 +215,40 @@ export const SERVICES = [
   { id: 'ai-automation', title: 'AI Automation Specialist', description: 'Expert implementation of custom AI workflows and agents to scale business operations and content production.', icon: '🤖' },
   { id: 'lead-generation', title: 'B2B Lead Generation', description: 'Strategic prospecting and automated outreach systems to build a predictable sales pipeline.', icon: '🎯' },
   { id: 'virtual-assistance', title: 'Operational Support', description: 'High-level operational and technical support to streamline your business workflows and scale capacity.', icon: '💼' },
-  { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' }
+  { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' },
+  { id: 'wordpress-seo', title: 'WordPress SEO Expert', description: 'High-converting WordPress optimization strategies that drive rankings, traffic, and leads.', icon: '🔌' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
+  'wordpress-seo': {
+    id: 'wordpress-seo',
+    slug: 'wordpress-seo-expert',
+    permalink: '/services/wordpress-seo-expert',
+    title: 'WordPress SEO Expert',
+    titleH1: 'WordPress SEO Expert Services That Drive Rankings, Traffic & Leads',
+    icon: '🔌',
+    description: 'Hire a WordPress SEO Expert that actually understands conversion. We optimize your CMS for speed, security, and sales.',
+    seoTitle: 'WordPress SEO Expert Services | Rank Higher & Convert More Leads',
+    metaDescription: 'Boost your WordPress site rankings with expert SEO services. We specialize in speed optimization, technical SEO, and conversion-centered design for WordPress.',
+    keywords: 'wordpress seo expert, wordpress seo services, wordpress speed optimization, technical seo wordpress, hire wordpress seo',
+    painPoint: 'Your WordPress site is slow, outdated, and ignored by Google.',
+    problem: 'Bloated themes and half-baked plugins are killing your conversion rate and search rankings.',
+    solution: 'High-performance search engineering that turns WordPress into a lead-generation machine.',
+    importance: 'WordPress powers 40% of the web. If you aren\'t optimized, you aren\'t competing.',
+    features: [
+      'Core Web Vitals Optimization',
+      'Custom Schema Architecture',
+      'Dynamic Content Silos',
+      'Hardened Security Setup',
+      'Advanced Conversion Tracking',
+      'Sitemap & Robot.txt Engineering'
+    ],
+    contentBody: `WordPress SEO that actually moves the needle. More than just a plugin—pure engineering.`,
+    faqs: [
+      { question: 'Why hire a WordPress SEO Expert instead of just using a plugin?', answer: 'Plugins are tools, not a strategy. An expert understands how to optimize your database, core web vitals, and semantic architecture beyond what Yoast or RankMath can do. We focus on the engineering that drives rankings.' },
+      { question: 'How long does it take to see results for WordPress SEO?', answer: 'Technical fixes often show impact in 4-6 weeks. Content and authority building typically take 3-6 months for significant competitive keywords.' }
+    ]
+  },
   'keyword-research': {
     id: 'keyword-research',
     slug: 'keyword-research-intent-mapping',

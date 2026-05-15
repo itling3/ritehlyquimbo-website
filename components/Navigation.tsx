@@ -48,7 +48,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
   const serviceCategories = [
     { title: 'Search Strategy', services: SERVICES.slice(0, 4), color: 'text-blue-500', hover: 'group-hover/item:text-blue-400' },
     { title: 'Market Domination', services: SERVICES.slice(4, 8), color: 'text-purple-500', hover: 'group-hover/item:text-purple-400' },
-    { title: 'Systems & Ops', services: SERVICES.slice(8, 12), color: 'text-green-500', hover: 'group-hover/item:text-green-400' }
+    { title: 'Systems & Ops', services: SERVICES.slice(8, 12), color: 'text-green-500', hover: 'group-hover/item:text-green-400' },
+    { title: 'CMS SEO Solutions', services: SERVICES.slice(12, 13), color: 'text-orange-500', hover: 'group-hover/item:text-orange-400' }
   ];
 
   const portfolioCategories = [
@@ -125,8 +126,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             </Link>
 
             <div className={`absolute top-full -left-[400px] pt-4 transition-all duration-300 ${isServicesOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-              <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[900px] flex overflow-hidden relative">
-                <div className="relative z-10 grid grid-cols-3 gap-10 w-full">
+              <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[1100px] flex overflow-hidden relative">
+                <div className="relative z-10 grid grid-cols-4 gap-10 w-full">
                   {serviceCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-6">
                       <span className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic block`}>{cat.title}</span>

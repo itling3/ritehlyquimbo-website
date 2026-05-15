@@ -36,6 +36,7 @@ import PricingLocalSEOPage from './pages/PricingLocalSEO';
 import PricingAIPage from './pages/PricingAI';
 import PricingSEMPage from './pages/PricingSEM';
 import PricingWebDevPage from './pages/PricingWebDev';
+import WordPressSEOExpertPage from './pages/WordPressSEOExpert';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
@@ -180,6 +181,8 @@ const AppContent: React.FC = () => {
         <Route path="/contact" element={<ContactPage onBook={handleBookConsultation} />} />
 
         <Route path="/services" element={<ServicesPage onBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
+
+        <Route path="/services/wordpress-seo-expert" element={<WordPressSEOExpertPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 
