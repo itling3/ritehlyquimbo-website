@@ -68,6 +68,11 @@ async function startServer() {
         port: 465,
         secure: true,
         auth: { user, pass },
+        pool: true, // Use pooling for better performance
+        maxConnections: 5,
+        maxMessages: 100,
+        rateDelta: 1000,
+        rateLimit: 5
       });
       
       try {
@@ -130,18 +135,24 @@ async function startServer() {
 
     try {
       await fs.appendFile(path.join(process.cwd(), 'leads.txt'), JSON.stringify(leadEntry) + '\n');
-      const mailTransporter = await getTransporter();
       
-      if (mailTransporter) {
-        const sentMsg = `Attempting to send email to seo@ritehlyquimbo.com and Ritehlyquimbo@gmail.com for ${name}...\n`;
-        fsSync.appendFileSync(logPath, sentMsg);
+      // Respond immediately to prevent UI delay
+      res.json({ success: true, message: 'Message successfully received. We will respond shortly.' });
+
+      // Process email in the background
+      (async () => {
+        const mailTransporter = await getTransporter();
         
-        const mailOptions = {
-          from: `"Ritehly Quimbo Leads" <${process.env.EMAIL_USER || 'seo@ritehlyquimbo.com'}>`,
-          to: 'seo@ritehlyquimbo.com, Ritehlyquimbo@gmail.com',
-          replyTo: email, // Allow replying directly to the lead
-          subject: `🚀 [NEW LEAD] ${service} - ${name}`,
-          text: `
+        if (mailTransporter) {
+          const sentMsg = `Background sending email to leads for ${name}...\n`;
+          fsSync.appendFileSync(logPath, sentMsg);
+          
+          const mailOptions = {
+            from: `"Ritehly Quimbo Leads" <${process.env.EMAIL_USER || 'seo@ritehlyquimbo.com'}>`,
+            to: 'seo@ritehlyquimbo.com, Ritehlyquimbo@gmail.com',
+            replyTo: email, 
+            subject: `🚀 [NEW LEAD] ${service} - ${name}`,
+            text: `
 --- NEW BUSINESS LEAD ---
 Name: ${name}
 Email: ${email}
@@ -156,88 +167,87 @@ Submission Details:
 Date: ${leadEntry.timestamp}
 IP: ${req.ip}
 -------------------------
-          `,
-          html: `
-            <div style="font-family: 'Inter', system-ui, sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-              <div style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); padding: 32px 24px; color: white; text-align: center;">
-                <div style="display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; font-style: italic;">
-                  New Inquiry Received
+            `,
+            html: `
+              <div style="font-family: 'Inter', system-ui, sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <div style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); padding: 32px 24px; color: white; text-align: center;">
+                  <div style="display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; font-style: italic;">
+                    New Inquiry Received
+                  </div>
+                  <h1 style="margin: 0; font-size: 28px; font-weight: 900; font-style: italic; letter-spacing: -0.02em;">New Business Lead</h1>
+                  <p style="margin: 8px 0 0; opacity: 0.9; font-size: 14px; font-weight: 500;">Direct from ritehlyquimbo.com</p>
                 </div>
-                <h1 style="margin: 0; font-size: 28px; font-weight: 900; font-style: italic; letter-spacing: -0.02em;">New Business Lead</h1>
-                <p style="margin: 8px 0 0; opacity: 0.9; font-size: 14px; font-weight: 500;">Direct from ritehlyquimbo.com</p>
-              </div>
-              
-              <div style="padding: 32px; background: white;">
-                <div style="margin-bottom: 32px;">
-                  <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Lead Profile</h3>
-                  <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #f1f5f9;">
-                    <table style="width: 100%; border-collapse: collapse;">
-                      <tr>
-                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; width: 110px;">Full Name</td>
-                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700;">${name}</td>
-                      </tr>
-                      <tr>
-                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600;">Email</td>
-                        <td style="padding: 10px 0; color: #2563eb; font-size: 14px; font-weight: 700;">
-                          <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600;">Phone</td>
-                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700;">${safePhone}</td>
-                      </tr>
-                    </table>
+                
+                <div style="padding: 32px; background: white;">
+                  <div style="margin-bottom: 32px;">
+                    <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Lead Profile</h3>
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #f1f5f9;">
+                      <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                          <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; width: 110px;">Full Name</td>
+                          <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700;">${name}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600;">Email</td>
+                          <td style="padding: 10px 0; color: #2563eb; font-size: 14px; font-weight: 700;">
+                            <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600;">Phone</td>
+                          <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700;">${safePhone}</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div style="margin-bottom: 32px;">
+                    <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Project Context</h3>
+                    <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #f1f5f9;">
+                      <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                          <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; width: 110px;">Service</td>
+                          <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700; border-bottom: 1px dashed #e2e8f0;">${service}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; padding-top: 20px;">Website</td>
+                          <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700; padding-top: 20px;">
+                            ${safeWebsite !== 'N/A' ? `<a href="${safeWebsite}" style="color: #2563eb; text-decoration: none;">${safeWebsite}</a>` : 'N/A'}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Message Contents</h3>
+                    <div style="background: #eff6ff; border-radius: 12px; padding: 24px; border-left: 4px solid #2563eb;">
+                      <p style="margin: 0; color: #1e3a8a; line-height: 1.7; font-size: 15px; font-weight: 500; white-space: pre-wrap;">${safeMessage}</p>
+                    </div>
                   </div>
                 </div>
 
-                <div style="margin-bottom: 32px;">
-                  <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Project Context</h3>
-                  <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #f1f5f9;">
-                    <table style="width: 100%; border-collapse: collapse;">
-                      <tr>
-                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; width: 110px;">Service</td>
-                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700; border-bottom: 1px dashed #e2e8f0;">${service}</td>
-                      </tr>
-                      <tr>
-                        <td style="padding: 10px 0; color: #64748b; font-size: 13px; font-weight: 600; padding-top: 20px;">Website</td>
-                        <td style="padding: 10px 0; color: #0f172a; font-size: 14px; font-weight: 700; padding-top: 20px;">
-                          ${safeWebsite !== 'N/A' ? `<a href="${safeWebsite}" style="color: #2563eb; text-decoration: none;">${safeWebsite}</a>` : 'N/A'}
-                        </td>
-                      </tr>
-                    </table>
+                <div style="padding: 24px; background: #f8fafc; text-align: center; border-t: 1px solid #e2e8f0;">
+                  <p style="margin: 0; color: #94a3b8; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Secure Lead Transmission Engine</p>
+                  <div style="margin-top: 8px; color: #cbd5e1; font-size: 10px;">
+                    ID: ${leadEntry.timestamp.replace(/[^0-9]/g, '').slice(-12)} | Origin IP: ${req.ip}
                   </div>
                 </div>
-
-                <div>
-                  <h3 style="margin: 0 0 16px; color: #9ca3af; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Message Contents</h3>
-                  <div style="background: #eff6ff; border-radius: 12px; padding: 24px; border-left: 4px solid #2563eb;">
-                    <p style="margin: 0; color: #1e3a8a; line-height: 1.7; font-size: 15px; font-weight: 500; white-space: pre-wrap;">${safeMessage}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div style="padding: 24px; background: #f8fafc; text-align: center; border-t: 1px solid #e2e8f0;">
-                <p style="margin: 0; color: #94a3b8; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Secure Lead Transmission Engine</p>
-                <div style="margin-top: 8px; color: #cbd5e1; font-size: 10px;">
-                  ID: ${leadEntry.timestamp.replace(/[^0-9]/g, '').slice(-12)} | Origin IP: ${req.ip}
-                </div>
-              </div>
-            </div>`
-        };
-        
-        await mailTransporter.sendMail(mailOptions);
-        const successMsg = `Email sent successfully for: ${name}\n`;
-        process.stdout.write(successMsg);
-        fsSync.appendFileSync(logPath, successMsg);
-      } else {
-        console.warn('SMTP Transporter not available.');
-        throw new Error('Email configuration error.');
-      }
-      res.json({ success: true, message: 'Message successfully sent.' });
+              </div>`
+          };
+          
+          await mailTransporter.sendMail(mailOptions);
+          fsSync.appendFileSync(logPath, `Background email success for ${name}\n`);
+        }
+      })().catch(backgroundError => {
+        const errMsg = `BG LEAD ERROR: ${backgroundError.message}\n`;
+        console.error(errMsg);
+        fsSync.appendFileSync(logPath, errMsg);
+      });
     } catch (error: any) {
-      console.error('Lead process error:', error);
-      fsSync.appendFileSync(logPath, `LEAD ERROR: ${error.message}\n`);
-      res.status(500).json({ success: false, message: `Transmission failure: ${error.message}` });
+      console.error('Lead storage error:', error);
+      fsSync.appendFileSync(logPath, `STORAGE ERROR: ${error.message}\n`);
+      res.status(500).json({ success: false, message: `Storage failure: ${error.message}` });
     }
   });
 
