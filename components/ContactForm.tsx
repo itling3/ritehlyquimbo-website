@@ -8,16 +8,24 @@ const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    service: 'SEO Service',
     website: '',
     message: ''
   });
+
+  const services = [
+    { id: 'seo', label: 'SEO Service' },
+    { id: 'local', label: 'Local SEO' },
+    { id: 'web', label: 'Web Dev' },
+    { id: 'ai', label: 'AI Automation' }
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
 
     try {
-      // Simulate API call to /api/contact (we will add this to server.ts)
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -28,7 +36,7 @@ const ContactForm: React.FC = () => {
 
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', website: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', service: 'SEO Service', website: '', message: '' });
       } else {
         setStatus('error');
       }
@@ -50,7 +58,7 @@ const ContactForm: React.FC = () => {
         </div>
         <div className="space-y-2">
           <h3 className="text-2xl font-black text-white uppercase italic">Message Transmitted</h3>
-          <p className="text-gray-400 text-sm font-medium">I've received your data. Expect a response within 24 hours.</p>
+          <p className="text-gray-400 text-sm font-medium">Data received. I'll reach out to your {formData.email} or via phone within 24 hours.</p>
         </div>
         <button 
           onClick={() => setStatus('idle')}
@@ -95,22 +103,68 @@ const ContactForm: React.FC = () => {
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest px-2 italic">Website / Domain</label>
-        <div className="relative group">
-          <Globe className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 group-focus-within:text-blue-500 transition-colors" />
-          <input 
-            type="url"
-            placeholder="https://example.com"
-            value={formData.website}
-            onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-blue-500 transition-all font-medium"
-          />
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest px-2 italic">Phone Number</label>
+          <div className="relative group">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 font-bold text-xs">+63</div>
+            <input 
+              required
+              type="tel"
+              placeholder="9XX XXX XXXX"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-blue-500 transition-all font-medium"
+            />
+          </div>
+        </div>
+        <div className="space-y-2">
+          <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest px-2 italic">Website (Optional)</label>
+          <div className="relative group">
+            <Globe className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 group-focus-within:text-blue-500 transition-colors" />
+            <input 
+              type="url"
+              placeholder="https://example.com"
+              value={formData.website}
+              onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-gray-700 focus:outline-none focus:border-blue-500 transition-all font-medium"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest px-2 italic">Select Primary Service</label>
+        <div className="grid grid-cols-2 gap-3">
+          {services.map((service) => (
+            <label 
+              key={service.id}
+              className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
+                formData.service === service.label 
+                ? 'bg-blue-600/10 border-blue-500 text-white' 
+                : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/20'
+              }`}
+            >
+              <input 
+                type="radio"
+                name="service"
+                className="hidden"
+                checked={formData.service === service.label}
+                onChange={() => setFormData({ ...formData, service: service.label })}
+              />
+              <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-all ${
+                formData.service === service.label ? 'border-blue-500 bg-blue-500' : 'border-gray-600'
+              }`}>
+                {formData.service === service.label && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
+              </div>
+              <span className="text-[10px] font-black uppercase italic tracking-wider">{service.label}</span>
+            </label>
+          ))}
         </div>
       </div>
 
       <div className="space-y-2">
-        <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest px-2 italic">Project Brief</label>
+        <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest px-2 italic">Project Brief / Message</label>
         <div className="relative group">
           <MessageSquare className="absolute left-4 top-6 w-4 h-4 text-gray-600 group-focus-within:text-blue-500 transition-colors" />
           <textarea 

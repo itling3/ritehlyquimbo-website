@@ -5,6 +5,7 @@ import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs/promises';
 import { fileURLToPath } from 'url';
+import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,12 +35,39 @@ async function startServer() {
 
   app.use(express.json());
 
+  let transporter: nodemailer.Transporter | null = null;
+
+  function getTransporter() {
+    if (!transporter) {
+      const user = process.env.EMAIL_USER || 'seo@ritehlyquimbo.com';
+      const pass = process.env.EMAIL_PASS;
+
+      if (!pass) {
+        console.warn('EMAIL_PASS not set. Emails will not be sent.');
+        return null;
+      }
+
+      transporter = nodemailer.createTransport({
+        host: 'smtp.hostinger.com',
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+          user,
+          pass,
+        },
+      });
+    }
+    return transporter;
+  }
+
   app.post('/api/contact', async (req, res) => {
-    const { name, email, website, message } = req.body;
+    const { name, email, phone, service, website, message } = req.body;
     const leadEntry = {
       timestamp: new Date().toISOString(),
       name,
       email,
+      phone: `+63${phone}`,
+      service,
       website,
       message,
       ip: req.ip,
@@ -47,14 +75,72 @@ async function startServer() {
     };
 
     try {
+      // 1. Backup to file
       await fs.appendFile(path.join(process.cwd(), 'leads.txt'), JSON.stringify(leadEntry) + '\n');
-      console.log('--- NEW LEAD RECEIVED ---');
-      console.log(`Name: ${name}`);
-      console.log(`Email: ${email}`);
+      
+      // 2. Send Email
+      const mailTransporter = getTransporter();
+      if (mailTransporter) {
+        const mailOptions = {
+          from: `"Ritehly Quimbo Leads" <${process.env.EMAIL_USER || 'seo@ritehlyquimbo.com'}>`,
+          to: 'seo@ritehlyquimbo.com',
+          subject: `🚀 [NEW LEAD] ${service} - ${name}`,
+          text: `
+New Lead Details:
+-----------------
+Name: ${name}
+Email: ${email}
+Phone: +63${phone}
+Service: ${service}
+Website: ${website || 'N/A'}
+
+Project Brief:
+${message}
+
+---
+Technical Info:
+Timestamp: ${leadEntry.timestamp}
+IP: ${leadEntry.ip}
+User Agent: ${leadEntry.userAgent}
+          `,
+          html: `
+            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
+              <h1 style="color: #2563eb; font-style: italic;">New Business Lead</h1>
+              <p>You have a new inquiry from your website portfolio.</p>
+              
+              <div style="background: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+63${phone}">+63 ${phone}</a></p>
+                <p><strong>Service Requested:</strong> ${service}</p>
+                <p><strong>Website:</strong> ${website ? `<a href="${website}">${website}</a>` : 'N/A'}</p>
+              </div>
+
+              <div style="border-left: 4px solid #2563eb; padding-left: 15px; margin: 20px 0;">
+                <p><strong>Project Brief:</strong></p>
+                <p style="white-space: pre-wrap;">${message}</p>
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 30px 0;" />
+              <p style="font-size: 10px; color: #9ca3af; text-transform: uppercase;">Sent from ritehlyquimbo.com backend</p>
+            </div>
+          `
+        };
+
+        await mailTransporter.sendMail(mailOptions);
+        console.log(`Email sent successfully for lead: ${name}`);
+      } else {
+        console.log('Skipping email send because transporter is not configured.');
+      }
+
+      console.log('--- NEW ENTERPRISE LEAD ---');
+      console.log(`From: ${name} (${email})`);
+      console.log(`Service: ${service}`);
       console.log('--------------------------');
-      res.json({ success: true, message: 'Message received and encrypted.' });
+
+      res.json({ success: true, message: 'Message received and encrypted for transmission.' });
     } catch (error) {
-      console.error('Lead storage error:', error);
+      console.error('Lead processing error:', error);
       res.status(500).json({ success: false, message: 'Internal transmission failure.' });
     }
   });
