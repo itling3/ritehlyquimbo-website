@@ -32,16 +32,6 @@ async function startServer() {
   app.use(compression());
   app.use(express.json());
 
-  // API Routes
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
-  });
-
   let transporter: nodemailer.Transporter | null = null;
   async function getTransporter() {
     if (!transporter) {
@@ -160,8 +150,8 @@ ${leadEntry.message}
     }
   }
 
+  // API Routes
   app.post('/api/contact', (req, res) => {
-    console.log('--- CONTACT FORM SUBMISSION ---', req.body);
     const { name, email, phone, service: bodyService, website, message } = req.body;
     
     if (!name || !email) {
@@ -180,14 +170,27 @@ ${leadEntry.message}
       userAgent: req.get('user-agent')
     };
 
-    // Respond immediately to avoid delay
+    // Respond IMMEDIATELY with JSON
+    res.setHeader('Content-Type', 'application/json');
     res.status(200).json({ success: true, message: 'Success! Your message is being processed.' });
 
     // Process in background
-    processLead(leadEntry, name, service).catch(console.error);
+    processLead(leadEntry, name, service).catch(err => {
+      const errMsg = `[BACKGROUND ERROR] ${err.message}\n`;
+      fsSync.appendFileSync(logPath, errMsg);
+    });
   });
 
-  // Strict API 404 (always JSON)
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length
+    });
+  });
+
+  // Strict API 404 (always JSON) - Move this ABOVE other non-api handlers
   app.use('/api', (req, res) => {
     res.status(404).json({ success: false, message: `API Endpoint ${req.method} ${req.originalUrl} not found.` });
   });

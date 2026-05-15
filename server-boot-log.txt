@@ -1,5 +1,7 @@
-Boot at 2026-05-15T14:53:54.486Z
+Boot at 2026-05-15T14:59:39.078Z
 Initializing SMTP for seo@ritehlyquimbo.com...
 Final server listening at http://0.0.0.0:3000
-[2026-05-15T14:53:56.448Z] POST /api/contact (IP: 127.0.0.1)
+[2026-05-15T14:59:40.834Z] POST /api/contact (IP: 127.0.0.1)
 SMTP connection verified successfully.
+Email sent successfully for: Hardened Test 2
+[2026-05-15T14:59:47.030Z] GET /api/non-existent (IP: 127.0.0.1)
