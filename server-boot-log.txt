@@ -1,7 +1,7 @@
-Boot at 2026-05-15T14:41:26.718Z
+Boot at 2026-05-15T14:24:22.955Z
 Initializing SMTP for seo@ritehlyquimbo.com...
 Final server listening at http://0.0.0.0:3000
+[2026-05-15T14:24:24.783Z] POST /api/contact (IP: 127.0.0.1)
+Attempting to send email to seo@ritehlyquimbo.com and Ritehlyquimbo@gmail.com for Dual Recipient Test...
 SMTP connection verified successfully.
-[2026-05-15T14:41:29.236Z] POST /api/contact (IP: 127.0.0.1)
->>> API REQUEST: POST /contact | Body Keys: name, email, message
-Background sending email to leads for Speed Test...
+Email sent successfully for: Dual Recipient Test
