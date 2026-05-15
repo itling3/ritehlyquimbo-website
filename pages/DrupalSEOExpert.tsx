@@ -27,7 +27,6 @@ import {
   ChevronRight
 } from 'lucide-react';
 import SEO from '../components/SEO';
-import ContactForm from '../components/ContactForm';
 
 const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
   const faqs = [
@@ -198,7 +197,7 @@ const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                 <div className="mb-6">{item.icon}</div>
                 <h3 className="text-xl font-black text-white uppercase italic tracking-tight mb-4 group-hover:text-blue-500 transition-colors">{item.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed font-medium">
-                  {item.desc} If these problems persist, consider our <Link to="/services/full-stack-web-development-seo-performance" className="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30">technical re-engineering</Link> approach. Explore our <Link to="/portfolio/web-development" className="text-white hover:text-blue-400 underline decoration-blue-500/30 font-black italic">Web Dev Portfolio</Link> for more.
+                  {item.desc} If these problems persist, consider our <Link to="/services/full-stack-web-development-seo-performance" className="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30">technical re-engineering</Link> approach.
                 </p>
               </div>
             ))}
@@ -314,7 +313,7 @@ const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                    <p className="text-gray-500 text-xs font-bold leading-relaxed">{step.desc}</p>
                    {step.title === "Expansion" && (
                      <div className="mt-4">
-                        <Link to="/services/local-seo-specialist-google-maps" className="text-[8px] font-black uppercase text-blue-500 hover:text-blue-400 italic flex items-center gap-1">
+                        <Link to="/services/local-seo-optimization-google-maps" className="text-[8px] font-black uppercase text-blue-500 hover:text-blue-400 italic flex items-center gap-1">
                           Explore Local SEO <ArrowRight className="w-2 h-2" />
                         </Link>
                      </div>
@@ -453,26 +452,21 @@ const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 px-4 md:px-6 bg-[#030712] relative" id="contact">
-         <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
-               <div className="text-center md:text-left">
-                  <h2 className="text-5xl md:text-8xl font-black text-white uppercase italic tracking-tighter leading-[0.8] italic mb-10">
-                    Unlock Your <br /> <span className="text-blue-500">Growth Engine.</span>
-                  </h2>
-                  <p className="text-gray-400 text-lg mb-8 font-medium max-w-md">
-                    Ready to scale your enterprise Drupal site? Submit your details below or <Link to="/contact" className="text-blue-500 hover:text-blue-400 underline decoration-blue-500/30">contact us directly</Link> for a confidential strategy session.
-                  </p>
-                  <div className="flex flex-col items-center md:items-start gap-4">
-                     <div className="text-[10px] font-black text-gray-500 uppercase tracking-widest italic">Technical Inquiries</div>
-                     <a href="mailto:seo@ritehlyquimbo.com" className="text-xl font-black text-white hover:text-blue-500 transition-colors italic">seo@ritehlyquimbo.com</a>
-                  </div>
-               </div>
-               <div className="glass-morphism p-8 md:p-12 rounded-[3.5rem] border border-white/10 bg-[#0f172a]/20 relative">
-                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full"></div>
-                  <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-8 italic">Initialize Enterprise Audit</h3>
-                  <ContactForm />
-               </div>
+      <section className="py-32 px-4 md:px-6 bg-[#030712] relative">
+         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="text-center md:text-left">
+               <h2 className="text-5xl md:text-8xl font-black text-white uppercase italic tracking-tighter leading-[0.8] italic">
+                 Unlock Your <br /> <span className="text-blue-500">Growth Engine.</span>
+               </h2>
+            </div>
+            <div className="flex flex-col items-center md:items-end gap-6 text-center md:text-right">
+               <p className="text-gray-500 font-black uppercase text-[10px] tracking-widest hidden md:block">Limited Openings for Enterprise Consulting</p>
+               <button 
+                 onClick={onBook}
+                 className="px-12 py-6 bg-white text-black font-black rounded-3xl hover:bg-gray-200 transition-all uppercase tracking-tighter text-3xl shadow-2xl"
+               >
+                 Book Strategy Session
+               </button>
             </div>
          </div>
       </section>

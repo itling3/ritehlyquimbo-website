@@ -271,7 +271,7 @@ const SEMPricingView: React.FC<SEMPricingViewProps> = ({ onBack, onBook }) => {
                  <Rocket className="w-4 h-4" /> Schedule Strategy Call
               </button>
               <button 
-                onClick={() => window.location.href = "mailto:seo@ritehlyquimbo.com"}
+                onClick={() => window.location.href = "mailto:Ritehlyquimbo@gmail.com"}
                 className="px-10 py-6 bg-white/5 hover:bg-white/10 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic transition-all active:scale-[0.95] border border-white/10 flex items-center justify-center gap-2"
               >
                 <Zap className="w-4 h-4 text-blue-500" /> Custom Project Brief

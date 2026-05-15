@@ -46,18 +46,6 @@ const WebDevPortfolioPage: React.FC = () => {
             >
               System Details <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link 
-              to="/services/wordpress-seo-expert"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-blue-400 transition-colors text-[10px] font-black uppercase tracking-[0.2em] bg-white/5 border border-white/10 px-6 py-3 rounded-xl backdrop-blur-md group"
-            >
-              WordPress SEO <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </Link>
-             <Link 
-              to="/services/drupal-seo-expert"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-blue-400 transition-colors text-[10px] font-black uppercase tracking-[0.2em] bg-white/5 border border-white/10 px-6 py-3 rounded-xl backdrop-blur-md group"
-            >
-              Drupal SEO <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </Link>
           </div>
         </div>
       </section>

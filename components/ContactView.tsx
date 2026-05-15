@@ -4,8 +4,6 @@ import { motion } from 'motion/react';
 import { ArrowLeft, Mail, Phone, MapPin, MessageSquare, ExternalLink, Calendar, Send, Sparkles } from 'lucide-react';
 import SEO from './SEO';
 
-import ContactForm from './ContactForm';
-
 interface ContactViewProps {
   onBack: () => void;
   onBook: () => void;
@@ -35,7 +33,7 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
             transition={{ delay: 0.1 }}
             className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto font-medium leading-relaxed"
           >
-            Ready to scale your leads and automate your revenue? Submit your project details below or book a direct strategy call.
+            Ready to scale your leads and automate your revenue? Use the form for a project inquiry or book a direct strategy call.
           </motion.p>
         </div>
 
@@ -44,7 +42,7 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
           <div className="space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
               <motion.a 
-                href="mailto:seo@ritehlyquimbo.com"
+                href="mailto:Ritehlyquimbo@gmail.com"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -54,7 +52,7 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
                   <Mail className="w-5 h-5 text-blue-500 group-hover:text-white" />
                 </div>
                 <h3 className="text-sm font-black text-white uppercase tracking-widest italic mb-1">Email Me</h3>
-                <p className="text-xs text-gray-500 font-bold truncate">seo@ritehlyquimbo.com</p>
+                <p className="text-xs text-gray-500 font-bold truncate">Ritehlyquimbo@gmail.com</p>
               </motion.a>
 
               <motion.a 
@@ -114,10 +112,37 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
-            className="p-10 md:p-12 glass-morphism rounded-[3rem] border border-white/10 relative overflow-hidden"
+            className="p-10 md:p-12 glass-morphism rounded-[3rem] border border-white/10 relative overflow-hidden flex flex-col justify-center"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-[100px] rounded-full"></div>
-            <ContactForm />
+            
+            <div className="relative z-10 text-center space-y-8">
+              <div className="w-20 h-20 bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center mx-auto mb-8">
+                <MessageSquare className="w-8 h-8 text-blue-500" />
+              </div>
+              
+              <div className="space-y-4">
+                <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter">Detailed Inquiry Form</h2>
+                <p className="text-gray-400 text-sm font-medium leading-relaxed max-w-sm mx-auto">
+                  For complex projects requiring AI tools or deep technical SEO, please use our detailed growth questionnaire.
+                </p>
+              </div>
+
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-10 py-6 bg-white/5 hover:bg-white/10 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic transition-all border border-white/10 active:scale-95"
+              >
+                Complete Inquiry Form <ExternalLink className="w-4 h-4 text-blue-500" />
+              </a>
+
+              <div className="pt-8 flex items-center justify-center gap-4 text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                <Sparkles className="w-3 h-3 text-blue-500" />
+                <span>Response time: &lt; 24 Hours</span>
+                <Sparkles className="w-3 h-3 text-blue-500" />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

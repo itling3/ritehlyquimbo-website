@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
-    "start": "node dist/server.cjs",
+    "start": "tsx server.ts",
+    "build": "vite build",
     "lint": "tsc --noEmit",
     "preview": "vite preview"
   },
@@ -16,11 +16,9 @@
     "@tailwindcss/vite": "^4.2.4",
     "@types/compression": "^1.8.1",
     "compression": "^1.8.1",
-    "esbuild": "^0.28.0",
     "express": "^5.2.1",
     "lucide-react": "^1.9.0",
     "motion": "^12.38.0",
-    "nodemailer": "^8.0.7",
     "path": "^0.12.7",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -34,7 +32,6 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "@types/nodemailer": "^8.0.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
