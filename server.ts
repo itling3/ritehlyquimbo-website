@@ -149,12 +149,16 @@ ${safeMessage}
               </div>
             </div>`
         };
-        await mailTransporter.sendMail(mailOptions);
-        console.log(`Email sent for: ${name}`);
+        // Fire and forget for "no delay" on client response
+        mailTransporter.sendMail(mailOptions).catch(e => {
+          console.error('Email background send error:', e);
+          fsSync.appendFileSync(logPath, `BACKGROUND EMAIL ERROR: ${e.message}\n`);
+        });
+        console.log(`Email initiated for: ${name}`);
       } else {
         console.warn('EMAIL_PASS missing, lead saved to file.');
       }
-      res.json({ success: true, message: 'Message received.' });
+      res.json({ success: true, message: 'Message received and process initiated.' });
     } catch (error) {
       console.error('Lead error:', error);
       res.status(500).json({ success: false, message: 'Transmission failure.' });
