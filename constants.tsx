@@ -216,7 +216,8 @@ export const SERVICES = [
   { id: 'lead-generation', title: 'B2B Lead Generation', description: 'Strategic prospecting and automated outreach systems to build a predictable sales pipeline.', icon: '🎯' },
   { id: 'virtual-assistance', title: 'Operational Support', description: 'High-level operational and technical support to streamline your business workflows and scale capacity.', icon: '💼' },
   { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' },
-  { id: 'wordpress-seo', title: 'WordPress SEO Expert', description: 'High-converting WordPress optimization strategies that drive rankings, traffic, and leads.', icon: '🔌' }
+  { id: 'wordpress-seo', title: 'WordPress SEO Expert', description: 'High-converting WordPress optimization strategies that drive rankings, traffic, and leads.', icon: '🔌' },
+  { id: 'drupal-seo', title: 'Drupal SEO Expert', description: 'Enterprise-grade Drupal SEO optimization for scalability, security, and organic dominance.', icon: '💧' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -247,6 +248,35 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
     faqs: [
       { question: 'Why hire a WordPress SEO Expert instead of just using a plugin?', answer: 'Plugins are tools, not a strategy. An expert understands how to optimize your database, core web vitals, and semantic architecture beyond what Yoast or RankMath can do. We focus on the engineering that drives rankings.' },
       { question: 'How long does it take to see results for WordPress SEO?', answer: 'Technical fixes often show impact in 4-6 weeks. Content and authority building typically take 3-6 months for significant competitive keywords.' }
+    ]
+  },
+  'drupal-seo': {
+    id: 'drupal-seo',
+    slug: 'drupal-seo-expert',
+    permalink: '/services/drupal-seo-expert',
+    title: 'Drupal SEO Expert',
+    titleH1: 'Technical Drupal SEO That Drives Organic Traffic & Enterprise Growth',
+    icon: '💧',
+    description: 'Advanced Drupal SEO services including technical optimization, site architecture, and enterprise search visibility improvements.',
+    seoTitle: 'Drupal SEO Expert Services | Enterprise Technical SEO Specialist',
+    metaDescription: 'Scalable Drupal SEO solutions for enterprise brands. We optimize Drupal architecture, taxonomy, and performance for maximum search visibility.',
+    keywords: 'drupal seo expert, drupal seo services, enterprise drupal seo, technical drupal seo, drupal performance optimization',
+    painPoint: 'Enterprise Drupal sites often suffer from crawlability issues and bloated architecture.',
+    problem: 'Generic SEO agencies lack the technical depth to optimize complex Drupal taxonomy and multi-location setups.',
+    solution: 'Deep technical Drupal engineering combined with enterprise SEO data strategies.',
+    importance: 'For high-security, high-scalability environments, Drupal SEO requires a specialist who understands the core.',
+    features: [
+      'Taxonomy & Token Optimization',
+      'Enterprise Schema Implementation',
+      'Multi-site SEO Governance',
+      'Advanced Caching Strategies',
+      'Semantic URL Re-engineering',
+      'Drupal Migration Preservation'
+    ],
+    contentBody: `Enterprise Drupal SEO requires a scalpel, not a sledgehammer. We optimize from the hook system up.`,
+    faqs: [
+      { question: 'Do you work with Drupal 7, 9, or 10?', answer: 'We specialize in modern Drupal (9/10) but also provide technical stabilization and migration SEO for Drupal 7 sites looking to upgrade without losing rankings.' },
+      { question: 'Can you handle multilingual Drupal SEO?', answer: 'Yes. We are experts in hreflang implementation and language-specific taxonomy for large-scale international Drupal setups.' }
     ]
   },
   'keyword-research': {
