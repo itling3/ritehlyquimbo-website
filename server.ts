@@ -21,14 +21,16 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  app.use(compression());
-  app.use(express.json());
-
-  // Simple Request Logger
+  // Logging Middleware
   app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    const msg = `[${new Date().toISOString()}] ${req.method} ${req.url} (IP: ${req.ip})\n`;
+    process.stdout.write(msg);
+    fsSync.appendFileSync(logPath, msg);
     next();
   });
+
+  app.use(compression());
+  app.use(express.json());
 
   // API Routes
   app.get('/api/seo-health', (req, res) => {
@@ -45,7 +47,10 @@ async function startServer() {
     if (!transporter) {
       const user = process.env.EMAIL_USER || 'seo@ritehlyquimbo.com';
       const pass = process.env.EMAIL_PASS;
-      if (!pass) return null;
+      if (!pass) {
+        console.warn('EMAIL_PASS MISSING');
+        return null;
+      }
       transporter = nodemailer.createTransport({
         host: 'smtp.hostinger.com',
         port: 465,
@@ -57,7 +62,13 @@ async function startServer() {
   }
 
   app.post('/api/contact', async (req, res) => {
+    console.log('--- CONTACT FORM SUBMISSION ---', req.body);
     const { name, email, phone, service, website, message } = req.body;
+    
+    if (!name || !email) {
+      return res.status(400).json({ success: false, message: 'Name and email are required.' });
+    }
+
     const leadEntry = {
       timestamp: new Date().toISOString(),
       name, email, phone: `+63${phone}`, service, website, message,
@@ -92,50 +103,27 @@ async function startServer() {
     }
   });
 
-  // Explicit API 404 (Express 5 compatible regex)
-  app.all(/^\/api\/.*$/, (req, res) => {
+  // Explicit API 404
+  app.all(/\/api\/.*/, (req, res) => {
     res.status(404).json({ success: false, message: `API ${req.originalUrl} not found.` });
   });
 
-  // Start listening EARLY
-  app.listen(PORT, '0.0.0.0', () => {
-    const msg = `Server listening at http://0.0.0.0:${PORT}\n`;
-    console.log(msg);
-    fsSync.appendFileSync(logPath, msg);
-  });
-
-  // Vite / Static (Internal Initialization)
+  // Vite / Static Setup
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {
-    const vMsg1 = '--- INITIALIZING VITE ---\n';
-    console.log(vMsg1);
-    await fs.appendFile(logPath, vMsg1).catch(() => {});
-    
     vite = await createViteServer({ server: { middlewareMode: true }, appType: 'custom' });
-    
-    const vMsg2 = '--- VITE READY ---\n';
-    console.log(vMsg2);
-    await fs.appendFile(logPath, vMsg2).catch(() => {});
-    
     app.use(vite.middlewares);
   } else {
     app.use(express.static(path.join(process.cwd(), 'dist'), { index: false }));
   }
 
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
-  });
-
-  app.get(/^.*$/, async (req, res, next) => {
+  // SSR Handler
+  app.get(/.*/, async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
-    // Pass assets to next middleware
+    // Skip API and assets with dots
+    if (url.startsWith('/api/')) return next();
     if (pathOnly.includes('.') && !pathOnly.endsWith('.html')) {
       return next();
     }
@@ -151,122 +139,52 @@ async function startServer() {
         template = await fs.readFile(tPath, 'utf-8');
       }
 
-      // Initial Default Meta (Homepage)
+      // Metadata Logic
       let title = "Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue";
       let description = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
       let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
       let is404 = false;
 
-      // Normalize path
       let cleanPath = (pathOnly || '/').toLowerCase();
-      if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
-        cleanPath = cleanPath.slice(0, -1);
-      }
+      if (cleanPath.length > 1 && cleanPath.endsWith('/')) cleanPath = cleanPath.slice(0, -1);
       if (cleanPath === '') cleanPath = '/';
 
-      // Robust matching
       const allServices = Object.values(SERVICE_DETAILS);
-      const matchedService = allServices.find(s => {
-        const p = s.permalink.toLowerCase();
-        const sl = `/services/${s.slug.toLowerCase()}`;
-        return cleanPath === p || cleanPath === sl || cleanPath.endsWith(s.slug.toLowerCase());
-      });
-      
-      const matchedCaseStudy = CASE_STUDIES.find(s => {
-        const p = s.permalink.toLowerCase();
-        const sl = `/portfolio/${s.slug.toLowerCase()}`;
-        return cleanPath === p || cleanPath === sl || cleanPath.endsWith(s.slug.toLowerCase());
-      });
+      const matchedService = allServices.find(s => cleanPath === s.permalink.toLowerCase() || cleanPath === `/services/${s.slug.toLowerCase()}`);
+      const matchedCaseStudy = CASE_STUDIES.find(s => cleanPath === s.permalink.toLowerCase() || cleanPath === `/portfolio/${s.slug.toLowerCase()}`);
 
-      // FORCED PRIORITY OVERRIDE
-      if (cleanPath === '/services/local-seo-specialist-google-maps') {
-        title = "Local SEO & Google Maps Specialist | Dominate Your Local Market and Get Found";
-        description = "Increase foot traffic and local leads. We optimize your Google Business Profile and local citations for maximum neighborhood visibility.";
-        keywords = "local seo, gmb management, google maps ranking, local citation building, map pack dominance, seo specialist philippines";
-      } else if (matchedService) {
+      if (matchedService) {
         title = matchedService.seoTitle || `${matchedService.title} | Ritehly Quimbo`;
         description = matchedService.metaDescription || matchedService.description;
-        keywords = matchedService.keywords || keywords;
       } else if (matchedCaseStudy) {
         title = matchedCaseStudy.seoTitle || `${matchedCaseStudy.title} | Ritehly Quimbo`;
         description = matchedCaseStudy.metaDescription || matchedCaseStudy.description;
-        keywords = matchedCaseStudy.keywords || keywords;
-      } else if (cleanPath === '/about') {
-        title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
-        description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
-      } else if (cleanPath === '/contact') {
-        title = "Contact Ritehly Quimbo | Ready to Scale Your Organic Traffic?";
-        description = "Get in touch today for a personalized SEO strategy. Let’s discuss how to grow your business through data-driven search marketing.";
-      } else if (cleanPath === '/resume') {
-        title = "SEO Specialist Resume | Ritehly Quimbo’s Professional Background";
-        description = "Detailed career history, certifications, and technical expertise of Ritehly Quimbo, a seasoned SEO professional.";
-      } else if (cleanPath === '/services') {
-        title = "Professional SEO Services Philippines | Results-Oriented Digital Growth";
-        description = "Explore our full suite of SEO services, from technical audits to topical authority mapping and AI automation.";
-      } else if (cleanPath === '/portfolio') {
-        title = "SEO Case Studies & Success Stories | Proven Results by Ritehly Quimbo";
-        description = "See how we’ve scaled organic traffic and revenue for diverse businesses across various industries.";
-      } else if (cleanPath === '/pricing') {
-        title = "SEO Pricing Packages | Transparent and Scalable Marketing Solutions";
-        description = "View our competitive pricing plans for SEO, AI automation, and Google Ads management.";
-      } else if (cleanPath === '/pricing/local-seo-strategy') {
-        title = "Local SEO Pricing Plans | Affordable Strategies for Local Business Growth";
-        description = "Explore our Local SEO pricing tiers designed to help small to medium businesses win the local map pack.";
-      } else if (cleanPath === '/pricing/ai-automation-plans') {
-        title = "AI Automation Pricing | Invest in Efficient Business Scaling";
-        description = "Choose an AI automation plan that fits your workflow. Automate your repetitive tasks and focus on high-level growth.";
-      } else if (cleanPath === '/pricing/google-ads-sem') {
-        title = "Google Ads Management Pricing | Transparent PPC Fees for Maximum ROI";
-        description = "Professional SEM management pricing. Get the most out of your ad budget with our expert-led PPC strategies.";
-      } else if (cleanPath === '/pricing/web-dev-packages') {
-        title = "Web Development Packages | Quality Coding for Better Performance";
-        description = "Find the right web development package for your needs, from simple landing pages to complex full-stack solutions.";
-      } else if (cleanPath === '/services/local-seo-specialist-google-maps') {
-        title = "Local SEO & Google Maps Specialist | Dominate Your Local Market and Get Found";
-        description = "Increase foot traffic and local leads. We optimize your Google Business Profile and local citations for maximum neighborhood visibility.";
-      } else if (['/audit', '/calculator', '/privacy'].includes(cleanPath)) {
-        title = `${cleanPath.slice(1).charAt(0).toUpperCase() + cleanPath.slice(2)} | Ritehly Quimbo`;
-      } else if (cleanPath !== '/' && cleanPath !== '/index') {
-         is404 = true;
+      } else {
+        // Simple switch for main pages
+        switch(cleanPath) {
+          case '/about': title = "About Ritehly Quimbo | SEO Specialist"; break;
+          case '/contact': title = "Contact | Hire SEO Philippines"; break;
+          case '/services': title = "Our Services | SEO & Growth"; break;
+          case '/portfolio': title = "Portfolio | Proven SEO Results"; break;
+          case '/pricing': title = "Pricing | Scalable SEO Packages"; break;
+          case '/': break;
+          default: 
+            if (!cleanPath.startsWith('/api/')) is404 = true;
+        }
       }
 
       if (is404) {
-        const html404 = `<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><title>404 - Page Not Found</title><meta name="description" content="Oops, page lost."><style>body{font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#f4f5ff;color:#1d1e20;}a{background:#3b82f6;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:20px;}</style></head><body><h1>This Page Does Not Exist</h1><p>Sorry, we couldn't find what you were looking for.</p><a href="/">Back Home</a></body></html>`;
-        return res.status(404).set({ 'Content-Type': 'text/html' }).send(html404);
+        return res.status(404).set({ 'Content-Type': 'text/html' }).send('<!DOCTYPE html><html><body><h1>404 - Not Found</h1><a href="/">Go Home</a></body></html>');
       }
 
       let html = template;
-      
-      const finalTitle = title.trim();
-      const finalDesc = description.trim();
-
-      // Since we removed defaults from index.html, we inject them fresh into the <head>
-      // We'll inject them right after the <meta charset="UTF-8"> tag for consistency
-      const injectedTags = `
-    <title>${finalTitle}</title>
-    <meta name="description" content="${finalDesc}">`;
-      
+      const injectedTags = `<title>${title}</title><meta name="description" content="${description}">`;
       html = html.replace('<meta charset="UTF-8">', `<meta charset="UTF-8">${injectedTags}`);
-
-      const extraMeta = `
-    <!-- SSR-INFO: ${cleanPath} | ${matchedService ? 'matched-service' : matchedCaseStudy ? 'matched-case' : 'static-route'} -->
-    <meta name="keywords" content="${keywords}">
-    <meta property="og:title" content="${finalTitle}">
-    <meta property="og:description" content="${finalDesc}">
-    <meta property="og:url" content="https://ritehlyquimbo.com${url}">
-    <meta name="twitter:title" content="${finalTitle}">
-    <meta name="twitter:description" content="${finalDesc}">
-    <link rel="canonical" href="https://ritehlyquimbo.com${url}">
-    <script id="ssr-debug">console.log("SSR DEBUG:", ${JSON.stringify({ path: cleanPath, title: finalTitle, desc: finalDesc.slice(0, 30) + '...', service: !!matchedService, case: !!matchedCaseStudy })});</script>
-`;
+      
+      const extraMeta = `<meta name="keywords" content="${keywords}"><link rel="canonical" href="https://ritehlyquimbo.com${url}">`;
       html = html.replace('</head>', `${extraMeta}</head>`);
 
-      res.status(200).set({ 
-        'Content-Type': 'text/html',
-        'X-SSR-Active': 'true',
-        'X-SSR-Path': cleanPath,
-        'Cache-Control': 'public, max-age=0, must-revalidate'
-      }).end(html);
+      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
 
     } catch (e) {
       if (vite) vite.ssrFixStacktrace(e as Error);
@@ -274,6 +192,13 @@ async function startServer() {
       res.status(500).end((e as Error).message);
     }
   });
+
+  app.listen(PORT, '0.0.0.0', () => {
+    const msg = `Final server listening at http://0.0.0.0:${PORT}\n`;
+    console.log(msg);
+    fsSync.appendFileSync(logPath, msg);
+  });
+
 }
 
 startServer().catch(err => {
