@@ -578,10 +578,10 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
 
             <div className="pt-6">
               <button 
-                onClick={(e) => { onBook(e); setIsMobileMenuOpen(false); }} 
+                onClick={(e) => { handleLinkClick('contact'); }} 
                 className="w-full py-6 bg-blue-600 active:bg-blue-700 text-white font-black rounded-2xl uppercase tracking-tighter text-xl italic shadow-2xl shadow-blue-500/30 transition-all active:scale-[0.98]"
               >
-                Inquire (Google Form)
+                Inquire Now
               </button>
             </div>
           </div>

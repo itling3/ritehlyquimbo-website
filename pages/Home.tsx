@@ -46,7 +46,7 @@ const Home: React.FC<HomeProps> = ({
             "description": "Elite technical SEO, AI automation, and full-stack web development services. Specialized in hyper-local dominance and ROI-focused growth for ambitious brands.",
             "url": "https://ritehlyquimbo.com/",
             "telephone": "+639611525318",
-            "email": "Ritehlyquimbo@gmail.com",
+            "email": "seo@ritehlyquimbo.com",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Cebu City",

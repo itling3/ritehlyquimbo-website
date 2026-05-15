@@ -233,13 +233,13 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
                 <span className="w-4 h-[1px] bg-blue-500"></span> Direct Contact
               </h3>
               <div className="space-y-4">
-                <a href="mailto:Ritehlyquimbo@gmail.com" className="flex items-center gap-4 group p-3 hover:bg-white/5 rounded-2xl transition-all">
+                <a href="mailto:seo@ritehlyquimbo.com" className="flex items-center gap-4 group p-3 hover:bg-white/5 rounded-2xl transition-all">
                   <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center border border-blue-500/20 group-hover:bg-blue-600 group-hover:text-white transition-all">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="overflow-hidden">
                     <div className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Email</div>
-                    <div className="text-xs font-bold text-white truncate italic">Ritehlyquimbo@gmail.com</div>
+                    <div className="text-xs font-bold text-white truncate italic">seo@ritehlyquimbo.com</div>
                   </div>
                 </a>
                 <a href="tel:09611525318" className="flex items-center gap-4 group p-3 hover:bg-white/5 rounded-2xl transition-all">

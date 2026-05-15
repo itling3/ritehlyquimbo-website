@@ -73,8 +73,8 @@ const AppContent: React.FC = () => {
 
   const handleOpenForm = useCallback((e?: React.MouseEvent) => {
     e?.preventDefault();
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview', '_blank');
-  }, []);
+    navigate('/contact');
+  }, [navigate]);
 
   const closeCalendar = useCallback(() => {
     setIsCalendarOpen(false);

@@ -20,6 +20,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import ContactForm from '../components/ContactForm';
 
 const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
   const faqs = [
@@ -207,7 +208,7 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               We Engineer <span className="text-blue-900">Revenue Machines.</span>
             </p>
             <p className="text-blue-100/60 text-xs font-bold uppercase tracking-widest mb-8 max-w-md">
-              We combine deep technical audits with <Link to="/services/local-seo-optimization-google-maps" className="text-white hover:text-blue-200 underline decoration-blue-300/30">Local SEO Dominance</Link> to capture high-intent regional traffic.
+              We combine deep technical audits with <Link to="/services/local-seo-specialist-google-maps" className="text-white hover:text-blue-200 underline decoration-blue-300/30">Local SEO Dominance</Link> to capture high-intent regional traffic.
             </p>
             <div className="space-y-4 mb-10">
               {[
@@ -350,7 +351,7 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                   <p className="text-gray-400 text-lg mb-12 font-medium">
                     Unlike generic agencies, I prioritize Engineering over Art. Every pixel must justify its existence in your bank account. See my 
                     <Link to="/portfolio/web-development" className="text-blue-500 hover:text-blue-400 font-black italic mx-2 underline decoration-blue-500/30">Technical Build Portfolio</Link> 
-                    to see the engines behind the rankings.
+                    to see the engines behind the rankings. If your needs are more enterprise-oriented, explore my <Link to="/services/drupal-seo-expert" className="text-white hover:text-blue-400 underline decoration-blue-500/30">Drupal SEO Expert</Link> services.
                   </p>
                   
                   <div className="space-y-6">
@@ -558,19 +559,24 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
       </section>
 
       {/* Final CTA Strip */}
-      <section className="py-24 px-4 md:px-6 bg-[#030712] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className="text-center md:text-left">
-             <h2 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none italic">Let's Rule Your <br /> <span className="text-blue-500">Market Today.</span></h2>
-          </div>
-          <div className="flex flex-col items-center md:items-end gap-6">
-             <p className="text-gray-400 text-right uppercase font-black text-[10px] tracking-widest hidden md:block">Limited Client Openings for Q2 2024</p>
-             <button 
-               onClick={onBook}
-               className="px-12 py-6 bg-white text-black font-black rounded-2xl hover:bg-gray-200 transition-all uppercase tracking-tighter text-2xl shadow-2xl shadow-white/5 scale-up"
-             >
-               Book Strategy Session
-             </button>
+      <section className="py-24 px-4 md:px-6 bg-[#030712] relative overflow-hidden" id="contact">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="text-center md:text-left">
+               <h2 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none italic mb-8">Let's Rule Your <br /> <span className="text-blue-500">Market Today.</span></h2>
+               <p className="text-gray-400 text-lg mb-8 font-medium max-w-md">
+                 Ready to turn your WordPress site into a high-performance sales engine? Fill out the form below or <Link to="/contact" className="text-blue-500 hover:text-blue-400 underline decoration-blue-500/30">visit our contact page</Link> for more options.
+               </p>
+               <div className="flex flex-col items-center md:items-start gap-4">
+                  <div className="text-[10px] font-black text-gray-500 uppercase tracking-widest italic">Direct Contact</div>
+                  <a href="mailto:seo@ritehlyquimbo.com" className="text-xl font-black text-white hover:text-blue-500 transition-colors italic">seo@ritehlyquimbo.com</a>
+               </div>
+            </div>
+            <div className="glass-morphism p-8 md:p-12 rounded-[3rem] border border-white/10 bg-[#0f172a]/20 relative">
+               <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full"></div>
+               <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-8 italic">Initialize Your Audit</h3>
+               <ContactForm />
+            </div>
           </div>
         </div>
       </section>

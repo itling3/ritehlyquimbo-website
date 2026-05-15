@@ -884,7 +884,7 @@ Your website should be your hardest-working employee. [Contact me](/contact) tod
         "description": "Expert Local SEO services in Cebu City, Mandaue, and Lapu-Lapu. We specialize in Google Business Profile optimization, hyper-local keyword targeting, and ROI-focused search strategies for Cebuano businesses.",
         "url": "https://ritehlyquimbo.com/locations/seo-cebu/",
         "telephone": "+639611525318",
-        "email": "Ritehlyquimbo@gmail.com",
+        "email": "seo@ritehlyquimbo.com",
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",

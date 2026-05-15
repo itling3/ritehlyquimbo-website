@@ -32,6 +32,33 @@ async function startServer() {
     res.json({ status: 'ok', time: new Date().toISOString() });
   });
 
+  app.use(express.json());
+
+  app.post('/api/contact', async (req, res) => {
+    const { name, email, website, message } = req.body;
+    const leadEntry = {
+      timestamp: new Date().toISOString(),
+      name,
+      email,
+      website,
+      message,
+      ip: req.ip,
+      userAgent: req.get('user-agent')
+    };
+
+    try {
+      await fs.appendFile(path.join(process.cwd(), 'leads.txt'), JSON.stringify(leadEntry) + '\n');
+      console.log('--- NEW LEAD RECEIVED ---');
+      console.log(`Name: ${name}`);
+      console.log(`Email: ${email}`);
+      console.log('--------------------------');
+      res.json({ success: true, message: 'Message received and encrypted.' });
+    } catch (error) {
+      console.error('Lead storage error:', error);
+      res.status(500).json({ success: false, message: 'Internal transmission failure.' });
+    }
+  });
+
   app.use(compression());
 
   let vite: any;
