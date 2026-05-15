@@ -63,7 +63,8 @@ async function startServer() {
 
   app.post('/api/contact', async (req, res) => {
     console.log('--- CONTACT FORM SUBMISSION ---', req.body);
-    const { name, email, phone, service, website, message } = req.body;
+    const { name, email, phone, service: bodyService, website, message } = req.body;
+    const service = bodyService || 'General Inquiry';
     
     if (!name || !email) {
       return res.status(400).json({ success: false, message: 'Name and email are required.' });
