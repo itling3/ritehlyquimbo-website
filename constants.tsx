@@ -781,7 +781,7 @@ We build on lightweight, modern stacks that allow for rapid scaling and ultimate
 
 ### Build Your 24/7 Salesperson
 
-Your website should be your hardest-working employee. [Contact me](/contact) today or explore my Web Dev Portfolio.`,
+Your website should be your hardest-working employee. [Contact me](/contact) today or explore my [Web Dev Portfolio](/portfolio/web-development).`,
     faqs: [
       { question: 'Why does my website look "Pretty" but fail to generate sales?', answer: 'Most designers focus on "Aesthetics" while ignoring the "Conversion Psychology" and SEO needed to build a business. We use "Conversion-Centered Design" to ensure that every pixel is built to move a user toward a specific action. A beautiful site is only successful if it acts as your highest-performing salesperson.' },
       { question: 'Is my slow website hurting my Google rankings?', answer: 'Google uses "Core Web Vitals" as a major ranking factor; if your site takes more than 3 seconds to load, you are being penalized. We optimize your "LCP" and "FID" scores through elite-level engineering and lightweight stacks. A fast site provides the healthy "Experience" signals Google rewards with top spots.' },

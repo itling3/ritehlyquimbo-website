@@ -36,6 +36,31 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
                 <ReactMarkdown 
                   remarkPlugins={[remarkGfm]}
                   components={{
+                    a: ({ node, children, ...props }) => {
+                      const isInternal = props.href?.startsWith('/') || props.href?.includes('ritehlyquimbo.com');
+                      const internalPath = props.href?.includes('ritehlyquimbo.com') 
+                        ? props.href.split('ritehlyquimbo.com')[1] 
+                        : props.href;
+
+                      if (isInternal && internalPath) {
+                        return (
+                          <Link to={internalPath} className="text-blue-500 hover:text-blue-400 underline transition-colors">
+                            {children}
+                          </Link>
+                        );
+                      }
+
+                      return (
+                        <a 
+                          {...props} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-blue-500 hover:text-blue-400 underline transition-colors"
+                        >
+                          {children}
+                        </a>
+                      );
+                    },
                     p: ({ node, children, ...props }) => {
                       const childrenArray = React.Children.toArray(children);
                       

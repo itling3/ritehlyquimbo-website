@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import WebPortfolio from '../components/WebPortfolio';
 import SectionCTA from '../components/SectionCTA';
@@ -35,9 +36,17 @@ const WebDevPortfolioPage: React.FC = () => {
             WEB <br />
             <span className="text-purple-500">ENGINEERING</span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl font-medium italic leading-relaxed max-w-2xl">
+          <p className="text-gray-400 text-lg md:text-xl font-medium italic leading-relaxed max-w-2xl mb-8">
             Beyond aesthetics. I build websites as high-performance sales engines, fully optimized for both humans and search algorithms.
           </p>
+          <div className="flex flex-wrap gap-4">
+            <Link 
+              to="/services/full-stack-web-development-seo-performance"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-purple-400 transition-colors text-[10px] font-black uppercase tracking-[0.2em] bg-white/5 border border-white/10 px-6 py-3 rounded-xl backdrop-blur-md group"
+            >
+              System Details <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
 
