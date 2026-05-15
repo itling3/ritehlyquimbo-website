@@ -21,9 +21,12 @@ const ContactForm: React.FC = () => {
     { id: 'ai', label: 'AI Automation' }
   ];
 
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
+    setErrorMessage(null);
 
     try {
       const response = await fetch('/api/contact', {
@@ -34,15 +37,19 @@ const ContactForm: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', phone: '', service: 'SEO Service', website: '', message: '' });
       } else {
         setStatus('error');
+        setErrorMessage(data.message || 'Failed to transmit. Please check your connection or retry later.');
       }
     } catch (error) {
       console.error('Submission error:', error);
       setStatus('error');
+      setErrorMessage('Network error. Please verify the server is running and try again.');
     }
   };
 
@@ -180,8 +187,8 @@ const ContactForm: React.FC = () => {
 
       {status === 'error' && (
         <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-500 text-xs font-bold animate-shake">
-          <AlertCircle className="w-4 h-4" />
-          Failed to transmit. Please check your connection or retry later.
+          <AlertCircle className="w-4 h-4 flex-shrink-0" />
+          <span>{errorMessage || 'Failed to transmit. Please check your connection or retry later.'}</span>
         </div>
       )}
 

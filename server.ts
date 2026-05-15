@@ -130,7 +130,11 @@ User Agent: ${leadEntry.userAgent}
         await mailTransporter.sendMail(mailOptions);
         console.log(`Email sent successfully for lead: ${name}`);
       } else {
-        console.log('Skipping email send because transporter is not configured.');
+        console.log('Skipping email send because EMAIL_PASS is missing.');
+        return res.status(500).json({ 
+          success: false, 
+          message: 'Contact form is partially configured. Lead saved to server but email skipped. Please set EMAIL_PASS in settings.' 
+        });
       }
 
       console.log('--- NEW ENTERPRISE LEAD ---');
