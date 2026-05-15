@@ -79,46 +79,27 @@ async function startServer() {
   // Pre-verify SMTP on startup
   getTransporter().catch(e => console.error('Early SMTP error:', e));
 
-  app.post('/api/contact', async (req, res) => {
-    console.log('--- CONTACT FORM SUBMISSION ---', req.body);
-    const { name, email, phone, service: bodyService, website, message } = req.body;
-    const service = bodyService || 'General Inquiry';
-    const safeMessage = message || 'No message provided';
-    const safePhone = phone ? `+63 ${phone}` : 'N/A';
-    const safeWebsite = website || 'N/A';
-    
-    if (!name || !email) {
-      return res.status(400).json({ success: false, message: 'Name and email are required.' });
-    }
-
-    const leadEntry = {
-      timestamp: new Date().toISOString(),
-      name, email, phone: safePhone, service, website: safeWebsite, message: safeMessage,
-      ip: req.ip, userAgent: req.get('user-agent')
-    };
-
+  // Lead Processing Helper (Non-blocking)
+  async function processLead(leadEntry: any, name: string, service: string) {
     try {
       await fs.appendFile(path.join(process.cwd(), 'leads.txt'), JSON.stringify(leadEntry) + '\n');
       const mailTransporter = await getTransporter();
       
       if (mailTransporter) {
-        const sentMsg = `Attempting to send email to seo@ritehlyquimbo.com and Ritehlyquimbo@gmail.com for ${name}...\n`;
-        fsSync.appendFileSync(logPath, sentMsg);
-        
         const mailOptions = {
           from: `"Ritehly Quimbo Leads" <${process.env.EMAIL_USER || 'seo@ritehlyquimbo.com'}>`,
-          to: 'seo@ritehlyquimbo.com, Ritehlyquimbo@gmail.com', // Send to both
+          to: 'seo@ritehlyquimbo.com, Ritehlyquimbo@gmail.com',
           subject: `🚀 [NEW LEAD] ${service} - ${name}`,
           text: `
 --- NEW BUSINESS LEAD ---
-Name: ${name}
-Email: ${email}
-Phone: ${safePhone}
-Service Requested: ${service}
-Website: ${safeWebsite}
+Name: ${leadEntry.name}
+Email: ${leadEntry.email}
+Phone: ${leadEntry.phone}
+Service Requested: ${leadEntry.service}
+Website: ${leadEntry.website}
 
 Project Brief:
-${safeMessage}
+${leadEntry.message}
 -------------------------
           `,
           html: `
@@ -133,64 +114,82 @@ ${safeMessage}
                   <table style="width: 100%; border-collapse: collapse;">
                     <tr>
                       <td style="padding: 8px 0; color: #4b5563; font-weight: bold; width: 100px;">Name:</td>
-                      <td style="padding: 8px 0; color: #111827;">${name}</td>
+                      <td style="padding: 8px 0; color: #111827;">${leadEntry.name}</td>
                     </tr>
                     <tr>
                       <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Email:</td>
-                      <td style="padding: 8px 0; color: #2563eb;"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></td>
+                      <td style="padding: 8px 0; color: #2563eb;"><a href="mailto:${leadEntry.email}" style="color: #2563eb; text-decoration: none;">${leadEntry.email}</a></td>
                     </tr>
                     <tr>
                       <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Phone:</td>
-                      <td style="padding: 8px 0; color: #111827;">${safePhone}</td>
+                      <td style="padding: 8px 0; color: #111827;">${leadEntry.phone}</td>
                     </tr>
                   </table>
                 </div>
-
                 <div style="margin-bottom: 25px;">
                   <h3 style="margin: 0 0 10px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;">Project Details</h3>
                   <table style="width: 100%; border-collapse: collapse;">
                     <tr>
                       <td style="padding: 8px 0; color: #4b5563; font-weight: bold; width: 100px;">Service:</td>
-                      <td style="padding: 8px 0; color: #111827;">${service}</td>
+                      <td style="padding: 8px 0; color: #111827;">${leadEntry.service}</td>
                     </tr>
                     <tr>
                       <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Website:</td>
-                      <td style="padding: 8px 0; color: #111827;">${safeWebsite !== 'N/A' ? `<a href="${safeWebsite}" style="color: #2563eb; text-decoration: none;">${safeWebsite}</a>` : 'N/A'}</td>
+                      <td style="padding: 8px 0; color: #111827;">${leadEntry.website !== 'N/A' ? `<a href="${leadEntry.website}" style="color: #2563eb; text-decoration: none;">${leadEntry.website}</a>` : 'N/A'}</td>
                     </tr>
                   </table>
                 </div>
-
                 <div style="margin-top: 30px; padding: 20px; background: #f9fafb; border-radius: 8px; border-left: 4px solid #2563eb;">
                   <h3 style="margin: 0 0 10px; color: #111827; font-size: 14px;">Project Brief:</h3>
-                  <p style="margin: 0; color: #374151; line-height: 1.6; white-space: pre-wrap;">${safeMessage}</p>
+                  <p style="margin: 0; color: #374151; line-height: 1.6; white-space: pre-wrap;">${leadEntry.message}</p>
                 </div>
               </div>
               <div style="padding: 20px; background: #f3f4f6; text-align: center; color: #9ca3af; font-size: 11px;">
                 <p style="margin: 0;">Sent via Secure Transmission from Backend Environment</p>
-                <p style="margin: 5px 0 0;">Timestamp: ${leadEntry.timestamp} | IP: ${req.ip}</p>
+                <p style="margin: 5px 0 0;">Timestamp: ${leadEntry.timestamp} | IP: ${leadEntry.ip}</p>
               </div>
             </div>`
         };
-        
         await mailTransporter.sendMail(mailOptions);
         const successMsg = `Email sent successfully for: ${name}\n`;
-        process.stdout.write(successMsg);
         fsSync.appendFileSync(logPath, successMsg);
-      } else {
-        console.warn('SMTP Transporter not available.');
-        throw new Error('Email configuration error.');
       }
-      res.json({ success: true, message: 'Message successfully sent.' });
-    } catch (error: any) {
-      console.error('Lead process error:', error);
-      fsSync.appendFileSync(logPath, `LEAD ERROR: ${error.message}\n`);
-      res.status(500).json({ success: false, message: `Transmission failure: ${error.message}` });
+    } catch (err: any) {
+      console.error('Lead processing background error:', err);
+      fsSync.appendFileSync(logPath, `BACKGROUND ERROR: ${err.message}\n`);
     }
+  }
+
+  app.post('/api/contact', (req, res) => {
+    console.log('--- CONTACT FORM SUBMISSION ---', req.body);
+    const { name, email, phone, service: bodyService, website, message } = req.body;
+    
+    if (!name || !email) {
+      return res.status(400).json({ success: false, message: 'Name and email are required.' });
+    }
+
+    const service = bodyService || 'General Inquiry';
+    const leadEntry = {
+      timestamp: new Date().toISOString(),
+      name, email, 
+      phone: phone ? `+63 ${phone}` : 'N/A', 
+      service, 
+      website: website || 'N/A', 
+      message: message || 'No message provided',
+      ip: req.ip, 
+      userAgent: req.get('user-agent')
+    };
+
+    // Respond immediately to avoid delay
+    res.status(200).json({ success: true, message: 'Success! Your message is being processed.' });
+
+    // Process in background
+    processLead(leadEntry, name, service).catch(console.error);
   });
 
-  // Explicit API 404
-  app.all(/\/api\/.*/, (req, res) => {
-    res.status(404).json({ success: false, message: `API ${req.originalUrl} not found.` });
+  // Strict API 404 (always JSON)
+  app.use('/api', (req, res) => {
+    res.status(404).json({ success: false, message: `API Endpoint ${req.method} ${req.originalUrl} not found.` });
   });
 
   // Vite / Static Setup
