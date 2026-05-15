@@ -1,0 +1,5 @@
+Boot at 2026-05-15T12:53:12.997Z
+Server listening at http://0.0.0.0:3000
+--- INITIALIZING VITE ---
+--- VITE READY ---
+[2026-05-15T12:53:19.681Z] GET /api/seo-health

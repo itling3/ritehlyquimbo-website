@@ -1,61 +1,56 @@
 
+import * as fsSync from 'node:fs';
+import * as path from 'node:path';
+import fs from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+
 import express from 'express';
 import compression from 'compression';
 import { createServer as createViteServer } from 'vite';
-import path from 'path';
-import fs from 'fs/promises';
-import { fileURLToPath } from 'url';
 import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Import constants safely for server use
-// Note: In ESM node, we might need a dynamic import if extensions are tricky
-// But tsx handles this well
 import { SERVICE_DETAILS, CASE_STUDIES } from './constants';
 
 async function startServer() {
-  console.log('--- SERVER STARTING ---');
-  console.log('EMAIL_PASS present:', !!process.env.EMAIL_PASS);
   const logPath = path.join(process.cwd(), 'server-boot-log.txt');
-  let logContent = `Boot at ${new Date().toISOString()}\n`;
-  await fs.writeFile(logPath, logContent).catch(() => {});
-
+  await fs.writeFile(logPath, `Boot at ${new Date().toISOString()}\n`).catch(() => {});
+  
   const app = express();
   const PORT = 3000;
 
-  const server = app.listen(PORT, '0.0.0.0', async () => {
-    console.log(`Server listening on port ${PORT}`);
-    await fs.appendFile(logPath, `Listening on ${PORT} at ${new Date().toISOString()}\n`).catch(() => {});
-  });
-
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ status: 'ok', time: new Date().toISOString() });
-  });
-
+  app.use(compression());
   app.use(express.json());
 
-  let transporter: nodemailer.Transporter | null = null;
+  // Simple Request Logger
+  app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+  });
 
+  // API Routes
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length
+    });
+  });
+
+  let transporter: nodemailer.Transporter | null = null;
   function getTransporter() {
     if (!transporter) {
       const user = process.env.EMAIL_USER || 'seo@ritehlyquimbo.com';
       const pass = process.env.EMAIL_PASS;
-
-      if (!pass) {
-        console.warn('EMAIL_PASS not set. Emails will not be sent.');
-        return null;
-      }
-
+      if (!pass) return null;
       transporter = nodemailer.createTransport({
         host: 'smtp.hostinger.com',
         port: 465,
-        secure: true, // true for 465, false for other ports
-        auth: {
-          user,
-          pass,
-        },
+        secure: true,
+        auth: { user, pass },
       });
     }
     return transporter;
@@ -65,118 +60,66 @@ async function startServer() {
     const { name, email, phone, service, website, message } = req.body;
     const leadEntry = {
       timestamp: new Date().toISOString(),
-      name,
-      email,
-      phone: `+63${phone}`,
-      service,
-      website,
-      message,
-      ip: req.ip,
-      userAgent: req.get('user-agent')
+      name, email, phone: `+63${phone}`, service, website, message,
+      ip: req.ip, userAgent: req.get('user-agent')
     };
 
     try {
-      // 1. Backup to file
       await fs.appendFile(path.join(process.cwd(), 'leads.txt'), JSON.stringify(leadEntry) + '\n');
-      
-      // 2. Send Email
       const mailTransporter = getTransporter();
       if (mailTransporter) {
         const mailOptions = {
           from: `"Ritehly Quimbo Leads" <${process.env.EMAIL_USER || 'seo@ritehlyquimbo.com'}>`,
           to: 'seo@ritehlyquimbo.com',
           subject: `🚀 [NEW LEAD] ${service} - ${name}`,
-          text: `
-New Lead Details:
------------------
-Name: ${name}
-Email: ${email}
-Phone: +63${phone}
-Service: ${service}
-Website: ${website || 'N/A'}
-
-Project Brief:
-${message}
-
----
-Technical Info:
-Timestamp: ${leadEntry.timestamp}
-IP: ${leadEntry.ip}
-User Agent: ${leadEntry.userAgent}
-          `,
-          html: `
-            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
-              <h1 style="color: #2563eb; font-style: italic;">New Business Lead</h1>
-              <p>You have a new inquiry from your website portfolio.</p>
-              
-              <div style="background: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-                <p><strong>Phone:</strong> <a href="tel:+63${phone}">+63 ${phone}</a></p>
-                <p><strong>Service Requested:</strong> ${service}</p>
-                <p><strong>Website:</strong> ${website ? `<a href="${website}">${website}</a>` : 'N/A'}</p>
-              </div>
-
-              <div style="border-left: 4px solid #2563eb; padding-left: 15px; margin: 20px 0;">
-                <p><strong>Project Brief:</strong></p>
-                <p style="white-space: pre-wrap;">${message}</p>
-              </div>
-
-              <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 30px 0;" />
-              <p style="font-size: 10px; color: #9ca3af; text-transform: uppercase;">Sent from ritehlyquimbo.com backend</p>
-            </div>
-          `
+          text: `Name: ${name}\nEmail: ${email}\nPhone: +63${phone}\nService: ${service}\nWebsite: ${website || 'N/A'}\n\nMessage:\n${message}`,
+          html: `<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
+            <h1 style="color: #2563eb; font-style: italic;">New Business Lead</h1>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Message:</strong> ${message}</p>
+          </div>`
         };
-
         await mailTransporter.sendMail(mailOptions);
-        console.log(`Email sent successfully for lead: ${name}`);
+        console.log(`Email sent for: ${name}`);
       } else {
-        console.log('Skipping email send because EMAIL_PASS is missing.');
-        return res.status(500).json({ 
-          success: false, 
-          message: 'Contact form is partially configured. Lead saved to server but email skipped. Please set EMAIL_PASS in settings.' 
-        });
+        console.warn('EMAIL_PASS missing, lead saved to file.');
       }
-
-      console.log('--- NEW ENTERPRISE LEAD ---');
-      console.log(`From: ${name} (${email})`);
-      console.log(`Service: ${service}`);
-      console.log('--------------------------');
-
-      res.json({ success: true, message: 'Message received and encrypted for transmission.' });
+      res.json({ success: true, message: 'Message received.' });
     } catch (error) {
-      console.error('Lead processing error:', error);
-      res.status(500).json({ success: false, message: 'Internal transmission failure.' });
+      console.error('Lead error:', error);
+      res.status(500).json({ success: false, message: 'Transmission failure.' });
     }
   });
 
-  app.use(compression());
+  // Explicit API 404 (Express 5 compatible regex)
+  app.all(/^\/api\/.*$/, (req, res) => {
+    res.status(404).json({ success: false, message: `API ${req.originalUrl} not found.` });
+  });
 
+  // Start listening EARLY
+  app.listen(PORT, '0.0.0.0', () => {
+    const msg = `Server listening at http://0.0.0.0:${PORT}\n`;
+    console.log(msg);
+    fsSync.appendFileSync(logPath, msg);
+  });
+
+  // Vite / Static (Internal Initialization)
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {
-    const msg1 = '--- INITIALIZING VITE ---\n';
-    console.log(msg1);
-    await fs.appendFile(logPath, msg1).catch(() => {});
+    const vMsg1 = '--- INITIALIZING VITE ---\n';
+    console.log(vMsg1);
+    await fs.appendFile(logPath, vMsg1).catch(() => {});
     
-    vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'custom',
-    });
+    vite = await createViteServer({ server: { middlewareMode: true }, appType: 'custom' });
     
-    const msg2 = '--- VITE INITIALIZED ---\n';
-    console.log(msg2);
-    await fs.appendFile(logPath, msg2).catch(() => {});
+    const vMsg2 = '--- VITE READY ---\n';
+    console.log(vMsg2);
+    await fs.appendFile(logPath, vMsg2).catch(() => {});
     
-    // Assets handled by vite
     app.use(vite.middlewares);
   } else {
-    const msg3 = '--- PRODUCTION MODE: SERVING STATIC ---\n';
-    console.log(msg3);
-    await fs.appendFile(logPath, msg3).catch(() => {});
-    
-    const distPath = path.join(process.cwd(), 'dist');
-    // Important: serve assets BUT NOT index.html yet
-    app.use(express.static(distPath, { index: false }));
+    app.use(express.static(path.join(process.cwd(), 'dist'), { index: false }));
   }
 
   app.get('/api/seo-health', (req, res) => {
@@ -188,7 +131,7 @@ User Agent: ${leadEntry.userAgent}
     });
   });
 
-  app.use('*', async (req, res, next) => {
+  app.get(/^.*$/, async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
@@ -336,5 +279,5 @@ User Agent: ${leadEntry.userAgent}
 startServer().catch(err => {
   console.error('CRITICAL: Server failed to start:', err);
   const logPath = path.join(process.cwd(), 'server-boot-log.txt');
-  fs.appendFileSync(logPath, `CRITICAL ERROR: ${err.message}\n${err.stack}\n`);
+  fsSync.appendFileSync(logPath, `CRITICAL ERROR: ${err.message}\n${err.stack}\n`);
 });
