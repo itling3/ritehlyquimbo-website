@@ -65,6 +65,9 @@ async function startServer() {
     console.log('--- CONTACT FORM SUBMISSION ---', req.body);
     const { name, email, phone, service: bodyService, website, message } = req.body;
     const service = bodyService || 'General Inquiry';
+    const safeMessage = message || 'No message provided';
+    const safePhone = phone ? `+63 ${phone}` : 'N/A';
+    const safeWebsite = website || 'N/A';
     
     if (!name || !email) {
       return res.status(400).json({ success: false, message: 'Name and email are required.' });
@@ -72,7 +75,7 @@ async function startServer() {
 
     const leadEntry = {
       timestamp: new Date().toISOString(),
-      name, email, phone: `+63${phone}`, service, website, message,
+      name, email, phone: safePhone, service, website: safeWebsite, message: safeMessage,
       ip: req.ip, userAgent: req.get('user-agent')
     };
 
@@ -84,13 +87,67 @@ async function startServer() {
           from: `"Ritehly Quimbo Leads" <${process.env.EMAIL_USER || 'seo@ritehlyquimbo.com'}>`,
           to: 'seo@ritehlyquimbo.com',
           subject: `🚀 [NEW LEAD] ${service} - ${name}`,
-          text: `Name: ${name}\nEmail: ${email}\nPhone: +63${phone}\nService: ${service}\nWebsite: ${website || 'N/A'}\n\nMessage:\n${message}`,
-          html: `<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937;">
-            <h1 style="color: #2563eb; font-style: italic;">New Business Lead</h1>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Message:</strong> ${message}</p>
-          </div>`
+          text: `
+--- NEW BUSINESS LEAD ---
+Name: ${name}
+Email: ${email}
+Phone: ${safePhone}
+Service Requested: ${service}
+Website: ${safeWebsite}
+
+Project Brief:
+${safeMessage}
+-------------------------
+          `,
+          html: `
+            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1f2937; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
+              <div style="background: #2563eb; padding: 20px; color: white;">
+                <h1 style="margin: 0; font-size: 24px; font-style: italic;">New Business Lead</h1>
+                <p style="margin: 5px 0 0; opacity: 0.8; font-size: 14px;">Inquiry from ritehlyquimbo.com</p>
+              </div>
+              <div style="padding: 30px; background: white;">
+                <div style="margin-bottom: 25px;">
+                  <h3 style="margin: 0 0 10px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;">Contact Information</h3>
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold; width: 100px;">Name:</td>
+                      <td style="padding: 8px 0; color: #111827;">${name}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Email:</td>
+                      <td style="padding: 8px 0; color: #2563eb;"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Phone:</td>
+                      <td style="padding: 8px 0; color: #111827;">${safePhone}</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                  <h3 style="margin: 0 0 10px; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;">Project Details</h3>
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold; width: 100px;">Service:</td>
+                      <td style="padding: 8px 0; color: #111827;">${service}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px 0; color: #4b5563; font-weight: bold;">Website:</td>
+                      <td style="padding: 8px 0; color: #111827;">${safeWebsite !== 'N/A' ? `<a href="${safeWebsite}" style="color: #2563eb; text-decoration: none;">${safeWebsite}</a>` : 'N/A'}</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: #f9fafb; border-radius: 8px; border-left: 4px solid #2563eb;">
+                  <h3 style="margin: 0 0 10px; color: #111827; font-size: 14px;">Project Brief:</h3>
+                  <p style="margin: 0; color: #374151; line-height: 1.6; white-space: pre-wrap;">${safeMessage}</p>
+                </div>
+              </div>
+              <div style="padding: 20px; background: #f3f4f6; text-align: center; color: #9ca3af; font-size: 11px;">
+                <p style="margin: 0;">Sent via Secure Transmission from Backend Environment</p>
+                <p style="margin: 5px 0 0;">Timestamp: ${leadEntry.timestamp} | IP: ${req.ip}</p>
+              </div>
+            </div>`
         };
         await mailTransporter.sendMail(mailOptions);
         console.log(`Email sent for: ${name}`);
