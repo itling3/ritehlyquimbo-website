@@ -181,7 +181,36 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             </Link>
 
             <div className={`absolute top-full -left-[450px] pt-4 transition-all duration-300 ${isPortfolioOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-              <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[900px] flex overflow-hidden relative">
+              <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[900px] flex flex-col gap-10 overflow-hidden relative">
+                {/* Main Portfolio Link */}
+                <div className="flex items-center justify-between border-b border-white/5 pb-6">
+                  <div className="flex gap-4">
+                    <Link 
+                      to="/portfolio" 
+                      onClick={() => { setIsPortfolioOpen(false); setIsMobileMenuOpen(false); }}
+                      className="group/main flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-4 rounded-2xl hover:bg-white/10 transition-all"
+                    >
+                      <div className="text-left">
+                        <span className="text-[10px] text-blue-500 font-black tracking-widest uppercase italic block mb-1">Results Catalog</span>
+                        <span className="text-white text-sm font-black uppercase tracking-tight italic group-hover/main:text-blue-400">All Case Studies →</span>
+                      </div>
+                    </Link>
+                    <Link 
+                      to="/portfolio/web-development" 
+                      onClick={() => { setIsPortfolioOpen(false); setIsMobileMenuOpen(false); }}
+                      className="group/main flex items-center gap-4 bg-purple-500/10 border border-purple-500/20 px-6 py-4 rounded-2xl hover:bg-purple-500/20 transition-all outline outline-1 outline-purple-500/30"
+                    >
+                      <div className="text-left">
+                        <span className="text-[10px] text-purple-400 font-black tracking-widest uppercase italic block mb-1">Development Showcase</span>
+                        <span className="text-white text-sm font-black uppercase tracking-tight italic group-hover/main:text-purple-400">Web Dev Portfolio →</span>
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[9px] text-gray-500 font-black uppercase tracking-[0.3em]">Verified Results • 2024–2026</span>
+                  </div>
+                </div>
+
                 <div className="relative z-10 grid grid-cols-3 gap-10 w-full">
                   {portfolioCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-6">
@@ -404,6 +433,24 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
 
               <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${mobileExpanded === 'portfolio' ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
                 <div className="px-6 pb-6 pt-2 space-y-8">
+                  <div className="grid grid-cols-2 gap-3 pb-2">
+                    <Link 
+                      to="/portfolio"
+                      onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                      className="flex flex-col items-center justify-center gap-2 p-4 bg-white/5 border border-white/10 rounded-2xl text-center active:bg-white/10 transition-all"
+                    >
+                      <span className="text-gray-400 font-black text-[10px] uppercase italic tracking-widest">Case Studies</span>
+                      <span className="text-white text-xs font-black uppercase italic tracking-tight">Catalog</span>
+                    </Link>
+                    <Link 
+                      to="/portfolio/web-development"
+                      onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                      className="flex flex-col items-center justify-center gap-2 p-4 bg-purple-500/10 border border-purple-500/30 rounded-2xl text-center active:bg-purple-500/20 transition-all"
+                    >
+                      <span className="text-purple-400 font-black text-[10px] uppercase italic tracking-widest">Showcase</span>
+                      <span className="text-white text-xs font-black uppercase italic tracking-tight">Web Portolio</span>
+                    </Link>
+                  </div>
                   {portfolioCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-4">
                       <div className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2`}>

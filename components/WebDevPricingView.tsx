@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Check, ChevronLeft, Layout, ShieldCheck, Globe, Cpu, Zap, Settings, ArrowRight, Laptop, Server, Key } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Check, ChevronLeft, Layout, ShieldCheck, Globe, Cpu, Zap, Settings, ArrowRight, Laptop, Server, Key, ExternalLink } from 'lucide-react';
 import SEO from './SEO';
 
 interface WebDevPricingViewProps {
@@ -92,10 +93,23 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400 max-w-3xl mx-auto font-medium"
+            className="text-gray-400 max-w-3xl mx-auto font-medium mb-8"
           >
             High-performance, secure, and SEO-optimized web builds designed for growth. I build engines, not just brochures.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <Link 
+              to="/portfolio/web-development"
+              className="group flex items-center gap-3 bg-purple-600/10 border border-purple-500/30 px-8 py-4 rounded-2xl hover:bg-purple-600/20 transition-all text-purple-400 font-black uppercase tracking-widest text-[10px] italic outline outline-1 outline-purple-500/20"
+            >
+              See Web Dev Portfolio <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-24">

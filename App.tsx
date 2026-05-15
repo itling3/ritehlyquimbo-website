@@ -36,6 +36,7 @@ import PricingLocalSEOPage from './pages/PricingLocalSEO';
 import PricingAIPage from './pages/PricingAI';
 import PricingSEMPage from './pages/PricingSEM';
 import PricingWebDevPage from './pages/PricingWebDev';
+import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
 import TermsOfServicePage from './pages/TermsOfService';
@@ -119,6 +120,10 @@ const AppContent: React.FC = () => {
       navigate('/portfolio');
       return;
     }
+    if (target === 'web-dev-portfolio') {
+      navigate('/portfolio/web-development');
+      return;
+    }
     if (target === 'locations') {
       navigate('/locations');
       return;
@@ -179,6 +184,8 @@ const AppContent: React.FC = () => {
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 
         <Route path="/portfolio" element={<PortfolioPage handleNavigate={handleNavigate} />} />
+
+        <Route path="/portfolio/web-development" element={<WebDevPortfolioPage />} />
 
         <Route path="/portfolio/:slug" element={<PortfolioSlugWrapper navigate={navigate} handleBook={handleBookConsultation} />} />
 
