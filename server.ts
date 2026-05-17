@@ -1,7 +1,6 @@
 
 import express from 'express';
 import compression from 'compression';
-import nodemailer from 'nodemailer';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs/promises';
@@ -21,133 +20,16 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Add body parser for JSON and Form data
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
-
-  // Track if server is actually handling requests (Console only to avoid disk I/O hangs)
-  app.use((req, res, next) => {
-    if (!req.url.startsWith('/api/')) {
-      console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-    }
+  // Track if server is actually handling requests
+  app.use(async (req, res, next) => {
+    if (req.url === '/api/seo-health') return next();
+    const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
+    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
     next();
   });
 
   app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
-  });
-
-  app.post('/api/contact', async (req, res) => {
-    console.log('--- CONTACT API SUBMISSION RECEIVED ---');
-    
-    try {
-      const { customer_name, customer_email, customer_message } = req.body;
-      const rawName = (customer_name || '').toString().trim();
-      const rawEmail = (customer_email || '').toString().trim();
-      const rawMessage = (customer_message || '').toString().trim();
-
-      console.log(`From: ${rawName} <${rawEmail}>`);
-
-      const escape = (str: string) => str.replace(/[&<>"']/g, (m) => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[m] || m));
-
-      const name = escape(rawName);
-      const email = rawEmail;
-      const message = escape(rawMessage).replace(/\n/g, '<br>');
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!name || !emailRegex.test(email) || !rawMessage) {
-        console.warn('Validation error: Incomplete form data');
-        return res.status(400).json({ success: false, message: 'Please provide both name and a valid email.' });
-      }
-
-      // --- CONFIGURATION ---
-      const smtpHost = process.env.SMTP_HOST || 'smtp.hostinger.com';
-      const smtpPort = parseInt(process.env.SMTP_PORT || '465');
-      const smtpUser = process.env.SMTP_USER || 'seo@ritehlyquimbo.com';
-      const smtpPass = process.env.SMTP_PASS || '@DrakeDaewon2026';
-      const toEmail = process.env.CONTACT_RECEIVER_EMAIL || 'seo@ritehlyquimbo.com';
-
-      console.log(`Attempting SMTP connection to ${smtpHost}:${smtpPort} as ${smtpUser}`);
-
-      // Create transporter with explicit timeouts
-      const transporter = nodemailer.createTransport({
-        host: smtpHost,
-        port: smtpPort,
-        secure: smtpPort === 465,
-        auth: {
-          user: smtpUser,
-          pass: smtpPass,
-        },
-        tls: {
-          rejectUnauthorized: false
-        },
-        connectionTimeout: 10000, 
-        greetingTimeout: 10000,
-        socketTimeout: 15000,
-      });
-
-      // Send the mail
-      console.log('Dispatching mail via Nodemailer...');
-      try {
-        const info = await transporter.sendMail({
-          from: `"Website Leads" <${smtpUser}>`, 
-          replyTo: `"${name}" <${email}>`,
-          to: toEmail,
-          subject: `New Lead: ${name}`,
-          html: `
-            <div style="font-family: sans-serif; max-width: 600px; padding: 20px; border: 1px solid #eee; border-radius: 12px;">
-              <h2 style="color: #2563eb;">New Portfolio Inquiry</h2>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-              <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 15px;">
-                <p><strong>Message:</strong></p>
-                <p style="white-space: pre-wrap;">${message}</p>
-              </div>
-            </div>
-          `,
-        });
-        console.log('Main SMTP success! ID:', info.messageId);
-        return res.json({ success: true, message: 'Thank you! Your growth request has been sent.' });
-      } catch (smtpError: any) {
-        console.error('SMTP Failed:', smtpError.message);
-        
-        // FALLBACK: Use Web3Forms API
-        console.log('Attempting Fallback via Web3Forms API...');
-        const web3Response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            access_key: 'dde04fd8-bee2-4eae-9fb4-f8511849f474',
-            name: rawName,
-            email: rawEmail,
-            message: rawMessage,
-            from_name: 'Ritehly Portfolio CRM'
-          })
-        });
-        
-        const web3Result: any = await web3Response.json();
-        if (web3Result.success) {
-          console.log('Fallback successful.');
-          return res.json({ success: true, message: 'Your request was received via our secure backup system!' });
-        } else {
-          throw new Error('Both SMTP and Fallback failed.');
-        }
-      }
-
-    } catch (error: any) {
-      console.error('FINAL CONTACT ERROR:', error);
-      res.status(500).json({ 
-        success: false, 
-        message: 'Delivery failed. Please try again or email directly to seo@ritehlyquimbo.com' 
-      });
-    }
+    res.json({ status: 'ok', time: new Date().toISOString() });
   });
 
   app.use(compression());
@@ -166,7 +48,16 @@ async function startServer() {
     app.use(express.static(distPath, { index: false }));
   }
 
-  app.use('*all', async (req, res, next) => {
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length
+    });
+  });
+
+  app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
