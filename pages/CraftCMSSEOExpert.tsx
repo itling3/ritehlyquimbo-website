@@ -558,35 +558,6 @@ const CraftCMSSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* FOOTER SEO CONTENT BLOCK */}
-      <footer className="py-20 bg-[#030712] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 font-black italic">
-           <div className="grid md:grid-cols-4 gap-12 mb-16">
-              <div>
-                 <span className="text-xl font-black text-white italic tracking-tighter uppercase mb-6 block italic italic">Craft CMS SEO Expert</span>
-                 <p className="text-[10px] text-gray-500 font-bold leading-relaxed uppercase italic italic">Expert technical and content architectural engineering for Craft CMS websites and commerce stores.</p>
-              </div>
-              {[
-                { t: "Craft SEO Links", links: [<Link key="l1" to="/services/technical-on-page-seo-optimization" className="hover:text-emerald-500">Craft Technical SEO</Link>, "Craft Speed Optimization", "Craft SEO Consultant", <Link key="l2" to="/services/ai-seo-automation" className="hover:text-emerald-500">AI Search Strategy</Link>] },
-                { t: "Authority Links", links: [<Link key="l3" to="/services/topical-maps-semantic-authority" className="hover:text-emerald-500">Topical Authority Maps</Link>, "Structured Data Services", <Link key="l4" to="/pricing" className="hover:text-emerald-500">SEO Pricing Models</Link>, <Link key="l5" to="/contact" className="hover:text-emerald-500">Book Consulting</Link>] },
-                { t: "CMS Solutions", links: ["WordPress SEO", "Joomla SEO", "Drupal SEO", "TYPO3 SEO", "Ghost SEO"] }
-              ].map((col, i) => (
-                <div key={i}>
-                   <h4 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-6 italic italic italic">{col.t}</h4>
-                   <ul className="space-y-3 text-[10px] font-black uppercase tracking-tight text-gray-600 italic italic">
-                      {col.links.map((l, j) => (
-                        <li key={j} className="hover:text-emerald-500 cursor-pointer transition-colors italic italic">{l}</li>
-                      ))}
-                   </ul>
-                </div>
-              ))}
-           </div>
-           <div className="pt-12 border-t border-white/5 text-center">
-              <span className="text-[10px] font-black text-gray-700 uppercase tracking-[0.5em] italic italic">Ritehly Quimbo • Craft CMS Growth Engineer © 2024</span>
-           </div>
-        </div>
-      </footer>
-
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 w-full p-4 z-50 md:hidden pointer-events-none">
          <div className="max-w-md mx-auto pointer-events-auto flex gap-2">

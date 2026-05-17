@@ -438,34 +438,6 @@ const MODXSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* FOOTER SEO CONTENT BLOCK */}
-      <footer className="py-20 bg-[#030712] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 font-black italic">
-           <div className="grid md:grid-cols-4 gap-12 mb-16">
-              <div>
-                 <span className="text-xl font-black text-white italic tracking-tighter uppercase mb-6 block italic italic">MODX SEO Specialist</span>
-                 <p className="text-[10px] text-gray-500 font-bold leading-relaxed uppercase italic">Expert technical and content architectural optimization for MODX Revolution & Evolution systems globally.</p>
-              </div>
-              {[
-                { t: "MODX SEO Links", links: [<Link key="l1" to="/services/technical-on-page-seo-optimization" className="hover:text-blue-500">MODX Technical Audit</Link>, "MODX Speed Pro", <Link key="l2" to="/services/keyword-research-intent-mapping" className="hover:text-blue-500">Keyword Research</Link>, <Link key="l3" to="/services/ai-seo-automation" className="hover:text-blue-500">AI SEO Strategy</Link>] },
-                { t: "Authority Links", links: [<Link key="l4" to="/services/topical-maps-semantic-authority" className="hover:text-blue-500">Topical Maps</Link>, "Schema Setup", <Link key="l5" to="/pricing" className="hover:text-blue-500">Service Pricing</Link>, <Link key="l6" to="/contact" className="hover:text-blue-500">Hire Expert</Link>] },
-                { t: "Market Leaders", links: ["WordPress SEO", "Joomla SEO", "Drupal SEO", "TYPO3 SEO", "Ghost SEO", "Craft CMS SEO", "Concrete CMS SEO"] }
-              ].map((col, i) => (
-                <div key={i}>
-                   <h4 className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-6 italic italic italic">{col.t}</h4>
-                   <ul className="space-y-3 text-[10px] font-black uppercase tracking-tight text-gray-600 italic italic">
-                      {col.links.map((l, i) => (
-                        <li key={i} className="hover:text-blue-500 cursor-pointer transition-colors italic italic">{l}</li>
-                      ))}
-                   </ul>
-                </div>
-              ))}
-           </div>
-           <div className="pt-12 border-t border-white/5 text-center">
-              <span className="text-[10px] font-black text-gray-700 uppercase tracking-[0.5em] italic italic">Ritehly Quimbo • MODX Growth Specialist © 2024</span>
-           </div>
-        </div>
-      </footer>
     </div>
   );
 };

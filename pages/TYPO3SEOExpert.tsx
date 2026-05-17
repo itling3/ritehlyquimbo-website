@@ -608,35 +608,6 @@ const TYPO3SEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* 15. FOOTER SEO CONTENT BLOCK */}
-      <footer className="py-20 bg-[#030712] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-           <div className="grid md:grid-cols-4 gap-12 mb-16">
-              <div>
-                 <span className="text-xl font-black text-white italic tracking-tighter uppercase mb-6 block italic">TYPO3 SEO Experts</span>
-                 <p className="text-[10px] text-gray-500 font-bold leading-relaxed uppercase italic">High-performance technical and content engineering for enterprise-scale TYPO3 websites.</p>
-              </div>
-              {[
-                { t: "Internal Links", links: ["TYPO3 Technical SEO", "TYPO3 Speed Optimization", "SEO Audit Services", "SEO Consulting", "Core Web Vitals Optimization", "Structured Data Services", "SEO Content Strategy"] },
-                { t: "CMS Expertise", links: ["WordPress SEO", "Joomla SEO", "Drupal SEO", "Magento SEO", "Shopify SEO"] },
-                { t: "Market Growth", links: ["Local Hub SEO", "AI Integration", "Performance SEM", "Automation", "Lead Flow"] }
-              ].map((col, i) => (
-                <div key={i}>
-                   <h4 className="text-[10px] font-black text-red-500 uppercase tracking-widest mb-6 italic italic italic">{col.t}</h4>
-                   <ul className="space-y-3 text-[10px] font-black uppercase tracking-tight text-gray-600 italic">
-                      {col.links.map((l, j) => (
-                        <li key={j} className="hover:text-red-500 cursor-pointer transition-colors italic">{l}</li>
-                      ))}
-                   </ul>
-                </div>
-              ))}
-           </div>
-           <div className="pt-12 border-t border-white/5 text-center">
-              <span className="text-[10px] font-black text-gray-700 uppercase tracking-[0.5em] italic">Ritehly Quimbo • TYPO3 SEO & Growth Architect © 2024</span>
-           </div>
-        </div>
-      </footer>
-
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 w-full p-4 z-50 md:hidden pointer-events-none">
          <div className="max-w-md mx-auto pointer-events-auto flex gap-2">

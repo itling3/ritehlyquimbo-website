@@ -444,35 +444,6 @@ const ConcreteCMSSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* FOOTER SEO CONTENT BLOCK */}
-      <footer className="py-20 bg-[#030712] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 font-black italic">
-           <div className="grid md:grid-cols-4 gap-12 mb-16">
-              <div>
-                 <span className="text-xl font-black text-white italic tracking-tighter uppercase mb-6 block italic italic italic">Concrete CMS Experts</span>
-                 <p className="text-[10px] text-gray-500 font-bold leading-relaxed uppercase italic italic italic">High-performance technical and content architectural engineering for CMS-based search systems.</p>
-              </div>
-              {[
-                { t: "CMS SEO Solutions", links: [<Link key="l1" to="/services/technical-on-page-seo-optimization" className="hover:text-blue-500">Concrete Technical Audit</Link>, "Sitemap Optimization", <Link key="l2" to="/services/keyword-research-intent-mapping" className="hover:text-blue-500">Keyword Mapping</Link>, <Link key="l3" to="/services/ai-seo-automation" className="hover:text-blue-500">AI Search Strategy</Link>] },
-                { t: "Authority Links", links: [<Link key="l4" to="/services/topical-maps-semantic-authority" className="hover:text-blue-500">Topical Maps Strategy</Link>, "Schema.org Services", <Link key="l5" to="/portfolio" className="hover:text-blue-500">SEO Portfolio</Link>, <Link key="l6" to="/pricing" className="hover:text-blue-500">Pricing Models</Link>] },
-                { t: "Platform Expertise", links: ["WordPress SEO", "Joomla SEO", "Drupal SEO", "TYPO3 SEO", "Ghost SEO", "Craft CMS SEO"] }
-              ].map((col, i) => (
-                <div key={i}>
-                   <h4 className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-6 italic italic italic italic">{col.t}</h4>
-                   <ul className="space-y-3 text-[10px] font-black uppercase tracking-tight text-gray-600 italic italic italic">
-                      {col.links.map((l, i) => (
-                        <li key={i} className="hover:text-blue-500 cursor-pointer transition-colors italic italic italic">{l}</li>
-                      ))}
-                   </ul>
-                </div>
-              ))}
-           </div>
-           <div className="pt-12 border-t border-white/5 text-center">
-              <span className="text-[10px] font-black text-gray-700 uppercase tracking-[0.5em] italic italic italic">Ritehly Quimbo • Concrete CMS Growth Architect © 2024</span>
-           </div>
-        </div>
-      </footer>
-
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 w-full p-4 z-50 md:hidden pointer-events-none">
          <div className="max-w-md mx-auto pointer-events-auto flex gap-2">
