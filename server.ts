@@ -38,12 +38,17 @@ async function startServer() {
   });
 
   app.post('/api/contact', async (req, res) => {
+    console.log('--- CONTACT API HIT ---');
+    console.log('Body keys:', Object.keys(req.body));
+    
     try {
       // 3. Capture and Sanitize Inputs to prevent XSS/Injection
       // We use the property names from the frontend data (customer_name, etc.)
       const rawName = (req.body.customer_name || '').toString().trim();
       const rawEmail = (req.body.customer_email || '').toString().trim();
       const rawMessage = (req.body.customer_message || '').toString().trim();
+
+      console.log('Processing message from:', rawName, rawEmail);
 
       // Simple HTML escape function to mimic htmlspecialchars
       const escape = (str: string) => str.replace(/[&<>"']/g, (m) => ({
@@ -57,7 +62,8 @@ async function startServer() {
       // Basic validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!name || !emailRegex.test(email) || !rawMessage) {
-        return res.status(400).json({ success: false, message: 'Please fill out all fields correctly.' });
+        console.warn('Validation failed:', { name: !!name, email: emailRegex.test(email), message: !!rawMessage });
+        return res.status(400).json({ success: false, message: 'Please fill out all fields correctly. Name and a valid email are required.' });
       }
 
       // --- HOSTINGER SETTINGS ---
@@ -67,18 +73,28 @@ async function startServer() {
       const smtpPass = process.env.SMTP_PASS || '@DrakeDaewon2026';
       const toEmail = process.env.CONTACT_RECEIVER_EMAIL || 'seo@ritehlyquimbo.com';
 
+      console.log(`Connecting to SMTP: ${smtpHost}:${smtpPort} as ${smtpUser}`);
+
       const transporter = nodemailer.createTransport({
         host: smtpHost,
         port: smtpPort,
-        secure: true, // Port 465 is SMTPS
+        secure: smtpPort === 465, // true for 465, false for 587
         auth: {
           user: smtpUser,
           pass: smtpPass,
         },
+        tls: {
+          // Do not fail on invalid certificates (often needed in serverless/container envs)
+          rejectUnauthorized: false
+        },
+        connectionTimeout: 10000, // 10 seconds
+        greetingTimeout: 10000,
+        socketTimeout: 20000,
       });
 
       // Best Practice: Set the 'From' as your own domain email so Hostinger doesn't block it,
       // but set 'replyTo' as the user's email so you can hit "Reply" directly.
+      console.log('Sending email...');
       await transporter.sendMail({
         from: `"Website Contact Form" <${smtpUser}>`, 
         replyTo: `"${name}" <${email}>`,
@@ -93,10 +109,10 @@ async function startServer() {
       return res.json({ success: true, message: 'Thank you! Your message has been sent.' });
 
     } catch (error) {
-      console.error('Contact form error:', error);
+      console.error('Contact form error detail:', error);
       res.status(500).json({ 
         success: false, 
-        message: 'Message could not be sent. Please try again later.' 
+        message: 'Message could not be sent. Please use direct email or check your SMTP settings.' 
       });
     }
   });

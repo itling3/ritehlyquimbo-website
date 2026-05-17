@@ -30,6 +30,20 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
         body: JSON.stringify(formData)
       });
 
+      if (!response.ok) {
+        const text = await response.text();
+        console.error('Server error response:', text);
+        try {
+          const data = JSON.parse(text);
+          setStatus('error');
+          setErrorMessage(data.message || 'Server error occurred.');
+        } catch (e) {
+          setStatus('error');
+          setErrorMessage(`Server error (${response.status}). Please try again later.`);
+        }
+        return;
+      }
+
       const data = await response.json();
       if (data.success) {
         setStatus('success');
@@ -39,8 +53,9 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
         setErrorMessage(data.message || 'Something went wrong. Please try again.');
       }
     } catch (error) {
+      console.error('Fetch error:', error);
       setStatus('error');
-      setErrorMessage('Network error. Please check your connection.');
+      setErrorMessage('Network error or connection lost. Please check your internet.');
     }
   };
 
