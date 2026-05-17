@@ -223,7 +223,8 @@ export const SERVICES = [
   { id: 'ghost-seo', title: 'Ghost SEO Expert', description: 'Specialized SEO for Ghost CMS publishers and SaaS brands focused on rankings and conversions.', icon: '👻' },
   { id: 'craft-seo', title: 'Craft CMS SEO Expert', description: 'Specialized SEO for Craft CMS websites and commerce stores focused on rankings and conversions.', icon: '🛠️' },
   { id: 'concrete-seo', title: 'Concrete CMS SEO Expert', description: 'Specialized SEO for Concrete CMS websites focused on platform-specific growth and revenue.', icon: '🧱' },
-  { id: 'modx-seo', title: 'MODX SEO Expert', description: 'Technical MODX SEO optimization for Revolution and Evolution platforms to drive organic dominance.', icon: '🌀' }
+  { id: 'modx-seo', title: 'MODX SEO Expert', description: 'Technical MODX SEO optimization for Revolution and Evolution platforms to drive organic dominance.', icon: '🌀' },
+  { id: 'contentful-seo', title: 'Contentful CMS SEO Expert', description: 'Enterprise-grade headless SEO for Contentful websites to drive organic growth and rankings.', icon: '☁️' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -589,6 +590,57 @@ Ready to grow your MODX website? [Book Your Free SEO Strategy Call](/contact).`,
       { question: 'Do you work with MODX Evolution?', answer: 'Yes, we support both Revolution and Evolution platforms for SEO overhaul.' },
       { question: 'How long until I see results?', answer: 'Technical fixes show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
       { question: 'Can you fix existing issues?', answer: 'Absolutely. We specialize in ranking recovery and technical debt resolution.' }
+    ]
+  },
+  'contentful-seo': {
+    id: 'contentful-seo',
+    slug: 'contentful-cms-seo-expert',
+    permalink: '/services/contentful-cms-seo-expert',
+    title: 'Contentful CMS SEO Expert',
+    titleH1: 'Contentful CMS SEO Expert That Turns Your Website Into a Traffic Engine',
+    icon: '☁️',
+    description: 'Expert headless SEO for Contentful. We optimize your content model, API delivery, and frontend for maximum organic search performance.',
+    seoTitle: 'Contentful CMS SEO Expert Services | Headless SEO Specialist',
+    metaDescription: 'Hire a Contentful CMS SEO Expert to rank higher on Google & AI Search. Specialized headless SEO, technical optimization, and content strategy for Contentful.',
+    keywords: 'contentful seo expert, contentful seo services, headless cms seo, contentful technical seo, contentful seo optimization',
+    painPoint: 'Your Headless CMS is powerful, but your search rankings are stagnant.',
+    problem: 'Headless SEO requires balancing API-driven content with traditional search signals. Generic agencies often fail to optimize the "Headless Gap."',
+    solution: 'Engineered Contentful SEO that bridges technical architecture with high-intent semantic content.',
+    importance: 'In a decoupled world, your SEO depends on how well your content model and frontend communicate with search engines.',
+    features: [
+      'Content Model Optimization',
+      'API-First SEO Engineering',
+      'Core Web Vitals Stacking',
+      'Dynamic Schema Architecture',
+      'Topical Authority Mapping',
+      'AI Search Readiness'
+    ],
+    contentBody: `### Contentful CMS SEO Expert That Turns Your Website Into a Traffic Engine
+    
+Helping enterprise brands and startups using Contentful maximize their organic search visibility, traffic, and leads.
+
+#### Why Choose Specialist Contentful SEO?
+Contentful is a leading headless CMS, but its decoupling means SEO isn't "built-in." It requires a specialist who understands how to map content models to search intent.
+
+1. **Precision Keyword Research:** We map your content model to the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Headless Technical SEO:** Optimizing delivery and rendering via [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Semantic Authority:** Using Contentful's flexible structure to build [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Results:** Preparing your headless content for the future of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+We focus on the metrics that matter: rankings, traffic, and revenue growth.
+
+* **Contentful API & Content Model focus**
+* **Technical & Semantic optimization**
+* **No long-term contracts**
+* **Transparent data-driven reporting**
+
+Ready to grow your Contentful website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Contentful SEO expert?', answer: 'Headless CMS SEO requires specialized technical knowledge that traditional agencies often lack.' },
+      { question: 'Do you optimize Contentful content models?', answer: 'Yes, we ensure your fields and structure are mapped for SEO best practices.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
+      { question: 'Can you work with any frontend?', answer: 'Absolutely. Whether you use Next.js, Gatsby, or Nuxt, we optimize the full stack.' }
     ]
   },
   'keyword-research': {
