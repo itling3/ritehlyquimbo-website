@@ -220,7 +220,8 @@ export const SERVICES = [
   { id: 'drupal-seo', title: 'Drupal SEO Expert', description: 'Enterprise-grade Drupal SEO optimization for scalability, security, and organic dominance.', icon: '💧' },
   { id: 'joomla-seo', title: 'Joomla SEO Expert', description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings and better visibility.', icon: '⚡' },
   { id: 'typo3-seo', title: 'TYPO3 SEO Expert', description: 'Enterprise-scale technical SEO for TYPO3 websites focused on rankings and business growth.', icon: '🏗️' },
-  { id: 'ghost-seo', title: 'Ghost SEO Expert', description: 'Specialized SEO for Ghost CMS publishers and SaaS brands focused on rankings and conversions.', icon: '👻' }
+  { id: 'ghost-seo', title: 'Ghost SEO Expert', description: 'Specialized SEO for Ghost CMS publishers and SaaS brands focused on rankings and conversions.', icon: '👻' },
+  { id: 'craft-seo', title: 'Craft CMS SEO Expert', description: 'Specialized SEO for Craft CMS websites and commerce stores focused on rankings and conversions.', icon: '🛠️' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -433,6 +434,57 @@ Ready to grow your publishing organic reach? [Book Your Free SEO Strategy Call](
       { question: 'How long until I see results?', answer: 'Initial technical lifts occur in weeks, but authoritative rankings take 3-6 months.' },
       { question: 'Do you work with Ghost themes?', answer: 'Yes. We optimize Handlebars templates for SEO efficiency and performance.' },
       { question: 'Can you improve Ghost site speed?', answer: 'Absolutely. We fix image delivery and caching issues to hit green scores.' }
+    ]
+  },
+  'craft-seo': {
+    id: 'craft-seo',
+    slug: 'craft-cms-seo-expert',
+    permalink: '/services/craft-cms-seo-expert',
+    title: 'Craft CMS SEO Expert',
+    titleH1: 'Craft CMS SEO Expert Services That Drive Rankings, Traffic & Revenue',
+    icon: '🛠️',
+    description: 'Specialized SEO for Craft CMS websites and commerce stores. We optimize for search engine precision and business growth.',
+    seoTitle: 'Craft CMS SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a Craft CMS SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for Craft CMS.',
+    keywords: 'craft cms seo expert, craft cms seo services, craft cms seo, craft technical seo',
+    painPoint: 'Your Craft CMS website is highly flexible but invisible to your target audience.',
+    problem: 'Craft requires specialized implementation for technical SEO. Generic strategies fail to leverage its custom modeling effectively.',
+    solution: 'Technical Craft SEO engineering and semantic content mapping tailored for high-performance business goals.',
+    importance: 'Craft CMS is built for flexibility. Our SEO services ensure that flexibility is used to dominate search results.',
+    features: [
+      'Technical SEO Audit',
+      'Core Web Vitals Optimization',
+      'Topical Authority Mapping',
+      'Craft Commerce SEO',
+      'Schema Markup Integration',
+      'AI Search Readiness'
+    ],
+    contentBody: `### Craft CMS SEO Expert Services That Drive Rankings, Traffic & Revenue
+    
+Helping brands using Craft CMS increase Google rankings, organic traffic, and leads through advanced Craft SEO strategies.
+
+#### Why Choose Specialist Craft CMS SEO?
+Craft CMS differs significantly from mainstream platforms like WordPress. It's built for developers and creative control, which means SEO needs to be architected into the templates.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Craft-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your Craft CMS website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Craft CMS SEO expert?', answer: 'Craft CMS requires specialized template-level optimization that generic agencies usually miss.' },
+      { question: 'Can you optimize Craft Commerce?', answer: 'Yes. We specialize in product schema and faceted navigation for Craft Commerce.' },
+      { question: 'Do you provide technical fixes?', answer: 'We can implement fixes directly in your Twig templates or provide documentation for your team.' },
+      { question: 'How long until I see results?', answer: 'Technical improvements often show impact in 4-6 weeks, while growth takes 3-6 months.' }
     ]
   },
   'keyword-research': {
