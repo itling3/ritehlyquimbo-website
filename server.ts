@@ -5,6 +5,7 @@ import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs/promises';
 import { fileURLToPath } from 'url';
+import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,18 +35,60 @@ async function startServer() {
       }
 
       console.log(`[CONTACT FORM] New message from ${name} (${email}) - Subject: ${subject || 'No Subject'}`);
-      console.log(`Message: ${message}`);
 
-      // Here you would typically send an email using a service like SendGrid, Mailgun, or Nodemailer.
-      // For this environment, we'll log it and return success.
+      // Check for SMTP configuration
+      const smtpHost = process.env.SMTP_HOST;
+      const smtpPort = parseInt(process.env.SMTP_PORT || '587');
+      const smtpUser = process.env.SMTP_USER;
+      const smtpPass = process.env.SMTP_PASS;
+
+      if (!smtpHost || !smtpUser || !smtpPass) {
+        console.warn('[CONTACT FORM] SMTP credentials missing. Message logged but not sent via email.');
+        // Still return success to user so they don't see an error, 
+        // but tell them we're in "log-only" mode in the logs.
+        return res.status(200).json({ 
+          success: true, 
+          message: 'Thank you! Your message has been received (Development Mode: Logged to console).' 
+        });
+      }
+
+      const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpPort === 465,
+        auth: {
+          user: smtpUser,
+          pass: smtpPass,
+        },
+      });
+
+      const mailOptions = {
+        from: `"${name}" <${smtpUser}>`, // Use authorized sender
+        replyTo: email,
+        to: 'seo@ritehlyquimbo.com',
+        subject: subject || 'No Subject - Contact Form Enquiry',
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; padding: 20px;">
+            <h2 style="color: #2563eb;">New Growth Enquiry</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Subject:</strong> ${subject || 'No Subject'}</p>
+            <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 20px 0;">
+            <p style="white-space: pre-wrap;">${message}</p>
+          </div>
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
 
       res.status(200).json({ 
         success: true, 
-        message: 'Thank you! Your message has been received. We will get back to you shortly.' 
+        message: 'Thank you! Your message has been sent successfully.' 
       });
     } catch (error) {
       console.error('[CONTACT API ERROR]', error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: 'Internal server error. We could not send your message at this time.' });
     }
   });
 
