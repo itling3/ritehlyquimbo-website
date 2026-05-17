@@ -35,7 +35,7 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
     },
     { 
       title: 'CMS EXPERTISE', 
-      services: SERVICES.slice(12, 23), 
+      services: SERVICES.slice(12, 13), 
       color: 'text-orange-500', 
       borderColor: 'border-orange-500/20',
       glow: 'shadow-orange-500/10'
