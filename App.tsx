@@ -45,6 +45,7 @@ import CraftCMSSEOExpertPage from './pages/CraftCMSSEOExpert';
 import ConcreteCMSSEOExpertPage from './pages/ConcreteCMSSEOExpert';
 import MODXSEOExpertPage from './pages/MODXSEOExpert';
 import ContentfulCMSSEOExpertPage from './pages/ContentfulCMSSEOExpert';
+import StoryblokSEOExpertPage from './pages/StoryblokSEOExpert';
 import ShopifySEOExpertPage from './pages/ShopifySEOExpert';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
@@ -200,6 +201,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/concrete-cms-seo-expert" element={<ConcreteCMSSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/modx-seo-expert" element={<MODXSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/contentful-cms-seo-expert" element={<ContentfulCMSSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/storyblok-cms-seo-expert" element={<StoryblokSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/shopify-seo-expert" element={<ShopifySEOExpertPage />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />

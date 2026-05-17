@@ -225,7 +225,8 @@ export const SERVICES = [
   { id: 'concrete-seo', title: 'Concrete CMS SEO Expert', description: 'Specialized SEO for Concrete CMS websites focused on platform-specific growth and revenue.', icon: '🧱' },
   { id: 'modx-seo', title: 'MODX SEO Expert', description: 'Technical MODX SEO optimization for Revolution and Evolution platforms to drive organic dominance.', icon: '🌀' },
   { id: 'contentful-seo', title: 'Contentful CMS SEO Expert', description: 'Enterprise-grade headless SEO for Contentful websites to drive organic growth and rankings.', icon: '☁️' },
-  { id: 'shopify-seo', title: 'Shopify SEO Expert', description: 'Revenue-focused Shopify SEO optimization for Google and AI search to scale organic store growth.', icon: '🛍️' }
+  { id: 'shopify-seo', title: 'Shopify SEO Expert', description: 'Revenue-focused Shopify SEO optimization for Google and AI search to scale organic store growth.', icon: '🛍️' },
+  { id: 'storyblok-seo', title: 'Storyblok CMS SEO Expert', description: 'High-performance headless SEO for Storyblok websites. We optimize content models and API delivery for search dominance.', icon: '🏗️' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -693,6 +694,57 @@ Ready to grow your Shopify store? [Book Your Free SEO Strategy Call](/contact).`
       { question: 'Do you guarantee results?', answer: 'We guarantee clear SEO opportunities identified in your audit, or it\'s free. Organic growth builds over a 3-6 month window.' },
       { question: 'How long until I see rankings improve?', answer: 'Technical fixes show impact in 2-4 weeks. Revenue growth compounds over 3-6 months.' },
       { question: 'Can you work with any Shopify theme?', answer: 'Absolutely. Whether you use a standard theme or a custom headless setup, we optimize for performance.' }
+    ]
+  },
+  'storyblok-seo': {
+    id: 'storyblok-seo',
+    slug: 'storyblok-cms-seo-expert',
+    permalink: '/services/storyblok-cms-seo-expert',
+    title: 'Storyblok CMS SEO Expert',
+    titleH1: 'Storyblok CMS SEO Expert — Enterprise-Grade Headless SEO Rankings',
+    icon: '🏗️',
+    description: 'Expert headless SEO for Storyblok websites. We optimize content models and API delivery for maximum search engine performance.',
+    seoTitle: 'Storyblok CMS SEO Expert Services | Headless SEO Specialist',
+    metaDescription: 'Hire a Storyblok CMS SEO Expert to rank higher on Google & AI Search. Specialized technical SEO, content strategy, and speed optimization for Storyblok.',
+    keywords: 'storyblok seo expert, storyblok seo services, headless cms seo, storyblok technical seo, storyblok seo optimization',
+    painPoint: 'Your Storyblok website is fast, but your rankings are stuck on page two.',
+    problem: 'Headless SEO requires bridge engineering between API-driven content and traditional search signals. Generic agencies often ignore technical SEO for headless platforms.',
+    solution: 'Deep technical Storyblok engineering combined with high-intent semantic content architecture.',
+    importance: 'Storyblok is built for flexibility. Our SEO services ensure that flexibility translates into organic dominance and revenue growth.',
+    features: [
+      'Storyblok Content Model Opt',
+      'Headless Technical SEO Audit',
+      'Core Web Vitals Engineering',
+      'API-First Schema Architecture',
+      'Topical Authority Mapping',
+      'International Headless SEO'
+    ],
+    contentBody: `### Storyblok CMS SEO Expert — Enterprise-Grade Headless SEO Rankings
+    
+Helping enterprise brands and startups using Storyblok increase Google rankings, organic traffic, and leads through advanced headless SEO strategies.
+
+#### Why Choose Specialist Storyblok SEO?
+Storyblok is a powerful headless CMS, but it requires a precise hand to dominate competitive search landscapes. We don't just "plug in" SEO; we architect it.
+
+1. **Precision Keyword Research:** Identifying high-value targets via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Mastery:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Results:** Preparing your headless content for the future of discovery.
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Storyblok API & Content Model focus**
+* **Headless-specific technical mastery**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your Storyblok website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Storyblok SEO expert?', answer: 'Storyblok requires specialized technical knowledge that traditional SEO agencies lack.' },
+      { question: 'Do you optimize Storyblok content models?', answer: 'Yes, we ensure your fields and structure are mapped for SEO best practices.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes often show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
+      { question: 'Can you work with any frontend framework?', answer: 'Absolutely. Whether you use Next.js, Nuxt, Gatsby, or Remix, we optimize the full stack.' }
     ]
   },
   'keyword-research': {
