@@ -222,7 +222,8 @@ export const SERVICES = [
   { id: 'typo3-seo', title: 'TYPO3 SEO Expert', description: 'Enterprise-scale technical SEO for TYPO3 websites focused on rankings and business growth.', icon: '🏗️' },
   { id: 'ghost-seo', title: 'Ghost SEO Expert', description: 'Specialized SEO for Ghost CMS publishers and SaaS brands focused on rankings and conversions.', icon: '👻' },
   { id: 'craft-seo', title: 'Craft CMS SEO Expert', description: 'Specialized SEO for Craft CMS websites and commerce stores focused on rankings and conversions.', icon: '🛠️' },
-  { id: 'concrete-seo', title: 'Concrete CMS SEO Expert', description: 'Specialized SEO for Concrete CMS websites focused on platform-specific growth and revenue.', icon: '🧱' }
+  { id: 'concrete-seo', title: 'Concrete CMS SEO Expert', description: 'Specialized SEO for Concrete CMS websites focused on platform-specific growth and revenue.', icon: '🧱' },
+  { id: 'modx-seo', title: 'MODX SEO Expert', description: 'Technical MODX SEO optimization for Revolution and Evolution platforms to drive organic dominance.', icon: '🌀' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -537,6 +538,57 @@ Ready to grow your Concrete CMS website? [Book Your Free SEO Strategy Call](/con
       { question: 'Can you improve rankings without rebuilding?', answer: 'Yes. Most Concrete CMS issues are configuration or theme-based and can be fixed in-place.' },
       { question: 'How long until I see results?', answer: 'Technical fixes often show impact in 2-4 weeks, while organic growth builds over 3-6 months.' },
       { question: 'Do you provide technical fixes?', answer: 'Yes. We implement fixes directly in your Concrete CMS dashboard and theme templates.' }
+    ]
+  },
+  'modx-seo': {
+    id: 'modx-seo',
+    slug: 'modx-seo-expert',
+    permalink: '/services/modx-seo-expert',
+    title: 'MODX SEO Expert',
+    titleH1: 'MODX SEO Expert Services That Turn Your Website Into a Traffic Machine',
+    icon: '🌀',
+    description: 'Specialized SEO for MODX Revolution and Evolution platforms. We optimize for search engine precision and high-performance growth.',
+    seoTitle: 'MODX SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a MODX SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for MODX CMS.',
+    keywords: 'modx seo expert, modx seo services, modx seo, modx technical seo',
+    painPoint: 'Your MODX website is enterprise-grade but invisible to your target audience.',
+    problem: 'MODX requires specialized implementation for technical SEO. Generic strategies fail to leverage its TV and snippet architecture effectively.',
+    solution: 'Technical MODX SEO engineering and semantic content mapping tailored for organic dominance.',
+    importance: 'MODX is built for custom control. Our SEO services ensure that control is used to dominate search results and drive revenue.',
+    features: [
+      'Technical MODX SEO Audit',
+      'Snippet & Chunk Optimization',
+      'TV Metadata Mapping',
+      'Core Web Vitals Engineering',
+      'Schema Markup Integration',
+      'AI Search Readiness'
+    ],
+    contentBody: `### MODX SEO Expert Services That Turn Your Website Into a Traffic Machine
+    
+Helping brands using MODX Revolution and Evolution increase Google rankings, organic traffic, and leads through advanced MODX SEO strategies.
+
+#### Why Choose Specialist MODX SEO?
+MODX is highly flexible but requires a precise hand to optimize for search engines. It doesn't use standard plugins for SEO, meaning everything must be architected correctly.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **MODX-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your MODX website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a MODX SEO expert?', answer: 'MODX requires custom technical implementation that generic agencies fail to handle correctly.' },
+      { question: 'Do you work with MODX Evolution?', answer: 'Yes, we support both Revolution and Evolution platforms for SEO overhaul.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
+      { question: 'Can you fix existing issues?', answer: 'Absolutely. We specialize in ranking recovery and technical debt resolution.' }
     ]
   },
   'keyword-research': {
