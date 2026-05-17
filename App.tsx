@@ -42,6 +42,7 @@ import JoomlaSEOExpertPage from './pages/JoomlaSEOExpert';
 import TYPO3SEOExpertPage from './pages/TYPO3SEOExpert';
 import GhostSEOExpertPage from './pages/GhostSEOExpert';
 import CraftCMSSEOExpertPage from './pages/CraftCMSSEOExpert';
+import ConcreteCMSSEOExpertPage from './pages/ConcreteCMSSEOExpert';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
@@ -193,6 +194,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/typo3-seo-expert" element={<TYPO3SEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/ghost-seo-expert" element={<GhostSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/craft-cms-seo-expert" element={<CraftCMSSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/concrete-cms-seo-expert" element={<ConcreteCMSSEOExpertPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 

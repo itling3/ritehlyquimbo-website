@@ -221,7 +221,8 @@ export const SERVICES = [
   { id: 'joomla-seo', title: 'Joomla SEO Expert', description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings and better visibility.', icon: '⚡' },
   { id: 'typo3-seo', title: 'TYPO3 SEO Expert', description: 'Enterprise-scale technical SEO for TYPO3 websites focused on rankings and business growth.', icon: '🏗️' },
   { id: 'ghost-seo', title: 'Ghost SEO Expert', description: 'Specialized SEO for Ghost CMS publishers and SaaS brands focused on rankings and conversions.', icon: '👻' },
-  { id: 'craft-seo', title: 'Craft CMS SEO Expert', description: 'Specialized SEO for Craft CMS websites and commerce stores focused on rankings and conversions.', icon: '🛠️' }
+  { id: 'craft-seo', title: 'Craft CMS SEO Expert', description: 'Specialized SEO for Craft CMS websites and commerce stores focused on rankings and conversions.', icon: '🛠️' },
+  { id: 'concrete-seo', title: 'Concrete CMS SEO Expert', description: 'Specialized SEO for Concrete CMS websites focused on platform-specific growth and revenue.', icon: '🧱' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -485,6 +486,57 @@ Ready to grow your Craft CMS website? [Book Your Free SEO Strategy Call](/contac
       { question: 'Can you optimize Craft Commerce?', answer: 'Yes. We specialize in product schema and faceted navigation for Craft Commerce.' },
       { question: 'Do you provide technical fixes?', answer: 'We can implement fixes directly in your Twig templates or provide documentation for your team.' },
       { question: 'How long until I see results?', answer: 'Technical improvements often show impact in 4-6 weeks, while growth takes 3-6 months.' }
+    ]
+  },
+  'concrete-seo': {
+    id: 'concrete-seo',
+    slug: 'concrete-cms-seo-expert',
+    permalink: '/services/concrete-cms-seo-expert',
+    title: 'Concrete CMS SEO Expert',
+    titleH1: 'Concrete CMS SEO Expert That Helps You Rank Higher & Get Qualified Traffic',
+    icon: '🧱',
+    description: 'Specialized SEO for Concrete CMS websites and legacy Concrete5 platforms. We optimize for search engine precision and business growth.',
+    seoTitle: 'Concrete CMS SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a Concrete CMS SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for Concrete CMS.',
+    keywords: 'concrete cms seo expert, concrete cms seo services, concrete5 seo, technical seo concrete cms',
+    painPoint: 'Your Concrete CMS website is technically sound but invisible to your target audience.',
+    problem: 'Concrete CMS requires specialized implementation for technical SEO. Generic strategies fail to leverage its block-based architecture effectively.',
+    solution: 'Technical Concrete CMS SEO engineering and semantic content mapping tailored for high-performance business goals.',
+    importance: 'Concrete CMS is built for control. Our SEO services ensure that control is used to dominate search results and drive revenue.',
+    features: [
+      'Technical SEO Audit',
+      'Site Speed & Core Web Vitals',
+      'Structural Schema Markup',
+      'Block-Level Content Opt',
+      'Keyword Intent Mapping',
+      'AI Search Readiness'
+    ],
+    contentBody: `### Concrete CMS SEO Expert That Helps You Rank Higher & Get Qualified Traffic
+    
+Helping brands using Concrete CMS (formerly concrete5) increase Google rankings, organic traffic, and leads through advanced Concrete SEO strategies.
+
+#### Why Choose Specialist Concrete CMS SEO?
+Concrete CMS differs significantly from mainstream platforms. It's built for content blocks and attribute-based metadata, which means SEO needs to be precisely configured in the dashboard and theme level.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Concrete-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your Concrete CMS website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'What is a Concrete CMS SEO expert?', answer: 'An expert who understands Concrete CMS\'s unique block architecture and attribute system for search optimization.' },
+      { question: 'Can you improve rankings without rebuilding?', answer: 'Yes. Most Concrete CMS issues are configuration or theme-based and can be fixed in-place.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes often show impact in 2-4 weeks, while organic growth builds over 3-6 months.' },
+      { question: 'Do you provide technical fixes?', answer: 'Yes. We implement fixes directly in your Concrete CMS dashboard and theme templates.' }
     ]
   },
   'keyword-research': {
