@@ -224,7 +224,8 @@ export const SERVICES = [
   { id: 'craft-seo', title: 'Craft CMS SEO Expert', description: 'Specialized SEO for Craft CMS websites and commerce stores focused on rankings and conversions.', icon: '🛠️' },
   { id: 'concrete-seo', title: 'Concrete CMS SEO Expert', description: 'Specialized SEO for Concrete CMS websites focused on platform-specific growth and revenue.', icon: '🧱' },
   { id: 'modx-seo', title: 'MODX SEO Expert', description: 'Technical MODX SEO optimization for Revolution and Evolution platforms to drive organic dominance.', icon: '🌀' },
-  { id: 'contentful-seo', title: 'Contentful CMS SEO Expert', description: 'Enterprise-grade headless SEO for Contentful websites to drive organic growth and rankings.', icon: '☁️' }
+  { id: 'contentful-seo', title: 'Contentful CMS SEO Expert', description: 'Enterprise-grade headless SEO for Contentful websites to drive organic growth and rankings.', icon: '☁️' },
+  { id: 'shopify-seo', title: 'Shopify SEO Expert', description: 'Revenue-focused Shopify SEO optimization for Google and AI search to scale organic store growth.', icon: '🛍️' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -641,6 +642,57 @@ Ready to grow your Contentful website? [Book Your Free SEO Strategy Call](/conta
       { question: 'Do you optimize Contentful content models?', answer: 'Yes, we ensure your fields and structure are mapped for SEO best practices.' },
       { question: 'How long until I see results?', answer: 'Technical fixes show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
       { question: 'Can you work with any frontend?', answer: 'Absolutely. Whether you use Next.js, Gatsby, or Nuxt, we optimize the full stack.' }
+    ]
+  },
+  'shopify-seo': {
+    id: 'shopify-seo',
+    slug: 'shopify-seo-expert',
+    permalink: '/services/shopify-seo-expert',
+    title: 'Shopify SEO Expert',
+    titleH1: 'Shopify SEO Expert That Turns Your Store Into a Revenue Engine',
+    icon: '🛍️',
+    description: 'Expert Shopify SEO for high-growth brands. We optimize your technical foundation, product architecture, and AI search visibility for maximum revenue.',
+    seoTitle: 'Shopify SEO Expert Services | Rank Your Store Higher on Google & AI',
+    metaDescription: 'Hire a Shopify SEO Expert to rank higher & increase store revenue. Specialized technical Shopify SEO, product page optimization, and AI search readiness.',
+    keywords: 'shopify seo expert, shopify seo services, shopify technical seo, shopify seo optimization, ecommerce seo specialist',
+    painPoint: 'Your Shopify store is beautiful, but your search rankings are stagnant and revenue is flat.',
+    problem: 'Shopify has "built-in" features, but massive "Technical Gaps" in duplicate content, faceted navigation, and schema that block growth.',
+    solution: 'Engineered Shopify SEO that bridges technical store architecture with high-intent semantic content and AI search visibility.',
+    importance: 'In the competitive ecommerce world, your SEO is the difference between high-margin organic growth and expensive ad reliance.',
+    features: [
+      'Technical Shopify Audit',
+      'Revenue-Focused Keywords',
+      'AI Search Citations',
+      'Product Schema Engineering',
+      'Collection Page Dominance',
+      'Speed & Web Vitals Stacking'
+    ],
+    contentBody: `### Shopify SEO Expert That Turns Your Store Into a Revenue Engine
+    
+Helping ecommerce brands and Shopify stores maximize their organic search visibility, traffic, and sales.
+
+#### Why Choose Specialist Shopify SEO?
+Shopify is a leading commerce platform, but its standard setup leaves ranking opportunities on the table. It requires a specialist who understands how to bypass platform constraints.
+
+1. **Precision Keyword Research:** We map your products to the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Shopify Technical SEO:** Optimizing delivery and rendering via [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Semantic Product Authority:** Using Shopify's collections to build [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Storefront:** Preparing your products for the future of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+We focus on the metrics that matter: rankings, traffic, and revenue growth.
+
+* **Shopify Theme & App Audit focus**
+* **Technical & Semantic optimization**
+* **No long-term contracts**
+* **Transparent data-driven reporting**
+
+Ready to grow your Shopify store? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Shopify SEO expert?', answer: 'Shopify has unique technical quirks like duplicate URL structures and faceted navigation issues that generic agencies often miss.' },
+      { question: 'Do you guarantee results?', answer: 'We guarantee clear SEO opportunities identified in your audit, or it\'s free. Organic growth builds over a 3-6 month window.' },
+      { question: 'How long until I see rankings improve?', answer: 'Technical fixes show impact in 2-4 weeks. Revenue growth compounds over 3-6 months.' },
+      { question: 'Can you work with any Shopify theme?', answer: 'Absolutely. Whether you use a standard theme or a custom headless setup, we optimize for performance.' }
     ]
   },
   'keyword-research': {
