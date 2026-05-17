@@ -514,45 +514,6 @@ const ShopifySEOExpert = () => {
         </div>
       </section>
 
-      {/* --- FOOTER LINKS --- */}
-      <footer className="py-20 px-4 bg-black border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-              {[
-                { t: "Ecommerce SEO Links", links: [<Link key="l1" to="/services/technical-on-page-seo-optimization" className="hover:text-purple-500">Shopify Tech Audit</Link>, <Link key="l2" to="/services/keyword-research-intent-mapping" className="hover:text-purple-500">Product SEO Strategy</Link>, <Link key="l3" to="/services/ai-seo-automation" className="hover:text-purple-500">AI Search Optimization</Link>, "Shopify Speed Boost"] },
-                { t: "Authority Links", links: [<Link key="l4" to="/services/topical-maps-semantic-authority" className="hover:text-purple-500">Topical Maps Strategy</Link>, "Schema for E-commerce", <Link key="l5" to="/portfolio" className="hover:text-purple-500">Sales Success Stories</Link>, <Link key="l6" to="/pricing" className="hover:text-purple-500">SEO Management Pricing</Link>] },
-                { t: "CMS Specialist SEO", links: [
-                  <Link key="link-wp" to="/services/wordpress-seo-expert" className="hover:text-purple-500">WordPress SEO</Link>, 
-                  <Link key="link-modx" to="/services/modx-seo-expert" className="hover:text-purple-500">MODX SEO</Link>, 
-                  <Link key="link-craft" to="/services/craft-cms-seo-expert" className="hover:text-purple-500">Craft CMS SEO</Link>, 
-                  <Link key="link-concrete" to="/services/concrete-cms-seo-expert" className="hover:text-purple-500">Concrete CMS SEO</Link>, 
-                  <Link key="link-ghost" to="/services/ghost-seo-expert" className="hover:text-purple-500">Ghost SEO</Link>, 
-                  <Link key="link-contentful" to="/services/contentful-cms-seo-expert" className="hover:text-purple-500">Contentful SEO</Link>,
-                  <Link key="link-drupal" to="/services/drupal-seo-expert" className="hover:text-purple-500">Drupal SEO</Link>
-                ] }
-              ].map((col, i) => (
-                <div key={i}>
-                   <h4 className="text-[10px] font-black text-purple-500 uppercase tracking-widest mb-6 italic">{col.t}</h4>
-                   <ul className="space-y-4">
-                      {col.links.map((link, ii) => (
-                        <li key={ii} className="text-sm font-bold text-gray-500 italic">
-                           {typeof link === 'string' ? <span className="hover:text-purple-500 cursor-pointer">{link}</span> : link}
-                        </li>
-                      ))}
-                   </ul>
-                </div>
-              ))}
-           </div>
-           <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-              <Link to="/" className="text-xl font-black italic tracking-tighter uppercase group">
-                 RITEHLY <span className="text-purple-500">QUIMBO</span>
-              </Link>
-              <div className="text-[10px] font-black text-gray-600 uppercase tracking-widest italic">
-                 &copy; {new Date().getFullYear()} Precision E-commerce Search Systems. All rights reserved.
-              </div>
-           </div>
-        </div>
-      </footer>
     </div>
   );
 };
