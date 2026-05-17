@@ -20,6 +20,35 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  app.use(express.json());
+  app.use(compression());
+
+  // Contact form submission endpoint
+  app.post('/api/contact', async (req, res) => {
+    try {
+      const { name, email, subject, message } = req.body;
+      
+      // Basic validation
+      if (!name || !email || !message) {
+        return res.status(400).json({ error: 'Missing required fields' });
+      }
+
+      console.log(`[CONTACT FORM] New message from ${name} (${email}) - Subject: ${subject || 'No Subject'}`);
+      console.log(`Message: ${message}`);
+
+      // Here you would typically send an email using a service like SendGrid, Mailgun, or Nodemailer.
+      // For this environment, we'll log it and return success.
+
+      res.status(200).json({ 
+        success: true, 
+        message: 'Thank you! Your message has been received. We will get back to you shortly.' 
+      });
+    } catch (error) {
+      console.error('[CONTACT API ERROR]', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
   // Track if server is actually handling requests
   app.use(async (req, res, next) => {
     if (req.url === '/api/seo-health') return next();
@@ -31,8 +60,6 @@ async function startServer() {
   app.get('/api/seo-health', (req, res) => {
     res.json({ status: 'ok', time: new Date().toISOString() });
   });
-
-  app.use(compression());
 
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {

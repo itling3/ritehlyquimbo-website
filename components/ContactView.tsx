@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Mail, Phone, MapPin, MessageSquare, ExternalLink, Calendar, Send, Sparkles } from 'lucide-react';
 import SEO from './SEO';
+import ContactForm from './ContactForm';
 
 interface ContactViewProps {
   onBack: () => void;
@@ -107,40 +108,38 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
             </motion.div>
           </div>
 
-          {/* Right: Form/CTA */}
+          {/* Right: Form */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
-            className="p-10 md:p-12 glass-morphism rounded-[3rem] border border-white/10 relative overflow-hidden flex flex-col justify-center"
+            className="p-8 md:p-10 glass-morphism rounded-[3rem] border border-white/10 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-[100px] rounded-full"></div>
             
-            <div className="relative z-10 text-center space-y-8">
-              <div className="w-20 h-20 bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center mx-auto mb-8">
-                <MessageSquare className="w-8 h-8 text-blue-500" />
-              </div>
-              
-              <div className="space-y-4">
-                <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter">Detailed Inquiry Form</h2>
-                <p className="text-gray-400 text-sm font-medium leading-relaxed max-w-sm mx-auto">
-                  For complex projects requiring AI tools or deep technical SEO, please use our detailed growth questionnaire.
-                </p>
+            <div className="relative z-10 space-y-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center">
+                  <MessageSquare className="w-5 h-5 text-blue-500" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-black text-white uppercase italic tracking-tighter">Send a Message</h2>
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Growth Inquiry</p>
+                </div>
               </div>
 
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-6 bg-white/5 hover:bg-white/10 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic transition-all border border-white/10 active:scale-95"
-              >
-                Complete Inquiry Form <ExternalLink className="w-4 h-4 text-blue-500" />
-              </a>
+              <ContactForm />
 
-              <div className="pt-8 flex items-center justify-center gap-4 text-[10px] text-gray-500 font-bold uppercase tracking-widest">
-                <Sparkles className="w-3 h-3 text-blue-500" />
-                <span>Response time: &lt; 24 Hours</span>
-                <Sparkles className="w-3 h-3 text-blue-500" />
+              <div className="pt-6 border-t border-white/5 flex items-center justify-between gap-4 text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-3 h-3 text-blue-500" />
+                  <span>Secure Protocol</span>
+                </div>
+                <span>Response: &lt; 24h</span>
+                <div className="flex items-center gap-2">
+                  <ExternalLink className="w-3 h-3 text-blue-500" />
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">Alternate form</a>
+                </div>
               </div>
             </div>
           </motion.div>
