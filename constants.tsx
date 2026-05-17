@@ -218,7 +218,8 @@ export const SERVICES = [
   { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' },
   { id: 'wordpress-seo', title: 'WordPress SEO Expert', description: 'High-converting WordPress optimization strategies that drive rankings, traffic, and leads.', icon: '🔌' },
   { id: 'drupal-seo', title: 'Drupal SEO Expert', description: 'Enterprise-grade Drupal SEO optimization for scalability, security, and organic dominance.', icon: '💧' },
-  { id: 'joomla-seo', title: 'Joomla SEO Expert', description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings and better visibility.', icon: '⚡' }
+  { id: 'joomla-seo', title: 'Joomla SEO Expert', description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings and better visibility.', icon: '⚡' },
+  { id: 'typo3-seo', title: 'TYPO3 SEO Expert', description: 'Enterprise-scale technical SEO for TYPO3 websites focused on rankings and business growth.', icon: '🏗️' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -329,6 +330,57 @@ Ready to grow your Joomla website? [Book Your Free SEO Strategy Call](/contact).
       { question: 'How long until I see rankings improve?', answer: 'Initial technical improvements can be seen in weeks, but competitive rankings typically stabilize over 3-6 months.' },
       { question: 'Do you work with Joomla 4 and 5?', answer: 'Yes, we optimize all versions of Joomla, including the latest performance improvements in Joomla 5.' },
       { question: 'Is Joomla SEO different from WordPress SEO?', answer: 'Yes. While basic principles apply, the implementation of sitemaps, SEF URLs, and core optimization is handled differently in Joomla.' }
+    ]
+  },
+  'typo3-seo': {
+    id: 'typo3-seo',
+    slug: 'typo3-seo-expert',
+    permalink: '/services/typo3-seo-expert',
+    title: 'TYPO3 SEO Expert',
+    titleH1: 'TYPO3 SEO Expert — Rank Higher & Scale Growth',
+    icon: '🏗️',
+    description: 'Enterprise-scale technical SEO for TYPO3 websites. We optimize for search engine precision and business growth.',
+    seoTitle: 'TYPO3 SEO Expert Services | Scalable Rankings & Growth',
+    metaDescription: 'Hire a TYPO3 SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and performance engineering for TYPO3.',
+    keywords: 'typo3 seo expert, typo3 seo services, typo3 technical seo, typo3 consultant',
+    painPoint: 'Your enterprise-scale TYPO3 site is underperforming in search despite its complex architecture.',
+    problem: 'TYPO3 requires deep technical knowledge for SEO. Generic strategies fail to leverage its caching and routing frameworks effectively.',
+    solution: 'Technical performance engineering and semantic content mapping tailored specifically for TYPO3 sites.',
+    importance: 'For enterprise businesses, TYPO3 is a powerful asset. Our SEO services ensure it remains a growth engine, not just a content repository.',
+    features: [
+      'TYPO3 Routing & Slug Tuning',
+      'Technical Indexing Audit',
+      'Performance Engineering',
+      'Multilingual SEO Mastery',
+      'Yoast/CS SEO Optimization',
+      'Upgrade Ranking Protection'
+    ],
+    contentBody: `### TYPO3 SEO Expert — Rank Higher & Scale Growth
+
+We help businesses optimize TYPO3 websites with technical SEO, Core Web Vitals improvements, and scalable strategies designed to increase qualified organic traffic.
+
+#### Specialized Expertise for Enterprise CMS
+TYPO3 is an enterprise-grade CMS, and it demands enterprise-grade SEO. We don't just fix meta tags; we optimize the underlying architecture.
+
+1. **Strategic Intent Mapping:** Identifying high-value targets via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Mastery:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **TYPO3-specific SEO mastery**
+* **Core Web Vitals focus**
+* **Multilingual authority**
+* **Transparent monthly reporting**
+
+Ready to grow your enterprise visibility? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why does TYPO3 require a specialist?', answer: 'Its complex caching, menu routing, and extension architecture need specialized handling to ensure crawlability and index efficiency.' },
+      { question: 'Do you handle multilingual TYPO3 SEO?', answer: 'Yes. We are experts in hreflang implementation and language-specific directory structures for global TYPO3 sites.' },
+      { question: 'Can you fix TYPO3 speed issues?', answer: 'Absolutely. We hit green Core Web Vitals scores by optimizing the TYPO3 backend and frontend delivery pipelines.' },
+      { question: 'What tools do you use for audits?', answer: 'We use a mix of Screaming Frog, Ahrefs, and custom database scripts to perform deep technical audits on TYPO3 systems.' }
     ]
   },
   'keyword-research': {
