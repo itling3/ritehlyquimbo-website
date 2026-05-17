@@ -25,15 +25,21 @@ async function startServer() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // Track if server is actually handling requests
-  app.use(async (req, res, next) => {
-    const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
-    await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
+  // Track if server is actually handling requests (Console only to avoid disk I/O hangs)
+  app.use((req, res, next) => {
+    if (!req.url.startsWith('/api/')) {
+      console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    }
     next();
   });
 
   app.get('/api/seo-health', (req, res) => {
-    res.json({ status: 'ok', time: new Date().toISOString() });
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length
+    });
   });
 
   app.post('/api/contact', async (req, res) => {
@@ -58,7 +64,7 @@ async function startServer() {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!name || !emailRegex.test(email) || !rawMessage) {
         console.warn('Validation error: Incomplete form data');
-        return res.status(400).json({ success: false, message: 'Please fill name and a valid email.' });
+        return res.status(400).json({ success: false, message: 'Please provide both name and a valid email.' });
       }
 
       // --- CONFIGURATION ---
@@ -68,8 +74,9 @@ async function startServer() {
       const smtpPass = process.env.SMTP_PASS || '@DrakeDaewon2026';
       const toEmail = process.env.CONTACT_RECEIVER_EMAIL || 'seo@ritehlyquimbo.com';
 
-      console.log(`Attempting SMTP connection to ${smtpHost}:${smtpPort}...`);
+      console.log(`Attempting SMTP connection to ${smtpHost}:${smtpPort} as ${smtpUser}`);
 
+      // Create transporter with explicit timeouts
       const transporter = nodemailer.createTransport({
         host: smtpHost,
         port: smtpPort,
@@ -81,75 +88,64 @@ async function startServer() {
         tls: {
           rejectUnauthorized: false
         },
-        connectionTimeout: 15000,
-        greetingTimeout: 15000,
-        socketTimeout: 20000,
+        connectionTimeout: 10000, 
+        greetingTimeout: 10000,
+        socketTimeout: 15000,
       });
 
       // Send the mail
       console.log('Dispatching mail via Nodemailer...');
-      const info = await transporter.sendMail({
-        from: `"Ritehly Portfolio Contact" <${smtpUser}>`, 
-        replyTo: `"${name}" <${email}>`,
-        to: toEmail,
-        subject: `New Lead: ${name}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e1e1e1; border-radius: 12px; color: #1a1a1a;">
-            <h2 style="color: #2563eb; margin-bottom: 20px; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">New Website Inquiry</h2>
-            <div style="margin-bottom: 15px;">
-              <strong style="color: #6b7280; text-transform: uppercase; font-size: 11px;">Sender Name</strong>
-              <p style="margin: 5px 0 0 0; font-weight: bold; font-size: 16px;">${name}</p>
-            </div>
-            <div style="margin-bottom: 15px;">
-              <strong style="color: #6b7280; text-transform: uppercase; font-size: 11px;">Sender Email</strong>
-              <p style="margin: 5px 0 0 0; font-weight: bold; font-size: 16px;"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></p>
-            </div>
-            <div style="margin-top: 25px; padding: 20px; background: #f9fafb; border-radius: 8px;">
-              <strong style="color: #6b7280; text-transform: uppercase; font-size: 11px;">Project Message</strong>
-              <p style="margin: 10px 0 0 0; line-height: 1.6; white-space: pre-wrap;">${message}</p>
-            </div>
-            <p style="margin-top: 30px; font-size: 10px; color: #9ca3af; text-align: center; border-top: 1px solid #f3f4f6; pt: 10px;">
-              Sent from ritehlyquimbo.com Contact Form
-            </p>
-          </div>
-        `,
-      });
-
-      console.log('Email successfully sent! ID:', info.messageId);
-      return res.json({ success: true, message: 'Your message has been sent successfully! I will get back to you soon.' });
-
-    } catch (error) {
-      console.error('SMTP ERROR:', error);
-      
-      // FALLBACK: If SMTP fails (common in restricted container envs), we use Web3Forms API as a transparent fallback
-      // This ensures the user NEVER misses a lead even if the ports are blocked.
       try {
-        console.log('SMTP failed. Attempting fallback via Web3Forms API...');
+        const info = await transporter.sendMail({
+          from: `"Website Leads" <${smtpUser}>`, 
+          replyTo: `"${name}" <${email}>`,
+          to: toEmail,
+          subject: `New Lead: ${name}`,
+          html: `
+            <div style="font-family: sans-serif; max-width: 600px; padding: 20px; border: 1px solid #eee; border-radius: 12px;">
+              <h2 style="color: #2563eb;">New Portfolio Inquiry</h2>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+              <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                <p><strong>Message:</strong></p>
+                <p style="white-space: pre-wrap;">${message}</p>
+              </div>
+            </div>
+          `,
+        });
+        console.log('Main SMTP success! ID:', info.messageId);
+        return res.json({ success: true, message: 'Thank you! Your growth request has been sent.' });
+      } catch (smtpError: any) {
+        console.error('SMTP Failed:', smtpError.message);
+        
+        // FALLBACK: Use Web3Forms API
+        console.log('Attempting Fallback via Web3Forms API...');
         const web3Response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             access_key: 'dde04fd8-bee2-4eae-9fb4-f8511849f474',
-            name: req.body.customer_name,
-            email: req.body.customer_email,
-            message: req.body.customer_message,
-            subject: `[FALLBACK] New Lead: ${req.body.customer_name}`
+            name: rawName,
+            email: rawEmail,
+            message: rawMessage,
+            from_name: 'Ritehly Portfolio CRM'
           })
         });
         
-        const web3Result = await web3Response.json();
+        const web3Result: any = await web3Response.json();
         if (web3Result.success) {
-          console.log('Fallback successful. Lead delivered via Web3Forms.');
-          return res.json({ success: true, message: 'Your message has been sent successfully!' });
+          console.log('Fallback successful.');
+          return res.json({ success: true, message: 'Your request was received via our secure backup system!' });
+        } else {
+          throw new Error('Both SMTP and Fallback failed.');
         }
-      } catch (fallbackError) {
-        console.error('Fallback also failed:', fallbackError);
       }
 
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    } catch (error: any) {
+      console.error('FINAL CONTACT ERROR:', error);
       res.status(500).json({ 
         success: false, 
-        message: `Message could not be sent. Please email directly to seo@ritehlyquimbo.com. (Error: ${errorMessage})` 
+        message: 'Delivery failed. Please try again or email directly to seo@ritehlyquimbo.com' 
       });
     }
   });
@@ -169,15 +165,6 @@ async function startServer() {
     // Important: serve assets BUT NOT index.html yet
     app.use(express.static(distPath, { index: false }));
   }
-
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
-  });
 
   app.use('*all', async (req, res, next) => {
     const url = req.originalUrl;

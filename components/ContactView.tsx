@@ -266,7 +266,10 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
                       className="p-4 bg-green-500/10 border border-green-500/20 rounded-2xl flex items-center gap-3"
                     >
                       <CheckCircle2 className="w-5 h-5 text-green-500" />
-                      <p className="text-xs text-green-200 font-bold">Growth request received! I'll be in touch within 24 hours.</p>
+                      <div>
+                        <p className="text-xs text-green-200 font-bold">Request received!</p>
+                        <p className="text-[10px] text-green-400/70 uppercase tracking-wider mt-0.5">I will get back to you within 24 hours.</p>
+                      </div>
                     </motion.div>
                   )}
 
@@ -275,10 +278,21 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center gap-3"
+                      className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl space-y-3"
                     >
-                      <AlertCircle className="w-5 h-5 text-red-500" />
-                      <p className="text-xs text-red-200 font-bold">{errorMessage}</p>
+                      <div className="flex items-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-red-500" />
+                        <p className="text-xs text-red-200 font-bold">{errorMessage}</p>
+                      </div>
+                      <div className="pt-2 border-t border-red-500/10">
+                        <p className="text-[10px] text-gray-500 font-bold uppercase mb-2">Or contact me directly:</p>
+                        <a 
+                          href={`mailto:seo@ritehlyquimbo.com?subject=Growth Inquiry from ${formData.customer_name}&body=${encodeURIComponent(formData.customer_message)}`}
+                          className="inline-flex items-center gap-2 text-[10px] text-blue-400 hover:text-blue-300 font-black uppercase tracking-widest transition-colors"
+                        >
+                          Send via Email App <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
