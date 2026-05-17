@@ -270,7 +270,7 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
 
                 <div className="flex items-center justify-center gap-4 text-[10px] text-gray-600 font-bold uppercase tracking-widest pt-4">
                   <Sparkles className="w-3 h-3 text-blue-500" />
-                  <span>Secure Submission via Web3Forms</span>
+                  <span>Direct Response Guaranteed</span>
                   <Sparkles className="w-3 h-3 text-blue-500" />
                 </div>
               </form>

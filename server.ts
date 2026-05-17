@@ -1,6 +1,7 @@
 
 import express from 'express';
 import compression from 'compression';
+import nodemailer from 'nodemailer';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs/promises';
@@ -38,44 +39,65 @@ async function startServer() {
 
   app.post('/api/contact', async (req, res) => {
     try {
-      const { customer_name, customer_email, customer_message } = req.body;
-      
-      // Use the access key provided by the environment
-      const access_key = process.env.WEB3FORMS_ACCESS_KEY;
+      // 3. Capture and Sanitize Inputs to prevent XSS/Injection
+      // We use the property names from the frontend data (customer_name, etc.)
+      const rawName = (req.body.customer_name || '').toString().trim();
+      const rawEmail = (req.body.customer_email || '').toString().trim();
+      const rawMessage = (req.body.customer_message || '').toString().trim();
 
-      if (!access_key) {
-        console.error('Missing WEB3FORMS_ACCESS_KEY in environment');
-        return res.status(500).json({ 
-          success: false, 
-          message: 'Contact form is not yet configured. Please set WEB3FORMS_ACCESS_KEY in environment variables.' 
-        });
+      // Simple HTML escape function to mimic htmlspecialchars
+      const escape = (str: string) => str.replace(/[&<>"']/g, (m) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[m] || m));
+
+      const name = escape(rawName);
+      const email = rawEmail; // Will be validated by regex
+      const message = escape(rawMessage).replace(/\n/g, '<br>');
+
+      // Basic validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!name || !emailRegex.test(email) || !rawMessage) {
+        return res.status(400).json({ success: false, message: 'Please fill out all fields correctly.' });
       }
 
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+      // --- HOSTINGER SETTINGS ---
+      const smtpHost = process.env.SMTP_HOST || 'smtp.hostinger.com';
+      const smtpPort = parseInt(process.env.SMTP_PORT || '465');
+      const smtpUser = process.env.SMTP_USER || 'seo@ritehlyquimbo.com';
+      const smtpPass = process.env.SMTP_PASS || '@DrakeDaewon2026';
+      const toEmail = process.env.CONTACT_RECEIVER_EMAIL || 'seo@ritehlyquimbo.com';
+
+      const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: true, // Port 465 is SMTPS
+        auth: {
+          user: smtpUser,
+          pass: smtpPass,
         },
-        body: JSON.stringify({
-          access_key,
-          name: customer_name,
-          email: customer_email,
-          message: customer_message,
-          subject: `New Lead from SEO Expert: ${customer_name}`,
-          from_name: 'Ritehly Quimbo Portfolio'
-        })
       });
 
-      const result = await response.json();
-      if (result.success) {
-        return res.json({ success: true, message: 'Message sent successfully' });
-      } else {
-        return res.status(400).json({ success: false, message: result.message || 'Failed to send message' });
-      }
+      // Best Practice: Set the 'From' as your own domain email so Hostinger doesn't block it,
+      // but set 'replyTo' as the user's email so you can hit "Reply" directly.
+      await transporter.sendMail({
+        from: `"Website Contact Form" <${smtpUser}>`, 
+        replyTo: `"${name}" <${email}>`,
+        to: toEmail,
+        subject: 'New Customer Form Submission',
+        html: `<strong>Name:</strong> ${name} <br>
+               <strong>Email:</strong> ${email} <br><br>
+               <strong>Message:</strong> <br> ${message}`,
+      });
+
+      console.log('Growth request sent for:', name);
+      return res.json({ success: true, message: 'Thank you! Your message has been sent.' });
+
     } catch (error) {
       console.error('Contact form error:', error);
-      res.status(500).json({ success: false, message: 'Internal server error' });
+      res.status(500).json({ 
+        success: false, 
+        message: 'Message could not be sent. Please try again later.' 
+      });
     }
   });
 
@@ -104,7 +126,7 @@ async function startServer() {
     });
   });
 
-  app.use('*', async (req, res, next) => {
+  app.use('*all', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
