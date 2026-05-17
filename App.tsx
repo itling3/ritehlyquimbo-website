@@ -36,6 +36,7 @@ import PricingLocalSEOPage from './pages/PricingLocalSEO';
 import PricingAIPage from './pages/PricingAI';
 import PricingSEMPage from './pages/PricingSEM';
 import PricingWebDevPage from './pages/PricingWebDev';
+import CMSSEOPage from './pages/CMSSEO';
 import WordPressSEOExpertPage from './pages/WordPressSEOExpert';
 import DrupalSEOExpertPage from './pages/DrupalSEOExpert';
 import JoomlaSEOExpertPage from './pages/JoomlaSEOExpert';
@@ -143,7 +144,7 @@ const AppContent: React.FC = () => {
     if (isService) {
       const detail = SERVICE_DETAILS[target as keyof typeof SERVICE_DETAILS];
       if (detail) {
-        navigate(`/services/${detail.slug}`);
+        navigate(detail.permalink);
       }
     } else {
       const study = CASE_STUDIES.find(s => s.id === target);
@@ -191,18 +192,19 @@ const AppContent: React.FC = () => {
         <Route path="/contact" element={<ContactPage onBook={handleBookConsultation} />} />
 
         <Route path="/services" element={<ServicesPage onBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
+        <Route path="/services/cms-seo" element={<CMSSEOPage />} />
 
-        <Route path="/services/wordpress-seo-expert" element={<WordPressSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/drupal-seo-expert" element={<DrupalSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/joomla-seo-expert" element={<JoomlaSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/typo3-seo-expert" element={<TYPO3SEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/ghost-seo-expert" element={<GhostSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/craft-cms-seo-expert" element={<CraftCMSSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/concrete-cms-seo-expert" element={<ConcreteCMSSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/modx-seo-expert" element={<MODXSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/contentful-cms-seo-expert" element={<ContentfulCMSSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/storyblok-cms-seo-expert" element={<StoryblokSEOExpertPage onBook={handleBookConsultation} />} />
-        <Route path="/services/shopify-seo-expert" element={<ShopifySEOExpertPage />} />
+        <Route path="/services/cms-seo/wordpress-seo-expert" element={<WordPressSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/drupal-seo-expert" element={<DrupalSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/joomla-seo-expert" element={<JoomlaSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/typo3-seo-expert" element={<TYPO3SEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/ghost-seo-expert" element={<GhostSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/craft-cms-seo-expert" element={<CraftCMSSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/concrete-cms-seo-expert" element={<ConcreteCMSSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/modx-seo-expert" element={<MODXSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/contentful-cms-seo-expert" element={<ContentfulCMSSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/storyblok-cms-seo-expert" element={<StoryblokSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/shopify-seo-expert" element={<ShopifySEOExpertPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 

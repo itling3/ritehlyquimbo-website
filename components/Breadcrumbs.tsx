@@ -26,12 +26,13 @@ const Breadcrumbs: React.FC = () => {
       'ai-automation-plans': 'AI Automation Plans',
       'google-ads-sem': 'Google Ads & SEM',
       'web-dev-packages': 'Web Dev Packages',
+      'cms-seo': 'CMS SEO',
     };
 
     if (staticMap[path]) return staticMap[path];
 
     // Dynamic mappings for services
-    if (pathnames[index - 1] === 'services') {
+    if (pathnames[index - 1] === 'services' || pathnames[index - 1] === 'cms-seo') {
       const service = Object.values(SERVICE_DETAILS).find((s) => s.slug === path);
       if (service) return service.title;
     }

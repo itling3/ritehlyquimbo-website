@@ -363,7 +363,7 @@ const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                         <p className="text-white font-bold text-base italic">"We tuned your varnish cache, optimized the DB queries, and mapped your taxonomy for unshakeable topical authority."</p>
                      </div>
                      <div className="mt-10 pt-6 border-t border-white/5">
-                        <Link to="/services/wordpress-seo-expert" className="text-[10px] font-black text-blue-400 hover:text-blue-300 uppercase tracking-[0.2em] italic flex items-center justify-between group">
+                        <Link to="/services/cms-seo/wordpress-seo-expert" className="text-[10px] font-black text-blue-400 hover:text-blue-300 uppercase tracking-[0.2em] italic flex items-center justify-between group">
                            Need something simpler? See WordPress SEO <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                      </div>

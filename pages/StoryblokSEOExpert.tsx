@@ -612,50 +612,6 @@ const StoryblokSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* INTERNAL LINKS SECTION (for SEO) */}
-      <section className="py-20 px-4 bg-black border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-              {[
-                { t: "Expert SEO Solutions", links: [
-                  <Link key="l1" to="/services/wordpress-seo-expert" className="hover:text-emerald-500">WordPress SEO Expert</Link>,
-                  <Link key="l2" to="/services/shopify-seo-expert" className="hover:text-emerald-500">Shopify SEO Specialist</Link>,
-                  <Link key="l3" to="/services/contentful-cms-seo-expert" className="hover:text-emerald-500">Contentful SEO Specialist</Link>,
-                  <Link key="l4" to="/services/ghost-seo-expert" className="hover:text-emerald-500">Ghost CMS SEO</Link>
-                ] },
-                { t: "Core SEO Frameworks", links: [
-                  <Link key="l5" to="/services/technical-on-page-seo-optimization" className="hover:text-emerald-500">Technical SEO Audit</Link>,
-                  <Link key="l6" to="/services/keyword-research-intent-mapping" className="hover:text-emerald-500">Keyword Intent Mapping</Link>,
-                  <Link key="l7" to="/services/topical-maps-semantic-authority" className="hover:text-emerald-500">Topical Authority Strategy</Link>,
-                  <Link key="l8" to="/services/ai-seo-automation" className="hover:text-emerald-500">AI Search Optimization</Link>
-                ] },
-                { t: "Success & Engagement", links: [
-                  <Link key="l9" to="/portfolio" className="hover:text-emerald-500">SEO Success Stories</Link>,
-                  <Link key="l10" to="/pricing" className="hover:text-emerald-500">SEO Management Pricing</Link>,
-                  <Link key="l11" to="/contact" className="hover:text-emerald-500">Hire an SEO Expert</Link>,
-                  <Link key="l12" to="/about" className="hover:text-emerald-500">The SEO Methodology</Link>
-                ] }
-              ].map((col, i) => (
-                <div key={i}>
-                   <h4 className="text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-6 italic">{col.t}</h4>
-                   <ul className="space-y-4">
-                      {col.links.map((link, ii) => (
-                        <li key={ii} className="text-sm font-bold text-gray-500 italic">
-                           {link}
-                        </li>
-                      ))}
-                   </ul>
-                </div>
-              ))}
-           </div>
-           <div className="mt-20 pt-10 border-t border-white/5 text-center">
-              <div className="text-[10px] font-black text-gray-600 uppercase tracking-widest italic">
-                 &copy; {new Date().getFullYear()} Storyblok SEO Growth Architectural Systems. All rights reserved.
-              </div>
-           </div>
-        </div>
-      </section>
-
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 w-full p-4 z-50 md:hidden pointer-events-none">
          <div className="max-w-md mx-auto pointer-events-auto flex gap-2">

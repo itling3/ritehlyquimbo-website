@@ -233,7 +233,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'wordpress-seo': {
     id: 'wordpress-seo',
     slug: 'wordpress-seo-expert',
-    permalink: '/services/wordpress-seo-expert',
+    permalink: '/services/cms-seo/wordpress-seo-expert',
     title: 'WordPress SEO Expert',
     titleH1: 'WordPress SEO Expert Services That Drive Rankings, Traffic & Leads',
     icon: '🔌',
@@ -262,7 +262,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'drupal-seo': {
     id: 'drupal-seo',
     slug: 'drupal-seo-expert',
-    permalink: '/services/drupal-seo-expert',
+    permalink: '/services/cms-seo/drupal-seo-expert',
     title: 'Drupal SEO Expert',
     titleH1: 'Technical Drupal SEO That Drives Organic Traffic & Enterprise Growth',
     icon: '💧',
@@ -291,7 +291,7 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
   'joomla-seo': {
     id: 'joomla-seo',
     slug: 'joomla-seo-expert',
-    permalink: '/services/joomla-seo-expert',
+    permalink: '/services/cms-seo/joomla-seo-expert',
     title: 'Joomla SEO Expert',
     titleH1: 'Joomla SEO Expert — Rank Higher on Google & AI Search',
     icon: '⚡',
@@ -342,7 +342,7 @@ Ready to grow your Joomla website? [Book Your Free SEO Strategy Call](/contact).
   'typo3-seo': {
     id: 'typo3-seo',
     slug: 'typo3-seo-expert',
-    permalink: '/services/typo3-seo-expert',
+    permalink: '/services/cms-seo/typo3-seo-expert',
     title: 'TYPO3 SEO Expert',
     titleH1: 'TYPO3 SEO Expert — Rank Higher & Scale Growth',
     icon: '🏗️',
@@ -393,7 +393,7 @@ Ready to grow your enterprise visibility? [Book Your Free SEO Strategy Call](/co
   'ghost-seo': {
     id: 'ghost-seo',
     slug: 'ghost-seo-expert',
-    permalink: '/services/ghost-seo-expert',
+    permalink: '/services/cms-seo/ghost-seo-expert',
     title: 'Ghost SEO Expert',
     titleH1: 'Ghost SEO Expert Services That Grow Organic Traffic',
     icon: '👻',
@@ -444,7 +444,7 @@ Ready to grow your publishing organic reach? [Book Your Free SEO Strategy Call](
   'craft-seo': {
     id: 'craft-seo',
     slug: 'craft-cms-seo-expert',
-    permalink: '/services/craft-cms-seo-expert',
+    permalink: '/services/cms-seo/craft-cms-seo-expert',
     title: 'Craft CMS SEO Expert',
     titleH1: 'Craft CMS SEO Expert Services That Drive Rankings, Traffic & Revenue',
     icon: '🛠️',
@@ -495,7 +495,7 @@ Ready to grow your Craft CMS website? [Book Your Free SEO Strategy Call](/contac
   'concrete-seo': {
     id: 'concrete-seo',
     slug: 'concrete-cms-seo-expert',
-    permalink: '/services/concrete-cms-seo-expert',
+    permalink: '/services/cms-seo/concrete-cms-seo-expert',
     title: 'Concrete CMS SEO Expert',
     titleH1: 'Concrete CMS SEO Expert That Helps You Rank Higher & Get Qualified Traffic',
     icon: '🧱',
@@ -546,7 +546,7 @@ Ready to grow your Concrete CMS website? [Book Your Free SEO Strategy Call](/con
   'modx-seo': {
     id: 'modx-seo',
     slug: 'modx-seo-expert',
-    permalink: '/services/modx-seo-expert',
+    permalink: '/services/cms-seo/modx-seo-expert',
     title: 'MODX SEO Expert',
     titleH1: 'MODX SEO Expert Services That Turn Your Website Into a Traffic Machine',
     icon: '🌀',
@@ -597,7 +597,7 @@ Ready to grow your MODX website? [Book Your Free SEO Strategy Call](/contact).`,
   'contentful-seo': {
     id: 'contentful-seo',
     slug: 'contentful-cms-seo-expert',
-    permalink: '/services/contentful-cms-seo-expert',
+    permalink: '/services/cms-seo/contentful-cms-seo-expert',
     title: 'Contentful CMS SEO Expert',
     titleH1: 'Contentful CMS SEO Expert That Turns Your Website Into a Traffic Engine',
     icon: '☁️',
@@ -648,7 +648,7 @@ Ready to grow your Contentful website? [Book Your Free SEO Strategy Call](/conta
   'shopify-seo': {
     id: 'shopify-seo',
     slug: 'shopify-seo-expert',
-    permalink: '/services/shopify-seo-expert',
+    permalink: '/services/cms-seo/shopify-seo-expert',
     title: 'Shopify SEO Expert',
     titleH1: 'Shopify SEO Expert That Turns Your Store Into a Revenue Engine',
     icon: '🛍️',
@@ -699,7 +699,7 @@ Ready to grow your Shopify store? [Book Your Free SEO Strategy Call](/contact).`
   'storyblok-seo': {
     id: 'storyblok-seo',
     slug: 'storyblok-cms-seo-expert',
-    permalink: '/services/storyblok-cms-seo-expert',
+    permalink: '/services/cms-seo/storyblok-cms-seo-expert',
     title: 'Storyblok CMS SEO Expert',
     titleH1: 'Storyblok CMS SEO Expert — Enterprise-Grade Headless SEO Rankings',
     icon: '🏗️',
