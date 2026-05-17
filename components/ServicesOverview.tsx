@@ -32,13 +32,6 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
       color: 'text-green-500', 
       borderColor: 'border-green-500/20',
       glow: 'shadow-green-500/10'
-    },
-    { 
-      title: 'CMS EXPERTISE', 
-      services: SERVICES.slice(12, 23), 
-      color: 'text-orange-500', 
-      borderColor: 'border-orange-500/20',
-      glow: 'shadow-orange-500/10'
     }
   ];
 
@@ -69,19 +62,13 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-8">
           {categories.map((cat, idx) => (
             <div key={idx} className="space-y-8 md:space-y-10">
               <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-                {cat.title === 'CMS EXPERTISE' ? (
-                  <Link to="/services/cms-seo" className={`text-sm md:text-base font-black italic tracking-[0.3em] uppercase ${cat.color} hover:text-white transition-colors`}>
-                    {cat.title} →
-                  </Link>
-                ) : (
-                  <h2 className={`text-sm md:text-base font-black italic tracking-[0.3em] uppercase ${cat.color}`}>
-                    {cat.title}
-                  </h2>
-                )}
+                <h2 className={`text-sm md:text-base font-black italic tracking-[0.3em] uppercase ${cat.color}`}>
+                  {cat.title}
+                </h2>
                 <div className="h-[1px] flex-1 bg-white/5"></div>
               </div>
 
