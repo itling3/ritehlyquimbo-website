@@ -217,7 +217,8 @@ export const SERVICES = [
   { id: 'virtual-assistance', title: 'Operational Support', description: 'High-level operational and technical support to streamline your business workflows and scale capacity.', icon: '💼' },
   { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' },
   { id: 'wordpress-seo', title: 'WordPress SEO Expert', description: 'High-converting WordPress optimization strategies that drive rankings, traffic, and leads.', icon: '🔌' },
-  { id: 'drupal-seo', title: 'Drupal SEO Expert', description: 'Enterprise-grade Drupal SEO optimization for scalability, security, and organic dominance.', icon: '💧' }
+  { id: 'drupal-seo', title: 'Drupal SEO Expert', description: 'Enterprise-grade Drupal SEO optimization for scalability, security, and organic dominance.', icon: '💧' },
+  { id: 'joomla-seo', title: 'Joomla SEO Expert', description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings and better visibility.', icon: '⚡' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -277,6 +278,57 @@ export const SERVICE_DETAILS: Record<string, ServiceContent> = {
     faqs: [
       { question: 'Do you work with Drupal 7, 9, or 10?', answer: 'We specialize in modern Drupal (9/10) but also provide technical stabilization and migration SEO for Drupal 7 sites looking to upgrade without losing rankings.' },
       { question: 'Can you handle multilingual Drupal SEO?', answer: 'Yes. We are experts in hreflang implementation and language-specific taxonomy for large-scale international Drupal setups.' }
+    ]
+  },
+  'joomla-seo': {
+    id: 'joomla-seo',
+    slug: 'joomla-seo-expert',
+    permalink: '/services/joomla-seo-expert',
+    title: 'Joomla SEO Expert',
+    titleH1: 'Joomla SEO Expert — Rank Higher on Google & AI Search',
+    icon: '⚡',
+    description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings, faster websites, and better visibility in AI search.',
+    seoTitle: 'Joomla SEO Expert Services | Rank Higher on Google & AI Search',
+    metaDescription: 'Get more leads from your Joomla website with expert SEO. We optimize for rankings, traffic, and conversions without long-term contracts.',
+    keywords: 'joomla seo expert, joomla seo services, joomla ranking, joomla optimization, hire joomla seo',
+    painPoint: 'Your Joomla website is struggling to rank, and competitors are taking all the visibility.',
+    problem: 'Joomla can be technically complex to optimize. Without the right structure, your site remains invisible to Google and AI search engines.',
+    solution: 'Custom Joomla SEO strategies that combine technical precision with high-intent content mapping to drive real growth.',
+    importance: 'Joomla is a powerful CMS, but its SEO potential is often untapped. We bridge the gap between technical complexity and search engine dominance.',
+    features: [
+      'Joomla Core Optimization',
+      'Technical SEO Audit',
+      'Semantic Keyword Mapping',
+      'Performance & Speed Tuning',
+      'Schema Markup Integration',
+      'Transparent SEO Reporting'
+    ],
+    contentBody: `### Joomla SEO Expert — Rank Higher on Google & AI Search
+
+Get More Leads From Your Joomla Website With Expert SEO. Specialized Joomla SEO optimization for businesses that want higher Google rankings, faster websites, better visibility in AI search, and more qualified leads.
+
+#### Why Choose Specialist Joomla SEO?
+Joomla is a versatile CMS, but it requires a specialized approach to outperform competitors. We focus on the technical nuances that allow Joomla sites to scale their visibility.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** We optimize your [On-Page SEO](/services/technical-on-page-seo-optimization) for maximum resonance.
+3. **Semantic Mapping:** Building authority through specialized [Topical Maps](/services/topical-maps-semantic-authority).
+4. **Authority Growth:** Strengthening your domain via [Digital PR & Authority](/services/digital-pr-authority-backlinks).
+
+#### SEO Services Built for Growth
+Our approach is designed for real business outcomes. We don't just track rankings; we track leads and growth.
+
+* **No long-term contracts**
+* **Custom Joomla SEO strategy**
+* **Transparent reporting**
+* **No-obligation consultation**
+
+Ready to grow your Joomla website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why do I need a Joomla SEO Expert?', answer: 'Joomla has a unique architecture. A specialist understands how to optimize its core features, extensions, and metadata structures specifically for search engines.' },
+      { question: 'How long until I see rankings improve?', answer: 'Initial technical improvements can be seen in weeks, but competitive rankings typically stabilize over 3-6 months.' },
+      { question: 'Do you work with Joomla 4 and 5?', answer: 'Yes, we optimize all versions of Joomla, including the latest performance improvements in Joomla 5.' },
+      { question: 'Is Joomla SEO different from WordPress SEO?', answer: 'Yes. While basic principles apply, the implementation of sitemaps, SEF URLs, and core optimization is handled differently in Joomla.' }
     ]
   },
   'keyword-research': {
