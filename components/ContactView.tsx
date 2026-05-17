@@ -1,7 +1,7 @@
 
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowLeft, Mail, Phone, MapPin, MessageSquare, ExternalLink, Calendar, Send, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ArrowLeft, Mail, Phone, MapPin, MessageSquare, ExternalLink, Calendar, Send, Sparkles, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import SEO from './SEO';
 
 interface ContactViewProps {
@@ -10,6 +10,44 @@ interface ContactViewProps {
 }
 
 const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
+  const [formData, setFormData] = useState({
+    customer_name: '',
+    customer_email: '',
+    customer_message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus('success');
+        setFormData({ customer_name: '', customer_email: '', customer_message: '' });
+      } else {
+        setStatus('error');
+        setErrorMessage(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Network error. Please check your connection.');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div className="min-h-screen bg-[#030712] pt-32 pb-20 px-4 md:px-6">
       <SEO 
@@ -100,48 +138,142 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
               </p>
               <button 
                 onClick={onBook}
-                className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic transition-all shadow-lg shadow-blue-600/20 active:scale-95"
+                className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic transition-all shadow-lg shadow-blue-600/20 active:scale-95 flex items-center gap-2"
               >
-                Open Calendar →
+                Open Calendar <ArrowLeft className="w-3 h-3 rotate-180" />
               </button>
             </motion.div>
           </div>
 
-          {/* Right: Form/CTA */}
+          {/* Right: Actual Form */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
-            className="p-10 md:p-12 glass-morphism rounded-[3rem] border border-white/10 relative overflow-hidden flex flex-col justify-center"
+            className="p-10 md:p-12 glass-morphism rounded-[3rem] border border-white/10 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-[100px] rounded-full"></div>
             
-            <div className="relative z-10 text-center space-y-8">
-              <div className="w-20 h-20 bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center mx-auto mb-8">
-                <MessageSquare className="w-8 h-8 text-blue-500" />
-              </div>
-              
-              <div className="space-y-4">
-                <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter">Detailed Inquiry Form</h2>
-                <p className="text-gray-400 text-sm font-medium leading-relaxed max-w-sm mx-auto">
-                  For complex projects requiring AI tools or deep technical SEO, please use our detailed growth questionnaire.
-                </p>
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center">
+                  <MessageSquare className="w-6 h-6 text-blue-500" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-black text-white uppercase italic tracking-tighter">Inquiry Form</h2>
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Share your project goals</p>
+                </div>
               </div>
 
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-6 bg-white/5 hover:bg-white/10 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic transition-all border border-white/10 active:scale-95"
-              >
-                Complete Inquiry Form <ExternalLink className="w-4 h-4 text-blue-500" />
-              </a>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label htmlFor="customer_name" className="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] ml-2">Full Name</label>
+                  <input
+                    type="text"
+                    id="customer_name"
+                    name="customer_name"
+                    required
+                    value={formData.customer_name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-white text-sm font-medium focus:border-blue-500/50 focus:bg-white/10 transition-all outline-none placeholder:text-gray-600"
+                  />
+                </div>
 
-              <div className="pt-8 flex items-center justify-center gap-4 text-[10px] text-gray-500 font-bold uppercase tracking-widest">
-                <Sparkles className="w-3 h-3 text-blue-500" />
-                <span>Response time: &lt; 24 Hours</span>
-                <Sparkles className="w-3 h-3 text-blue-500" />
-              </div>
+                <div className="space-y-2">
+                  <label htmlFor="customer_email" className="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] ml-2">Email Address</label>
+                  <input
+                    type="email"
+                    id="customer_email"
+                    name="customer_email"
+                    required
+                    value={formData.customer_email}
+                    onChange={handleChange}
+                    placeholder="name@company.com"
+                    className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-white text-sm font-medium focus:border-blue-500/50 focus:bg-white/10 transition-all outline-none placeholder:text-gray-600"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="customer_message" className="text-[10px] text-gray-400 font-black uppercase tracking-[0.2em] ml-2">Message</label>
+                  <textarea
+                    id="customer_message"
+                    name="customer_message"
+                    required
+                    value={formData.customer_message}
+                    onChange={handleChange}
+                    rows={4}
+                    placeholder="Tell me about your growth goals..."
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white text-sm font-medium focus:border-blue-500/50 focus:bg-white/10 transition-all outline-none placeholder:text-gray-600 resize-none"
+                  ></textarea>
+                </div>
+
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="w-full h-16 bg-blue-600 hover:bg-blue-500 disabled:bg-gray-800 disabled:cursor-not-allowed text-white font-black rounded-2xl uppercase tracking-[0.2em] italic transition-all flex items-center justify-center gap-3 group relative overflow-hidden"
+                  >
+                    <AnimatePresence mode="wait">
+                      {status === 'loading' ? (
+                        <motion.div
+                          key="loading"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center gap-2"
+                        >
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <span>Processing...</span>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="idle"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center gap-2"
+                        >
+                          <span>Send Message</span>
+                          <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </button>
+                </div>
+
+                <AnimatePresence>
+                  {status === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="p-4 bg-green-500/10 border border-green-500/20 rounded-2xl flex items-center gap-3"
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      <p className="text-xs text-green-200 font-bold">Growth request received! I'll be in touch within 24 hours.</p>
+                    </motion.div>
+                  )}
+
+                  {status === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center gap-3"
+                    >
+                      <AlertCircle className="w-5 h-5 text-red-500" />
+                      <p className="text-xs text-red-200 font-bold">{errorMessage}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <div className="flex items-center justify-center gap-4 text-[10px] text-gray-600 font-bold uppercase tracking-widest pt-4">
+                  <Sparkles className="w-3 h-3 text-blue-500" />
+                  <span>Secure Submission via Web3Forms</span>
+                  <Sparkles className="w-3 h-3 text-blue-500" />
+                </div>
+              </form>
             </div>
           </motion.div>
         </div>

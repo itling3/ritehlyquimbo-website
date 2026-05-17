@@ -20,9 +20,13 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  // Add body parser for JSON and Form data
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+
   // Track if server is actually handling requests
   app.use(async (req, res, next) => {
-    if (req.url === '/api/seo-health') return next();
+    if (req.url === '/api/seo-health' || req.url === '/api/contact') return next();
     const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
     await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
     next();
@@ -30,6 +34,49 @@ async function startServer() {
 
   app.get('/api/seo-health', (req, res) => {
     res.json({ status: 'ok', time: new Date().toISOString() });
+  });
+
+  app.post('/api/contact', async (req, res) => {
+    try {
+      const { customer_name, customer_email, customer_message } = req.body;
+      
+      // Use the access key provided by the environment
+      const access_key = process.env.WEB3FORMS_ACCESS_KEY;
+
+      if (!access_key) {
+        console.error('Missing WEB3FORMS_ACCESS_KEY in environment');
+        return res.status(500).json({ 
+          success: false, 
+          message: 'Contact form is not yet configured. Please set WEB3FORMS_ACCESS_KEY in environment variables.' 
+        });
+      }
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key,
+          name: customer_name,
+          email: customer_email,
+          message: customer_message,
+          subject: `New Lead from SEO Expert: ${customer_name}`,
+          from_name: 'Ritehly Quimbo Portfolio'
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        return res.json({ success: true, message: 'Message sent successfully' });
+      } else {
+        return res.status(400).json({ success: false, message: result.message || 'Failed to send message' });
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
   });
 
   app.use(compression());
