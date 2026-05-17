@@ -3,21 +3,31 @@ import React from 'react';
 
 interface SectionCTAProps {
   onClick: (e: React.MouseEvent) => void;
+  title?: string;
+  description?: string;
   text?: string;
   buttonText?: string;
 }
 
 const SectionCTA: React.FC<SectionCTAProps> = ({ 
   onClick, 
-  text = "Ready to start your growth journey?", 
+  title,
+  description,
+  text,
   buttonText = "Book Free Strategy Session" 
 }) => {
+  const displayTitle = title || text || "Ready to start your growth journey?";
   return (
-    <div className="py-12 px-6 flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-transparent via-blue-600/5 to-transparent border-y border-white/5">
-      <p className="text-gray-400 text-sm font-bold uppercase tracking-[0.3em] text-center">
-        {text}
-      </p>
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+    <div className="py-20 px-6 flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-transparent via-blue-600/5 to-transparent border-y border-white/5">
+      <h2 className="text-3xl md:text-5xl font-black text-white italic tracking-tighter text-center uppercase">
+        {displayTitle}
+      </h2>
+      {description && (
+        <p className="text-gray-400 text-lg font-medium italic text-center max-w-2xl">
+          {description}
+        </p>
+      )}
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mt-4">
         <button 
           onClick={onClick}
           className="animate-cta-pulse animate-shine group relative px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-xl shadow-blue-500/20 uppercase tracking-tighter overflow-hidden whitespace-nowrap"

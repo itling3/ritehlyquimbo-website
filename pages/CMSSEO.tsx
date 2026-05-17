@@ -7,11 +7,10 @@ import { ArrowRight, Globe, Zap, Shield, Search, Layout } from 'lucide-react';
 import { SERVICES, SERVICE_DETAILS } from '../constants';
 import SectionCTA from '../components/SectionCTA';
 
-interface CMSSEOPageProps {
-  onBook?: (e?: React.MouseEvent) => void;
-}
+const CMSSEOPage: React.FC = () => {
+  // Extract CMS services from the SERVICES array
+  const cmsServices = SERVICES.slice(12, 23);
 
-const CMSSEOPage: React.FC<CMSSEOPageProps> = ({ onBook }) => {
   return (
     <div className="pt-24 min-h-screen bg-slate-50">
       <Helmet>
@@ -80,6 +79,47 @@ const CMSSEOPage: React.FC<CMSSEOPageProps> = ({ onBook }) => {
                 <div className="text-sm text-slate-500 uppercase tracking-wider font-medium">{stat.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {cmsServices.map((service, idx) => {
+              const details = SERVICE_DETAILS[service.id];
+              const targetUrl = details?.permalink || `/services/cms-seo/${service.id}-expert`;
+              
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <Link
+                    to={targetUrl}
+                    className="group p-8 rounded-2xl bg-white border border-slate-200 hover:border-orange-200 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 flex flex-col h-full"
+                  >
+                    <div className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all duration-300">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-orange-600 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-600 mb-8 flex-grow leading-relaxed">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center text-orange-600 font-semibold group-hover:gap-2 transition-all">
+                      <span>Explore Service</span>
+                      <ArrowRight size={18} className="ml-2" />
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -158,8 +198,9 @@ const CMSSEOPage: React.FC<CMSSEOPageProps> = ({ onBook }) => {
       </section>
 
       <SectionCTA 
-        onClick={onBook || (() => {})}
-        text="Ready to Dominate Your Platform's niche? Stop fighting your CMS and start using it as a growth engine."
+        onClick={() => window.open('https://ritehlyquimbo.com/contact', '_blank')}
+        title="Ready to Dominate Your Platform's niche?"
+        description="Stop fighting your CMS and start using it as a growth engine. Book your free strategy call today."
         buttonText="Book Your Consultation"
       />
     </div>

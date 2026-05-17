@@ -216,32 +216,535 @@ export const SERVICES = [
   { id: 'lead-generation', title: 'B2B Lead Generation', description: 'Strategic prospecting and automated outreach systems to build a predictable sales pipeline.', icon: '🎯' },
   { id: 'virtual-assistance', title: 'Operational Support', description: 'High-level operational and technical support to streamline your business workflows and scale capacity.', icon: '💼' },
   { id: 'web-design', title: 'Full-Stack Web Dev', description: 'High-performance, conversion-centered digital architecture built for speed and search dominance.', icon: '💻' },
-  { id: 'cms-seo', title: 'CMS SEO Solutions', description: 'Platform-specific search dominance for WordPress, Shopify, Headless CMS, and enterprise platforms.', icon: '🛠️' }
+  { id: 'wordpress-seo', title: 'WordPress SEO Expert', description: 'High-converting WordPress optimization strategies that drive rankings, traffic, and leads.', icon: '🔌' },
+  { id: 'drupal-seo', title: 'Drupal SEO Expert', description: 'Enterprise-grade Drupal SEO optimization for scalability, security, and organic dominance.', icon: '💧' },
+  { id: 'joomla-seo', title: 'Joomla SEO Expert', description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings and better visibility.', icon: '⚡' },
+  { id: 'typo3-seo', title: 'TYPO3 SEO Expert', description: 'Enterprise-scale technical SEO for TYPO3 websites focused on rankings and business growth.', icon: '🏗️' },
+  { id: 'ghost-seo', title: 'Ghost SEO Expert', description: 'Specialized SEO for Ghost CMS publishers and SaaS brands focused on rankings and conversions.', icon: '👻' },
+  { id: 'craft-seo', title: 'Craft CMS SEO Expert', description: 'Specialized SEO for Craft CMS websites and commerce stores focused on rankings and conversions.', icon: '🛠️' },
+  { id: 'concrete-seo', title: 'Concrete CMS SEO Expert', description: 'Specialized SEO for Concrete CMS websites focused on platform-specific growth and revenue.', icon: '🧱' },
+  { id: 'modx-seo', title: 'MODX SEO Expert', description: 'Technical MODX SEO optimization for Revolution and Evolution platforms to drive organic dominance.', icon: '🌀' },
+  { id: 'contentful-seo', title: 'Contentful CMS SEO Expert', description: 'Enterprise-grade headless SEO for Contentful websites to drive organic growth and rankings.', icon: '☁️' },
+  { id: 'shopify-seo', title: 'Shopify SEO Expert', description: 'Revenue-focused Shopify SEO optimization for Google and AI search to scale organic store growth.', icon: '🛍️' },
+  { id: 'storyblok-seo', title: 'Storyblok CMS SEO Expert', description: 'High-performance headless SEO for Storyblok websites. We optimize content models and API delivery for search dominance.', icon: '🏗️' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
-  'cms-seo': {
-    id: 'cms-seo',
-    slug: 'cms-seo',
-    permalink: '/services/cms-seo',
-    title: 'CMS SEO Solutions',
-    icon: '🛠️',
-    description: 'Expert, platform-specific search dominance for WordPress, Shopify, Headless CMS, and custom enterprise frameworks.',
-    seoTitle: 'CMS SEO Expert Services | WordPress, Shopify, Headless & More',
-    metaDescription: 'Specialized SEO for every major CMS. We optimize WordPress, Shopify, Drupal, and Headless platforms for maximum rankings and performance.',
-    keywords: 'cms seo expert, wordpress seo, shopify seo, headless cms seo, contentful seo, storyblok seo',
-    painPoint: 'Your CMS platform is holding your rankings back due to technical constraints.',
-    problem: 'Generic SEO ignores the technical nuances of your specific platform, leading to missed opportunities and ranking limits.',
-    solution: 'Platform-native search engineering that bridges the gap between your CMS architecture and search dominance.',
-    importance: 'Your CMS is the foundation of your digital presence. If it isn\'t optimized at the core level, your SEO will never reach its full potential.',
-    features: ['Technical Platform Audits', 'CMS Native Optimization', 'Speed & Performance Tuning', 'Architecture & Schema Mapping'],
-    contentBody: `Platform-Native Search Dominance.
-Expert CMS SEO Solutions for WordPress, Shopify, Headless, and Enterprise Platforms.
-
-Generic SEO doesn't work for specific platforms. We bridge the gap between technical CMS architecture and search engine dominance.`,
+  'wordpress-seo': {
+    id: 'wordpress-seo',
+    slug: 'wordpress-seo-expert',
+    permalink: '/services/cms-seo/wordpress-seo-expert',
+    title: 'WordPress SEO Expert',
+    titleH1: 'WordPress SEO Expert Services That Drive Rankings, Traffic & Leads',
+    icon: '🔌',
+    description: 'Hire a WordPress SEO Expert that actually understands conversion. We optimize your CMS for speed, security, and sales.',
+    seoTitle: 'WordPress SEO Expert Services | Rank Higher & Convert More Leads',
+    metaDescription: 'Boost your WordPress site rankings with expert SEO services. We specialize in speed optimization, technical SEO, and conversion-centered design for WordPress.',
+    keywords: 'wordpress seo expert, wordpress seo services, wordpress speed optimization, technical seo wordpress, hire wordpress seo',
+    painPoint: 'Your WordPress site is slow, outdated, and ignored by Google.',
+    problem: 'Bloated themes and half-baked plugins are killing your conversion rate and search rankings.',
+    solution: 'High-performance search engineering that turns WordPress into a lead-generation machine.',
+    importance: 'WordPress powers 40% of the web. If you aren\'t optimized, you aren\'t competing.',
+    features: [
+      'Core Web Vitals Optimization',
+      'Custom Schema Architecture',
+      'Dynamic Content Silos',
+      'Hardened Security Setup',
+      'Advanced Conversion Tracking',
+      'Sitemap & Robot.txt Engineering'
+    ],
+    contentBody: `WordPress SEO that actually moves the needle. More than just a plugin—pure engineering.`,
     faqs: [
-      { question: 'Why do I need a platform-specific SEO expert?', answer: 'Every CMS has unique technical quirks—from WordPress plugin bloat to Headless API delivery gaps. A specialist understands these nuances and can optimize your site at the core level for maximum performance.' },
-      { question: 'Do you work with headless platforms like Contentful or Storyblok?', answer: 'Yes. We specialize in "Headless SEO," ensuring that your decoupled architecture doesn\'t result in ranking loss. We optimize content models and API delivery for search dominance.' }
+      { question: 'Why hire a WordPress SEO Expert instead of just using a plugin?', answer: 'Plugins are tools, not a strategy. An expert understands how to optimize your database, core web vitals, and semantic architecture beyond what Yoast or RankMath can do. We focus on the engineering that drives rankings.' },
+      { question: 'How long does it take to see results for WordPress SEO?', answer: 'Technical fixes often show impact in 4-6 weeks. Content and authority building typically take 3-6 months for significant competitive keywords.' }
+    ]
+  },
+  'drupal-seo': {
+    id: 'drupal-seo',
+    slug: 'drupal-seo-expert',
+    permalink: '/services/cms-seo/drupal-seo-expert',
+    title: 'Drupal SEO Expert',
+    titleH1: 'Technical Drupal SEO That Drives Organic Traffic & Enterprise Growth',
+    icon: '💧',
+    description: 'Advanced Drupal SEO services including technical optimization, site architecture, and enterprise search visibility improvements.',
+    seoTitle: 'Drupal SEO Expert Services | Enterprise Technical SEO Specialist',
+    metaDescription: 'Scalable Drupal SEO solutions for enterprise brands. We optimize Drupal architecture, taxonomy, and performance for maximum search visibility.',
+    keywords: 'drupal seo expert, drupal seo services, enterprise drupal seo, technical drupal seo, drupal performance optimization',
+    painPoint: 'Enterprise Drupal sites often suffer from crawlability issues and bloated architecture.',
+    problem: 'Generic SEO agencies lack the technical depth to optimize complex Drupal taxonomy and multi-location setups.',
+    solution: 'Deep technical Drupal engineering combined with enterprise SEO data strategies.',
+    importance: 'For high-security, high-scalability environments, Drupal SEO requires a specialist who understands the core.',
+    features: [
+      'Taxonomy & Token Optimization',
+      'Enterprise Schema Implementation',
+      'Multi-site SEO Governance',
+      'Advanced Caching Strategies',
+      'Semantic URL Re-engineering',
+      'Drupal Migration Preservation'
+    ],
+    contentBody: `Enterprise Drupal SEO requires a scalpel, not a sledgehammer. We optimize from the hook system up.`,
+    faqs: [
+      { question: 'Do you work with Drupal 7, 9, or 10?', answer: 'We specialize in modern Drupal (9/10) but also provide technical stabilization and migration SEO for Drupal 7 sites looking to upgrade without losing rankings.' },
+      { question: 'Can you handle multilingual Drupal SEO?', answer: 'Yes. We are experts in hreflang implementation and language-specific taxonomy for large-scale international Drupal setups.' }
+    ]
+  },
+  'joomla-seo': {
+    id: 'joomla-seo',
+    slug: 'joomla-seo-expert',
+    permalink: '/services/cms-seo/joomla-seo-expert',
+    title: 'Joomla SEO Expert',
+    titleH1: 'Joomla SEO Expert — Rank Higher on Google & AI Search',
+    icon: '⚡',
+    description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings, faster websites, and better visibility in AI search.',
+    seoTitle: 'Joomla SEO Expert Services | Rank Higher on Google & AI Search',
+    metaDescription: 'Get more leads from your Joomla website with expert SEO. We optimize for rankings, traffic, and conversions without long-term contracts.',
+    keywords: 'joomla seo expert, joomla seo services, joomla ranking, joomla optimization, hire joomla seo',
+    painPoint: 'Your Joomla website is struggling to rank, and competitors are taking all the visibility.',
+    problem: 'Joomla can be technically complex to optimize. Without the right structure, your site remains invisible to Google and AI search engines.',
+    solution: 'Custom Joomla SEO strategies that combine technical precision with high-intent content mapping to drive real growth.',
+    importance: 'Joomla is a powerful CMS, but its SEO potential is often untapped. We bridge the gap between technical complexity and search engine dominance.',
+    features: [
+      'Joomla Core Optimization',
+      'Technical SEO Audit',
+      'Semantic Keyword Mapping',
+      'Performance & Speed Tuning',
+      'Schema Markup Integration',
+      'Transparent SEO Reporting'
+    ],
+    contentBody: `### Joomla SEO Expert — Rank Higher on Google & AI Search
+
+Get More Leads From Your Joomla Website With Expert SEO. Specialized Joomla SEO optimization for businesses that want higher Google rankings, faster websites, better visibility in AI search, and more qualified leads.
+
+#### Why Choose Specialist Joomla SEO?
+Joomla is a versatile CMS, but it requires a specialized approach to outperform competitors. We focus on the technical nuances that allow Joomla sites to scale their visibility.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** We optimize your [On-Page SEO](/services/technical-on-page-seo-optimization) for maximum resonance.
+3. **Semantic Mapping:** Building authority through specialized [Topical Maps](/services/topical-maps-semantic-authority).
+4. **Authority Growth:** Strengthening your domain via [Digital PR & Authority](/services/digital-pr-authority-backlinks).
+
+#### SEO Services Built for Growth
+Our approach is designed for real business outcomes. We don't just track rankings; we track leads and growth.
+
+* **No long-term contracts**
+* **Custom Joomla SEO strategy**
+* **Transparent reporting**
+* **No-obligation consultation**
+
+Ready to grow your Joomla website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why do I need a Joomla SEO Expert?', answer: 'Joomla has a unique architecture. A specialist understands how to optimize its core features, extensions, and metadata structures specifically for search engines.' },
+      { question: 'How long until I see rankings improve?', answer: 'Initial technical improvements can be seen in weeks, but competitive rankings typically stabilize over 3-6 months.' },
+      { question: 'Do you work with Joomla 4 and 5?', answer: 'Yes, we optimize all versions of Joomla, including the latest performance improvements in Joomla 5.' },
+      { question: 'Is Joomla SEO different from WordPress SEO?', answer: 'Yes. While basic principles apply, the implementation of sitemaps, SEF URLs, and core optimization is handled differently in Joomla.' }
+    ]
+  },
+  'typo3-seo': {
+    id: 'typo3-seo',
+    slug: 'typo3-seo-expert',
+    permalink: '/services/cms-seo/typo3-seo-expert',
+    title: 'TYPO3 SEO Expert',
+    titleH1: 'TYPO3 SEO Expert — Rank Higher & Scale Growth',
+    icon: '🏗️',
+    description: 'Enterprise-scale technical SEO for TYPO3 websites. We optimize for search engine precision and business growth.',
+    seoTitle: 'TYPO3 SEO Expert Services | Scalable Rankings & Growth',
+    metaDescription: 'Hire a TYPO3 SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and performance engineering for TYPO3.',
+    keywords: 'typo3 seo expert, typo3 seo services, typo3 technical seo, typo3 consultant',
+    painPoint: 'Your enterprise-scale TYPO3 site is underperforming in search despite its complex architecture.',
+    problem: 'TYPO3 requires deep technical knowledge for SEO. Generic strategies fail to leverage its caching and routing frameworks effectively.',
+    solution: 'Technical performance engineering and semantic content mapping tailored specifically for TYPO3 sites.',
+    importance: 'For enterprise businesses, TYPO3 is a powerful asset. Our SEO services ensure it remains a growth engine, not just a content repository.',
+    features: [
+      'TYPO3 Routing & Slug Tuning',
+      'Technical Indexing Audit',
+      'Performance Engineering',
+      'Multilingual SEO Mastery',
+      'Yoast/CS SEO Optimization',
+      'Upgrade Ranking Protection'
+    ],
+    contentBody: `### TYPO3 SEO Expert — Rank Higher & Scale Growth
+
+We help businesses optimize TYPO3 websites with technical SEO, Core Web Vitals improvements, and scalable strategies designed to increase qualified organic traffic.
+
+#### Specialized Expertise for Enterprise CMS
+TYPO3 is an enterprise-grade CMS, and it demands enterprise-grade SEO. We don't just fix meta tags; we optimize the underlying architecture.
+
+1. **Strategic Intent Mapping:** Identifying high-value targets via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Mastery:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **TYPO3-specific SEO mastery**
+* **Core Web Vitals focus**
+* **Multilingual authority**
+* **Transparent monthly reporting**
+
+Ready to grow your enterprise visibility? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why does TYPO3 require a specialist?', answer: 'Its complex caching, menu routing, and extension architecture need specialized handling to ensure crawlability and index efficiency.' },
+      { question: 'Do you handle multilingual TYPO3 SEO?', answer: 'Yes. We are experts in hreflang implementation and language-specific directory structures for global TYPO3 sites.' },
+      { question: 'Can you fix TYPO3 speed issues?', answer: 'Absolutely. We hit green Core Web Vitals scores by optimizing the TYPO3 backend and frontend delivery pipelines.' },
+      { question: 'What tools do you use for audits?', answer: 'We use a mix of Screaming Frog, Ahrefs, and custom database scripts to perform deep technical audits on TYPO3 systems.' }
+    ]
+  },
+  'ghost-seo': {
+    id: 'ghost-seo',
+    slug: 'ghost-seo-expert',
+    permalink: '/services/cms-seo/ghost-seo-expert',
+    title: 'Ghost SEO Expert',
+    titleH1: 'Ghost SEO Expert Services That Grow Organic Traffic',
+    icon: '👻',
+    description: 'Specialized SEO for Ghost CMS publishers and SaaS brands. We optimize for search engine precision and business growth.',
+    seoTitle: 'Ghost SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a Ghost SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for Ghost CMS.',
+    keywords: 'ghost seo expert, ghost seo services, ghost cms seo, ghost technical seo',
+    painPoint: 'Your Ghost CMS website is fast but invisible to your target audience.',
+    problem: 'Ghost requires specialized implementation for technical SEO. Generic strategies fail to leverage its lean architecture effectively.',
+    solution: 'Technical Ghost SEO engineering and semantic content mapping tailored for high-performance publishing.',
+    importance: 'Ghost is built for content. Our SEO services ensure your content actually gets discovered by the right people.',
+    features: [
+      'Ghost Technical SEO Audit',
+      'Core Web Vitals Engineering',
+      'Topical Authority Mapping',
+      'Ghost Routing Optimization',
+      'Schema Markup Integration',
+      'Conversion Scaling Strategy'
+    ],
+    contentBody: `### Ghost SEO Expert Services That Grow Organic Traffic
+    
+Helping Ghost CMS publishers, SaaS brands, startups, and content businesses increase Google rankings, organic traffic, and leads through advanced Ghost SEO strategies.
+
+#### Why Choose Specialist Ghost SEO?
+Ghost CMS differs significantly from mainstream platforms like WordPress. It's built for speed, but requires a precise hand to dominate competitive search landscapes.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Ghost-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your publishing organic reach? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Is Ghost CMS good for SEO?', answer: 'Yes, but it requires specialized configuration for competitive terms.' },
+      { question: 'How long until I see results?', answer: 'Initial technical lifts occur in weeks, but authoritative rankings take 3-6 months.' },
+      { question: 'Do you work with Ghost themes?', answer: 'Yes. We optimize Handlebars templates for SEO efficiency and performance.' },
+      { question: 'Can you improve Ghost site speed?', answer: 'Absolutely. We fix image delivery and caching issues to hit green scores.' }
+    ]
+  },
+  'craft-seo': {
+    id: 'craft-seo',
+    slug: 'craft-cms-seo-expert',
+    permalink: '/services/cms-seo/craft-cms-seo-expert',
+    title: 'Craft CMS SEO Expert',
+    titleH1: 'Craft CMS SEO Expert Services That Drive Rankings, Traffic & Revenue',
+    icon: '🛠️',
+    description: 'Specialized SEO for Craft CMS websites and commerce stores. We optimize for search engine precision and business growth.',
+    seoTitle: 'Craft CMS SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a Craft CMS SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for Craft CMS.',
+    keywords: 'craft cms seo expert, craft cms seo services, craft cms seo, craft technical seo',
+    painPoint: 'Your Craft CMS website is highly flexible but invisible to your target audience.',
+    problem: 'Craft requires specialized implementation for technical SEO. Generic strategies fail to leverage its custom modeling effectively.',
+    solution: 'Technical Craft SEO engineering and semantic content mapping tailored for high-performance business goals.',
+    importance: 'Craft CMS is built for flexibility. Our SEO services ensure that flexibility is used to dominate search results.',
+    features: [
+      'Technical SEO Audit',
+      'Core Web Vitals Optimization',
+      'Topical Authority Mapping',
+      'Craft Commerce SEO',
+      'Schema Markup Integration',
+      'AI Search Readiness'
+    ],
+    contentBody: `### Craft CMS SEO Expert Services That Drive Rankings, Traffic & Revenue
+    
+Helping brands using Craft CMS increase Google rankings, organic traffic, and leads through advanced Craft SEO strategies.
+
+#### Why Choose Specialist Craft CMS SEO?
+Craft CMS differs significantly from mainstream platforms like WordPress. It's built for developers and creative control, which means SEO needs to be architected into the templates.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Craft-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your Craft CMS website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Craft CMS SEO expert?', answer: 'Craft CMS requires specialized template-level optimization that generic agencies usually miss.' },
+      { question: 'Can you optimize Craft Commerce?', answer: 'Yes. We specialize in product schema and faceted navigation for Craft Commerce.' },
+      { question: 'Do you provide technical fixes?', answer: 'We can implement fixes directly in your Twig templates or provide documentation for your team.' },
+      { question: 'How long until I see results?', answer: 'Technical improvements often show impact in 4-6 weeks, while growth takes 3-6 months.' }
+    ]
+  },
+  'concrete-seo': {
+    id: 'concrete-seo',
+    slug: 'concrete-cms-seo-expert',
+    permalink: '/services/cms-seo/concrete-cms-seo-expert',
+    title: 'Concrete CMS SEO Expert',
+    titleH1: 'Concrete CMS SEO Expert That Helps You Rank Higher & Get Qualified Traffic',
+    icon: '🧱',
+    description: 'Specialized SEO for Concrete CMS websites and legacy Concrete5 platforms. We optimize for search engine precision and business growth.',
+    seoTitle: 'Concrete CMS SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a Concrete CMS SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for Concrete CMS.',
+    keywords: 'concrete cms seo expert, concrete cms seo services, concrete5 seo, technical seo concrete cms',
+    painPoint: 'Your Concrete CMS website is technically sound but invisible to your target audience.',
+    problem: 'Concrete CMS requires specialized implementation for technical SEO. Generic strategies fail to leverage its block-based architecture effectively.',
+    solution: 'Technical Concrete CMS SEO engineering and semantic content mapping tailored for high-performance business goals.',
+    importance: 'Concrete CMS is built for control. Our SEO services ensure that control is used to dominate search results and drive revenue.',
+    features: [
+      'Technical SEO Audit',
+      'Site Speed & Core Web Vitals',
+      'Structural Schema Markup',
+      'Block-Level Content Opt',
+      'Keyword Intent Mapping',
+      'AI Search Readiness'
+    ],
+    contentBody: `### Concrete CMS SEO Expert That Helps You Rank Higher & Get Qualified Traffic
+    
+Helping brands using Concrete CMS (formerly concrete5) increase Google rankings, organic traffic, and leads through advanced Concrete SEO strategies.
+
+#### Why Choose Specialist Concrete CMS SEO?
+Concrete CMS differs significantly from mainstream platforms. It's built for content blocks and attribute-based metadata, which means SEO needs to be precisely configured in the dashboard and theme level.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Concrete-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your Concrete CMS website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'What is a Concrete CMS SEO expert?', answer: 'An expert who understands Concrete CMS\'s unique block architecture and attribute system for search optimization.' },
+      { question: 'Can you improve rankings without rebuilding?', answer: 'Yes. Most Concrete CMS issues are configuration or theme-based and can be fixed in-place.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes often show impact in 2-4 weeks, while organic growth builds over 3-6 months.' },
+      { question: 'Do you provide technical fixes?', answer: 'Yes. We implement fixes directly in your Concrete CMS dashboard and theme templates.' }
+    ]
+  },
+  'modx-seo': {
+    id: 'modx-seo',
+    slug: 'modx-seo-expert',
+    permalink: '/services/cms-seo/modx-seo-expert',
+    title: 'MODX SEO Expert',
+    titleH1: 'MODX SEO Expert Services That Turn Your Website Into a Traffic Machine',
+    icon: '🌀',
+    description: 'Specialized SEO for MODX Revolution and Evolution platforms. We optimize for search engine precision and high-performance growth.',
+    seoTitle: 'MODX SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a MODX SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for MODX CMS.',
+    keywords: 'modx seo expert, modx seo services, modx seo, modx technical seo',
+    painPoint: 'Your MODX website is enterprise-grade but invisible to your target audience.',
+    problem: 'MODX requires specialized implementation for technical SEO. Generic strategies fail to leverage its TV and snippet architecture effectively.',
+    solution: 'Technical MODX SEO engineering and semantic content mapping tailored for organic dominance.',
+    importance: 'MODX is built for custom control. Our SEO services ensure that control is used to dominate search results and drive revenue.',
+    features: [
+      'Technical MODX SEO Audit',
+      'Snippet & Chunk Optimization',
+      'TV Metadata Mapping',
+      'Core Web Vitals Engineering',
+      'Schema Markup Integration',
+      'AI Search Readiness'
+    ],
+    contentBody: `### MODX SEO Expert Services That Turn Your Website Into a Traffic Machine
+    
+Helping brands using MODX Revolution and Evolution increase Google rankings, organic traffic, and leads through advanced MODX SEO strategies.
+
+#### Why Choose Specialist MODX SEO?
+MODX is highly flexible but requires a precise hand to optimize for search engines. It doesn't use standard plugins for SEO, meaning everything must be architected correctly.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **MODX-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your MODX website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a MODX SEO expert?', answer: 'MODX requires custom technical implementation that generic agencies fail to handle correctly.' },
+      { question: 'Do you work with MODX Evolution?', answer: 'Yes, we support both Revolution and Evolution platforms for SEO overhaul.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
+      { question: 'Can you fix existing issues?', answer: 'Absolutely. We specialize in ranking recovery and technical debt resolution.' }
+    ]
+  },
+  'contentful-seo': {
+    id: 'contentful-seo',
+    slug: 'contentful-cms-seo-expert',
+    permalink: '/services/cms-seo/contentful-cms-seo-expert',
+    title: 'Contentful CMS SEO Expert',
+    titleH1: 'Contentful CMS SEO Expert That Turns Your Website Into a Traffic Engine',
+    icon: '☁️',
+    description: 'Expert headless SEO for Contentful. We optimize your content model, API delivery, and frontend for maximum organic search performance.',
+    seoTitle: 'Contentful CMS SEO Expert Services | Headless SEO Specialist',
+    metaDescription: 'Hire a Contentful CMS SEO Expert to rank higher on Google & AI Search. Specialized headless SEO, technical optimization, and content strategy for Contentful.',
+    keywords: 'contentful seo expert, contentful seo services, headless cms seo, contentful technical seo, contentful seo optimization',
+    painPoint: 'Your Headless CMS is powerful, but your search rankings are stagnant.',
+    problem: 'Headless SEO requires balancing API-driven content with traditional search signals. Generic agencies often fail to optimize the "Headless Gap."',
+    solution: 'Engineered Contentful SEO that bridges technical architecture with high-intent semantic content.',
+    importance: 'In a decoupled world, your SEO depends on how well your content model and frontend communicate with search engines.',
+    features: [
+      'Content Model Optimization',
+      'API-First SEO Engineering',
+      'Core Web Vitals Stacking',
+      'Dynamic Schema Architecture',
+      'Topical Authority Mapping',
+      'AI Search Readiness'
+    ],
+    contentBody: `### Contentful CMS SEO Expert That Turns Your Website Into a Traffic Engine
+    
+Helping enterprise brands and startups using Contentful maximize their organic search visibility, traffic, and leads.
+
+#### Why Choose Specialist Contentful SEO?
+Contentful is a leading headless CMS, but its decoupling means SEO isn't "built-in." It requires a specialist who understands how to map content models to search intent.
+
+1. **Precision Keyword Research:** We map your content model to the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Headless Technical SEO:** Optimizing delivery and rendering via [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Semantic Authority:** Using Contentful's flexible structure to build [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Results:** Preparing your headless content for the future of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+We focus on the metrics that matter: rankings, traffic, and revenue growth.
+
+* **Contentful API & Content Model focus**
+* **Technical & Semantic optimization**
+* **No long-term contracts**
+* **Transparent data-driven reporting**
+
+Ready to grow your Contentful website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Contentful SEO expert?', answer: 'Headless CMS SEO requires specialized technical knowledge that traditional agencies often lack.' },
+      { question: 'Do you optimize Contentful content models?', answer: 'Yes, we ensure your fields and structure are mapped for SEO best practices.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
+      { question: 'Can you work with any frontend?', answer: 'Absolutely. Whether you use Next.js, Gatsby, or Nuxt, we optimize the full stack.' }
+    ]
+  },
+  'shopify-seo': {
+    id: 'shopify-seo',
+    slug: 'shopify-seo-expert',
+    permalink: '/services/cms-seo/shopify-seo-expert',
+    title: 'Shopify SEO Expert',
+    titleH1: 'Shopify SEO Expert That Turns Your Store Into a Revenue Engine',
+    icon: '🛍️',
+    description: 'Expert Shopify SEO for high-growth brands. We optimize your technical foundation, product architecture, and AI search visibility for maximum revenue.',
+    seoTitle: 'Shopify SEO Expert Services | Rank Your Store Higher on Google & AI',
+    metaDescription: 'Hire a Shopify SEO Expert to rank higher & increase store revenue. Specialized technical Shopify SEO, product page optimization, and AI search readiness.',
+    keywords: 'shopify seo expert, shopify seo services, shopify technical seo, shopify seo optimization, ecommerce seo specialist',
+    painPoint: 'Your Shopify store is beautiful, but your search rankings are stagnant and revenue is flat.',
+    problem: 'Shopify has "built-in" features, but massive "Technical Gaps" in duplicate content, faceted navigation, and schema that block growth.',
+    solution: 'Engineered Shopify SEO that bridges technical store architecture with high-intent semantic content and AI search visibility.',
+    importance: 'In the competitive ecommerce world, your SEO is the difference between high-margin organic growth and expensive ad reliance.',
+    features: [
+      'Technical Shopify Audit',
+      'Revenue-Focused Keywords',
+      'AI Search Citations',
+      'Product Schema Engineering',
+      'Collection Page Dominance',
+      'Speed & Web Vitals Stacking'
+    ],
+    contentBody: `### Shopify SEO Expert That Turns Your Store Into a Revenue Engine
+    
+Helping ecommerce brands and Shopify stores maximize their organic search visibility, traffic, and sales.
+
+#### Why Choose Specialist Shopify SEO?
+Shopify is a leading commerce platform, but its standard setup leaves ranking opportunities on the table. It requires a specialist who understands how to bypass platform constraints.
+
+1. **Precision Keyword Research:** We map your products to the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Shopify Technical SEO:** Optimizing delivery and rendering via [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Semantic Product Authority:** Using Shopify's collections to build [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Storefront:** Preparing your products for the future of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+We focus on the metrics that matter: rankings, traffic, and revenue growth.
+
+* **Shopify Theme & App Audit focus**
+* **Technical & Semantic optimization**
+* **No long-term contracts**
+* **Transparent data-driven reporting**
+
+Ready to grow your Shopify store? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Shopify SEO expert?', answer: 'Shopify has unique technical quirks like duplicate URL structures and faceted navigation issues that generic agencies often miss.' },
+      { question: 'Do you guarantee results?', answer: 'We guarantee clear SEO opportunities identified in your audit, or it\'s free. Organic growth builds over a 3-6 month window.' },
+      { question: 'How long until I see rankings improve?', answer: 'Technical fixes show impact in 2-4 weeks. Revenue growth compounds over 3-6 months.' },
+      { question: 'Can you work with any Shopify theme?', answer: 'Absolutely. Whether you use a standard theme or a custom headless setup, we optimize for performance.' }
+    ]
+  },
+  'storyblok-seo': {
+    id: 'storyblok-seo',
+    slug: 'storyblok-cms-seo-expert',
+    permalink: '/services/cms-seo/storyblok-cms-seo-expert',
+    title: 'Storyblok CMS SEO Expert',
+    titleH1: 'Storyblok CMS SEO Expert — Enterprise-Grade Headless SEO Rankings',
+    icon: '🏗️',
+    description: 'Expert headless SEO for Storyblok websites. We optimize content models and API delivery for maximum search engine performance.',
+    seoTitle: 'Storyblok CMS SEO Expert Services | Headless SEO Specialist',
+    metaDescription: 'Hire a Storyblok CMS SEO Expert to rank higher on Google & AI Search. Specialized technical SEO, content strategy, and speed optimization for Storyblok.',
+    keywords: 'storyblok seo expert, storyblok seo services, headless cms seo, storyblok technical seo, storyblok seo optimization',
+    painPoint: 'Your Storyblok website is fast, but your rankings are stuck on page two.',
+    problem: 'Headless SEO requires bridge engineering between API-driven content and traditional search signals. Generic agencies often ignore technical SEO for headless platforms.',
+    solution: 'Deep technical Storyblok engineering combined with high-intent semantic content architecture.',
+    importance: 'Storyblok is built for flexibility. Our SEO services ensure that flexibility translates into organic dominance and revenue growth.',
+    features: [
+      'Storyblok Content Model Opt',
+      'Headless Technical SEO Audit',
+      'Core Web Vitals Engineering',
+      'API-First Schema Architecture',
+      'Topical Authority Mapping',
+      'International Headless SEO'
+    ],
+    contentBody: `### Storyblok CMS SEO Expert — Enterprise-Grade Headless SEO Rankings
+    
+Helping enterprise brands and startups using Storyblok increase Google rankings, organic traffic, and leads through advanced headless SEO strategies.
+
+#### Why Choose Specialist Storyblok SEO?
+Storyblok is a powerful headless CMS, but it requires a precise hand to dominate competitive search landscapes. We don't just "plug in" SEO; we architect it.
+
+1. **Precision Keyword Research:** Identifying high-value targets via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Mastery:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Results:** Preparing your headless content for the future of discovery.
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Storyblok API & Content Model focus**
+* **Headless-specific technical mastery**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your Storyblok website? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Why hire a Storyblok SEO expert?', answer: 'Storyblok requires specialized technical knowledge that traditional SEO agencies lack.' },
+      { question: 'Do you optimize Storyblok content models?', answer: 'Yes, we ensure your fields and structure are mapped for SEO best practices.' },
+      { question: 'How long until I see results?', answer: 'Technical fixes often show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
+      { question: 'Can you work with any frontend framework?', answer: 'Absolutely. Whether you use Next.js, Nuxt, Gatsby, or Remix, we optimize the full stack.' }
     ]
   },
   'keyword-research': {

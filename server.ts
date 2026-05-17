@@ -48,16 +48,7 @@ async function startServer() {
     app.use(express.static(distPath, { index: false }));
   }
 
-  app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
-  });
-
-  app.use('*', async (req, res, next) => {
+  app.get('*', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
