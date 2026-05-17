@@ -40,6 +40,7 @@ import WordPressSEOExpertPage from './pages/WordPressSEOExpert';
 import DrupalSEOExpertPage from './pages/DrupalSEOExpert';
 import JoomlaSEOExpertPage from './pages/JoomlaSEOExpert';
 import TYPO3SEOExpertPage from './pages/TYPO3SEOExpert';
+import GhostSEOExpertPage from './pages/GhostSEOExpert';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
@@ -189,6 +190,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/drupal-seo-expert" element={<DrupalSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/joomla-seo-expert" element={<JoomlaSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/typo3-seo-expert" element={<TYPO3SEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/ghost-seo-expert" element={<GhostSEOExpertPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 

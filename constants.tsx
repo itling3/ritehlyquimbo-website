@@ -219,7 +219,8 @@ export const SERVICES = [
   { id: 'wordpress-seo', title: 'WordPress SEO Expert', description: 'High-converting WordPress optimization strategies that drive rankings, traffic, and leads.', icon: '🔌' },
   { id: 'drupal-seo', title: 'Drupal SEO Expert', description: 'Enterprise-grade Drupal SEO optimization for scalability, security, and organic dominance.', icon: '💧' },
   { id: 'joomla-seo', title: 'Joomla SEO Expert', description: 'Specialized Joomla SEO optimization for businesses that want higher Google rankings and better visibility.', icon: '⚡' },
-  { id: 'typo3-seo', title: 'TYPO3 SEO Expert', description: 'Enterprise-scale technical SEO for TYPO3 websites focused on rankings and business growth.', icon: '🏗️' }
+  { id: 'typo3-seo', title: 'TYPO3 SEO Expert', description: 'Enterprise-scale technical SEO for TYPO3 websites focused on rankings and business growth.', icon: '🏗️' },
+  { id: 'ghost-seo', title: 'Ghost SEO Expert', description: 'Specialized SEO for Ghost CMS publishers and SaaS brands focused on rankings and conversions.', icon: '👻' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -381,6 +382,57 @@ Ready to grow your enterprise visibility? [Book Your Free SEO Strategy Call](/co
       { question: 'Do you handle multilingual TYPO3 SEO?', answer: 'Yes. We are experts in hreflang implementation and language-specific directory structures for global TYPO3 sites.' },
       { question: 'Can you fix TYPO3 speed issues?', answer: 'Absolutely. We hit green Core Web Vitals scores by optimizing the TYPO3 backend and frontend delivery pipelines.' },
       { question: 'What tools do you use for audits?', answer: 'We use a mix of Screaming Frog, Ahrefs, and custom database scripts to perform deep technical audits on TYPO3 systems.' }
+    ]
+  },
+  'ghost-seo': {
+    id: 'ghost-seo',
+    slug: 'ghost-seo-expert',
+    permalink: '/services/ghost-seo-expert',
+    title: 'Ghost SEO Expert',
+    titleH1: 'Ghost SEO Expert Services That Grow Organic Traffic',
+    icon: '👻',
+    description: 'Specialized SEO for Ghost CMS publishers and SaaS brands. We optimize for search engine precision and business growth.',
+    seoTitle: 'Ghost SEO Expert Services | Scale Rankings & Traffic',
+    metaDescription: 'Hire a Ghost SEO Expert to improve rankings, speed & organic growth. Specialized technical SEO and content strategy for Ghost CMS.',
+    keywords: 'ghost seo expert, ghost seo services, ghost cms seo, ghost technical seo',
+    painPoint: 'Your Ghost CMS website is fast but invisible to your target audience.',
+    problem: 'Ghost requires specialized implementation for technical SEO. Generic strategies fail to leverage its lean architecture effectively.',
+    solution: 'Technical Ghost SEO engineering and semantic content mapping tailored for high-performance publishing.',
+    importance: 'Ghost is built for content. Our SEO services ensure your content actually gets discovered by the right people.',
+    features: [
+      'Ghost Technical SEO Audit',
+      'Core Web Vitals Engineering',
+      'Topical Authority Mapping',
+      'Ghost Routing Optimization',
+      'Schema Markup Integration',
+      'Conversion Scaling Strategy'
+    ],
+    contentBody: `### Ghost SEO Expert Services That Grow Organic Traffic
+    
+Helping Ghost CMS publishers, SaaS brands, startups, and content businesses increase Google rankings, organic traffic, and leads through advanced Ghost SEO strategies.
+
+#### Why Choose Specialist Ghost SEO?
+Ghost CMS differs significantly from mainstream platforms like WordPress. It's built for speed, but requires a precise hand to dominate competitive search landscapes.
+
+1. **Precision Keyword Research:** We identify the exact phrases your audience uses via [Keyword Research](/services/keyword-research-intent-mapping).
+2. **Technical Excellence:** Perfecting the rendering pipeline through [Technical SEO Audit](/services/technical-on-page-seo-optimization).
+3. **Topical Dominance:** Building authority with structured [Topical Maps](/services/topical-maps-semantic-authority).
+4. **AI-Ready Content:** Optimizing for the next generation of discovery via [AI SEO Automation](/services/ai-seo-automation).
+
+#### Our Proof-Focused Process
+Everything we do is focused on measurable business growth. No vanity metrics, just leads and revenue.
+
+* **Ghost-focused SEO mastery**
+* **Core Web Vitals focus**
+* **No long-term contracts**
+* **Transparent monthly reporting**
+
+Ready to grow your publishing organic reach? [Book Your Free SEO Strategy Call](/contact).`,
+    faqs: [
+      { question: 'Is Ghost CMS good for SEO?', answer: 'Yes, but it requires specialized configuration for competitive terms.' },
+      { question: 'How long until I see results?', answer: 'Initial technical lifts occur in weeks, but authoritative rankings take 3-6 months.' },
+      { question: 'Do you work with Ghost themes?', answer: 'Yes. We optimize Handlebars templates for SEO efficiency and performance.' },
+      { question: 'Can you improve Ghost site speed?', answer: 'Absolutely. We fix image delivery and caching issues to hit green scores.' }
     ]
   },
   'keyword-research': {
