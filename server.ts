@@ -27,7 +27,6 @@ async function startServer() {
 
   // Track if server is actually handling requests
   app.use(async (req, res, next) => {
-    if (req.url === '/api/seo-health' || req.url === '/api/contact') return next();
     const logMsg = `[${new Date().toISOString()}] ${req.method} ${req.url} (Path: ${req.path})\n`;
     await fs.appendFile(path.join(process.cwd(), 'server-boot-log.txt'), logMsg).catch(() => {});
     next();
@@ -38,81 +37,119 @@ async function startServer() {
   });
 
   app.post('/api/contact', async (req, res) => {
-    console.log('--- CONTACT API HIT ---');
-    console.log('Body keys:', Object.keys(req.body));
+    console.log('--- CONTACT API SUBMISSION RECEIVED ---');
     
     try {
-      // 3. Capture and Sanitize Inputs to prevent XSS/Injection
-      // We use the property names from the frontend data (customer_name, etc.)
-      const rawName = (req.body.customer_name || '').toString().trim();
-      const rawEmail = (req.body.customer_email || '').toString().trim();
-      const rawMessage = (req.body.customer_message || '').toString().trim();
+      const { customer_name, customer_email, customer_message } = req.body;
+      const rawName = (customer_name || '').toString().trim();
+      const rawEmail = (customer_email || '').toString().trim();
+      const rawMessage = (customer_message || '').toString().trim();
 
-      console.log('Processing message from:', rawName, rawEmail);
+      console.log(`From: ${rawName} <${rawEmail}>`);
 
-      // Simple HTML escape function to mimic htmlspecialchars
       const escape = (str: string) => str.replace(/[&<>"']/g, (m) => ({
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
       }[m] || m));
 
       const name = escape(rawName);
-      const email = rawEmail; // Will be validated by regex
+      const email = rawEmail;
       const message = escape(rawMessage).replace(/\n/g, '<br>');
 
-      // Basic validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!name || !emailRegex.test(email) || !rawMessage) {
-        console.warn('Validation failed:', { name: !!name, email: emailRegex.test(email), message: !!rawMessage });
-        return res.status(400).json({ success: false, message: 'Please fill out all fields correctly. Name and a valid email are required.' });
+        console.warn('Validation error: Incomplete form data');
+        return res.status(400).json({ success: false, message: 'Please fill name and a valid email.' });
       }
 
-      // --- HOSTINGER SETTINGS ---
+      // --- CONFIGURATION ---
       const smtpHost = process.env.SMTP_HOST || 'smtp.hostinger.com';
       const smtpPort = parseInt(process.env.SMTP_PORT || '465');
       const smtpUser = process.env.SMTP_USER || 'seo@ritehlyquimbo.com';
       const smtpPass = process.env.SMTP_PASS || '@DrakeDaewon2026';
       const toEmail = process.env.CONTACT_RECEIVER_EMAIL || 'seo@ritehlyquimbo.com';
 
-      console.log(`Connecting to SMTP: ${smtpHost}:${smtpPort} as ${smtpUser}`);
+      console.log(`Attempting SMTP connection to ${smtpHost}:${smtpPort}...`);
 
       const transporter = nodemailer.createTransport({
         host: smtpHost,
         port: smtpPort,
-        secure: smtpPort === 465, // true for 465, false for 587
+        secure: smtpPort === 465,
         auth: {
           user: smtpUser,
           pass: smtpPass,
         },
         tls: {
-          // Do not fail on invalid certificates (often needed in serverless/container envs)
           rejectUnauthorized: false
         },
-        connectionTimeout: 10000, // 10 seconds
-        greetingTimeout: 10000,
+        connectionTimeout: 15000,
+        greetingTimeout: 15000,
         socketTimeout: 20000,
       });
 
-      // Best Practice: Set the 'From' as your own domain email so Hostinger doesn't block it,
-      // but set 'replyTo' as the user's email so you can hit "Reply" directly.
-      console.log('Sending email...');
-      await transporter.sendMail({
-        from: `"Website Contact Form" <${smtpUser}>`, 
+      // Send the mail
+      console.log('Dispatching mail via Nodemailer...');
+      const info = await transporter.sendMail({
+        from: `"Ritehly Portfolio Contact" <${smtpUser}>`, 
         replyTo: `"${name}" <${email}>`,
         to: toEmail,
-        subject: 'New Customer Form Submission',
-        html: `<strong>Name:</strong> ${name} <br>
-               <strong>Email:</strong> ${email} <br><br>
-               <strong>Message:</strong> <br> ${message}`,
+        subject: `New Lead: ${name}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e1e1e1; border-radius: 12px; color: #1a1a1a;">
+            <h2 style="color: #2563eb; margin-bottom: 20px; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">New Website Inquiry</h2>
+            <div style="margin-bottom: 15px;">
+              <strong style="color: #6b7280; text-transform: uppercase; font-size: 11px;">Sender Name</strong>
+              <p style="margin: 5px 0 0 0; font-weight: bold; font-size: 16px;">${name}</p>
+            </div>
+            <div style="margin-bottom: 15px;">
+              <strong style="color: #6b7280; text-transform: uppercase; font-size: 11px;">Sender Email</strong>
+              <p style="margin: 5px 0 0 0; font-weight: bold; font-size: 16px;"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></p>
+            </div>
+            <div style="margin-top: 25px; padding: 20px; background: #f9fafb; border-radius: 8px;">
+              <strong style="color: #6b7280; text-transform: uppercase; font-size: 11px;">Project Message</strong>
+              <p style="margin: 10px 0 0 0; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+            </div>
+            <p style="margin-top: 30px; font-size: 10px; color: #9ca3af; text-align: center; border-top: 1px solid #f3f4f6; pt: 10px;">
+              Sent from ritehlyquimbo.com Contact Form
+            </p>
+          </div>
+        `,
       });
 
-      console.log('Growth request sent for:', name);
-      return res.json({ success: true, message: 'Thank you! Your message has been sent.' });
+      console.log('Email successfully sent! ID:', info.messageId);
+      return res.json({ success: true, message: 'Your message has been sent successfully! I will get back to you soon.' });
 
     } catch (error) {
-      console.error('Contact form error detail:', error);
+      console.error('SMTP ERROR:', error);
+      
+      // FALLBACK: If SMTP fails (common in restricted container envs), we use Web3Forms API as a transparent fallback
+      // This ensures the user NEVER misses a lead even if the ports are blocked.
+      try {
+        console.log('SMTP failed. Attempting fallback via Web3Forms API...');
+        const web3Response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: 'dde04fd8-bee2-4eae-9fb4-f8511849f474',
+            name: req.body.customer_name,
+            email: req.body.customer_email,
+            message: req.body.customer_message,
+            subject: `[FALLBACK] New Lead: ${req.body.customer_name}`
+          })
+        });
+        
+        const web3Result = await web3Response.json();
+        if (web3Result.success) {
+          console.log('Fallback successful. Lead delivered via Web3Forms.');
+          return res.json({ success: true, message: 'Your message has been sent successfully!' });
+        }
+      } catch (fallbackError) {
+        console.error('Fallback also failed:', fallbackError);
+      }
+
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       res.status(500).json({ 
         success: false, 
-        message: 'Message could not be sent. Please use direct email or check your SMTP settings.' 
+        message: `Message could not be sent. Please email directly to seo@ritehlyquimbo.com. (Error: ${errorMessage})` 
       });
     }
   });
