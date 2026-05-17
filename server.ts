@@ -5,7 +5,6 @@ import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import fs from 'fs/promises';
 import { fileURLToPath } from 'url';
-import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,77 +20,6 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  app.use(express.json());
-  app.use(compression());
-
-  // Contact form submission endpoint
-  app.post('/api/contact', async (req, res) => {
-    try {
-      const { name, email, subject, message } = req.body;
-      
-      // Basic validation
-      if (!name || !email || !message) {
-        return res.status(400).json({ error: 'Missing required fields' });
-      }
-
-      console.log(`[CONTACT FORM] New message from ${name} (${email}) - Subject: ${subject || 'No Subject'}`);
-
-      // Check for SMTP configuration
-      const smtpHost = process.env.SMTP_HOST;
-      const smtpPort = parseInt(process.env.SMTP_PORT || '587');
-      const smtpUser = process.env.SMTP_USER;
-      const smtpPass = process.env.SMTP_PASS;
-
-      if (!smtpHost || !smtpUser || !smtpPass) {
-        console.warn('[CONTACT FORM] SMTP credentials missing. Message logged but not sent via email.');
-        // Still return success to user so they don't see an error, 
-        // but tell them we're in "log-only" mode in the logs.
-        return res.status(200).json({ 
-          success: true, 
-          message: 'Thank you! Your message has been received (Development Mode: Logged to console).' 
-        });
-      }
-
-      const transporter = nodemailer.createTransport({
-        host: smtpHost,
-        port: smtpPort,
-        secure: smtpPort === 465,
-        auth: {
-          user: smtpUser,
-          pass: smtpPass,
-        },
-      });
-
-      const mailOptions = {
-        from: `"${name}" <${smtpUser}>`, // Use authorized sender
-        replyTo: email,
-        to: 'seo@ritehlyquimbo.com',
-        subject: subject || 'No Subject - Contact Form Enquiry',
-        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-        html: `
-          <div style="font-family: sans-serif; max-width: 600px; padding: 20px;">
-            <h2 style="color: #2563eb;">New Growth Enquiry</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Subject:</strong> ${subject || 'No Subject'}</p>
-            <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 20px 0;">
-            <p style="white-space: pre-wrap;">${message}</p>
-          </div>
-        `,
-      };
-
-      await transporter.sendMail(mailOptions);
-
-      res.status(200).json({ 
-        success: true, 
-        message: 'Thank you! Your message has been sent successfully.' 
-      });
-    } catch (error) {
-      console.error('[CONTACT API ERROR]', error);
-      res.status(500).json({ error: 'Internal server error. We could not send your message at this time.' });
-    }
-  });
-
   // Track if server is actually handling requests
   app.use(async (req, res, next) => {
     if (req.url === '/api/seo-health') return next();
@@ -101,13 +29,10 @@ async function startServer() {
   });
 
   app.get('/api/seo-health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      time: new Date().toISOString(),
-      servicesCount: Object.keys(SERVICE_DETAILS).length,
-      caseStudiesCount: CASE_STUDIES.length
-    });
+    res.json({ status: 'ok', time: new Date().toISOString() });
   });
+
+  app.use(compression());
 
   let vite: any;
   if (process.env.NODE_ENV !== 'production') {
@@ -123,7 +48,16 @@ async function startServer() {
     app.use(express.static(distPath, { index: false }));
   }
 
-  app.get('(.*)', async (req, res, next) => {
+  app.get('/api/seo-health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      time: new Date().toISOString(),
+      servicesCount: Object.keys(SERVICE_DETAILS).length,
+      caseStudiesCount: CASE_STUDIES.length
+    });
+  });
+
+  app.use('*', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
     
