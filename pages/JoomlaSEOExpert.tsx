@@ -271,7 +271,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                Specialized Joomla SEO — <br /> <span className="text-blue-900">Not Generic Packages</span>
              </p>
              <p className="text-blue-100 text-lg mb-10 max-w-xl">
-               We combine technical Joomla expertise, content strategy, and AI search optimization to grow rankings and revenue.
+               We combine technical Joomla expertise, content strategy, and <Link to="/services/ai-seo-automation" className="underline decoration-blue-300 underline-offset-4 hover:text-white transition-colors">AI search optimization</Link> to grow rankings and revenue.
              </p>
 
              <div className="grid grid-cols-2 gap-4 mb-10">
@@ -338,7 +338,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             Businesses Trust Our <span className="text-blue-500">Joomla Expertise</span>
           </p>
           <p className="text-gray-400 max-w-xl mx-auto text-lg font-medium leading-relaxed italic">
-            “Real ranking improvements, real traffic growth, real business results.”
+            “Real ranking improvements, real <Link to="/portfolio" className="text-blue-500 hover:text-blue-400 transition-colors">traffic growth</Link>, real business results.”
           </p>
         </div>
 
@@ -386,7 +386,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             {[
               {
                 icon: <Settings className="w-8 h-8" />,
-                title: "Technical SEO Audit",
+                title: <Link to="/services/technical-on-page-seo-optimization" className="hover:text-blue-500 transition-colors uppercase italic">Technical SEO Audit</Link>,
                 features: ["Crawl analysis", "Indexing review", "Structured data audit"],
                 benefit: "Better Google crawlability & indexing."
               },
@@ -398,7 +398,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               },
               {
                 icon: <Search className="w-8 h-8" />,
-                title: "Keyword & Intent Mapping",
+                title: <Link to="/services/keyword-research-intent-mapping" className="hover:text-blue-500 transition-colors uppercase italic">Keyword & Intent Mapping</Link>,
                 features: ["Search intent analysis", "Competitor gaps", "Topic clustering"],
                 benefit: "Target keywords that actually convert."
               },
@@ -504,11 +504,11 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                  "Higher Google Rankings", "Increased Organic Traffic",
                  "More Qualified Leads", "Better Conv. Rates",
                  "Faster Site Performance", "Increased Local Visibility",
-                 "AI Search Presence", "Topical Authority"
+                 "AI Search Presence", <Link key="res-ta" to="/services/topical-maps-semantic-authority" className="hover:text-blue-500 transition-colors">Topical Authority</Link>
                ].map((res, i) => (
                  <div key={i} className="flex items-center gap-3 text-xs font-black uppercase tracking-tight text-white/80">
                     <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                    {res}
+                    {typeof res === 'string' ? res : res}
                  </div>
                ))}
             </div>
@@ -575,7 +575,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <p className="text-3xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-none mb-6 italic">
               Flexible Joomla <span className="text-blue-500">SEO Packages</span>
             </p>
-            <p className="text-gray-400 font-black uppercase text-[10px] tracking-widest">Choose the level of support your business needs</p>
+            <p className="text-gray-400 font-black uppercase text-[10px] tracking-widest">Choose the level of <Link to="/pricing" className="text-blue-500 hover:text-blue-400 underline underline-offset-4">support your business needs</Link></p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
