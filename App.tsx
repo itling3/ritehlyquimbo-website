@@ -56,7 +56,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicy';
 import TermsOfServicePage from './pages/TermsOfService';
 import BlogPage from './pages/Blog';
 import BlogPostView from './components/BlogPostView';
-import NotFound from './components/NotFound';
+import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import { SERVICES, SERVICE_DETAILS, REVIEWS, TOOL_LOGOS, FAQS, CERTIFICATES, CASE_STUDIES, BLOG_POSTS } from './constants';
 import { ServiceContent, CaseStudy } from './types';
