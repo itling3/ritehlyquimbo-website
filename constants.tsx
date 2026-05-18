@@ -226,7 +226,8 @@ export const SERVICES = [
   { id: 'modx-seo', title: 'MODX SEO Expert', description: 'Technical MODX SEO optimization for Revolution and Evolution platforms to drive organic dominance.', icon: '🌀' },
   { id: 'contentful-seo', title: 'Contentful CMS SEO Expert', description: 'Enterprise-grade headless SEO for Contentful websites to drive organic growth and rankings.', icon: '☁️' },
   { id: 'shopify-seo', title: 'Shopify SEO Expert', description: 'Revenue-focused Shopify SEO optimization for Google and AI search to scale organic store growth.', icon: '🛍️' },
-  { id: 'storyblok-seo', title: 'Storyblok CMS SEO Expert', description: 'High-performance headless SEO for Storyblok websites. We optimize content models and API delivery for search dominance.', icon: '🏗️' }
+  { id: 'storyblok-seo', title: 'Storyblok CMS SEO Expert', description: 'High-performance headless SEO for Storyblok websites. We optimize content models and API delivery for search dominance.', icon: '🏗️' },
+  { id: 'woocommerce-seo', title: 'WooCommerce SEO Expert', description: 'High-converting WooCommerce SEO strategies that grow organic traffic, rankings, and sales for ecommerce stores.', icon: '🛒' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -745,6 +746,35 @@ Ready to grow your Storyblok website? [Book Your Free SEO Strategy Call](/contac
       { question: 'Do you optimize Storyblok content models?', answer: 'Yes, we ensure your fields and structure are mapped for SEO best practices.' },
       { question: 'How long until I see results?', answer: 'Technical fixes often show impact in 2-4 weeks. Organic growth builds over a 3-6 month window.' },
       { question: 'Can you work with any frontend framework?', answer: 'Absolutely. Whether you use Next.js, Nuxt, Gatsby, or Remix, we optimize the full stack.' }
+    ]
+  },
+  'woocommerce-seo': {
+    id: 'woocommerce-seo',
+    slug: 'woocommerce-seo-expert',
+    permalink: '/services/cms-seo/woocommerce-seo-expert',
+    title: 'WooCommerce SEO Expert',
+    titleH1: 'WooCommerce SEO Expert Services That Grow Traffic, Rankings & Sales',
+    icon: '🛒',
+    description: 'We help WooCommerce stores increase organic traffic, improve rankings, optimize site speed, and convert more visitors into customers through technical SEO, content strategy, and ecommerce-focused optimization.',
+    seoTitle: 'WooCommerce SEO Expert Services | Scalable Ecommerce Growth',
+    metaDescription: 'Hire a WooCommerce SEO Expert to rank higher on Google & AI Search. Specialized technical SEO, product optimization, and revenue-focused growth for WooCommerce stores.',
+    keywords: 'woocommerce seo expert, woocommerce seo services, ecommerce seo expert, woocommerce technical seo, seo for woocommerce stores, woocommerce speed optimization, woocommerce seo consultant',
+    painPoint: 'Your WooCommerce store is losing rankings because of slow performance and poor optimization.',
+    problem: 'Generic SEO strategies fail because WooCommerce has unique technical and ecommerce SEO challenges.',
+    solution: 'Specialized WooCommerce SEO that combines technical expertise, ecommerce strategy, and conversion optimization.',
+    importance: 'Even great products struggle when Google cannot properly crawl, understand, or trust your WooCommerce store.',
+    features: [
+      'Technical WooCommerce SEO',
+      'Ecommerce Keyword Research',
+      'On-Page Product Optimization',
+      'WooCommerce Speed Tuning',
+      'Revenue-Focused Content Strategy',
+      'Conversion Rate Optimization'
+    ],
+    contentBody: `We help WooCommerce stores increase organic traffic, improve rankings, optimize site speed, and convert more visitors into customers through technical SEO, content strategy, and ecommerce-focused optimization.`,
+    faqs: [
+      { question: 'What makes WooCommerce SEO different from regular SEO?', answer: 'WooCommerce SEO requires focus on product schema, faceted navigation, category architecture, and crawl budget for large ecommerce catalogs.' },
+      { question: 'How long does WooCommerce SEO take?', answer: 'Technical fixes often show impact in 4-8 weeks. Significant revenue growth typically builds over 4-6 months of consistent strategy.' }
     ]
   },
   'keyword-research': {

@@ -48,7 +48,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
   const serviceCategories = [
     { title: 'Search Strategy', services: SERVICES.slice(0, 4), color: 'text-blue-500', hover: 'group-hover/item:text-blue-400' },
     { title: 'Market Domination', services: SERVICES.slice(4, 8), color: 'text-purple-500', hover: 'group-hover/item:text-purple-400' },
-    { title: 'Systems & Ops', services: SERVICES.slice(8, 12), color: 'text-green-500', hover: 'group-hover/item:text-green-400' }
+    { title: 'Systems & Ops', services: SERVICES.slice(8, 12), color: 'text-green-500', hover: 'group-hover/item:text-green-400' },
+    { title: 'CMS Specialists', services: [SERVICES[12], SERVICES[23], SERVICES[21], SERVICES[20]], color: 'text-orange-500', hover: 'group-hover/item:text-orange-400' }
   ];
 
   const portfolioCategories = [
@@ -125,8 +126,8 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             </Link>
 
             <div className={`absolute top-full -left-[400px] pt-4 transition-all duration-300 ${isServicesOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-              <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[850px] flex overflow-hidden relative">
-                <div className="relative z-10 grid grid-cols-3 gap-10 w-full">
+              <div className="bg-[#080c18] border border-white/10 rounded-[3rem] p-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] w-[1050px] flex overflow-hidden relative">
+                <div className="relative z-10 grid grid-cols-4 gap-10 w-full">
                   {serviceCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-6">
                       <span className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic block`}>{cat.title}</span>
@@ -140,12 +141,21 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                           >
                             <span className="text-xl mt-1 group-hover/item:scale-125 transition-transform">{s.icon}</span>
                             <div className="flex-1">
-                              <div className={`text-white text-xs font-black mb-1 ${cat.hover} uppercase tracking-tight italic`}>{s.title}</div>
-                              <div className="text-gray-400 text-[10px] font-medium leading-relaxed line-clamp-2">{s.description}</div>
+                              <div className={`text-white text-xs font-black mb-1 ${cat.hover} uppercase tracking-tight italic`}>{s.title.split('SEO')[0].trim()} SEO</div>
+                              <div className="text-gray-400 text-[10px] font-medium leading-relaxed line-clamp-1">{s.description}</div>
                             </div>
                           </Link>
                         ))}
                       </div>
+                      {idx === 3 && (
+                        <Link 
+                          to="/services/cms-seo"
+                          onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}
+                          className="flex items-center gap-2 text-[9px] font-black text-orange-500 uppercase tracking-widest hover:text-orange-400 transition-colors pt-2"
+                        >
+                          All CMS Experts <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      )}
                     </div>
                   ))}
                 </div>

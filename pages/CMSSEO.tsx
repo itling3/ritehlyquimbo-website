@@ -9,7 +9,7 @@ import SectionCTA from '../components/SectionCTA';
 
 const CMSSEOPage: React.FC = () => {
   // Extract CMS services from the SERVICES array
-  const cmsServices = SERVICES.slice(12, 23);
+  const cmsServices = SERVICES.slice(12);
 
   return (
     <div className="pt-24 min-h-screen bg-slate-50">

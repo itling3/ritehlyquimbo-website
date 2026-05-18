@@ -47,6 +47,7 @@ import ConcreteCMSSEOExpertPage from './pages/ConcreteCMSSEOExpert';
 import MODXSEOExpertPage from './pages/MODXSEOExpert';
 import ContentfulCMSSEOExpertPage from './pages/ContentfulCMSSEOExpert';
 import StoryblokSEOExpertPage from './pages/StoryblokSEOExpert';
+import WooCommerceSEOExpertPage from './pages/WooCommerceSEOExpert';
 import ShopifySEOExpertPage from './pages/ShopifySEOExpert';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
@@ -206,6 +207,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/contentful-cms-seo-expert" element={<Navigate to="/services/cms-seo/contentful-cms-seo-expert" replace />} />
         <Route path="/services/storyblok-cms-seo-expert" element={<Navigate to="/services/cms-seo/storyblok-cms-seo-expert" replace />} />
         <Route path="/services/shopify-seo-expert" element={<Navigate to="/services/cms-seo/shopify-seo-expert" replace />} />
+        <Route path="/services/woocommerce-seo-expert" element={<Navigate to="/services/cms-seo/woocommerce-seo-expert" replace />} />
 
         <Route path="/services/cms-seo/wordpress-seo-expert" element={<WordPressSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/drupal-seo-expert" element={<DrupalSEOExpertPage onBook={handleBookConsultation} />} />
@@ -217,6 +219,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/cms-seo/modx-seo-expert" element={<MODXSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/contentful-cms-seo-expert" element={<ContentfulCMSSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/storyblok-cms-seo-expert" element={<StoryblokSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/woocommerce-seo-expert" element={<WooCommerceSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/shopify-seo-expert" element={<ShopifySEOExpertPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
