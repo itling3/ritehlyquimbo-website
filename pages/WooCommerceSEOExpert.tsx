@@ -128,7 +128,7 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               WooCommerce SEO Expert Services That <span className="text-blue-500">Grow Traffic, Rankings & Sales</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8 max-w-xl">
-              We help WooCommerce stores increase organic traffic, improve rankings, optimize site speed, and convert more visitors into customers through technical SEO and content strategy.
+              We help WooCommerce stores increase organic traffic, improve rankings, optimize site speed, and convert more visitors into customers through <Link to="/services/technical-on-page-seo-optimization" className="text-blue-400 hover:underline">technical SEO</Link> and <Link to="/services/seo-content-creation-strategy" className="text-blue-400 hover:underline">content strategy</Link>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button 
@@ -211,9 +211,11 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
       <section className="py-12 border-y border-white/5 bg-[#030712]">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.4em] text-center mb-8 italic">Trusted by Ecommerce Brands Using WooCommerce</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
             {['WooCommerce', 'Automattic', 'StoreFront', 'Stripe', 'Google Partner', 'Clutch'].map((brand, i) => (
-              <span key={i} className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tighter">{brand}</span>
+              <span key={i} className={brand === 'WooCommerce' ? "text-xl md:text-2xl font-black text-white hover:text-blue-500 transition-colors uppercase italic tracking-tighter" : "text-xl md:text-2xl font-black text-white uppercase italic tracking-tighter"}>
+                {brand === 'WooCommerce' ? <Link to="/services/cms-seo/wordpress-seo-expert">{brand}</Link> : brand}
+              </span>
             ))}
           </div>
         </div>
@@ -228,7 +230,7 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               Why Most WooCommerce Stores <span className="text-red-500">Struggle to Rank</span>
             </p>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
-              Generic SEO strategies fail because WooCommerce has unique technical challenges. Slow performance, duplicate content, and poor indexing are killing your sales.
+              Generic SEO strategies fail because WooCommerce has unique <Link to="/services/technical-on-page-seo-optimization" className="text-blue-400 hover:underline">technical challenges</Link>. Slow performance, duplicate content, and poor indexing are killing your sales.
             </p>
           </div>
 
@@ -328,12 +330,12 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               {
                 title: "Technical WooCommerce SEO",
                 icon: <Zap className="w-6 h-6" />,
-                desc: "Crawl audits, indexing fixes, canonical optimization, and structured data setup."
+                desc: "Crawl audits, indexing fixes, canonical optimization, and <Link to=\"/services/technical-on-page-seo-optimization\" className=\"text-blue-400 hover:underline\">structured data</Link> setup."
               },
               {
                 title: "Ecommerce Keyword Research",
                 icon: <Search className="w-6 h-6" />,
-                desc: "Identifying high-revenue buyer-intent keywords for your product category."
+                desc: "Identifying high-revenue <Link to=\"/services/keyword-research-intent-mapping\" className=\"text-blue-400 hover:underline\">buyer-intent keywords</Link> for your product category through deep intent mapping."
               },
               {
                  title: "On-Page Product SEO",
@@ -348,7 +350,7 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               {
                  title: "Revenue Content Strategy",
                  icon: <BarChart3 className="w-6 h-6" />,
-                 desc: "Building topical authority through strategic buying guides and product content."
+                 desc: "Building <Link to=\"/services/topical-maps-semantic-authority\" className=\"text-blue-400 hover:underline\">topical authority</Link> through strategic buying guides and product content."
               },
               {
                  title: "Conversion Optimization",
@@ -502,7 +504,8 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                   {plan.includes.map((f, j) => (
                     <div key={j} className="flex items-center gap-3 text-xs font-black uppercase tracking-tight text-white/80 italic">
                       <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                      {f}
+                      {f === 'AI Automation' ? <Link to="/services/ai-seo-automation" className="hover:text-blue-400 underline decoration-blue-500/20">{f}</Link> : 
+                       f === 'Technical SEO' ? <Link to="/services/technical-on-page-seo-optimization" className="hover:text-blue-400 underline decoration-blue-500/20">{f}</Link> : f}
                     </div>
                   ))}
                 </div>
@@ -596,9 +599,9 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
       {/* Final CTA Strip */}
       <section className="py-24 px-4 md:px-6 bg-[#030712] relative overflow-hidden italic">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 italic">
-          <div className="text-center md:text-left italic">
-             <h2 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none italic italic underline decoration-blue-500/30">Ready to Grow Your <br /> <span className="text-blue-500">Store Organically?</span></h2>
-          </div>
+            <div className="text-center md:text-left italic">
+               <h2 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none italic italic underline decoration-blue-500/30">Ready to Grow Your <br /> <span className="text-blue-500 italic">Organic Sales?</span></h2>
+            </div>
           <div className="flex flex-col items-center md:items-end gap-6 italic">
              <p className="text-gray-400 text-right uppercase font-black text-[10px] tracking-widest hidden md:block italic italic">Speak Directly With an SEO Strategist</p>
              <button 
