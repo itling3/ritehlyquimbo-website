@@ -34,20 +34,6 @@ async function startServer() {
 
   app.use(compression());
 
-  let vite: any;
-  if (process.env.NODE_ENV !== 'production') {
-    vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'custom',
-    });
-    // Assets handled by vite
-    app.use(vite.middlewares);
-  } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    // Important: serve assets BUT NOT index.html yet
-    app.use(express.static(distPath, { index: false }));
-  }
-
   const cmsRedirects: Record<string, string> = {
     '/services/wordpress-seo-expert': '/services/cms-seo/wordpress-seo-expert',
     '/services/drupal-seo-expert': '/services/cms-seo/drupal-seo-expert',
@@ -62,6 +48,31 @@ async function startServer() {
     '/services/shopify-seo-expert': '/services/cms-seo/shopify-seo-expert'
   };
 
+  // Dedicated Redirect Middleware (Run BEFORE Vite or Static assets)
+  app.use((req, res, next) => {
+    let cp = req.path.toLowerCase();
+    if (cp.length > 1 && cp.endsWith('/')) cp = cp.slice(0, -1);
+    
+    if (cmsRedirects[cp]) {
+      return res.redirect(301, cmsRedirects[cp]);
+    }
+    next();
+  });
+
+  let vite: any;
+  if (process.env.NODE_ENV !== 'production') {
+    vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: 'custom',
+    });
+    // Assets handled by vite
+    app.use(vite.middlewares);
+  } else {
+    const distPath = path.join(process.cwd(), 'dist');
+    // Important: serve assets BUT NOT index.html yet
+    app.use(express.static(distPath, { index: false }));
+  }
+  
   app.get('*all', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
@@ -95,17 +106,13 @@ async function startServer() {
       }
       if (cleanPath === '') cleanPath = '/';
 
-      // Handle 301 Redirects
-      if (cmsRedirects[cleanPath]) {
-        return res.redirect(301, cmsRedirects[cleanPath]);
-      }
-
-      // Robust matching
+      // Handle 404/Matching
+      let pageData: any = null;
       const allServices = Object.values(SERVICE_DETAILS);
       const matchedService = allServices.find(s => {
         const p = s.permalink.toLowerCase();
         const sl = `/services/${s.slug.toLowerCase()}`;
-        return cleanPath === p || cleanPath === sl || cleanPath.endsWith(s.slug.toLowerCase());
+        return cleanPath === p || cleanPath === sl;
       });
       
       const matchedCaseStudy = CASE_STUDIES.find(s => {
