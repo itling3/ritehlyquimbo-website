@@ -52,7 +52,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
     },
     {
       question: "Do you work with ecommerce brands?",
-      answer: "Yes. We optimize Webflow Ecommerce stores for product rankings, category SEO, and faster checkout experiences to boost conversion rates."
+      answer: "Yes. We optimize Webflow Ecommerce stores for product rankings, category SEO, and faster checkout experiences to boost conversion rates. See our <Link to=\"/services/ecommerce-seo-specialist-sales-growth\" className=\"text-blue-400 hover:underline\">Ecommerce SEO</Link> services for more."
     }
   ];
 
@@ -125,7 +125,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               Webflow SEO Expert Services That <span className="text-blue-500 transition-colors duration-500 hover:text-white">Grow Rankings, Traffic & Revenue</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8 max-w-xl">
-              Technical Webflow SEO, content strategy, AI search optimization, and conversion-focused growth systems for brands that want measurable organic results.
+              Technical <Link to="/services/technical-on-page-seo-optimization" className="text-blue-400 hover:underline">Webflow SEO</Link>, <Link to="/services/seo-content-creation-strategy" className="text-blue-400 hover:underline">content strategy</Link>, AI search optimization, and conversion-focused growth systems for brands that want measurable organic results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button 
@@ -325,7 +325,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                   {["Entity Optimization", "Semantic topical authority", "Conversational optimization"].map((t, i) => (
                      <div key={i} className="flex items-center gap-2 text-[10px] font-black uppercase text-blue-400 italic">
                         <CheckCircle2 className="w-4 h-4" />
-                        {t}
+                        {t === "Semantic topical authority" ? <Link to="/services/topical-maps-semantic-authority" className="hover:underline">{t}</Link> : t}
                      </div>
                   ))}
                 </div>
@@ -394,7 +394,9 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                    {service.items.map((item, j) => (
                       <div key={j} className="flex items-center gap-2 text-[10px] font-black text-gray-500 uppercase tracking-widest italic group-hover:text-gray-400 transition-colors">
                          <span className="w-1 h-1 rounded-full bg-blue-500/40"></span>
-                         {item}
+                         {item === "Structured Data" ? <Link to="/services/technical-on-page-seo-optimization" className="hover:text-blue-400 decoration-blue-500/20 underline">{item}</Link> : 
+                          item === "Programmatic SEO" ? <Link to="/services/programmatic-seo-automation" className="hover:text-blue-400 decoration-blue-500/20 underline">{item}</Link> : 
+                          item === "Search Intent Analysis" ? <Link to="/services/keyword-research-intent-mapping" className="hover:text-blue-400 decoration-blue-500/20 underline">{item}</Link> : item}
                       </div>
                    ))}
                 </div>
@@ -500,7 +502,8 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                   {plan.includes.map((f, j) => (
                     <div key={j} className="flex items-center gap-3 text-xs font-black uppercase tracking-tight text-white/80">
                       <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                      {f}
+                      {f === "AI Search Prep" ? <Link to="/services/ai-seo-automation" className="hover:text-blue-400 decoration-blue-500/20 underline">{f}</Link> : 
+                       f === "Content Clusters" ? <Link to="/services/seo-content-creation-strategy" className="hover:text-blue-400 decoration-blue-500/20 underline">{f}</Link> : f}
                     </div>
                   ))}
                 </div>
