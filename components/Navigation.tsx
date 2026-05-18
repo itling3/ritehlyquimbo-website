@@ -49,7 +49,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
     { title: 'Search Strategy', services: SERVICES.slice(0, 4), color: 'text-blue-500', hover: 'group-hover/item:text-blue-400' },
     { title: 'Market Domination', services: SERVICES.slice(4, 8), color: 'text-purple-500', hover: 'group-hover/item:text-purple-400' },
     { title: 'Systems & Ops', services: SERVICES.slice(8, 12), color: 'text-green-500', hover: 'group-hover/item:text-green-400' },
-    { title: 'CMS Specialists', services: [SERVICES[12], SERVICES[24], SERVICES[21], SERVICES[23]], color: 'text-orange-500', hover: 'group-hover/item:text-orange-400' }
+    { title: 'CMS SEO', services: [SERVICES[12], SERVICES[13], SERVICES[14], SERVICES[21], SERVICES[23], SERVICES[24], SERVICES[17], SERVICES[22]], color: 'text-orange-500', hover: 'group-hover/item:text-orange-400' }
   ];
 
   const portfolioCategories = [
@@ -130,7 +130,17 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 <div className="relative z-10 grid grid-cols-4 gap-10 w-full">
                   {serviceCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-6">
-                      <span className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic block`}>{cat.title}</span>
+                      {cat.title === 'CMS SEO' ? (
+                        <Link 
+                          to="/services/cms-seo" 
+                          onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}
+                          className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic block hover:opacity-80 transition-opacity`}
+                        >
+                          {cat.title}
+                        </Link>
+                      ) : (
+                        <span className={`text-[10px] ${cat.color} font-black tracking-[0.4em] uppercase mb-4 border-b border-white/5 pb-2 italic block`}>{cat.title}</span>
+                      )}
                       <div className="space-y-2">
                         {cat.services.map((s) => (
                           <Link 
@@ -394,10 +404,21 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
                 <div className="px-6 pb-6 pt-2 space-y-8">
                   {serviceCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-4">
-                      <div className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2`}>
-                        <span className="w-4 h-px bg-current opacity-30"></span>
-                        {cat.title}
-                      </div>
+                      {cat.title === 'CMS SEO' ? (
+                        <Link 
+                          to="/services/cms-seo"
+                          onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null); }}
+                          className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2 hover:opacity-80 transition-opacity`}
+                        >
+                          <span className="w-4 h-px bg-current opacity-30"></span>
+                          {cat.title}
+                        </Link>
+                      ) : (
+                        <div className={`text-[10px] font-black ${cat.color} uppercase tracking-[0.4em] italic flex items-center gap-2`}>
+                          <span className="w-4 h-px bg-current opacity-30"></span>
+                          {cat.title}
+                        </div>
+                      )}
                       <div className="grid grid-cols-2 gap-3">
                         {cat.services.map(s => (
                           <Link 
