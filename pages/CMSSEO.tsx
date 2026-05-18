@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Globe, Zap, Shield, Search, Layout } from 'lucide-react';
 import { SERVICES, SERVICE_DETAILS } from '../constants';
 import SectionCTA from '../components/SectionCTA';
+import SEO from '../components/SEO';
 
 const CMSSEOPage: React.FC = () => {
   // Extract CMS services from the SERVICES array
@@ -13,10 +13,11 @@ const CMSSEOPage: React.FC = () => {
 
   return (
     <div className="pt-24 min-h-screen bg-slate-50">
-      <Helmet>
-        <title>CMS SEO Expert Services — WordPress, Shopify, Headless & More</title>
-        <meta name="description" content="Specialized SEO experts for every major CMS. We optimize WordPress, Shopify, Drupal, and Headless platforms like Contentful and Storyblok for maximum rankings." />
-      </Helmet>
+      <SEO 
+        title="CMS SEO Expert Services — WordPress, Shopify, Headless & More"
+        description="Specialized SEO experts for every major CMS. We optimize WordPress, Shopify, Drupal, and Headless platforms like Contentful and Storyblok for maximum rankings."
+        canonical="https://ritehlyquimbo.com/services/cms-seo"
+      />
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden bg-white border-b border-slate-200">
