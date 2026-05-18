@@ -46,7 +46,8 @@ async function startServer() {
     '/services/contentful-cms-seo-expert': '/services/cms-seo/contentful-cms-seo-expert',
     '/services/storyblok-cms-seo-expert': '/services/cms-seo/storyblok-cms-seo-expert',
     '/services/shopify-seo-expert': '/services/cms-seo/shopify-seo-expert',
-    '/services/woocommerce-seo-expert': '/services/cms-seo/woocommerce-seo-expert'
+    '/services/woocommerce-seo-expert': '/services/cms-seo/woocommerce-seo-expert',
+    '/services/webflow-seo-expert': '/services/cms-seo/webflow-seo-expert'
   };
 
   // Dedicated Redirect Middleware (Run BEFORE Vite or Static assets)

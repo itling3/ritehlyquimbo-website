@@ -227,7 +227,8 @@ export const SERVICES = [
   { id: 'contentful-seo', title: 'Contentful CMS SEO Expert', description: 'Enterprise-grade headless SEO for Contentful websites to drive organic growth and rankings.', icon: '☁️' },
   { id: 'shopify-seo', title: 'Shopify SEO Expert', description: 'Revenue-focused Shopify SEO optimization for Google and AI search to scale organic store growth.', icon: '🛍️' },
   { id: 'storyblok-seo', title: 'Storyblok CMS SEO Expert', description: 'High-performance headless SEO for Storyblok websites. We optimize content models and API delivery for search dominance.', icon: '🏗️' },
-  { id: 'woocommerce-seo', title: 'WooCommerce SEO Expert', description: 'High-converting WooCommerce SEO strategies that grow organic traffic, rankings, and sales for ecommerce stores.', icon: '🛒' }
+  { id: 'woocommerce-seo', title: 'WooCommerce SEO Expert', description: 'High-converting WooCommerce SEO strategies that grow organic traffic, rankings, and sales for ecommerce stores.', icon: '🛒' },
+  { id: 'webflow-seo', title: 'Webflow SEO Expert', description: 'Technical Webflow SEO optimization for businesses that want more leads, sales, and organic visibility.', icon: '🌊' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -775,6 +776,35 @@ Ready to grow your Storyblok website? [Book Your Free SEO Strategy Call](/contac
     faqs: [
       { question: 'What makes WooCommerce SEO different from regular SEO?', answer: 'WooCommerce SEO requires focus on product schema, faceted navigation, category architecture, and crawl budget for large ecommerce catalogs.' },
       { question: 'How long does WooCommerce SEO take?', answer: 'Technical fixes often show impact in 4-8 weeks. Significant revenue growth typically builds over 4-6 months of consistent strategy.' }
+    ]
+  },
+  'webflow-seo': {
+    id: 'webflow-seo',
+    slug: 'webflow-seo-expert',
+    permalink: '/services/cms-seo/webflow-seo-expert',
+    title: 'Webflow SEO Expert',
+    titleH1: 'Webflow SEO Expert Services That Grow Rankings, Traffic & Revenue',
+    icon: '🌊',
+    description: 'Technical Webflow SEO, content strategy, AI search optimization, and conversion-focused growth systems for brands that want measurable organic results.',
+    seoTitle: 'Webflow SEO Expert Services | Scalable Growth & AI Search',
+    metaDescription: 'Hire a Webflow SEO Expert to rank higher on Google, ChatGPT & AI Search. Specialized technical Webflow SEO, site architecture, and revenue-focused growth.',
+    keywords: 'webflow seo expert, webflow seo services, webflow seo agency, technical webflow seo, seo for webflow stores, webflow speed optimization, webflow seo consultant',
+    painPoint: 'Your beautiful Webflow site means nothing if your ideal customers can’t find you.',
+    problem: 'Generic SEO agencies don’t understand Webflow architecture, leading to slow speeds and poor CMS scalability.',
+    solution: 'Platform-specific Webflow SEO expertise including clean semantic HTML, CMS architecture, and AI search optimization.',
+    importance: 'Modern SEO is no longer just about rankings—it’s about visibility across AI-powered search experiences like SearchGPT.',
+    features: [
+      'Technical Webflow SEO Optimization',
+      'AI Search Visibility (GEO)',
+      'CMS Architecture & Scalability',
+      'Core Web Vitals & Speed',
+      'Migration SEO Protection',
+      'Conversion-Focused SEO'
+    ],
+    contentBody: `Technical Webflow SEO, content strategy, AI search optimization, and conversion-focused growth systems for brands that want measurable organic results.`,
+    faqs: [
+      { question: 'Is Webflow good for SEO?', answer: 'Yes, but it requires specialized configuration of CMS structures, schema, and localization to outperform competitors.' },
+      { question: 'Do you optimize for AI search?', answer: 'Absolutely. We optimize your Webflow content for Google, ChatGPT, and other AI-powered discovery engines.' }
     ]
   },
   'keyword-research': {
