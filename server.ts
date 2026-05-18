@@ -48,10 +48,24 @@ async function startServer() {
     app.use(express.static(distPath, { index: false }));
   }
 
-  app.get('*', async (req, res, next) => {
+  const cmsRedirects: Record<string, string> = {
+    '/services/wordpress-seo-expert': '/services/cms-seo/wordpress-seo-expert',
+    '/services/drupal-seo-expert': '/services/cms-seo/drupal-seo-expert',
+    '/services/joomla-seo-expert': '/services/cms-seo/joomla-seo-expert',
+    '/services/typo3-seo-expert': '/services/cms-seo/typo3-seo-expert',
+    '/services/ghost-seo-expert': '/services/cms-seo/ghost-seo-expert',
+    '/services/craft-cms-seo-expert': '/services/cms-seo/craft-cms-seo-expert',
+    '/services/concrete-cms-seo-expert': '/services/cms-seo/concrete-cms-seo-expert',
+    '/services/modx-seo-expert': '/services/cms-seo/modx-seo-expert',
+    '/services/contentful-cms-seo-expert': '/services/cms-seo/contentful-cms-seo-expert',
+    '/services/storyblok-cms-seo-expert': '/services/cms-seo/storyblok-cms-seo-expert',
+    '/services/shopify-seo-expert': '/services/cms-seo/shopify-seo-expert'
+  };
+
+  app.get('*all', async (req, res, next) => {
     const url = req.originalUrl;
     const pathOnly = req.path;
-    
+
     // Pass assets to next middleware
     if (pathOnly.includes('.') && !pathOnly.endsWith('.html')) {
       return next();
@@ -80,6 +94,11 @@ async function startServer() {
         cleanPath = cleanPath.slice(0, -1);
       }
       if (cleanPath === '') cleanPath = '/';
+
+      // Handle 301 Redirects
+      if (cmsRedirects[cleanPath]) {
+        return res.redirect(301, cmsRedirects[cleanPath]);
+      }
 
       // Robust matching
       const allServices = Object.values(SERVICE_DETAILS);
