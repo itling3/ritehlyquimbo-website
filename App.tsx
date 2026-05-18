@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useParams, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useParams, Link, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
@@ -193,6 +193,19 @@ const AppContent: React.FC = () => {
 
         <Route path="/services" element={<ServicesPage onBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
         <Route path="/services/cms-seo" element={<CMSSEOPage />} />
+
+        {/* 301 Redirects for Legacy CMS SEO URLs */}
+        <Route path="/services/wordpress-seo-expert" element={<Navigate to="/services/cms-seo/wordpress-seo-expert" replace />} />
+        <Route path="/services/drupal-seo-expert" element={<Navigate to="/services/cms-seo/drupal-seo-expert" replace />} />
+        <Route path="/services/joomla-seo-expert" element={<Navigate to="/services/cms-seo/joomla-seo-expert" replace />} />
+        <Route path="/services/typo3-seo-expert" element={<Navigate to="/services/cms-seo/typo3-seo-expert" replace />} />
+        <Route path="/services/ghost-seo-expert" element={<Navigate to="/services/cms-seo/ghost-seo-expert" replace />} />
+        <Route path="/services/craft-cms-seo-expert" element={<Navigate to="/services/cms-seo/craft-cms-seo-expert" replace />} />
+        <Route path="/services/concrete-cms-seo-expert" element={<Navigate to="/services/cms-seo/concrete-cms-seo-expert" replace />} />
+        <Route path="/services/modx-seo-expert" element={<Navigate to="/services/cms-seo/modx-seo-expert" replace />} />
+        <Route path="/services/contentful-cms-seo-expert" element={<Navigate to="/services/cms-seo/contentful-cms-seo-expert" replace />} />
+        <Route path="/services/storyblok-cms-seo-expert" element={<Navigate to="/services/cms-seo/storyblok-cms-seo-expert" replace />} />
+        <Route path="/services/shopify-seo-expert" element={<Navigate to="/services/cms-seo/shopify-seo-expert" replace />} />
 
         <Route path="/services/cms-seo/wordpress-seo-expert" element={<WordPressSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/drupal-seo-expert" element={<DrupalSEOExpertPage onBook={handleBookConsultation} />} />
