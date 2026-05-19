@@ -113,7 +113,7 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
                 Ritehly <span className="text-blue-500">Quimbo</span>
               </h1>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                <span className="text-sm md:text-base text-blue-400 font-black uppercase tracking-widest italic">Growth Engineer • AI Specialist</span>
+                <span className="text-sm md:text-base text-blue-400 font-black uppercase tracking-[0.2em] italic">SEO Specialist (70%) • Growth Engineer (30%)</span>
                 <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/20"></div>
                 <div className="flex items-center gap-2 text-gray-400">
                   <MapPin className="w-4 h-4 text-blue-500" />
@@ -136,13 +136,13 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
           >
             <h2 className="text-2xl font-black text-white uppercase italic tracking-tight flex items-center gap-3">
               <span className="w-8 h-[2px] bg-blue-500"></span>
-              Who I Am & My Mission
+              The 70/30 Growth Strategy
             </h2>
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium">
-              I am Ritehly Quimbo, and I specialize in creating <span className="text-white font-bold italic">autonomous growth systems for SMBs</span>. By merging 8 years of search intelligence with custom AI automation, I help business owners scale their sales and operations without the typical overhead of a massive marketing department.
+              I am Ritehly Quimbo, and I focus 70% of my energy on high-level <span className="text-white font-bold italic">SEO Intelligence</span>. The remaining 30% is dedicated to <span className="text-white font-bold italic">Growth Engineering</span>—building the AI tools, web infrastructure, and Google Ads frameworks that small and medium businesses need to dominate their markets.
             </p>
             <p className="text-gray-500 leading-relaxed">
-              I believe that for a small business to win in the modern search landscape, you need more than just keywords. You need <span className="text-gray-300 font-bold italic">Topical Authority</span>. I spend my time building the technical lattices and content structures that tell search engines exactly why you should be the #1 choice in your niche.
+              With 8 years of dedicated search experience, I help SMB owners eliminate marketing guess-work. I don't just build sites or run ads; I architect <span className="text-gray-300 font-bold italic">Topical Authority lattices</span> that tell search engines exactly why your business is the only logical choice in your niche.
             </p>
           </motion.section>
 
@@ -157,28 +157,28 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
                 <Target className="w-48 h-48 text-blue-500" />
              </div>
              
-             <div className="relative z-10">
-               <div className="flex items-center gap-4 mb-6">
-                 <div className="p-4 bg-blue-600/10 rounded-2xl border border-blue-500/20">
-                   {coreExperience.icon}
-                 </div>
-                 <div>
-                   <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-1">{coreExperience.title}</h3>
-                   <span className="text-sm font-black text-blue-500 uppercase tracking-[0.2em]">{coreExperience.duration} Mastery</span>
-                 </div>
-               </div>
-               
-               <div className="space-y-4">
-                 <p className="text-gray-400 font-medium text-lg leading-relaxed">{coreExperience.description}</p>
-                 <div className="text-xs text-blue-400 font-black uppercase tracking-widest italic">{coreExperience.focus}</div>
-               </div>
-             </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-4 bg-blue-600/10 rounded-2xl border border-blue-500/20">
+                    <Target className="w-8 h-8 text-blue-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-1">Core: SEO Specialist</h3>
+                    <span className="text-sm font-black text-blue-500 uppercase tracking-[0.2em]">70% Focus • 8 Years Mastery</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <p className="text-gray-400 font-medium text-lg leading-relaxed">Since 2018, I have lived and breathed search intelligence. My core mastery lies in architecting deep topical maps and technical SEO frameworks that allow small businesses to outrank enterprise giants.</p>
+                  <div className="text-xs text-blue-400 font-black uppercase tracking-widest italic">Technical SEO, Authority Building, & Topical Mapping</div>
+                </div>
+              </div>
           </motion.section>
 
           {/* Side Skills Grid */}
           <div className="space-y-6">
             <h3 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] pl-2 flex items-center gap-3">
-              <span className="w-4 h-[1px] bg-gray-700"></span> Specialized Arsenal
+              <span className="w-4 h-[1px] bg-gray-700"></span> 30% Growth Engineering Arsenal
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
                {sideSkills.map((skill, i) => (
