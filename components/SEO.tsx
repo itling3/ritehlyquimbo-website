@@ -19,17 +19,18 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical, sche
   
   return (
     <Helmet>
+      {schema && (
+        <script 
+          data-rh="true" 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      )}
       <title>{title}</title>
       <meta data-rh="true" name="description" content={description} />
       {keywords && <meta data-rh="true" name="keywords" content={keywords} />}
       <meta data-rh="true" name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
       <link data-rh="true" rel="canonical" href={finalCanonical} />
-      
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      )}      
       <meta data-rh="true" property="og:locale" content="en_US" />
       <meta data-rh="true" property="og:type" content="website" />
       <meta data-rh="true" property="og:title" content={title} />

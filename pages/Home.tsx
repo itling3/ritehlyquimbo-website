@@ -22,6 +22,181 @@ interface HomeProps {
   setActiveFaq: (index: number | null) => void;
 }
 
+const HOME_SCHEMAS = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://ritehlyquimbo.com/#local-business",
+    "name": "Ritehly Quimbo Precision Search Engineering",
+    "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
+    "description": "Elite technical SEO, AI automation, and full-stack web development services. Specialized in hyper-local dominance and ROI-focused growth for ambitious brands.",
+    "url": "https://ritehlyquimbo.com/",
+    "telephone": "+639611525318",
+    "email": "Ritehlyquimbo@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cebu City",
+      "addressRegion": "Cebu",
+      "addressCountry": "PH"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 10.3157,
+      "longitude": 123.8854
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "12",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Charm Garcia" },
+        "reviewBody": "Rihteley was super helpful. Easy and smooth transaction. Highly recommended!",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Rebecca Jordan" },
+        "reviewBody": "I’ve worked with a few SEO services before, but Ritehly Website SEO Ranker really stands out. improvements in our technical metrics.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariel Angeles" },
+        "reviewBody": "Of all the SEO trainings I attended I can say that with Sir Ritehly the word from SEO Beginner to Experts really fits.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Full-Stack SEO & Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Local SEO & Google Maps Optimization",
+            "description": "Hyper-local dominance strategies to capture the #1 spot in the Google Map Pack."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Technical On-Page SEO",
+            "description": "Precision semantic optimization and technical architecture for maximum crawlability."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Automation & Workflows",
+            "description": "Implementation of custom AI agents to scale business operations and content production."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ritehly Quimbo",
+    "jobTitle": "SEO Specialist & Growth Engineer",
+    "description": "With 8 years of dedicated search experience, Ritehly Quimbo focuses 70% of his energy on high-level SEO Intelligence and 30% on Growth Engineering—building AI tools, web infrastructure, and Google Ads frameworks for SMBs.",
+    "url": "https://ritehlyquimbo.com",
+    "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
+    "email": [
+      "mailto:seo@ritehlyquimbo.com",
+      "mailto:Ritehlyquimbo@gmail.com"
+    ],
+    "telephone": "+639611525318",
+    "gender": "https://schema.org/Male",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cebu City",
+      "addressRegion": "Cebu",
+      "addressCountry": "PH"
+    },
+    "knowsAbout": [
+      "Search Engine Optimization",
+      "Technical SEO",
+      "Topical Authority & Topical Mapping",
+      "Growth Engineering",
+      "AI Automation & Workflow Engineering",
+      "Google Ads",
+      "WordPress & Elementor Web Development"
+    ],
+    "skills": "Topical Authority lattices, technical SEO auditing, custom AI agents, lead qualification automation, ROI optimization",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Expertise",
+      "recognizingOrganization": {
+        "@type": "Organization",
+        "name": "8 Years of Search Intelligence & Digital Marketing Mastery"
+      }
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "consultation",
+      "telephone": "+639611525318",
+      "email": [
+        "mailto:seo@ritehlyquimbo.com",
+        "mailto:Ritehlyquimbo@gmail.com"
+      ],
+      "availableLanguage": ["English", "Tagalog"]
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://ritehlyquimbo.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is my traffic increasing, but I’m not getting any leads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This usually indicates a mismatch in search intent. We target high-intent keywords that map to the specific stage of your buyer's journey to ensure ROI."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI really automate growth without hurting rankings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We implement custom AI workflows that focus on quality and operational scale, ensuring content remains expert-led and search-engine friendly."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ritehlyquimbo.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Portfolio",
+        "item": "https://ritehlyquimbo.com/portfolio/"
+      }
+    ]
+  }
+];
+
 const Home: React.FC<HomeProps> = ({ 
   onNavigate, 
   onBook, 
@@ -32,184 +207,14 @@ const Home: React.FC<HomeProps> = ({
 }) => {
   return (
     <>
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_SCHEMAS) }}
+      />
       <SEO 
         title="Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue" 
         description="Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies." 
         keywords="hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo"
-        schema={[
-          {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "@id": "https://ritehlyquimbo.com/#local-business",
-            "name": "Ritehly Quimbo Precision Search Engineering",
-            "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
-            "description": "Elite technical SEO, AI automation, and full-stack web development services. Specialized in hyper-local dominance and ROI-focused growth for ambitious brands.",
-            "url": "https://ritehlyquimbo.com/",
-            "telephone": "+639611525318",
-            "email": "Ritehlyquimbo@gmail.com",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Cebu City",
-              "addressRegion": "Cebu",
-              "addressCountry": "PH"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 10.3157,
-              "longitude": 123.8854
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5.0",
-              "reviewCount": "12",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "review": [
-              {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Charm Garcia" },
-                "reviewBody": "Rihteley was super helpful. Easy and smooth transaction. Highly recommended!",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-              },
-              {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Rebecca Jordan" },
-                "reviewBody": "I’ve worked with a few SEO services before, but Ritehly Website SEO Ranker really stands out. improvements in our technical metrics.",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-              },
-              {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Mariel Angeles" },
-                "reviewBody": "Of all the SEO trainings I attended I can say that with Sir Ritehly the word from SEO Beginner to Experts really fits.",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-              }
-            ],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Full-Stack SEO & Marketing Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Local SEO & Google Maps Optimization",
-                    "description": "Hyper-local dominance strategies to capture the #1 spot in the Google Map Pack."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Technical On-Page SEO",
-                    "description": "Precision semantic optimization and technical architecture for maximum crawlability."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "AI Automation & Workflows",
-                    "description": "Implementation of custom AI agents to scale business operations and content production."
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Ritehly Quimbo",
-            "jobTitle": "SEO Specialist & Growth Engineer",
-            "description": "With 8 years of dedicated search experience, Ritehly Quimbo focuses 70% of his energy on high-level SEO Intelligence and 30% on Growth Engineering—building AI tools, web infrastructure, and Google Ads frameworks for SMBs.",
-            "url": "https://ritehlyquimbo.com",
-            "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
-            "email": [
-              "mailto:seo@ritehlyquimbo.com",
-              "mailto:Ritehlyquimbo@gmail.com"
-            ],
-            "telephone": "+639611525318",
-            "gender": "https://schema.org/Male",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Cebu City",
-              "addressRegion": "Cebu",
-              "addressCountry": "PH"
-            },
-            "knowsAbout": [
-              "Search Engine Optimization",
-              "Technical SEO",
-              "Topical Authority & Topical Mapping",
-              "Growth Engineering",
-              "AI Automation & Workflow Engineering",
-              "Google Ads",
-              "WordPress & Elementor Web Development"
-            ],
-            "skills": "Topical Authority lattices, technical SEO auditing, custom AI agents, lead qualification automation, ROI optimization",
-            "hasCredential": {
-              "@type": "EducationalOccupationalCredential",
-              "credentialCategory": "Expertise",
-              "recognizingOrganization": {
-                "@type": "Organization",
-                "name": "8 Years of Search Intelligence & Digital Marketing Mastery"
-              }
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "consultation",
-              "telephone": "+639611525318",
-              "email": [
-                "mailto:seo@ritehlyquimbo.com",
-                "mailto:Ritehlyquimbo@gmail.com"
-              ],
-              "availableLanguage": ["English", "Tagalog"]
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://ritehlyquimbo.com"
-            }
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Why is my traffic increasing, but I’m not getting any leads?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "This usually indicates a mismatch in search intent. We target high-intent keywords that map to the specific stage of your buyer's journey to ensure ROI."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can AI really automate growth without hurting rankings?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. We implement custom AI workflows that focus on quality and operational scale, ensuring content remains expert-led and search-engine friendly."
-                }
-              }
-            ]
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://ritehlyquimbo.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Portfolio",
-                "item": "https://ritehlyquimbo.com/portfolio/"
-              }
-            ]
-          }
-        ]}
       />
       <main>
         <Hero onAuditClick={onBook} onFormClick={onOpenForm} />

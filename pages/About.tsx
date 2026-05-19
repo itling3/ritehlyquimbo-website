@@ -67,11 +67,14 @@ const AboutPage: React.FC<{ onBook: (e?: React.MouseEvent) => void }> = ({ onBoo
   const navigate = useNavigate();
   return (
     <div className="min-h-screen">
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
+      />
       <SEO 
         title="Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth" 
         description="Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for small and medium businesses." 
         keywords="ritehly quimbo, seo specialist, digital growth expert, seo solutions, SMB seo, search authority"
-        schema={PERSON_SCHEMA}
       />
       <AboutView onBack={() => navigate('/')} onBook={onBook} />
     </div>
