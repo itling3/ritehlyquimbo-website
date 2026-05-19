@@ -207,14 +207,11 @@ const Home: React.FC<HomeProps> = ({
 }) => {
   return (
     <>
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_SCHEMAS) }}
-      />
       <SEO 
         title="Hire SEO Expert from Philippines | Scale Your Organic Traffic and Revenue" 
         description="Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies." 
         keywords="hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo"
+        schema={HOME_SCHEMAS}
       />
       <main>
         <Hero onAuditClick={onBook} onFormClick={onOpenForm} />

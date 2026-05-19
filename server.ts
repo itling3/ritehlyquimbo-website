@@ -100,6 +100,7 @@ async function startServer() {
       let description = "Partner with Ritehly Quimbo, a results-driven SEO expert specializing in scaling businesses through data-backed organic search strategies.";
       let keywords = "hire seo expert philippines, organic traffic scaling, data-backed seo strategy, ritehly quimbo";
       let is404 = false;
+      let schemaJson: any = null;
 
       // Normalize path
       let cleanPath = (pathOnly || '/').toLowerCase();
@@ -108,8 +109,50 @@ async function startServer() {
       }
       if (cleanPath === '') cleanPath = '/';
 
+      if (cleanPath === '/') {
+        schemaJson = [
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://ritehlyquimbo.com/#local-business",
+            "name": "Ritehly Quimbo Precision Search Engineering",
+            "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
+            "description": "Elite technical SEO, AI automation, and full-stack web development services. Specialized in hyper-local dominance and ROI-focused growth for ambitious brands.",
+            "url": "https://ritehlyquimbo.com/",
+            "telephone": "+639611525318",
+            "email": "Ritehlyquimbo@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Cebu City",
+              "addressRegion": "Cebu",
+              "addressCountry": "PH"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 10.3157,
+              "longitude": 123.8854
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Ritehly Quimbo",
+            "jobTitle": "SEO Specialist & Growth Engineer",
+            "description": "With 8 years of dedicated search experience, Ritehly Quimbo focuses 70% of his energy on high-level SEO Intelligence and 30% on Growth Engineering—building AI tools, web infrastructure, and Google Ads frameworks for SMBs.",
+            "url": "https://ritehlyquimbo.com",
+            "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
+            "email": [
+              "mailto:seo@ritehlyquimbo.com",
+              "mailto:Ritehlyquimbo@gmail.com"
+            ],
+            "telephone": "+639611525318"
+          }
+        ];
+      }
+
       // Handle 404/Matching
       let pageData: any = null;
+
       const allServices = Object.values(SERVICE_DETAILS);
       const matchedService = allServices.find(s => {
         const p = s.permalink.toLowerCase();
@@ -139,6 +182,78 @@ async function startServer() {
       } else if (cleanPath === '/about') {
         title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
         description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
+        schemaJson = {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Ritehly Quimbo",
+          "jobTitle": "SEO Specialist  | AI Specialist | Web Dev | Ads Specialist",
+          "description": "Specialist in creating autonomous growth systems by merging 8 years of search intelligence with cutting-edge AI automation.",
+          "url": "https://ritehlyquimboseoexpertphilippines.netlify.app/",
+          "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
+          "email": [
+            "mailto:seo@ritehlyquimbo.com",
+            "mailto:Ritehlyquimbo@gmail.com"
+          ],
+          "telephone": "+639611525318",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cebu City",
+            "addressRegion": "Cebu",
+            "postalCode": "6000",
+            "addressCountry": "PH"
+          },
+          "knowsAbout": [
+            "Technical SEO",
+            "Topical Mapping",
+            "AI Automation & Workflow Engineering",
+            "Google Ads Optimization",
+            "Full-Stack Web Development",
+            "WordPress SEO",
+            "Shopify SEO"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "SEO & Automation Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Keyword Research & Topical Maps SEO"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Automation Specialist SEO"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Local SEO & Google Map Pack Dominance"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Full-Stack Web Dev SEO"
+                }
+              }
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/ritehly/",
+            "https://www.youtube.com/@ritseo",
+            "https://www.linkedin.com/in/ritehly-quimbo/",
+            "https://www.quora.com/profile/Ritehly-Quimbo",
+            "https://github.com/itling3",
+            "https://www.behance.net/ritehly"
+          ]
+        };
       } else if (cleanPath === '/contact') {
         title = "Contact Ritehly Quimbo | Ready to Scale Your Organic Traffic?";
         description = "Get in touch today for a personalized SEO strategy. Let’s discuss how to grow your business through data-driven search marketing.";
@@ -203,6 +318,7 @@ async function startServer() {
     <meta name="twitter:description" content="${finalDesc}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
     <script id="ssr-debug">console.log("SSR DEBUG:", ${JSON.stringify({ path: cleanPath, title: finalTitle, desc: finalDesc.slice(0, 30) + '...', service: !!matchedService, case: !!matchedCaseStudy })});</script>
+    ${schemaJson ? `<script type="application/ld+json">${JSON.stringify(schemaJson)}</script>` : ''}
 `;
       html = html.replace('</head>', `${extraMeta}</head>`);
 
