@@ -14,7 +14,7 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
     title: "Primary Focus: SEO Specialist",
     duration: "8 Years",
     focus: "Technical SEO, Authority Building, & Topical Mapping",
-    description: "Since 2018, I've lived and breathed search intelligence. My core expertise lies in architecting topical maps and technical lattices that stay ahead of algorithm shifts. I don't just 'do SEO'; I build digital assets that dominate rankings and stay there.",
+    description: "Since 2018, I have dedicated my career to mastering search intelligence. My core expertise lies in architecting deep topical maps and technical SEO frameworks that allow small and medium businesses to outrank massive competitors. I don't just deliver 'traffic'; I build digital assets that own their market and stay there.",
     icon: <Target className="w-8 h-8 text-blue-500" />
   };
 
@@ -136,13 +136,13 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
           >
             <h2 className="text-2xl font-black text-white uppercase italic tracking-tight flex items-center gap-3">
               <span className="w-8 h-[2px] bg-blue-500"></span>
-              The Mission
+              Who I Am & My Mission
             </h2>
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium">
-              I specialize in creating <span className="text-white font-bold italic">autonomous growth systems</span>. By merging 8 years of search intelligence with cutting-edge AI automation, I help small and medium businesses scale their sales and operations without increasing their overhead.
+              I am Ritehly Quimbo, and I specialize in creating <span className="text-white font-bold italic">autonomous growth systems for SMBs</span>. By merging 8 years of search intelligence with custom AI automation, I help business owners scale their sales and operations without the typical overhead of a massive marketing department.
             </p>
             <p className="text-gray-500 leading-relaxed">
-              My approach is simple: <span className="text-gray-300 font-bold">Remove the friction.</span> I love building custom tools that turn complex workflows into one-click efficiencies, allowing business owners to focus on strategy while my systems handle the acquisition.
+              I believe that for a small business to win in the modern search landscape, you need more than just keywords. You need <span className="text-gray-300 font-bold italic">Topical Authority</span>. I spend my time building the technical lattices and content structures that tell search engines exactly why you should be the #1 choice in your niche.
             </p>
           </motion.section>
 
@@ -208,7 +208,7 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
             <div className="relative z-10">
               <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter mb-4">AI-Powered <span className="text-blue-500">Innovation</span></h2>
               <p className="text-gray-400 font-medium leading-relaxed mb-6">
-                I don't just build websites; I build <span className="text-white">autonomous employees</span>. My passion lies in creating AI tools that living directly inside your business ecosystem, handling everything from lead qualification to technical SEO auditing on autopilot.
+                I don't just build websites; I build <span className="text-white italic underline decoration-blue-500/30">digital employees that never sleep</span>. My passion is providing SMBs with the same level of automation usually reserved for enterprise giants—handling everything from lead qualification to technical SEO auditing on complete autopilot.
               </p>
               <button 
                 onClick={onBook}
