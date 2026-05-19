@@ -8,58 +8,72 @@ const PERSON_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ritehly Quimbo",
-  "jobTitle": "SEO Specialist & Growth Engineer",
-  "description": "With 8 years of dedicated search experience, Ritehly Quimbo focuses 70% of his energy on high-level SEO Intelligence and 30% on Growth Engineering—building AI tools, web infrastructure, and Google Ads frameworks for SMBs.",
-  "url": "https://ritehlyquimbo.com",
+  "jobTitle": "SEO Specialist  | AI Specialist | Web Dev | Ads Specialist",
+  "description": "Specialist in creating autonomous growth systems by merging 8 years of search intelligence with cutting-edge AI automation.",
+  "url": "https://ritehlyquimboseoexpertphilippines.netlify.app/",
   "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
   "email": [
     "mailto:seo@ritehlyquimbo.com",
     "mailto:Ritehlyquimbo@gmail.com"
   ],
   "telephone": "+639611525318",
-  "gender": "https://schema.org/Male",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Cebu City",
     "addressRegion": "Cebu",
+    "postalCode": "6000",
     "addressCountry": "PH"
   },
   "knowsAbout": [
-    "Search Engine Optimization",
     "Technical SEO",
-    "Topical Authority & Topical Mapping",
-    "Growth Engineering",
+    "Topical Mapping",
     "AI Automation & Workflow Engineering",
-    "Google Ads",
-    "WordPress & Elementor Web Development"
+    "Google Ads Optimization",
+    "Full-Stack Web Development",
+    "WordPress SEO",
+    "Shopify SEO"
   ],
-  "skills": "Topical Authority lattices, technical SEO auditing, custom AI agents, lead qualification automation, ROI optimization",
-  "hasCredential": {
-    "@type": "EducationalOccupationalCredential",
-    "credentialCategory": "Expertise",
-    "recognizingOrganization": {
-      "@type": "Organization",
-      "name": "8 Years of Search Intelligence & Digital Marketing Mastery"
-    }
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "consultation",
-    "telephone": "+639611525318",
-    "email": [
-      "mailto:seo@ritehlyquimbo.com",
-      "mailto:Ritehlyquimbo@gmail.com"
-    ],
-    "availableLanguage": ["English", "Tagalog"]
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://ritehlyquimbo.com"
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "SEO & Automation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Keyword Research & Topical Maps SEO"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Automation Specialist SEO"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Local SEO & Google Map Pack Dominance"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Full-Stack Web Dev SEO"
+        }
+      }
+    ]
   },
   "sameAs": [
     "https://www.facebook.com/ritehly/",
+    "https://www.youtube.com/@ritseo",
     "https://www.linkedin.com/in/ritehly-quimbo/",
-    "https://www.youtube.com/@ritseo"
+    "https://www.quora.com/profile/Ritehly-Quimbo",
+    "https://github.com/itling3",
+    "https://www.behance.net/ritehly"
   ]
 };
 
