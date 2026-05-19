@@ -119,21 +119,55 @@ const Home: React.FC<HomeProps> = ({
           {
             "@context": "https://schema.org",
             "@type": "Person",
-            "@id": "https://ritehlyquimbo.com/#person",
             "name": "Ritehly Quimbo",
-            "jobTitle": "Precision Search Engineer",
-            "hasCredential": [
-              {
-                "@type": "EducationalOccupationalCredential",
-                "name": "Udemy Certified SEO Specialist",
-                "credentialCategory": "Certification"
-              },
-              {
-                "@type": "EducationalOccupationalCredential",
-                "name": "Technical SEO & Link Building Mastery",
-                "credentialCategory": "Certification"
+            "jobTitle": "SEO Specialist & Growth Engineer",
+            "description": "With 8 years of dedicated search experience, Ritehly Quimbo focuses 70% of his energy on high-level SEO Intelligence and 30% on Growth Engineering—building AI tools, web infrastructure, and Google Ads frameworks for SMBs.",
+            "url": "https://ritehlyquimbo.com",
+            "image": "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_",
+            "email": [
+              "mailto:seo@ritehlyquimbo.com",
+              "mailto:Ritehlyquimbo@gmail.com"
+            ],
+            "telephone": "+639611525318",
+            "gender": "https://schema.org/Male",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Cebu City",
+              "addressRegion": "Cebu",
+              "addressCountry": "PH"
+            },
+            "knowsAbout": [
+              "Search Engine Optimization",
+              "Technical SEO",
+              "Topical Authority & Topical Mapping",
+              "Growth Engineering",
+              "AI Automation & Workflow Engineering",
+              "Google Ads",
+              "WordPress & Elementor Web Development"
+            ],
+            "skills": "Topical Authority lattices, technical SEO auditing, custom AI agents, lead qualification automation, ROI optimization",
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "Expertise",
+              "recognizingOrganization": {
+                "@type": "Organization",
+                "name": "8 Years of Search Intelligence & Digital Marketing Mastery"
               }
-            ]
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "consultation",
+              "telephone": "+639611525318",
+              "email": [
+                "mailto:seo@ritehlyquimbo.com",
+                "mailto:Ritehlyquimbo@gmail.com"
+              ],
+              "availableLanguage": ["English", "Tagalog"]
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://ritehlyquimbo.com"
+            }
           },
           {
             "@context": "https://schema.org",
