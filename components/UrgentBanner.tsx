@@ -40,10 +40,10 @@ const UrgentBanner: React.FC<UrgentBannerProps> = ({ onAction }) => {
 
   return (
     <div 
-      className="fixed top-0 left-0 right-0 bg-[#050b18] border-b border-blue-500/20 py-2 h-10 md:h-11 flex items-center justify-center cursor-pointer selection:bg-blue-500/30 group px-4 z-[110]"
+      className="bg-[#050b18] border-b border-blue-500/20 py-2 sm:py-2.5 md:py-2 flex items-center justify-center cursor-pointer selection:bg-blue-500/30 group px-3 md:px-4 w-full relative z-[110]"
       onClick={() => onAction()}
     >
-      <div className="max-w-7xl mx-auto flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 text-center w-full">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-6 text-center w-full">
         {/* Live Timer Section */}
         <div className="flex items-center gap-2 md:gap-3 bg-red-950/50 border border-red-500/40 px-3 py-1 rounded-lg shrink-0 shadow-lg shadow-red-950/50">
           <span className="text-[10px] md:text-xs text-red-400 animate-pulse font-black tracking-wider">LTD OFFER</span>
@@ -58,14 +58,14 @@ const UrgentBanner: React.FC<UrgentBannerProps> = ({ onAction }) => {
         </div>
 
         {/* Message and Offer Text */}
-        <div className="flex items-center gap-2 justify-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-200">
+        <div className="flex items-center gap-1.5 justify-center text-[10px] sm:text-[11px] md:text-xs font-bold uppercase tracking-wider text-gray-200">
           <span className="text-yellow-500 text-sm md:text-base">👉</span> 
-          <span className="text-white group-hover:text-yellow-400 transition-colors font-extrabold max-w-[280px] sm:max-w-md md:max-w-2xl lg:max-w-none truncate md:whitespace-normal">
+          <span className="text-white group-hover:text-yellow-400 transition-colors font-extrabold max-w-[280px] sm:max-w-md md:max-w-2xl lg:max-w-none text-center">
             DON'T MISS OUT - Get High-Performance SEO Services & Local Google Map Pack Strategy Session
           </span>
         </div>
 
-        {/* Dynamic CTA CTA Button */}
+        {/* Dynamic CTA Button */}
         <button
           onClick={(e) => {
             e.stopPropagation();

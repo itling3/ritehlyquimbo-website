@@ -75,9 +75,9 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
   ];
 
   return (
-    <>
+    <div className="fixed top-0 left-0 right-0 z-[100] flex flex-col w-full">
       <UrgentBanner onAction={onBook} />
-      <nav className="fixed top-10 md:top-11 left-0 right-0 z-[100] glass-morphism border-b border-white/10 h-[72px] flex items-center px-4 md:px-6">
+      <nav className="glass-morphism border-b border-white/10 h-[72px] flex items-center px-4 md:px-6 w-full relative">
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full relative">
         {/* Logo */}
         <Link 
@@ -622,7 +622,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         </div>
       </div>
     </nav>
-  </>
+  </div>
 
   );
 };
