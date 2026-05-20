@@ -322,6 +322,83 @@ async function startServer() {
 `;
       html = html.replace('</head>', `${extraMeta}</head>`);
 
+      // Inject visual-hidden crawl map to make the entire site 100% crawlable by standard scraper spiders/Screaming Frog
+      const crawlUrls = [
+        '/',
+        '/about',
+        '/contact',
+        '/resume',
+        '/services',
+        '/services/cms-seo',
+        '/portfolio',
+        '/portfolio/web-development',
+        '/pricing',
+        '/pricing/local-seo-strategy',
+        '/pricing/ai-automation-plans',
+        '/pricing/google-ads-sem',
+        '/pricing/web-dev-packages',
+        '/locations',
+        '/blog',
+        '/privacy-policy',
+        '/terms-of-service',
+        '/portfolio/mae-wellness-scaling-holistic-growth',
+        '/portfolio/monstore-self-storage-uk',
+        '/portfolio/excel-scotland-custom-homes',
+        '/portfolio/kinloss-self-storage',
+        '/portfolio/british-school-of-languages',
+        '/portfolio/ryan-king-team-chattanooga-real-estate',
+        '/services/cms-seo/wordpress-seo-expert',
+        '/services/cms-seo/drupal-seo-expert',
+        '/services/cms-seo/joomla-seo-expert',
+        '/services/cms-seo/typo3-seo-expert',
+        '/services/cms-seo/ghost-seo-expert',
+        '/services/cms-seo/craft-cms-seo-expert',
+        '/services/cms-seo/concrete-cms-seo-expert',
+        '/services/cms-seo/modx-seo-expert',
+        '/services/cms-seo/contentful-cms-seo-expert',
+        '/services/cms-seo/shopify-seo-expert',
+        '/services/cms-seo/storyblok-cms-seo-expert',
+        '/services/cms-seo/woocommerce-seo-expert',
+        '/services/cms-seo/webflow-seo-expert',
+        '/services/keyword-research-intent-mapping',
+        '/services/technical-on-page-seo-optimization',
+        '/services/digital-pr-authority-backlinks',
+        '/services/seo-content-creation-strategy',
+        '/services/local-seo-specialist-google-maps',
+        '/services/ecommerce-seo-specialist-sales-growth',
+        '/services/google-ads-sem-ppc-management',
+        '/services/ai-automation-specialist-business-scaling',
+        '/services/b2b-lead-generation-sales-pipeline',
+        '/services/virtual-assistant-operational-support',
+        '/services/full-stack-web-development-seo-performance',
+        '/services/topical-maps-semantic-authority',
+        '/locations/seo-cebu',
+        '/locations/seo-mandaue-city',
+        '/locations/seo-lapu-lapu-city',
+        '/locations/seo-talisay-city',
+        '/locations/seo-manila',
+        '/locations/seo-quezon-city',
+        '/locations/seo-davao',
+        '/locations/seo-makati-city',
+        '/locations/seo-taguig',
+        '/locations/seo-pasig-city',
+        '/locations/seo-danao-city',
+        '/locations/seo-services-minglanilla',
+        '/blog/seo-lapu-lapu-city-how-local-seo-helps-businesses-rank',
+        '/blog/seo-services-for-small-businesses-guide',
+        '/blog/seo-services-for-lawyers-ultimate-guide',
+        '/blog/seo-vs-ppc-what-is-better',
+        '/blog/what-is-seo-full-form-digital-marketing'
+      ];
+
+      const htmlCrawlMap = `
+    <!-- Crawl Map for Non-JS Crawlers & Screaming Frog -->
+    <nav style="display:none;" aria-hidden="true" id="html-sitemap-crawl-map">
+      ${crawlUrls.map(u => `<a href="${u}">${u === '/' ? 'Home' : u}</a>`).join('\n      ')}
+    </nav>
+`;
+      html = html.replace('</body>', `${htmlCrawlMap}</body>`);
+
       res.status(200).set({ 
         'Content-Type': 'text/html',
         'X-SSR-Active': 'true',

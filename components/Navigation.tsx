@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { SERVICES, SERVICE_DETAILS, CASE_STUDIES } from '../constants';
+import UrgentBanner from './UrgentBanner';
 
 interface NavigationProps {
   onNavigate: (target: string, isService?: boolean) => void;
@@ -74,7 +75,9 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] glass-morphism border-b border-white/10 h-[72px] flex items-center px-4 md:px-6">
+    <>
+      <UrgentBanner onAction={onBook} />
+      <nav className="fixed top-10 md:top-11 left-0 right-0 z-[100] glass-morphism border-b border-white/10 h-[72px] flex items-center px-4 md:px-6">
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full relative">
         {/* Logo */}
         <Link 
@@ -619,6 +622,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
         </div>
       </div>
     </nav>
+  </>
 
   );
 };
