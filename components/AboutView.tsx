@@ -73,7 +73,7 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] pb-20">
+    <div className="min-h-screen bg-[#030712] pb-12 md:pb-20">
       <SEO 
         title="About SEO Specialist | Growth Engineer Mission | Ritehly Quimbo" 
         description="Learn about the mission and expertise of Ritehly Quimbo, an SEO specialist focused on building autonomous growth systems." 
@@ -89,13 +89,13 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/50 to-transparent"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end px-6 pb-12">
+        <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end px-4 md:px-6 pb-8 md:pb-12">
 
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col md:flex-row items-end gap-8"
+            className="flex flex-col md:flex-row items-end gap-6 md:gap-8"
           >
             <div className="relative group">
               <div className="absolute inset-0 bg-blue-600 rounded-3xl blur-[30px] opacity-20 group-hover:opacity-40 transition-opacity"></div>
@@ -125,14 +125,14 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-16 grid lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mt-10 md:mt-16 grid lg:grid-cols-3 gap-8 md:gap-12">
         {/* Left Column: Bio & Core Mission */}
-        <div className="lg:col-span-2 space-y-12">
+        <div className="lg:col-span-2 space-y-8 md:space-y-12">
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
             <h2 className="text-2xl font-black text-white uppercase italic tracking-tight flex items-center gap-3">
               <span className="w-8 h-[2px] bg-blue-500"></span>

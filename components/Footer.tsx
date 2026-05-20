@@ -20,15 +20,15 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
   };
 
   return (
-    <footer className="py-20 px-6 border-t border-white/5 bg-[#030712]">
+    <footer className="py-12 md:py-20 px-4 md:px-6 border-t border-white/5 bg-[#030712]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-16">
           {/* Brand & Contact */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <Link 
                 to="/"
-                className="flex items-center gap-3 mb-4 group cursor-pointer"
+                className="flex items-center gap-3 mb-3 md:mb-4 group cursor-pointer"
                 aria-label="Ritehly Quimbo Home"
               >
                 <div className="w-10 h-10 rounded-lg overflow-hidden border border-blue-500/30 bg-blue-600/20 flex-shrink-0 shadow-lg shadow-blue-500/10">
@@ -43,13 +43,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
                 </div>
                 <span className="text-xl font-bold tracking-tight text-white uppercase italic">RITEHLY<span className="text-blue-500">QUIMBO</span></span>
               </Link>
-              <p className="text-sm text-gray-500 leading-relaxed max-w-xs mb-6">
+              <p className="text-sm text-gray-500 leading-relaxed max-w-xs mb-4 md:mb-6">
                 Precision Search Engineering for ambitious brands. Data-driven growth through elite technical and content excellence.
               </p>
               
-              <div className="space-y-3">
-                <a href="mailto:Ritehlyquimbo@gmail.com" className="flex items-center gap-3 text-sm text-gray-400 hover:text-blue-400 transition-colors group">
-                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-blue-600/10 border border-white/5 group-hover:border-blue-500/30 transition-all">
+              <div className="space-y-2.5 md:space-y-3">
+                <a href="mailto:Ritehlyquimbo@gmail.com" className="flex items-center gap-3 text-sm text-gray-400 hover:text-blue-400 transition-colors group break-all">
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-blue-600/10 border border-white/5 group-hover:border-blue-500/30 transition-all shrink-0">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -57,7 +57,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
                   Ritehlyquimbo@gmail.com
                 </a>
                 <a href="tel:09611525318" className="flex items-center gap-3 text-sm text-gray-400 hover:text-blue-400 transition-colors group">
-                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-blue-600/10 border border-white/5 group-hover:border-blue-500/30 transition-all">
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-blue-600/10 border border-white/5 group-hover:border-blue-500/30 transition-all shrink-0">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
@@ -67,7 +67,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
               </div>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 pt-1">
               <a 
                 href="https://www.facebook.com/ritehly/" 
                 target="_blank" 
@@ -106,68 +106,68 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
 
           {/* Services Column */}
           <div>
-            <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
+            <h4 className="text-white font-bold mb-4 md:mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
               <span className="w-4 h-[1px] bg-blue-500"></span> Services
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5 md:gap-3">
               {SERVICES.slice(0, 6).map((service, i) => (
                 <Link 
                   key={i} 
                   to={SERVICE_DETAILS[service.id]?.permalink || '/services'}
-                  className="text-xs text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2 group text-left"
+                  className="text-xs text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group text-left"
                 >
                   {service.title}
                 </Link>
               ))}
-              <Link to="/services" className="text-[10px] text-blue-500 hover:text-blue-400 font-black uppercase tracking-widest mt-2">View All Services →</Link>
+              <Link to="/services" className="text-[10px] text-blue-500 hover:text-blue-400 font-black uppercase tracking-widest mt-2 block">View All Services →</Link>
             </div>
           </div>
 
           {/* Locations Column */}
           <div>
-            <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
+            <h4 className="text-white font-bold mb-4 md:mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
               <span className="w-4 h-[1px] bg-blue-500"></span> Service Areas
             </h4>
-            <div className="flex flex-col gap-3">
-              <Link to="/locations/seo-cebu" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Cebu City</Link>
-              <Link to="/locations/seo-mandaue-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Mandaue City</Link>
-              <Link to="/locations/seo-lapu-lapu-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Lapu-Lapu City</Link>
-              <Link to="/locations/seo-talisay-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Talisay City</Link>
-              <Link to="/locations/seo-danao-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Danao City</Link>
-              <Link to="/locations/seo-services-minglanilla" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Minglanilla</Link>
-              <Link to="/locations/seo-manila" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Manila</Link>
-              <Link to="/locations/seo-quezon-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Quezon City</Link>
-              <Link to="/locations/seo-davao" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Davao</Link>
-              <Link to="/locations/seo-makati-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Makati City</Link>
-              <Link to="/locations/seo-taguig" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Taguig</Link>
-              <Link to="/locations/seo-pasig-city" className="text-xs text-gray-500 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Pasig City</Link>
-              <Link to="/locations" className="text-[10px] text-blue-500 hover:text-blue-400 font-black uppercase tracking-widest mt-2">All Locations →</Link>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-col sm:gap-3">
+              <Link to="/locations/seo-cebu" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Cebu City</Link>
+              <Link to="/locations/seo-mandaue-city" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Mandaue City</Link>
+              <Link to="/locations/seo-lapu-lapu-city" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Lapu-Lapu City</Link>
+              <Link to="/locations/seo-talisay-city" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Talisay City</Link>
+              <Link to="/locations/seo-danao-city" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Danao City</Link>
+              <Link to="/locations/seo-services-minglanilla" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic">SEO Minglanilla</Link>
+              <Link to="/locations/seo-manila" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Manila</Link>
+              <Link to="/locations/seo-quezon-city" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Quezon City</Link>
+              <Link to="/locations/seo-davao" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Davao</Link>
+              <Link to="/locations/seo-makati-city" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Makati City</Link>
+              <Link to="/locations/seo-taguig" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Taguig</Link>
+              <Link to="/locations/seo-pasig-city" className="text-xs text-gray-400 hover:text-blue-400 transition-colors text-left uppercase tracking-tighter font-black italic text-blue-400/80">SEO Pasig City</Link>
+              <Link to="/locations" className="text-[10px] text-blue-500 hover:text-blue-400 font-black uppercase tracking-widest mt-2 col-span-2 block">All Locations →</Link>
             </div>
           </div>
 
           {/* Resources Column */}
           <div>
-            <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
+            <h4 className="text-white font-bold mb-4 md:mb-8 text-sm uppercase tracking-widest flex items-center gap-2 italic">
               <span className="w-4 h-[1px] bg-blue-500"></span> Explore
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5 md:gap-3">
               <Link to="/blog" className="text-xs text-blue-400 hover:text-white transition-colors font-bold text-left uppercase tracking-tighter italic">Growth Blog</Link>
-              <Link to="/about" className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">About Me</Link>
-              <Link to="/portfolio" className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</Link>
-              <Link to="/pricing" className="text-xs text-gray-500 hover:text-white transition-colors font-medium text-left">SEO Pricing</Link>
-              <Link to="/contact" className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Contact Me</Link>
-              <button onClick={(e) => handleLinkClick(e, 'certificates')} className="text-xs text-gray-500 hover:text-blue-400 transition-colors font-medium text-left">Certificates</button>
+              <Link to="/about" className="text-xs text-gray-400 hover:text-blue-400 transition-colors font-medium text-left">About Me</Link>
+              <Link to="/portfolio" className="text-xs text-gray-400 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</Link>
+              <Link to="/pricing" className="text-xs text-gray-400 hover:text-white transition-colors font-medium text-left">SEO Pricing</Link>
+              <Link to="/contact" className="text-xs text-gray-400 hover:text-blue-400 transition-colors font-medium text-left">Contact Me</Link>
+              <button onClick={(e) => handleLinkClick(e, 'certificates')} className="text-xs text-gray-400 hover:text-blue-400 transition-colors font-medium text-left cursor-pointer">Certificates</button>
               <div className="pt-2 flex flex-col gap-2">
-                <button onClick={(e) => { onBook(e); }} className="text-xs text-white hover:text-blue-400 transition-colors font-black uppercase italic tracking-tighter text-left underline decoration-blue-500 underline-offset-4">Schedule Audit</button>
+                <button onClick={(e) => { onBook(e); }} className="text-xs text-white hover:text-blue-400 transition-colors font-black uppercase italic tracking-tighter text-left underline decoration-blue-500 underline-offset-4 cursor-pointer">Schedule Audit</button>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold text-gray-500">
+        <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold text-gray-500 text-center sm:text-left">
           <div>&copy; {new Date().getFullYear()} Ritehly Quimbo. All rights reserved.</div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center justify-center gap-6">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>

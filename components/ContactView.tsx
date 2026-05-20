@@ -11,7 +11,7 @@ interface ContactViewProps {
 
 const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
   return (
-    <div className="min-h-screen bg-[#030712] pt-32 pb-20 px-4 md:px-6">
+    <div className="min-h-screen bg-[#030712] pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6">
       <SEO 
         title="Contact SEO Expert | Scale Your Business Leads | Ritehly Quimbo" 
         description="Get in touch with SEO expert Ritehly Quimbo to discuss your next growth engine. ROI-focused strategies for search, ads, and AI." 
@@ -19,11 +19,11 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
       <div className="max-w-7xl mx-auto">
 
 
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter mb-6 leading-none"
+            className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter mb-4 md:mb-6 leading-none"
           >
             Let's Start a <span className="text-blue-500">Growth Engine</span>
           </motion.h1>
@@ -37,10 +37,10 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Left: Contact Info */}
-          <div className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-6 md:space-y-8">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
               <motion.a 
                 href="mailto:Ritehlyquimbo@gmail.com"
                 initial={{ opacity: 0, y: 20 }}

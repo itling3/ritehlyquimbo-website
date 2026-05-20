@@ -14,7 +14,7 @@ interface BlogPostViewProps {
 
 const BlogPostView: React.FC<BlogPostViewProps> = ({ post, onBack }) => {
   return (
-    <div className="pt-32 pb-20 px-6 animate-in fade-in duration-500">
+    <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 animate-in fade-in duration-500">
       <SEO 
         title={post.seoTitle || post.title} 
         description={post.metaDescription || post.description} 
@@ -29,7 +29,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, onBack }) => {
       <div className="max-w-4xl mx-auto">
         <button 
           onClick={onBack}
-          className="mb-8 flex items-center gap-2 text-gray-500 hover:text-white transition-colors uppercase text-xs font-black tracking-widest italic group"
+          className="mb-6 md:mb-8 flex items-center gap-2 text-gray-500 hover:text-white transition-colors uppercase text-xs font-black tracking-widest italic group"
         >
           <svg className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -37,8 +37,8 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, onBack }) => {
           Back to Strategy Blog
         </button>
 
-        <header className="mb-12">
-          <div className="flex items-center gap-4 mb-6">
+        <header className="mb-8 md:mb-12">
+          <div className="flex items-center gap-4 mb-4 md:mb-6">
             <span className="px-3 py-1 bg-blue-600/20 border border-blue-500/30 text-blue-400 rounded-full text-[10px] font-black uppercase tracking-widest italic">
               {post.category}
             </span>

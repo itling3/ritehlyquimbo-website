@@ -7,15 +7,15 @@ import { Link } from 'react-router-dom';
 
 const Blog = () => {
   return (
-    <div className="pt-32 pb-20 px-6">
+    <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6">
       <SEO 
         title="SEO & Growth Marketing Blog | Ritehly Quimbo" 
         description="Expert insights on SEO, Local SEO, and Growth Marketing to help businesses in the Philippines scale their organic visibility."
       />
       
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <h1 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter mb-6 bg-gradient-to-r from-white via-white to-white/50 bg-clip-text text-transparent underline decoration-blue-500 underline-offset-8">
+        <div className="text-center mb-10 md:mb-20">
+          <h1 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter mb-4 md:mb-6 bg-gradient-to-r from-white via-white to-white/50 bg-clip-text text-transparent underline decoration-blue-500 underline-offset-8">
             The Digital Silo
           </h1>
           <p className="text-xl text-gray-400 font-medium max-w-2xl mx-auto">
@@ -23,7 +23,7 @@ const Blog = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
           {BLOG_POSTS.map((post, i) => (
             <motion.div
               key={post.id}

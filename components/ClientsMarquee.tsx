@@ -14,12 +14,12 @@ const ClientsMarquee: React.FC = () => {
   const duplicatedClients = [...validClients, ...validClients, ...validClients];
 
   return (
-    <section className="py-24 bg-black/40 border-y border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
+    <section className="py-12 md:py-20 bg-black/40 border-y border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12 text-center md:text-left">
         <h3 className="text-xl font-bold text-gray-300 uppercase tracking-widest flex items-center justify-center md:justify-start gap-2 italic">
-          <span className="w-8 h-[2px] bg-blue-500"></span> Global Client Network
+          <span className="w-8 h-[2px] bg-blue-500"></span> Trusted by Global Brands
         </h3>
-        <p className="text-sm text-gray-400 mt-2 font-semibold tracking-tight">Driving organic growth and operational excellence for brands worldwide.</p>
+        <p className="text-sm text-gray-400 mt-2 font-semibold tracking-tight">Fueling organic growth and streamlining operations for industry leaders across the globe.</p>
       </div>
       
       <div className="marquee-container group">

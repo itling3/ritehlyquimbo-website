@@ -36,14 +36,14 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] pt-4 md:pt-6 pb-24 px-4 md:px-6 animate-in fade-in duration-500">
+    <div className="min-h-screen bg-[#030712] pt-4 md:pt-6 pb-16 md:pb-24 px-4 md:px-6 animate-in fade-in duration-500">
       <SEO 
         title="SEO & Marketing Capabilities Map | Elite Growth Strategy" 
         description="Explore the complete SEO and growth marketing capabilities of Ritehly Quimbo. From search strategy to market domination and automated ops. We build systems for predictable revenue." 
         keywords="seo services overview, digital marketing capabilities, growth strategy map, marketing systems, seo audit services, growth engineering map"
       />
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6 md:gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-4 md:gap-8">
           <div className="relative">
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4">
@@ -62,9 +62,9 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 lg:gap-8">
           {categories.map((cat, idx) => (
-            <div key={idx} className="space-y-8 md:space-y-10">
+            <div key={idx} className="space-y-6 md:space-y-10">
               <div className="flex items-center gap-4 border-b border-white/10 pb-4">
                 <h2 className={`text-sm md:text-base font-black italic tracking-[0.3em] uppercase ${cat.color}`}>
                   {cat.title}
@@ -72,7 +72,7 @@ const ServicesOverview: React.FC<ServicesOverviewProps> = ({ onBack, onServiceCl
                 <div className="h-[1px] flex-1 bg-white/5"></div>
               </div>
 
-              <div className="space-y-10 md:space-y-12">
+              <div className="space-y-6 md:space-y-12">
                 {cat.services.map((service) => (
                   <Link 
                     key={service.id}

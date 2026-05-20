@@ -26,17 +26,17 @@ const WebDevPortfolioPage: React.FC = () => {
       />
       
       {/* Hero-like header for this specific page */}
-      <section className="pt-32 pb-12 px-6">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] font-black uppercase tracking-[0.2em] mb-6 italic">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] font-black uppercase tracking-[0.2em] mb-4 md:mb-6 italic">
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
             Technical Showcase
           </div>
-          <h1 className="text-5xl md:text-8xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-8">
+          <h1 className="text-5xl md:text-8xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6 md:mb-8">
             WEB <br />
             <span className="text-purple-500">ENGINEERING</span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl font-medium italic leading-relaxed max-w-2xl mb-8">
+          <p className="text-gray-400 text-lg md:text-xl font-medium italic leading-relaxed max-w-2xl mb-6 md:mb-8">
             Beyond aesthetics. I build websites as high-performance sales engines, fully optimized for both humans and search algorithms.
           </p>
           <div className="flex flex-wrap gap-4">

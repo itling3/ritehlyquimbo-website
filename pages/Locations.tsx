@@ -13,7 +13,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
   const cebuService = SERVICE_DETAILS['seo-cebu'];
 
   return (
-    <div className="pt-32 pb-24 px-6 min-h-screen bg-black">
+    <div className="pt-24 md:pt-32 pb-12 md:pb-24 px-4 md:px-6 min-h-screen bg-black">
       <SEO 
         title="Service Locations | Hyper-Local SEO Dominance in Philippines" 
         description="Explore our specialized local SEO services across key strategic locations in the Philippines, including Cebu City, Mandaue, and Lapu-Lapu."
@@ -21,8 +21,8 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
       />
       
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20 animate-fade-in">
-          <h1 className="text-6xl md:text-7xl font-black mb-6 text-white uppercase italic tracking-tighter leading-none">
+        <div className="text-center mb-10 md:mb-20 animate-fade-in">
+          <h1 className="text-6xl md:text-7xl font-black mb-4 md:mb-6 text-white uppercase italic tracking-tighter leading-none">
             Service <span className="text-blue-500">Locations</span>
           </h1>
           <div className="text-blue-500 font-bold text-sm mb-4 tracking-[0.4em] uppercase">Hyper-Local Dominance</div>
@@ -31,7 +31,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Cebu Location Card */}
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">

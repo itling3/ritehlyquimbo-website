@@ -12,7 +12,7 @@ const CMSSEOPage: React.FC = () => {
   const cmsServices = SERVICES.slice(12);
 
   return (
-    <div className="pt-32 md:pt-36 min-h-screen bg-slate-50">
+    <div className="pt-24 md:pt-36 min-h-screen bg-slate-50">
       <SEO 
         title="CMS SEO Expert Services — WordPress, Shopify, Headless & More"
         description="Specialized SEO experts for every major CMS. We optimize WordPress, Shopify, Drupal, and Headless platforms like Contentful and Storyblok for maximum rankings."
@@ -20,7 +20,7 @@ const CMSSEOPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden bg-white border-b border-slate-200">
+      <section className="relative py-12 md:py-20 overflow-hidden bg-white border-b border-slate-200">
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -85,9 +85,9 @@ const CMSSEOPage: React.FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {cmsServices.map((service, idx) => {
               const details = SERVICE_DETAILS[service.id];
               const targetUrl = details?.permalink || `/services/cms-seo/${service.id}-expert`;
@@ -126,7 +126,7 @@ const CMSSEOPage: React.FC = () => {
       </section>
 
       {/* Why Platform Specific Section */}
-      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
+      <section className="py-12 md:py-24 bg-slate-900 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-orange-600 opacity-20 blur-[120px] rounded-full translate-x-1/2"></div>
         
         <div className="container mx-auto px-4 relative z-10">

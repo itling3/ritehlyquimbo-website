@@ -10,16 +10,16 @@ const TermsOfService = () => {
         description="Review the terms and conditions for using the services provided by Ritehly Quimbo."
       />
       
-      <main className="pt-32 pb-20 px-6">
+      <main className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="glass-morphism p-12 rounded-[2.5rem] border border-white/5 shadow-2xl relative overflow-hidden"
+            className="glass-morphism p-6 md:p-12 rounded-[2.5rem] border border-white/5 shadow-2xl relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full -mr-32 -mt-32"></div>
             
-            <h1 className="text-5xl font-black italic uppercase tracking-tighter mb-8 bg-gradient-to-r from-white via-white to-white/50 bg-clip-text text-transparent underline decoration-blue-500 underline-offset-8">
+            <h1 className="text-5xl font-black italic uppercase tracking-tighter mb-6 md:mb-8 bg-gradient-to-r from-white via-white to-white/50 bg-clip-text text-transparent underline decoration-blue-500 underline-offset-8">
               Terms of Service
             </h1>
             

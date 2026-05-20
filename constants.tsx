@@ -210,7 +210,7 @@ export const SERVICES = [
   { id: 'off-page', title: 'Digital PR & Authority', description: 'High-authority link acquisition and digital PR to build an unassailable domain moat.', icon: '🔗' },
   { id: 'content-creation', title: 'Content Strategy', description: 'Expert-led, SEO-engineered copywriting that balances high-intent results with ranking power.', icon: '✍️' },
   { id: 'local-seo', title: 'Local SEO Specialist', description: 'Hyper-local dominance strategies to capture the #1 spot in the Google Map Pack and local search.', icon: '📍' },
-  { id: 'ecommerce-seo', title: 'Ecommerce Specialist', description: 'Enterprise-grade product optimization and technical architecture to scale online stores.', icon: '🛍️' },
+  { id: 'ecommerce-seo', title: 'Ecommerce SEO Specialist', description: 'Enterprise-grade product optimization and technical architecture to scale online stores.', icon: '🛍️' },
   { id: 'google-ads', title: 'Search Engine Marketing', description: 'Precision-targeted Google Ads campaigns designed for immediate lead generation and ROI.', icon: '📈' },
   { id: 'ai-automation', title: 'AI Automation Specialist', description: 'Expert implementation of custom AI workflows and agents to scale business operations and content production.', icon: '🤖' },
   { id: 'lead-generation', title: 'B2B Lead Generation', description: 'Strategic prospecting and automated outreach systems to build a predictable sales pipeline.', icon: '🎯' },
@@ -1073,7 +1073,7 @@ Stop letting your competitors take your neighborhood customers. Let’s put your
     id: 'ecommerce-seo',
     slug: 'ecommerce-seo-specialist-sales-growth',
     permalink: '/services/ecommerce-seo-specialist-sales-growth',
-    title: 'Ecommerce Specialist',
+    title: 'Ecommerce SEO Specialist',
     icon: '🛍️',
     description: 'Scaling online stores through search. We optimize product pages and category structures to capture customers at the exact moment of purchase.',
     seoTitle: 'Ecommerce SEO Specialist | Drive More Sales and Scale Your Online Store',
@@ -3311,7 +3311,7 @@ According to [Backlinko](https://backlinko.com/google-ctr-stats), the #1 organic
 
 For [Local SEO Specialist](/services/local-seo-specialist-google-maps) work, organic rankings in the Map Pack are gold. However, a local plumber might use PPC for "emergency" keywords to capture immediate needs.
 
-In Ecommerce, [Ecommerce Specialist](/services/ecommerce-seo-specialist-sales-growth) strategies use PPC for high-margin products while building SEO authority for category pages. [AI Automation](/services/ai-automation-specialist-business-scaling) can bridge the gap by syncing inventory with ad spend.
+In Ecommerce, [Ecommerce SEO Specialist](/services/ecommerce-seo-specialist-sales-growth) strategies use PPC for high-margin products while building SEO authority for category pages. [AI Automation](/services/ai-automation-specialist-business-scaling) can bridge the gap by syncing inventory with ad spend.
 
 ---
 

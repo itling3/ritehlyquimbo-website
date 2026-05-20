@@ -6,17 +6,17 @@ import { WEB_DEVELOPMENT_PORTFOLIO } from '../constants';
 
 const WebPortfolio: React.FC = () => {
   return (
-    <section className="py-24 bg-[#030712] relative overflow-hidden">
+    <section className="py-14 md:py-24 bg-[#030712] relative overflow-hidden">
       {/* Background Ornaments */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-purple-600/5 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-blue-600/5 blur-[120px] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6 md:gap-8">
           <div className="max-w-3xl">
-            <h2 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h2 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4 md:mb-6">
               WEB <br />
               <span className="text-purple-500">DEVELOPMENT</span>
             </h2>

@@ -88,12 +88,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
             </a>
           </div>
 
-          <div className="pt-6 border-t border-white/5 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 grayscale opacity-70 hover:opacity-100 transition-opacity px-4 md:px-0">
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 w-full lg:w-auto">Trusted By:</span>
-            <div className="font-black text-lg md:text-xl italic tracking-tighter text-white">ANTASIS</div>
-            <div className="font-black text-lg md:text-xl italic tracking-tighter text-white">BSL INDIA</div>
-            <div className="font-black text-lg md:text-xl italic tracking-tighter text-white uppercase">Excel SCO</div>
-          </div>
+
         </div>
 
         {/* Right Column: Visual Composition */}
