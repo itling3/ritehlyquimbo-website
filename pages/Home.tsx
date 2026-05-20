@@ -225,7 +225,7 @@ const Home: React.FC<HomeProps> = ({
         />
 
         {/* Services Section */}
-        <section id="services" className="py-24 px-6 relative overflow-hidden bg-white/5">
+        <section id="services" className="py-14 md:py-24 px-4 md:px-6 relative overflow-hidden bg-white/5">
           <div className="max-w-7xl mx-auto relative">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-black mb-2 text-white uppercase tracking-tighter italic">My Services</h2>
@@ -288,7 +288,7 @@ const Home: React.FC<HomeProps> = ({
         <WhyChooseMe />
 
         {/* Certificates Section */}
-        <section id="certificates" className="py-24 px-6 bg-black/20 relative">
+        <section id="certificates" className="py-14 md:py-24 px-4 md:px-6 bg-black/20 relative">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-black mb-4 text-white uppercase italic tracking-tighter">Professional Recognition</h2>
@@ -339,8 +339,8 @@ const Home: React.FC<HomeProps> = ({
         />
 
         {/* VERIFIED RESULTS MARQUEE */}
-        <section className="py-20 bg-black/40 border-y border-white/5 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 mb-12">
+        <section className="py-12 md:py-20 bg-black/40 border-y border-white/5 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <h3 className="text-xl font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
@@ -388,8 +388,8 @@ const Home: React.FC<HomeProps> = ({
 
         <HowItWorks />
 
-        <section className="py-20 bg-black/60 border-y border-white/5 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 mb-12">
+        <section className="py-12 md:py-20 bg-black/60 border-y border-white/5 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12">
             <h3 className="text-xl font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
               <span className="w-8 h-[2px] bg-blue-500"></span> Technical Stack
             </h3>
@@ -424,7 +424,7 @@ const Home: React.FC<HomeProps> = ({
         <AuditTool />
 
         {/* FAQ Section */}
-        <section id="faq" className="py-24 px-6 relative overflow-hidden">
+        <section id="faq" className="py-14 md:py-24 px-4 md:px-6 relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="text-center mb-16">
@@ -473,8 +473,8 @@ const Home: React.FC<HomeProps> = ({
         </section>
 
         {/* Contact CTA */}
-        <section id="contact" className="py-24 px-6">
-          <div className="max-w-4xl mx-auto glass-morphism rounded-[40px] p-12 text-center border border-white/10 relative overflow-hidden">
+        <section id="contact" className="py-14 md:py-24 px-4 md:px-6">
+          <div className="max-w-4xl mx-auto glass-morphism rounded-3xl md:rounded-[40px] p-6 sm:p-10 md:p-12 text-center border border-white/10 relative overflow-hidden">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full"></div>
             <h2 className="text-4xl md:text-5xl font-black mb-6 relative z-10 text-white uppercase italic tracking-tighter">Ready for Domination?</h2>
             <p className="text-lg text-gray-400 mb-10 relative z-10 max-w-xl mx-auto">

@@ -12,7 +12,7 @@ const CMSSEOPage: React.FC = () => {
   const cmsServices = SERVICES.slice(12);
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50">
+    <div className="pt-32 md:pt-36 min-h-screen bg-slate-50">
       <SEO 
         title="CMS SEO Expert Services — WordPress, Shopify, Headless & More"
         description="Specialized SEO experts for every major CMS. We optimize WordPress, Shopify, Drupal, and Headless platforms like Contentful and Storyblok for maximum rankings."

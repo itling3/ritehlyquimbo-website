@@ -23,7 +23,7 @@ const SEOExpenseCalculator: React.FC<SEOExpenseCalculatorProps> = ({ onExecute }
   const roiMultiplier = monthlyInvestment > 0 ? (projectedMonthlyRevenue / monthlyInvestment).toFixed(1) : 0;
 
   return (
-    <section id="calculator" className="py-24 px-6 bg-black/40 relative">
+    <section id="calculator" className="py-14 md:py-24 px-4 md:px-6 bg-black/40 relative">
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">

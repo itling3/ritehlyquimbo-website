@@ -307,7 +307,7 @@ const AuditTool: React.FC = () => {
   };
 
   return (
-    <section id="audit" className="py-24 px-6 relative">
+    <section id="audit" className="py-14 md:py-24 px-4 md:px-6 relative">
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full"></div>
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-black mb-6 text-white uppercase italic tracking-tighter">SEO Deep Scan Arsenal</h2>

@@ -27,18 +27,18 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
   }, []);
 
   return (
-    <section className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 overflow-hidden min-h-[90vh] flex items-center">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+    <section className="pt-36 sm:pt-40 md:pt-40 lg:pt-44 xl:pt-48 pb-10 md:pb-16 px-4 md:px-6 overflow-visible lg:overflow-hidden min-h-[85vh] flex items-center">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-8 items-center w-full">
         {/* Left Column: Content */}
         <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
-          <div className="inline-flex items-center gap-3 mb-4 md:mb-6">
+          <div className="inline-flex items-center gap-3 mb-3 md:mb-5">
             <span className="hidden md:block h-[1px] w-8 bg-blue-500"></span>
             <span className="text-blue-400 text-[10px] md:text-sm font-black uppercase tracking-[0.2em]">
               Scaling Your Business? <span className="text-gray-400 font-bold">Ops Are Holding You Back.</span>
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6 md:mb-8 text-white uppercase italic tracking-tighter">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-4 md:mb-6 text-white uppercase italic tracking-tighter">
             <div className="mb-2">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -58,11 +58,11 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
             for Growth
           </h1>
 
-          <p className="text-base md:text-xl text-gray-400 mb-8 md:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed px-4 md:px-0 font-medium">
+          <p className="text-base md:text-xl text-gray-400 mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed px-4 md:px-0 font-medium font-sans">
             I don't just do SEO or Ads. I <span className="text-white font-bold">unify Full-Stack SEO, AI Automations, Lead Gen,</span> and <span className="text-white font-bold">high-conversion Web Development</span> into one growth system—so you stop guessing and start scaling.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 md:mb-16 justify-center lg:justify-start px-4 md:px-0">
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-10 md:mb-12 justify-center lg:justify-start px-4 md:px-0">
             <div className="flex flex-col gap-2">
               <button 
                 onClick={onAuditClick}
@@ -88,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
             </a>
           </div>
 
-          <div className="pt-8 border-t border-white/5 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 grayscale opacity-70 hover:opacity-100 transition-opacity px-4 md:px-0">
+          <div className="pt-6 border-t border-white/5 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 grayscale opacity-70 hover:opacity-100 transition-opacity px-4 md:px-0">
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 w-full lg:w-auto">Trusted By:</span>
             <div className="font-black text-lg md:text-xl italic tracking-tighter text-white">ANTASIS</div>
             <div className="font-black text-lg md:text-xl italic tracking-tighter text-white">BSL INDIA</div>
@@ -97,7 +97,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
         </div>
 
         {/* Right Column: Visual Composition */}
-        <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end scale-90 sm:scale-100 mb-12 lg:mb-0">
+        <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end scale-[0.82] xs:scale-90 sm:scale-100 mt-2 sm:mt-6 md:mt-0 mb-8 md:mb-10 lg:mb-0 z-10">
           <div className="relative w-full max-w-[400px] md:max-w-[550px] aspect-square group">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-blue-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] bg-[#FACD15] rounded-full shadow-[0_0_80px_rgba(250,205,21,0.2)] z-0"></div>
@@ -110,7 +110,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
                 width="400"
                 height="500"
                 fetchPriority="high"
-                className="w-auto h-[120%] lg:h-[125%] max-w-none object-contain transition-all duration-700 drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)] group-hover:scale-[1.03]"
+                className="w-auto h-[105%] xs:h-[112%] sm:h-[118%] md:h-[120%] lg:h-[125%] max-w-none object-contain transition-all duration-700 drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)] group-hover:scale-[1.03]"
                 loading="eager"
               />
             </div>

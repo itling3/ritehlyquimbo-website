@@ -10,7 +10,7 @@ interface PortfolioProps {
 
 const Portfolio: React.FC<PortfolioProps> = ({ onViewCaseStudy }) => {
   return (
-    <section id="proven-results" className="py-24 px-6 bg-black/50">
+    <section id="proven-results" className="py-14 md:py-24 px-4 md:px-6 bg-black/50">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>

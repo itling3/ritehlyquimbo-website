@@ -18,7 +18,7 @@ const SectionCTA: React.FC<SectionCTAProps> = ({
 }) => {
   const displayTitle = title || text || "Ready to start your growth journey?";
   return (
-    <div className="py-20 px-6 flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-transparent via-blue-600/5 to-transparent border-y border-white/5">
+    <div className="py-12 md:py-20 px-4 md:px-6 flex flex-col items-center justify-center gap-4 sm:gap-6 bg-gradient-to-b from-transparent via-blue-600/5 to-transparent border-y border-white/5">
       <h2 className="text-3xl md:text-5xl font-black text-white italic tracking-tighter text-center uppercase">
         {displayTitle}
       </h2>

@@ -42,7 +42,7 @@ const WhyChooseMe: React.FC = () => {
   ];
 
   return (
-    <section id="why-choose-me" className="py-24 px-6 relative overflow-hidden">
+    <section id="why-choose-me" className="py-14 md:py-24 px-4 md:px-6 relative overflow-hidden">
       {/* Decorative gradient blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
       

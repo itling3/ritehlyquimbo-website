@@ -30,7 +30,7 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="process" className="py-24 px-6 relative bg-black/20">
+    <section id="process" className="py-14 md:py-24 px-4 md:px-6 relative bg-black/20">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-5xl font-black mb-4 text-white uppercase italic tracking-tighter">
