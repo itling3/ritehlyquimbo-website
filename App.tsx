@@ -59,6 +59,7 @@ import BlogPage from './pages/Blog';
 import BlogPostView from './components/BlogPostView';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
+import ResourcesPage from './pages/Resources';
 import { SERVICES, SERVICE_DETAILS, REVIEWS, TOOL_LOGOS, FAQS, CERTIFICATES, CASE_STUDIES, BLOG_POSTS } from './constants';
 import { ServiceContent, CaseStudy } from './types';
 
@@ -141,6 +142,10 @@ const AppContent: React.FC = () => {
     }
     if (target === 'locations') {
       navigate('/locations');
+      return;
+    }
+    if (target === 'resources') {
+      navigate('/resources');
       return;
     }
 
@@ -260,6 +265,7 @@ const AppContent: React.FC = () => {
         <Route path="/locations/seo-pasig-city" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} slugOverride="seo-pasig-city" />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostSlugWrapper navigate={navigate} />} />
+        <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="*" element={<NotFound />} />

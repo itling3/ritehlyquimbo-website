@@ -152,6 +152,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onBook }) => {
             </h4>
             <div className="flex flex-col gap-2.5 md:gap-3">
               <Link to="/blog" className="text-xs text-blue-400 hover:text-white transition-colors font-bold text-left uppercase tracking-tighter italic">Growth Blog</Link>
+              <Link to="/resources" className="text-xs text-orange-400 hover:text-white transition-colors font-bold text-left uppercase tracking-tighter italic">Growth Resources</Link>
               <Link to="/about" className="text-xs text-gray-400 hover:text-blue-400 transition-colors font-medium text-left">About Me</Link>
               <Link to="/portfolio" className="text-xs text-gray-400 hover:text-blue-400 transition-colors font-medium text-left">Portfolio Results</Link>
               <Link to="/pricing" className="text-xs text-gray-400 hover:text-white transition-colors font-medium text-left">SEO Pricing</Link>
