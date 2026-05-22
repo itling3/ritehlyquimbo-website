@@ -16,10 +16,10 @@ const Blog = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10 md:mb-20">
           <h1 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter mb-4 md:mb-6 bg-gradient-to-r from-white via-white to-white/50 bg-clip-text text-transparent underline decoration-blue-500 underline-offset-8">
-            The Digital Silo
+            Welcome to the Ritehly Blog
           </h1>
           <p className="text-xl text-gray-400 font-medium max-w-2xl mx-auto">
-            Deep dives into search psychology, technical excellence, and hyper-local dominance.
+            Your go-to resource for simplified SEO strategies, technical marketing tips, and actionable insights to grow your online presence.
           </p>
         </div>
 
