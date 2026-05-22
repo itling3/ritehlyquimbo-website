@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
             <div className="flex flex-col gap-2">
               <button 
                 onClick={onAuditClick}
-                className="animate-cta-pulse animate-shine px-8 md:px-10 py-4 md:py-5 bg-blue-600 hover:bg-blue-700 rounded-2xl font-black transition-all text-center text-white uppercase tracking-tighter shadow-xl shadow-blue-500/30 text-base md:text-lg whitespace-nowrap relative"
+                className="animate-cta-pulse animate-shine px-8 md:px-10 py-4 md:py-5 bg-orange-600 hover:bg-orange-700 rounded-2xl font-black transition-all text-center text-white uppercase tracking-tighter shadow-xl shadow-orange-500/30 text-base md:text-lg whitespace-nowrap relative"
               >
                 Schedule Booking
               </button>

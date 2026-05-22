@@ -69,7 +69,7 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
                           <div className="my-8">
                             <button 
                               onClick={onBook}
-                              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-xl shadow-blue-500/20 uppercase tracking-tighter text-sm flex items-center gap-3 group"
+                              className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all shadow-xl shadow-orange-500/20 uppercase tracking-tighter text-sm flex items-center gap-3 group"
                             >
                               <span>Book Your Free Cebu SEO Audit</span>
                               <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,7 +163,7 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
               <div className="mt-6 md:mt-8 flex flex-col gap-3">
                 <button 
                   onClick={onBook}
-                  className="w-full py-3 md:py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-xl shadow-blue-500/20 uppercase tracking-tighter text-xs md:text-sm"
+                  className="w-full py-3 md:py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all shadow-xl shadow-orange-500/20 uppercase tracking-tighter text-xs md:text-sm"
                 >
                   Book Strategy Session
                 </button>

@@ -160,7 +160,7 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
                 onClick={onBook}
                 className={`w-full py-5 font-black uppercase tracking-widest text-xs italic rounded-2xl transition-all active:scale-[0.98] ${
                   pkg.featured 
-                    ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/20' 
+                    ? 'bg-orange-600 hover:bg-orange-700 text-white shadow-lg shadow-orange-600/20' 
                     : 'bg-white/10 hover:bg-white/15 text-white'
                 }`}
               >
@@ -260,7 +260,7 @@ const WebDevPricingView: React.FC<WebDevPricingViewProps> = ({ onBack, onBook, o
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-2xl uppercase tracking-widest text-xs italic transition-all shadow-xl shadow-blue-500/20"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl uppercase tracking-widest text-xs italic transition-all shadow-xl shadow-orange-500/20"
               >
                 Schedule Custom Dev Call
               </button>

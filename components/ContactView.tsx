@@ -100,7 +100,7 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
               </p>
               <button 
                 onClick={onBook}
-                className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic transition-all shadow-lg shadow-blue-600/20 active:scale-95"
+                className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic transition-all shadow-lg shadow-orange-500/20 active:scale-95"
               >
                 Open Calendar →
               </button>

@@ -74,7 +74,7 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-blue-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-orange-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
               >
                 <span>Get My Free WP Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -498,7 +498,7 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                 </div>
                 <button 
                   onClick={onBook}
-                  className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all ${plan.highlight ? 'bg-blue-600 text-white shadow-xl shadow-blue-600/20' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}
+                  className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all ${plan.highlight ? 'bg-orange-600 text-white shadow-xl shadow-orange-650/20' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}
                 >
                   Choose {plan.name.split(' ')[0]}
                 </button>
@@ -549,7 +549,7 @@ const WordPressSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               </p>
               <button 
                 onClick={onBook}
-                className="px-12 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-xl scale-down"
+                className="px-12 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-xl scale-down"
               >
                 Claim Your Zero-Risk Audit
               </button>

@@ -130,7 +130,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-blue-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-orange-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
               >
                 <span>Get Free Webflow Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -284,7 +284,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                   </div>
                 ))}
              </div>
-             <button onClick={onBook} className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl uppercase tracking-tighter italic">Talk to a Webflow SEO Specialist →</button>
+             <button onClick={onBook} className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl uppercase tracking-tighter italic">Talk to a Webflow SEO Specialist →</button>
           </div>
           <div className="flex-1 w-full overflow-hidden rounded-3xl border border-white/10 bg-[#030712]">
             <table className="w-full text-left border-collapse">
@@ -339,7 +339,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <p className="text-gray-400 text-lg font-medium leading-relaxed mb-8 italic">
               Modern SEO is no longer just about rankings. It’s about visibility across AI-powered search experiences like <Link to="/services/ai-seo-automation" className="text-blue-400 hover:underline">SearchGPT</Link> and Perplexity.
             </p>
-            <button onClick={onBook} className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl uppercase tracking-tighter hover:bg-blue-700 transition-colors shadow-xl shadow-blue-500/20 italic">Future-Proof Your SEO Strategy →</button>
+            <button onClick={onBook} className="px-10 py-5 bg-orange-600 text-white font-black rounded-2xl uppercase tracking-tighter hover:bg-orange-700 transition-colors shadow-xl shadow-orange-500/20 italic">Future-Proof Your SEO Strategy →</button>
           </div>
         </div>
       </section>
@@ -404,7 +404,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             ))}
           </div>
           <div className="mt-16 text-center">
-             <button onClick={onBook} className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl uppercase tracking-tighter hover:bg-blue-700 transition-colors italic">Request Custom SEO Plan →</button>
+             <button onClick={onBook} className="px-10 py-5 bg-orange-600 text-white font-black rounded-2xl uppercase tracking-tighter hover:bg-orange-700 transition-colors italic">Request Custom SEO Plan →</button>
           </div>
         </div>
       </section>
@@ -509,7 +509,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                 </div>
                 <button 
                   onClick={onBook}
-                  className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all italic ${plan.highlight ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-white/10 text-white hover:bg-white/20'}`}
+                  className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all italic ${plan.highlight ? 'bg-orange-600 text-white hover:bg-orange-700' : 'bg-white/10 text-white hover:bg-white/20'}`}
                 >
                   Get Custom Pricing
                 </button>
@@ -585,7 +585,7 @@ const WebflowSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               <div className="flex flex-col sm:flex-row justify-center gap-4 italic">
                 <button 
                   onClick={onBook}
-                  className="px-12 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-base flex items-center justify-center gap-3 transition-all italic"
+                  className="px-12 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-base flex items-center justify-center gap-3 transition-all italic"
                 >
                   Book Free Strategic Call
                 </button>

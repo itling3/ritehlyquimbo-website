@@ -253,7 +253,7 @@ const Home: React.FC<HomeProps> = ({
                   <div className="mt-auto pt-4 border-t border-white/5 flex flex-col gap-2">
                     <button 
                       onClick={onBook}
-                      className="w-full py-2 bg-blue-600/10 hover:bg-blue-600 text-blue-500 hover:text-white font-black rounded-lg transition-all text-[9px] uppercase tracking-widest italic border border-blue-500/20"
+                      className="w-full py-2 bg-orange-600/10 hover:bg-orange-600 text-orange-500 hover:text-white font-black rounded-lg transition-all text-[9px] uppercase tracking-widest italic border border-orange-500/20"
                     >
                       Schedule Session (Calendar)
                     </button>

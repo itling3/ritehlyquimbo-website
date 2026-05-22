@@ -81,7 +81,7 @@ const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-blue-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-orange-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
               >
                 <span>Request Free Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -396,7 +396,7 @@ const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                 </div>
                 <p className="text-gray-400 text-xs font-bold mb-10 italic leading-relaxed">{plan.desc}</p>
                 <div className="mt-auto">
-                   <button onClick={onBook} className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter transition-all ${plan.popular ? 'bg-blue-600 text-white' : 'bg-white/5 border border-white/10 hover:bg-white/10 text-white'}`}>
+                   <button onClick={onBook} className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter transition-all ${plan.popular ? 'bg-orange-600 text-white' : 'bg-white/5 border border-white/10 hover:bg-white/10 text-white'}`}>
                       Select Package
                    </button>
                 </div>
@@ -443,7 +443,7 @@ const DrupalSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               </p>
               <button 
                 onClick={onBook}
-                className="px-12 py-6 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-[2rem] transition-all shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-2xl"
+                className="px-12 py-6 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-[2rem] transition-all shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-2xl"
               >
                 Claim Your Risk-Free Audit
               </button>

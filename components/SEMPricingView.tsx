@@ -155,7 +155,7 @@ const SEMPricingView: React.FC<SEMPricingViewProps> = ({ onBack, onBook }) => {
                   onClick={onBook}
                   className={`w-full py-5 rounded-2xl font-black uppercase tracking-widest text-[11px] italic transition-all active:scale-[0.98] ${
                     plan.isPopular 
-                      ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-500/20' 
+                      ? 'bg-orange-600 hover:bg-orange-700 text-white shadow-xl shadow-orange-500/20' 
                       : 'bg-white/10 hover:bg-white/15 text-white'
                   }`}
                 >
@@ -266,7 +266,7 @@ const SEMPricingView: React.FC<SEMPricingViewProps> = ({ onBack, onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button 
                 onClick={onBook}
-                className="px-10 py-6 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic shadow-2xl hover:scale-[1.05] transition-all active:scale-[0.95] flex items-center justify-center gap-2"
+                className="px-10 py-6 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic shadow-2xl hover:scale-[1.05] transition-all active:scale-[0.95] flex items-center justify-center gap-2"
               >
                  <Rocket className="w-4 h-4" /> Schedule Strategy Call
               </button>

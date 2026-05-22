@@ -30,7 +30,7 @@ const SectionCTA: React.FC<SectionCTAProps> = ({
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mt-4">
         <button 
           onClick={onClick}
-          className="animate-cta-pulse animate-shine group relative px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-xl shadow-blue-500/20 uppercase tracking-tighter overflow-hidden whitespace-nowrap"
+          className="animate-cta-pulse animate-shine group relative px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all shadow-xl shadow-orange-500/20 uppercase tracking-tighter overflow-hidden whitespace-nowrap"
         >
           <span className="relative z-10 flex items-center gap-2">
             {buttonText}

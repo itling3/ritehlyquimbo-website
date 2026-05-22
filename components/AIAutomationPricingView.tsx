@@ -201,7 +201,7 @@ const AIAutomationPricingView: React.FC<AIAutomationPricingViewProps> = ({ onBac
                   onClick={onBook}
                   className={`w-full py-5 rounded-2xl font-black uppercase tracking-widest text-[11px] italic transition-all active:scale-[0.98] ${
                     tier.isPopular 
-                      ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-500/20' 
+                      ? 'bg-orange-600 hover:bg-orange-700 text-white shadow-xl shadow-orange-500/20' 
                       : 'bg-white/10 hover:bg-white/15 text-white'
                   }`}
                 >
@@ -256,7 +256,7 @@ const AIAutomationPricingView: React.FC<AIAutomationPricingViewProps> = ({ onBac
             </p>
             <button 
               onClick={onBook}
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic transition-all shadow-lg shadow-blue-600/20"
+              className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic transition-all shadow-lg shadow-orange-500/20"
             >
               Discuss Performance Deal →
             </button>
@@ -309,7 +309,7 @@ const AIAutomationPricingView: React.FC<AIAutomationPricingViewProps> = ({ onBac
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button 
                 onClick={onBook}
-                className="px-10 py-6 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic shadow-2xl hover:scale-[1.05] transition-all active:scale-[0.95]"
+                className="px-10 py-6 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic shadow-2xl hover:scale-[1.05] transition-all active:scale-[0.95]"
               >
                 Schedule $1,500 Audit
               </button>

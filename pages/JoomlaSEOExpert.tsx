@@ -89,7 +89,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-[0_20px_50px_rgba(59,130,246,0.3)] uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-[0_20px_50px_rgba(249,115,22,0.3)] uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
               >
                 <span>Get Free Joomla SEO Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -443,7 +443,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
           <div className="mt-16 text-center">
              <button 
                onClick={onBook}
-               className="px-8 py-5 bg-blue-600 text-white font-black rounded-2xl shadow-lg uppercase tracking-tighter hover:bg-blue-700 transition-all"
+               className="px-8 py-5 bg-orange-600 text-white font-black rounded-2xl shadow-lg uppercase tracking-tighter hover:bg-orange-700 transition-all"
              >
                Start Growing Your Joomla Rankings
              </button>
@@ -530,7 +530,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                    </div>
                    <button 
                      onClick={onBook}
-                     className="w-full py-5 bg-blue-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg shadow-blue-500/20"
+                     className="w-full py-5 bg-orange-600 text-white font-black rounded-xl uppercase tracking-widest text-xs shadow-lg shadow-orange-500/20"
                    >
                      Get Your Growth Forecast
                    </button>
@@ -624,7 +624,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
 
                  <button 
                    onClick={onBook}
-                   className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all ${plan.featured ? 'bg-blue-600 text-white shadow-xl shadow-blue-500/20 hover:scale-105' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}
+                   className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all ${plan.featured ? 'bg-orange-600 text-white shadow-xl shadow-orange-500/20 hover:scale-105' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}
                  >
                    Request Custom Pricing
                  </button>
@@ -697,7 +697,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
 
             <button 
               onClick={onBook}
-              className="px-12 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-xl transition-all hover:scale-105 active:scale-95"
+              className="px-12 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-xl transition-all hover:scale-105 active:scale-95"
             >
               Start With a Free SEO Audit
             </button>
@@ -719,7 +719,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-6">
              <button 
                onClick={onBook}
-               className="w-full md:w-auto px-12 py-6 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center gap-4"
+               className="w-full md:w-auto px-12 py-6 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center gap-4"
              >
                Get Free Joomla Audit
              </button>
@@ -749,7 +749,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
          <div className="max-w-md mx-auto pointer-events-auto flex gap-2">
             <button 
               onClick={onBook}
-              className="flex-1 py-4 bg-blue-600 text-white font-black rounded-xl uppercase tracking-widest text-[10px] shadow-2xl shadow-blue-500/50"
+              className="flex-1 py-4 bg-orange-600 text-white font-black rounded-xl uppercase tracking-widest text-[10px] shadow-2xl shadow-orange-500/50"
             >
                Free Audit
             </button>

@@ -150,7 +150,7 @@ const PricingView: React.FC<PricingViewProps> = ({ onBack, onBook, onForm }) => 
                 onClick={onBook}
                 className={`w-full py-5 font-black uppercase tracking-widest text-xs italic rounded-2xl transition-all active:scale-[0.98] ${
                   plan.featured 
-                    ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/20' 
+                    ? 'bg-orange-600 hover:bg-orange-700 text-white shadow-lg shadow-orange-600/20' 
                     : 'bg-white/10 hover:bg-white/15 text-white'
                 }`}
               >

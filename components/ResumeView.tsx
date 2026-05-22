@@ -73,7 +73,7 @@ const ResumeView: React.FC<ResumeViewProps> = ({ onBack }) => {
                   href={downloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-5 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-blue-500/20"
+                  className="flex items-center justify-center gap-3 w-full py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-orange-500/20"
                 >
                   <Download className="w-5 h-5" />
                   <span className="uppercase tracking-widest text-sm italic">Download PDF</span>

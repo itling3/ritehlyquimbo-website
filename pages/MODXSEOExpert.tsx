@@ -90,7 +90,7 @@ const MODXSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-[0_20px_50px_rgba(59,130,246,0.3)] uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-[0_20px_50px_rgba(249,115,22,0.3)] uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
               >
                 <span>Get Free MODX SEO Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -203,7 +203,7 @@ const MODXSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
              <div className="mt-10 pt-10 border-t border-white/5 text-center">
                 <button 
                   onClick={onBook}
-                  className="px-8 py-4 bg-blue-600 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic hover:scale-105 transition-all shadow-xl"
+                  className="px-8 py-4 bg-orange-600 text-white font-black rounded-xl uppercase tracking-widest text-[10px] italic hover:scale-105 transition-all shadow-xl"
                 >
                   Fix My MODX SEO Issues
                 </button>
@@ -284,7 +284,7 @@ const MODXSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
           <div className="mt-16 text-center">
              <button 
                onClick={onBook}
-               className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl shadow-xl uppercase tracking-tighter text-lg hover:scale-105 transition-all italic"
+               className="px-10 py-5 bg-orange-600 text-white font-black rounded-2xl shadow-xl uppercase tracking-tighter text-lg hover:scale-105 transition-all italic"
              >
                Get My SEO Plan
              </button>
@@ -326,7 +326,7 @@ const MODXSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                     </div>
                     <button 
                       onClick={onBook}
-                      className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all ${plan.featured ? 'bg-blue-600 text-white shadow-xl hover:scale-105' : 'bg-white/10 text-white hover:bg-white/20'}`}
+                      className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all ${plan.featured ? 'bg-orange-600 text-white shadow-xl hover:scale-105' : 'bg-white/10 text-white hover:bg-white/20'}`}
                     >
                       Choose My SEO Plan
                     </button>
@@ -427,7 +427,7 @@ const MODXSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-6">
              <button 
                onClick={onBook}
-               className="w-full md:w-auto px-12 py-6 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-[0_30px_100px_-20px_rgba(59,130,246,0.5)] uppercase tracking-tighter text-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center gap-4 italic"
+               className="w-full md:w-auto px-12 py-6 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl shadow-[0_30px_100px_-20px_rgba(249,115,22,0.5)] uppercase tracking-tighter text-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center gap-4 italic"
              >
                Book Free MODX SEO Consultation
              </button>

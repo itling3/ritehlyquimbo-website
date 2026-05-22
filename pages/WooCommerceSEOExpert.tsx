@@ -133,7 +133,7 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-blue-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-orange-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
               >
                 <span>Get Free WooCommerce Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -368,7 +368,7 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             ))}
           </div>
           <div className="mt-16 text-center">
-             <button onClick={onBook} className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl uppercase tracking-tighter hover:bg-blue-700 transition-colors shadow-xl shadow-blue-600/20 italic">Request Custom SEO Plan →</button>
+             <button onClick={onBook} className="px-10 py-5 bg-orange-600 text-white font-black rounded-2xl uppercase tracking-tighter hover:bg-orange-700 transition-colors shadow-xl shadow-orange-500/20 italic">Request Custom SEO Plan →</button>
           </div>
         </div>
       </section>
@@ -511,7 +511,7 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                 </div>
                 <button 
                   onClick={onBook}
-                  className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all italic ${plan.highlight ? 'bg-blue-600 text-white' : 'bg-white/10 text-white'}`}
+                  className={`w-full py-5 rounded-2xl font-black uppercase tracking-tighter text-sm transition-all italic ${plan.highlight ? 'bg-orange-600 text-white' : 'bg-white/10 text-white'}`}
                 >
                   Request {plan.name} Strategy
                 </button>
@@ -588,7 +588,7 @@ const WooCommerceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               </p>
               <button 
                 onClick={onBook}
-                className="px-12 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-xl italic italic"
+                className="px-12 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-xl italic italic"
               >
                 Claim Free SEO Audit
               </button>

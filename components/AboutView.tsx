@@ -285,7 +285,7 @@ const AboutView: React.FC<AboutViewProps> = ({ onBack, onBook }) => {
 
             <button 
               onClick={onBook}
-              className="w-full py-5 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-2xl uppercase tracking-widest text-xs italic transition-all shadow-xl shadow-blue-600/20 active:scale-[0.98]"
+              className="w-full py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl uppercase tracking-widest text-xs italic transition-all shadow-xl shadow-orange-500/20 active:scale-[0.98]"
             >
               Let's Build Something New
             </button>

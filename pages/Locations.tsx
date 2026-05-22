@@ -64,7 +64,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-cebu"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Cebu Strategy →
                 </Link>
@@ -110,7 +110,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-mandaue-city"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Mandaue Strategy →
                 </Link>
@@ -156,7 +156,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-lapu-lapu-city"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Lapu-Lapu Strategy →
                 </Link>
@@ -202,7 +202,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-talisay-city"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Talisay Strategy →
                 </Link>
@@ -248,7 +248,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-danao-city"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Danao Strategy →
                 </Link>
@@ -294,7 +294,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-services-minglanilla"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Minglanilla Strategy →
                 </Link>
@@ -340,7 +340,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-manila"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Manila Strategy →
                 </Link>
@@ -386,7 +386,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-quezon-city"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View QC Strategy →
                 </Link>
@@ -432,7 +432,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-davao"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Davao Strategy →
                 </Link>
@@ -478,7 +478,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-makati-city"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Makati Strategy →
                 </Link>
@@ -524,7 +524,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-taguig"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Taguig Strategy →
                 </Link>
@@ -570,7 +570,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
               <div className="flex flex-col gap-3">
                 <Link 
                   to="/locations/seo-pasig-city"
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-blue-500/20"
+                  className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-xl transition-all text-center uppercase tracking-tighter shadow-xl shadow-orange-500/20"
                 >
                   View Pasig Strategy →
                 </Link>

@@ -144,7 +144,7 @@ const SEOExpenseCalculator: React.FC<SEOExpenseCalculatorProps> = ({ onExecute }
 
             <button 
               onClick={onExecute}
-              className="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-xl shadow-blue-500/30 text-lg uppercase tracking-tighter"
+              className="w-full py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-xl shadow-orange-500/30 text-lg uppercase tracking-tighter"
             >
               Execute This Strategy
             </button>

@@ -228,7 +228,7 @@ const WixSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-blue-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-orange-500/30 uppercase tracking-tighter text-base flex items-center justify-center gap-3 group"
               >
                 <span>Book a Free Wix SEO Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -734,7 +734,7 @@ const WixSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               <p className="text-xs font-mono text-gray-400 leading-relaxed mb-6">
                 "Many Wix sites fail Core Web Vitals because of unnecessary animations, oversized media files, and bloated integrations — not because of the platform itself."
               </p>
-              <button onClick={onBook} className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase italic tracking-widest rounded-xl transition-all">
+              <button onClick={onBook} className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs uppercase italic tracking-widest rounded-xl transition-all">
                 Test My Wix Site Speed
               </button>
             </div>
@@ -927,7 +927,7 @@ const WixSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button 
                 onClick={onBook}
-                className="px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-base flex items-center justify-center gap-3 transition-all italic"
+                className="px-8 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-base flex items-center justify-center gap-3 transition-all italic"
               >
                 <span>Book a Free Wix SEO Audit</span>
               </button>

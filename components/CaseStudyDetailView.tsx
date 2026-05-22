@@ -115,7 +115,7 @@ const CaseStudyDetailView: React.FC<CaseStudyDetailViewProps> = ({ study, onBack
            </h3>
            <button 
              onClick={onBook}
-             className="relative z-10 px-12 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-blue-500/40 uppercase tracking-tighter text-xl animate-cta-pulse"
+             className="relative z-10 px-12 py-5 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-orange-500/40 uppercase tracking-tighter text-xl animate-cta-pulse"
            >
              Book My Strategy Session
            </button>

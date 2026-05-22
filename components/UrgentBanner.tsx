@@ -71,7 +71,7 @@ const UrgentBanner: React.FC<UrgentBannerProps> = ({ onAction }) => {
             e.stopPropagation();
             onAction(e);
           }}
-          className="bg-blue-600 hover:bg-blue-500 text-white text-[9px] md:text-[10px] font-black px-3.5 py-1 rounded-full transition-all animate-cta-pulse tracking-tight flex items-center gap-1.5 shadow-lg shadow-blue-500/20 active:scale-95 italic bg-gradient-to-r from-blue-600 to-blue-500 cursor-pointer shrink-0"
+          className="bg-orange-600 hover:bg-orange-500 text-white text-[9px] md:text-[10px] font-black px-3.5 py-1 rounded-full transition-all animate-cta-pulse tracking-tight flex items-center gap-1.5 shadow-lg shadow-orange-500/20 active:scale-95 italic bg-gradient-to-r from-orange-600 to-orange-500 cursor-pointer shrink-0"
         >
           VIEW OFFER
           <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

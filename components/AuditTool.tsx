@@ -324,7 +324,7 @@ const AuditTool: React.FC = () => {
             href="https://rit-seo-audit-analyzer.netlify.app/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-xl shadow-blue-500/20 uppercase tracking-tighter text-sm flex items-center gap-2 group-hover:scale-105"
+            className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-black rounded-2xl transition-all shadow-xl shadow-orange-500/20 uppercase tracking-tighter text-sm flex items-center gap-2 group-hover:scale-105"
           >
             Launch Live App
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -368,7 +368,7 @@ const AuditTool: React.FC = () => {
             type="submit" 
             disabled={isLoading}
             className={`w-full py-4 rounded-xl font-black text-white transition-all shadow-lg uppercase tracking-tighter ${
-              isLoading ? 'bg-blue-600/50 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/20'
+              isLoading ? 'bg-orange-600/50 cursor-not-allowed' : 'bg-orange-600 hover:bg-orange-700 shadow-orange-500/20'
             }`}
           >
             {isLoading ? 'Deep Scanning Metadata...' : 'Run Comprehensive In-Page Audit'}
