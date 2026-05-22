@@ -50,7 +50,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
     { title: 'Search Strategy', services: SERVICES.slice(0, 4), color: 'text-blue-500', hover: 'group-hover/item:text-blue-400' },
     { title: 'Market Domination', services: SERVICES.slice(4, 8), color: 'text-purple-500', hover: 'group-hover/item:text-purple-400' },
     { title: 'Systems & Ops', services: SERVICES.slice(8, 12), color: 'text-green-500', hover: 'group-hover/item:text-green-400' },
-    { title: 'CMS SEO', services: [SERVICES[12], SERVICES[13], SERVICES[14], SERVICES[21], SERVICES[23], SERVICES[24], SERVICES[17], SERVICES[22]], color: 'text-orange-500', hover: 'group-hover/item:text-orange-400' }
+    { title: 'CMS SEO', services: [SERVICES[12], SERVICES[13], SERVICES[14], SERVICES[21], SERVICES[23], SERVICES[24], SERVICES[17], SERVICES[22], SERVICES[25]], color: 'text-orange-500', hover: 'group-hover/item:text-orange-400' }
   ];
 
   const portfolioCategories = [

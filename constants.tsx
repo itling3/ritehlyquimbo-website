@@ -228,7 +228,8 @@ export const SERVICES = [
   { id: 'shopify-seo', title: 'Shopify SEO Expert', description: 'Revenue-focused Shopify SEO optimization for Google and AI search to scale organic store growth.', icon: '🛍️' },
   { id: 'storyblok-seo', title: 'Storyblok CMS SEO Expert', description: 'High-performance headless SEO for Storyblok websites. We optimize content models and API delivery for search dominance.', icon: '🏗️' },
   { id: 'woocommerce-seo', title: 'WooCommerce SEO Expert', description: 'High-converting WooCommerce SEO strategies that grow organic traffic, rankings, and sales for ecommerce stores.', icon: '🛒' },
-  { id: 'webflow-seo', title: 'Webflow SEO Expert', description: 'Technical Webflow SEO optimization for businesses that want more leads, sales, and organic visibility.', icon: '🌊' }
+  { id: 'webflow-seo', title: 'Webflow SEO Expert', description: 'Technical Webflow SEO optimization for businesses that want more leads, sales, and organic visibility.', icon: '🌊' },
+  { id: 'wix-seo', title: 'Wix SEO Expert', description: 'Advanced Wix SEO specialist services to optimize your architecture, Core Web Vitals, schema, and AI search presence.', icon: '✨' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -805,6 +806,36 @@ Ready to grow your Storyblok website? [Book Your Free SEO Strategy Call](/contac
     faqs: [
       { question: 'Is Webflow good for SEO?', answer: 'Yes, but it requires specialized configuration of CMS structures, schema, and localization to outperform competitors.' },
       { question: 'Do you optimize for AI search?', answer: 'Absolutely. We optimize your Webflow content for Google, ChatGPT, and other AI-powered discovery engines.' }
+    ]
+  },
+  'wix-seo': {
+    id: 'wix-seo',
+    slug: 'wix-seo-expert',
+    permalink: '/services/cms-seo/wix-seo-expert',
+    title: 'Wix SEO Expert',
+    titleH1: 'Wix SEO Expert: Turn Your Wix Site Into a Lead-Generation Machine',
+    icon: '✨',
+    description: 'Stop fighting the platform. Get the advanced technical optimization, custom schema, and high-performance speed tuning your Wix site needs to rank on page one.',
+    seoTitle: 'Wix SEO Expert | Advanced Wix Optimization Specialist',
+    metaDescription: 'Looking to scale your organic traffic? As a technical Wix SEO expert, I specialize in custom schema, Core Web Vitals tuning, and dynamic page indexing.',
+    keywords: 'Wix SEO expert, Wix SEO specialist, technical Wix SEO, Wix SEO consultant, advanced Wix SEO services, Wix Core Web Vitals, Wix structured data, Wix schema markup, Wix technical SEO, Wix SEO optimization, Wix SEO services, Wix page speed optimization, Wix SEO agency, Wix local SEO, Wix e-commerce SEO',
+    painPoint: 'Is your Wix site struggling to rank, generate leads, or pass Core Web Vitals?',
+    problem: 'Generic SEO agencies often treat Wix like a simplified website builder, ignoring dynamic collection templates and platform rendering behaviors.',
+    solution: 'Platform-specific Wix SEO expertise combining custom JSON-LD schema, dynamic XML sitemaps, Core Web Vitals tuning, and topical authority clusters.',
+    importance: 'We optimize Wix websites not only for rankings, but for discoverability across the next generation of AI-powered search experiences.',
+    features: [
+      'Technical Architecture & Core Web Vitals',
+      'Programmatic & Dynamic Page SEO',
+      'Advanced Entity & Schema Markup',
+      'AI Search & Generative Engine Optimization',
+      'Internal Linking & Topical Authority',
+      'Migration & Bulk 301 Redirection'
+    ],
+    contentBody: `I help businesses turn underperforming Wix websites into technically optimized, search-driven acquisition assets with custom schema blueprints, speed engineering, and topical content clustering.`,
+    faqs: [
+      { question: 'Do I need to migrate from Wix to WordPress to rank?', answer: 'Absolutely not. Wix infrastructure handles hosting, security, and automated caching perfectly. It’s what you build on top of it that counts.' },
+      { question: 'Can you implement custom schema on Wix?', answer: 'Yes, using advanced SEO Settings, we can override default presets with custom JSON-LD.' },
+      { question: 'How do you handle 301 redirects during a migration to Wix?', answer: 'We utilize the bulk URL Redirect Manager to map up to 500 URLs simultaneously, preventing link equity loss.' }
     ]
   },
   'keyword-research': {

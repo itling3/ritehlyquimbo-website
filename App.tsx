@@ -50,6 +50,7 @@ import StoryblokSEOExpertPage from './pages/StoryblokSEOExpert';
 import WooCommerceSEOExpertPage from './pages/WooCommerceSEOExpert';
 import ShopifySEOExpertPage from './pages/ShopifySEOExpert';
 import WebflowSEOExpertPage from './pages/WebflowSEOExpert';
+import WixSEOExpertPage from './pages/WixSEOExpert';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
@@ -210,6 +211,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/shopify-seo-expert" element={<Navigate to="/services/cms-seo/shopify-seo-expert" replace />} />
         <Route path="/services/woocommerce-seo-expert" element={<Navigate to="/services/cms-seo/woocommerce-seo-expert" replace />} />
         <Route path="/services/webflow-seo-expert" element={<Navigate to="/services/cms-seo/webflow-seo-expert" replace />} />
+        <Route path="/services/wix-seo-expert" element={<Navigate to="/services/cms-seo/wix-seo-expert" replace />} />
 
         <Route path="/services/cms-seo/wordpress-seo-expert" element={<WordPressSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/drupal-seo-expert" element={<DrupalSEOExpertPage onBook={handleBookConsultation} />} />
@@ -224,6 +226,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/cms-seo/woocommerce-seo-expert" element={<WooCommerceSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/shopify-seo-expert" element={<ShopifySEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/webflow-seo-expert" element={<WebflowSEOExpertPage onBook={handleBookConsultation} />} />
+        <Route path="/services/cms-seo/wix-seo-expert" element={<WixSEOExpertPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 
