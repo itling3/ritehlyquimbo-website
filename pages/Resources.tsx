@@ -34,6 +34,11 @@ const ResourcesPage: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'checklist' | 'templates' | 'schema' | 'updates'>('checklist');
 
+  // --- TAB 4 STATE ---
+  const [updatesYearFilter, setUpdatesYearFilter] = useState<string>('All');
+  const [updatesSearchQuery, setUpdatesSearchQuery] = useState<string>('');
+  const [updatesSortOrder, setUpdatesSortOrder] = useState<'oldest' | 'newest'>('newest');
+
   // --- TAB 1: INTERACTIVE SEO CHECKLIST STATE ---
   const initialTasks: Task[] = [
     // Technical
@@ -314,46 +319,358 @@ const ResourcesPage: React.FC = () => {
   // --- TAB 4: GOOGLE ALGORITHM UPDATES TIMELINE DATA ---
   const googleUpdates = [
     {
-      date: 'March 2026',
-      name: 'March 2026 Core & Complex Spam Update',
-      type: 'Core / Spam',
-      impact: 'Very High',
-      color: 'border-red-500/30 text-red-500 bg-red-500/5',
-      labelColor: 'bg-red-500/20 text-red-400 border-red-500/30',
-      description: 'Major integration of complex machine-learning algorithms validating user satisfaction signals directly. Pruned auto-translated websites lacking native expertise citation nodes, scaled penalization of mass expired domain redirections, and penalized abusive content syndication without canonical anchors.',
-      remediation: 'Audit absolute entity representation. Perform deep historical cleanups of expired non-industry domains redirecting to your main directory, remove secondary spam affiliate silos, and emphasize direct authorship.',
-    },
-    {
-      date: 'September 2025',
-      name: 'Dynamic Helpful Engagement Update',
-      type: 'Helpfulness',
+      year: 2018,
+      date: 'March 12, 2018',
+      name: 'March 2018 Broad Core Update',
+      type: 'Core Update',
       impact: 'High',
-      color: 'border-orange-500/30 text-orange-500 bg-orange-500/5',
-      labelColor: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
-      description: 'Re-aligned the Helpful Content Engine to analyze dynamic layout signals. Evaluated intrusive interstitial scroll delays, user engagement depth metrics (scrolling vs immediate exits), and penalized platforms locking helpful answers behind high-flicker ad rows.',
-      remediation: 'Refine visual layout hierarchy. Shift important technical guides to the absolute top of post layouts (above-the-fold), minimize cumulative layout shifts, and design smooth fast-loading structures.',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'Google officially confirmed a broad core search algorithm update aimed at highlighting high-quality content that provides rich context. It adjusted weighting for trust factors across informative pages, rewarding authoritative topical coverage.',
+      remediation: 'Focus on improving overall content quality and detail rather than trying to optimize for specific keywords. Enrich meta descriptions and provide highly reliable answers.',
+      sourceName: 'Ignite Visibility',
+      sourceUrl: 'https://ignitevisibility.com/'
     },
     {
-      date: 'August 2024',
-      name: 'August 2024 Core Update',
-      type: 'Core',
+      year: 2018,
+      date: 'August 1, 2018',
+      name: 'August 2018 Broad Core Update ("Medic")',
+      type: 'Core Update',
+      impact: 'Critical',
+      color: 'border-red-500/10 hover:border-red-500/30 bg-red-500/[0.01]',
+      labelColor: 'bg-red-500/10 text-red-400 border-red-500/20',
+      description: 'A massive core update that heavily affected health, medical, wellness, and financial websites (coined "Medic" by search analysts). This marked the initial major implementation of Google\'s E-A-T (Expertise, Authoritativeness, and Trustworthiness) standards, drastically shifting ranking distribution.',
+      remediation: 'Build ironclad trust: Display verified author bios with credentials, reference medical peer reviews, display full institutional contact info, and cite high-trust external data sources.',
+      sourceName: 'Ignite Visibility',
+      sourceUrl: 'https://ignitevisibility.com/'
+    },
+    {
+      year: 2019,
+      date: 'March 12, 2019',
+      name: 'March 2019 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'Refined the Medic updates to balance trust factors. Re-awarded certain medical and affiliate sites that had lost ranking share by validating general contextual value, establishing that search intent dominates raw authority metrics.',
+      remediation: 'Match the specific intent behind the queries. If a keyword is informational, do not force promotional affiliate widgets above-the-fold.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2019,
+      date: 'June 3, 2019',
+      name: 'June 2019 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-orange-500/10 hover:border-orange-500/30 bg-orange-500/[0.01]',
+      labelColor: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+      description: 'The first broad core update to be formally pre-announced by Google beforehand. Volatility was observed in major news aggregation platforms, alternative health niches, and heavy database directories.',
+      remediation: 'De-duplicate broad database records, minimize interstitial advertisements, and improve user experience parameters (UX and mobile speed).',
+      sourceName: 'Ignite Visibility',
+      sourceUrl: 'https://ignitevisibility.com/'
+    },
+    {
+      year: 2019,
+      date: 'September 24, 2019',
+      name: 'September 2019 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Medium',
+      color: 'border-purple-500/10 hover:border-purple-500/30 bg-purple-500/[0.01]',
+      labelColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      description: 'A less volatile but steady update refining search signals. Impact was felt across content portals displaying high density of product ads or low-tier informational clusters.',
+      remediation: 'Audit site-wide ratio of ads to real body content. Consolidate pages which have thin, duplicate, or outdated coverage into a robust single canonical resource.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2020,
+      date: 'January 13–17, 2020',
+      name: 'January 2020 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'Rebalanced broad relevance signals globally, adjusting how Google rates general brand trust and authority. Impacted thin reviews columns and portal networks.',
+      remediation: 'Inject expert editorial oversight into all reviewing frameworks. Ensure review scores align with direct personal user testing or physical proof.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2020,
+      date: 'May 4–18, 2020',
+      name: 'May 2020 Broad Core Update',
+      type: 'Core Update',
       impact: 'Very High',
-      color: 'border-blue-500/30 text-blue-500 bg-blue-500/5',
-      labelColor: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-      description: 'Accelerated Google\’s ability to locate original educational material. Promoted small and medium independent businesses sharing unique, first-hand expertise in comparison reviews over general domain aggregators who aggregate without testing.',
-      remediation: 'Replace dry summarized analysis with original checklists, proprietary diagrams, screenshots, comparison breakdowns, and customized case result studies.',
+      color: 'border-orange-500/10 hover:border-orange-500/30 bg-orange-500/[0.01]',
+      labelColor: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+      description: 'A highly volatile rollout following changes in global search behavior due to COVID-19. Heavily shifted local search maps, recipe sites, travel portals, and offline businesses shifting digital assets.',
+      remediation: 'Claim local authority. Complete schema markup for physical stores, keep opening hours and listings consistent across directory networks.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
     },
     {
-      date: 'March 2024',
-      name: 'March 2024 Massive Core & Spam Rollout',
-      type: 'Core / Spam',
-      impact: 'Extreme',
-      color: 'border-purple-500/30 text-purple-500 bg-purple-500/5',
-      labelColor: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-      description: 'A structural, multi-week algorithmic revision merging the core ranking logic with helpful quality components. Removed 45% of unhelpful content from SERPs. Set rigid terms on scaled content generation, domain abuse, and site reputation manipulation.',
-      remediation: 'Immediately de-index or consolidate auto-generated thin pages. Focus on high topical density. Prune toxic low-quality subfolder sections to safeguard the primary domain\’s authority.',
+      year: 2020,
+      date: 'December 3–16, 2020',
+      name: 'December 2020 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'A major global update deployed right before the holiday season. Rerouted search queries to direct local listings while pushing down low-intensity content portals that lacked secure SSL footprints.',
+      remediation: 'Ensure HTTPS is flawless. Use tools to check for mixed content HTTP/HTTPS assets on site load, speed up your hosting setup, and eliminate code latency.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2021,
+      date: 'June 2–12, 2021',
+      name: 'June 2021 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-purple-500/10 hover:border-purple-500/30 bg-purple-500/[0.01]',
+      labelColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      description: 'The first of a two-part core update rollout (with July being part two). Laid the deep technical foundation for Core Web Vitals (CWV) page experience assessment scoring processes.',
+      remediation: 'Audit raw page speeds. Shorten CSS delivery pipelines, serve modern WebP images, defer third-party scripts, and ensure layout responsiveness.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2021,
+      date: 'July 1–12, 2021',
+      name: 'July 2021 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Medium',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'Part two of the twin-summer core update. Normalized indexing anomalies caused by June shifts, focusing on link relevance and entity authority matching within Google’s Knowledge Graph.',
+      remediation: 'Perform strict external outbound link hygiene. Make sure you only link to certified, secure domains of high domain authority and relevance.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2021,
+      date: 'November 17–30, 2021',
+      name: 'November 2021 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-orange-500/10 hover:border-orange-500/30 bg-orange-500/[0.01]',
+      labelColor: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+      description: 'Deployed directly before major global holiday shopping weeks. Targeted transactional intent matching, drastically favoring online marketplaces with excellent UX and clear return policies.',
+      remediation: 'Exhaustively clarify pricing structures, store refund/shipping rules, and optimize checkout forms for mobile touch accuracy.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2022,
+      date: 'May 25 – June 9, 2022',
+      name: 'May 2022 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-red-500/10 hover:border-red-500/30 bg-red-500/[0.01]',
+      labelColor: 'bg-red-500/10 text-red-400 border-red-500/20',
+      description: 'Upgraded Google’s Natural Language Processing (NLP) capacities to weed out low-effort, mass AI content networks that lacked secondary verification. Refined semantic grouping calculations.',
+      remediation: 'Avoid plain auto-generated texts. Feed AI tools with proprietary checklists, primary database rows, and unique quotes from industry professionals.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2022,
+      date: 'September 12–26, 2022',
+      name: 'September 2022 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-indigo-500/10 hover:border-indigo-500/30 bg-indigo-500/[0.01]',
+      labelColor: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
+      description: 'Overlapped the major Helpful Content Update, targeting affiliate and informational blogs with excessive guest-posting links and zero unique value additions.',
+      remediation: 'Devalue manual link schemes. Ensure your backlink profile grows naturally by writing shareable primary source materials (original stats, tools).',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2023,
+      date: 'March 15–28, 2023',
+      name: 'March 2023 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-indigo-500/10 hover:border-indigo-500/30 bg-indigo-500/[0.01]',
+      labelColor: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
+      description: 'Upgraded spam de-indexation layers. Shifted search shares significantly away from websites using programmatic SEO templates that generated thin mass location variations.',
+      remediation: 'Inject localized unique maps, custom testimonials, specific local photos, and native details to programmatic pages to pass quality gates.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
+    },
+    {
+      year: 2023,
+      date: 'August 22 – September 7, 2023',
+      name: 'August 2023 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'Refined brand footprints and authority thresholds. Re-allocated traffic to authoritative major brands while tightening local ranking filters for transactional clusters.',
+      remediation: 'Optimize site-wide brand signals: build profiles on major citation nodes, claim social entities, and secure brand search volume.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2023,
+      date: 'October 5–19, 2023',
+      name: 'October 2023 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-orange-500/10 hover:border-orange-500/30 bg-orange-500/[0.01]',
+      labelColor: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+      description: 'Rolled out side-by-side with a volatile Spam Update. Drastically reduced ranking metrics of domains containing large counts of low-effort product comparison hubs.',
+      remediation: 'Provide clear, physical product evidence (e.g., photos showing you actually held/tested the items being compared on-page).',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2023,
+      date: 'November 2–28, 2023',
+      name: 'November 2023 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-purple-500/10 hover:border-purple-500/30 bg-purple-500/[0.01]',
+      labelColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      description: 'Integrated the helpfulness systems deeper within real-time crawling. Strongly penalized layouts featuring high-density ad placement, intrusive pop-ups, or floating marketing headers.',
+      remediation: 'Shift secondary display banner ads beneath the folding margin. Ensure reading paths on mobile are completely unobstructed and scroll smoothly.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2024,
+      date: 'March 5 – April 19, 2024',
+      name: 'March 2024 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Critical',
+      color: 'border-red-500/10 hover:border-red-500/30 bg-red-500/[0.01]',
+      labelColor: 'bg-red-500/10 text-red-400 border-red-500/20',
+      description: 'An exceptionally long, tectonic core update (~45 days) that fully integrated the Helpful Content System into the core algorithm. Deleted over 40% of unhelpful, low-grade AI sites from index results & launched severe manual penalties.',
+      remediation: 'Systematically prune thin, programmatic, or duplicate pages from your CMS. Re-invest solely in comprehensive, human-written guide hub clusters.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2024,
+      date: 'August 15 – September 3, 2024',
+      name: 'August 2024 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-green-500/10 hover:border-green-500/30 bg-green-500/[0.01]',
+      labelColor: 'bg-green-500/10 text-green-400 border-green-500/20',
+      description: 'Google reworked algorithm nodes specifically to highlight independent authors, creators, and small businesses sharing direct, first-hand expertise, aiming to balance corporate mega-brand dominance.',
+      remediation: 'Add human stories, case study outcomes, step-by-step photos, and direct quotes from people detailing direct experiences.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2024,
+      date: 'November 11 – December 5, 2024',
+      name: 'November 2024 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-orange-500/10 hover:border-orange-500/30 bg-orange-500/[0.01]',
+      labelColor: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+      description: 'Targeted Parasite SEO: the abuse of high-authority host domains to rank low-grade affiliate reviews in subleased folders (e.g. newspaper domains hosting third-party coupon sections).',
+      remediation: 'Separate rented out domains. Clean up directories that host sponsored content mismatched with your theme\'s prime topical cluster.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2024,
+      date: 'December 12–18, 2024',
+      name: 'December 2024 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'Quick core correction and ranking stabilization rollout before the global holidays. Focused on fast spam devaluing metrics.',
+      remediation: 'Eliminate over-optimized footer links and toxic mass guest-publishing anchors.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2025,
+      date: 'March 13–27, 2025',
+      name: 'March 2025 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-purple-500/10 hover:border-purple-500/30 bg-purple-500/[0.01]',
+      labelColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      description: 'Devaluations for massive automated content clusters built solely for indexing scale without adding a shred of secondary value or expert source citation.',
+      remediation: 'Implement strict verification: add expert review checkers, real citations, and original spreadsheet downloads of proprietary calculations.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2025,
+      date: 'June 30 – July 17, 2025',
+      name: 'June 2025 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-blue-500/10 hover:border-blue-500/30 bg-blue-500/[0.01]',
+      labelColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      description: 'Rewarded platforms featuring comprehensive multi-modal assets – incorporating video step-by-steps, illustrative vectors, podcasts, and data downloads direct in layout views.',
+      remediation: 'Level up content layouts: Embed helpful video walkthroughs, audio versions, and original diagrams inside informational posts.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2025,
+      date: 'December 12–29, 2025',
+      name: 'December 2025 Broad Core Update',
+      type: 'Core Update',
+      impact: 'High',
+      color: 'border-orange-500/10 hover:border-orange-500/30 bg-orange-500/[0.01]',
+      labelColor: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+      description: 'A major core integration tightening verification flags surrounding redirect pathways, expired domains, and author credential nodes footprint mapping.',
+      remediation: 'Fix broken redirect schemas, ensure verified schema markers exist on all author bio card layout frameworks.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2026,
+      date: 'March 27 – April 8, 2026',
+      name: 'March 2026 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Very High',
+      color: 'border-red-500/10 hover:border-red-500/30 bg-red-500/[0.01]',
+      labelColor: 'bg-red-500/10 text-red-400 border-red-500/20',
+      description: 'Integration of highly complex semantic quality checks. Drastically pruned translated content columns that lacked verified references (e.g., auto-translating English hubs to regional languages without native localization edits), and further enforced spam protocols.',
+      remediation: 'Hire professional localized transcreators to edit regional language content. Maintain exact cultural context, locally accurate citations, and eliminate mechanical translations.',
+      sourceName: 'Search Engine Land',
+      sourceUrl: 'https://searchengineland.com/'
+    },
+    {
+      year: 2026,
+      date: 'May 21, 2026 (Ongoing)',
+      name: 'May 2026 Broad Core Update',
+      type: 'Core Update',
+      impact: 'Critical',
+      color: 'border-orange-500/30 hover:border-orange-500/50 bg-orange-500/10 shadow-lg shadow-orange-500/10',
+      labelColor: 'bg-orange-500/20 text-orange-400 border-orange-500/40',
+      description: 'Began rolling out yesterday (May 21, 2026) and is expected to take up to two weeks to fully propagate. Early analysis points to intense tracking adjustments in search trends, neural intent matching structures, and elevating highly verified brand search shares.',
+      remediation: 'Closely monitor indexing performance via Search Console. Keep content structures clean, avoid making rapid layout updates during rollout, and focus on building genuine organic brand trust indicators.',
+      sourceName: 'Search Engine Roundtable',
+      sourceUrl: 'https://www.seroundtable.com/'
     }
   ];
+
+  // --- TAB 4 COMPUTED FILTER & SORT ---
+  const filteredUpdates = googleUpdates.filter(upd => {
+    const matchesYear = updatesYearFilter === 'All' || upd.year.toString() === updatesYearFilter;
+    const searchString = `${upd.name} ${upd.description} ${upd.remediation} ${upd.sourceName} ${upd.date}`.toLowerCase();
+    const matchesSearch = searchString.includes(updatesSearchQuery.toLowerCase());
+    return matchesYear && matchesSearch;
+  });
+
+  const sortedUpdates = [...filteredUpdates].sort((a, b) => {
+    const idxA = googleUpdates.indexOf(a);
+    const idxB = googleUpdates.indexOf(b);
+    return updatesSortOrder === 'newest' ? idxB - idxA : idxA - idxB;
+  });
 
   return (
     <div className="min-h-screen bg-[#030712] pt-32 pb-24 px-4 md:px-6">
@@ -838,17 +1155,18 @@ const ResourcesPage: React.FC = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
-                className="space-y-12"
+                className="space-y-8"
               >
+                {/* Intro Ribbon & Stats block */}
                 <div className="glass-morphism p-8 rounded-[2.5rem] border border-orange-500/20 bg-orange-600/5 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 blur-[120px] rounded-full"></div>
                   <div className="flex items-center gap-5">
                     <div className="w-14 h-14 rounded-2xl bg-orange-600/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                      <Globe className="w-6 h-6 text-orange-400" />
+                      <Globe className="w-6 h-6 text-orange-400 animate-pulse" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Active Algorithm Sync</h3>
-                      <p className="text-gray-400 text-sm">Review major Google Algorithm updates spanning through 2026. Stay ahead of direct search indexing alterations.</p>
+                      <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Broad Core Updates Index</h3>
+                      <p className="text-gray-400 text-sm">Chronological reference tracker listing historical broad core algorithm shifts from 2018 up to the current active environment.</p>
                     </div>
                   </div>
                   <a
@@ -857,50 +1175,167 @@ const ResourcesPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="px-6 py-3.5 bg-white text-black font-black hover:bg-gray-200 transition-all text-xs rounded-xl uppercase tracking-widest italic flex items-center gap-2"
                   >
-                    <span>Official Google Status</span>
+                    <span>Google release logs</span>
                     <ExternalLink className="w-3.5 h-3.5 text-black" />
                   </a>
                 </div>
 
+                {/* Important Historical Caveat Banner */}
+                <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-6 flex gap-4 items-start relative overflow-hidden">
+                  <div className="w-5 h-5 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/30 text-blue-400 mt-1 flex-shrink-0">
+                    <Info className="w-3 h-3" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-blue-400 font-extrabold uppercase tracking-widest block mb-1">Timeline Scope & Target Criteria</span>
+                    <p className="text-[13px] text-gray-400 leading-relaxed">
+                      Google began formally confirming "broad core updates" in March 2018, which is why the list starts there — earlier algorithm shifts (Panda, Penguin, Hummingbird, RankBrain, etc.) predate the "core update" naming convention. Since 2024, the cadence has settled into roughly 3–4 core updates per year, often with overlapping spam updates and reviews updates in between.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Interactive Controls Bar Card */}
+                <div className="glass-morphism p-6 rounded-3xl border border-white/5 bg-[#080c18]/60 space-y-4">
+                  <div className="flex flex-col lg:flex-row gap-4 items-center">
+                    {/* Search box */}
+                    <div className="relative w-full lg:flex-1">
+                      <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                      <input
+                        type="text"
+                        placeholder="Search updates by keywords, text, dates, or publishers (e.g. Medic, Land)..."
+                        value={updatesSearchQuery}
+                        onChange={(e) => setUpdatesSearchQuery(e.target.value)}
+                        className="w-full bg-white/5 text-white border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-sm focus:outline-none focus:border-orange-500 font-medium placeholder-gray-500"
+                      />
+                    </div>
+
+                    {/* Sorting Toggle button */}
+                    <div className="flex gap-2 w-full lg:w-auto shrink-0">
+                      <button
+                        onClick={() => setUpdatesSortOrder(prev => prev === 'newest' ? 'oldest' : 'newest')}
+                        className="flex-1 lg:flex-initial flex items-center justify-center gap-2 px-6 py-3.5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 text-white font-black text-xs uppercase tracking-widest transition-all cursor-pointer"
+                      >
+                        <span>Sort: {updatesSortOrder === 'newest' ? 'Newest First' : 'Oldest First'}</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          setUpdatesSearchQuery('');
+                          setUpdatesYearFilter('All');
+                        }}
+                        className="p-3.5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 text-gray-400 hover:text-white transition-all cursor-pointer"
+                        title="Reset Filters"
+                      >
+                        <RotateCcw className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Horizontal scrolling Year filters */}
+                  <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-white/5">
+                    <span className="text-[10px] text-gray-500 font-extrabold uppercase tracking-widest mr-2">Filter Year:</span>
+                    {['All', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'].map(year => (
+                      <button
+                        key={year}
+                        onClick={() => setUpdatesYearFilter(year)}
+                        className={`px-3.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                          updatesYearFilter === year
+                            ? 'bg-orange-600/20 border border-orange-500/50 text-orange-400'
+                            : 'bg-white/5 border border-white/5 text-gray-400 hover:text-white hover:bg-white/8'
+                        }`}
+                      >
+                        {year}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex justify-between items-center text-xs text-gray-400 font-mono">
+                    <span>Showing {sortedUpdates.length} of {googleUpdates.length} core updates</span>
+                    {updatesYearFilter !== 'All' || updatesSearchQuery ? (
+                      <button
+                        onClick={() => {
+                          setUpdatesSearchQuery('');
+                          setUpdatesYearFilter('All');
+                        }}
+                        className="text-orange-500 hover:underline font-bold transition-all"
+                      >
+                        Clear Filters
+                      </button>
+                    ) : null}
+                  </div>
+                </div>
+
                 {/* Timeline Layout */}
-                <div className="relative pl-6 md:pl-12 border-l-2 border-white/5 space-y-10">
-                  {googleUpdates.map((upd, idx) => (
-                    <div key={idx} className="relative group">
-                      {/* Interactive indicator dot */}
-                      <div className="absolute -left-[31px] md:-left-[55px] top-1.5 w-4 h-4 rounded-full bg-[#030712] border-2 border-orange-500 z-10 group-hover:scale-120 group-hover:bg-orange-500 transition-all duration-300"></div>
+                {sortedUpdates.length > 0 ? (
+                  <div className="relative pl-6 md:pl-12 border-l-2 border-white/5 space-y-10">
+                    {sortedUpdates.map((upd, idx) => (
+                      <div key={idx} className="relative group">
+                        {/* Interactive indicator dot */}
+                        <div className="absolute -left-[31px] md:-left-[55px] top-1.5 w-4 h-4 rounded-full bg-[#030712] border-2 border-orange-500 z-10 group-hover:scale-120 group-hover:bg-orange-500 transition-all duration-300"></div>
 
-                      <div className={`p-8 rounded-[2.5rem] border ${upd.color} transition-all space-y-4`}>
-                        <div className="flex flex-wrap items-center justify-between gap-4">
-                          <div className="space-y-1">
-                            <span className="text-[10px] text-gray-500 font-extrabold uppercase tracking-widest">{upd.date} update log</span>
-                            <h4 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tight leading-none leading-relaxed">
-                              {upd.name}
-                            </h4>
+                        <div className={`p-8 rounded-[2.5rem] border ${upd.color} transition-all space-y-4`}>
+                          <div className="flex flex-wrap items-center justify-between gap-4">
+                            <div className="space-y-1">
+                              <span className="text-[10px] text-gray-500 font-extrabold uppercase tracking-widest">{upd.date} update log</span>
+                              <h4 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tight leading-relaxed">
+                                {upd.name}
+                              </h4>
+                            </div>
+                            
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-400">{upd.type}</span>
+                              <span className={`text-[9px] font-black uppercase tracking-widest px-3 py-1 border rounded-full ${
+                                upd.impact === 'Critical'
+                                  ? 'bg-red-500/20 text-red-400 border-red-500/30'
+                                  : upd.impact === 'Very High'
+                                  ? 'bg-orange-500/20 text-orange-400 border-orange-500/30'
+                                  : upd.impact === 'High'
+                                  ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                                  : 'bg-blue-500/10 text-blue-400 border-blue-500/20'
+                              }`}>{upd.impact} Impact</span>
+                              
+                              {/* Publisher Link Badge */}
+                              <a
+                                href={upd.sourceUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest px-3 py-1 bg-white/5 border border-white/10 hover:border-orange-500/40 text-gray-400 hover:text-white rounded-full transition-all"
+                              >
+                                <span>Source: {upd.sourceName}</span>
+                                <ExternalLink className="w-2.5 h-2.5 text-gray-500" />
+                              </a>
+                            </div>
                           </div>
-                          
-                          <div className="flex gap-2">
-                            <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-400">{upd.type}</span>
-                            <span className={`text-[9px] font-black uppercase tracking-widest px-3 py-1 border rounded-full ${upd.labelColor}`}>{upd.impact} Impact</span>
-                          </div>
-                        </div>
 
-                        <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                          {upd.description}
-                        </p>
+                          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                            {upd.description}
+                          </p>
 
-                        <div className="pt-4 border-t border-white/5 flex items-start gap-4">
-                          <div className="w-8 h-8 rounded-lg bg-orange-600/10 flex items-center justify-center shrink-0 border border-orange-500/20">
-                            <Info className="w-4 h-4 text-orange-400" />
-                          </div>
-                          <div>
-                            <span className="text-[10px] text-orange-500 font-extrabold uppercase tracking-widest block mb-1">Expert Recommended Remediation Action</span>
-                            <p className="text-gray-300 text-xs md:text-sm leading-relaxed">{upd.remediation}</p>
+                          <div className="pt-4 border-t border-white/5 flex items-start gap-4">
+                            <div className="w-8 h-8 rounded-lg bg-orange-600/10 flex items-center justify-center shrink-0 border border-orange-500/20">
+                              <Info className="w-4 h-4 text-orange-400" />
+                            </div>
+                            <div>
+                              <span className="text-[10px] text-orange-500 font-extrabold uppercase tracking-widest block mb-1">Expert Recommended Remediation Action</span>
+                              <p className="text-gray-300 text-xs md:text-sm leading-relaxed">{upd.remediation}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-16 glass-morphism border border-white/5 rounded-3xl bg-[#080c18]/40">
+                    <p className="text-gray-400 text-base">No core updates match your search filters.</p>
+                    <button
+                      onClick={() => {
+                        setUpdatesSearchQuery('');
+                        setUpdatesYearFilter('All');
+                      }}
+                      className="mt-4 px-6 py-2.5 bg-orange-600 text-white font-black rounded-lg text-xs uppercase tracking-widest italic"
+                    >
+                      Reset Search Filters
+                    </button>
+                  </div>
+                )}
 
               </motion.div>
             )}
