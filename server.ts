@@ -48,7 +48,8 @@ async function startServer() {
     '/services/shopify-seo-expert': '/services/cms-seo/shopify-seo-expert',
     '/services/woocommerce-seo-expert': '/services/cms-seo/woocommerce-seo-expert',
     '/services/webflow-seo-expert': '/services/cms-seo/webflow-seo-expert',
-    '/services/wix-seo-expert': '/services/cms-seo/wix-seo-expert'
+    '/services/wix-seo-expert': '/services/cms-seo/wix-seo-expert',
+    '/services/squarespace-seo-expert': '/services/cms-seo/squarespace-seo-expert'
   };
 
   // Dedicated Redirect Middleware (Run BEFORE Vite or Static assets)
@@ -362,6 +363,7 @@ async function startServer() {
         '/services/cms-seo/woocommerce-seo-expert',
         '/services/cms-seo/webflow-seo-expert',
         '/services/cms-seo/wix-seo-expert',
+        '/services/cms-seo/squarespace-seo-expert',
         '/services/keyword-research-intent-mapping',
         '/services/technical-on-page-seo-optimization',
         '/services/digital-pr-authority-backlinks',

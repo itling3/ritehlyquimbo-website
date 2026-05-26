@@ -229,7 +229,8 @@ export const SERVICES = [
   { id: 'storyblok-seo', title: 'Storyblok CMS SEO Expert', description: 'High-performance headless SEO for Storyblok websites. We optimize content models and API delivery for search dominance.', icon: '🏗️' },
   { id: 'woocommerce-seo', title: 'WooCommerce SEO Expert', description: 'High-converting WooCommerce SEO strategies that grow organic traffic, rankings, and sales for ecommerce stores.', icon: '🛒' },
   { id: 'webflow-seo', title: 'Webflow SEO Expert', description: 'Technical Webflow SEO optimization for businesses that want more leads, sales, and organic visibility.', icon: '🌊' },
-  { id: 'wix-seo', title: 'Wix SEO Expert', description: 'Advanced Wix SEO specialist services to optimize your architecture, Core Web Vitals, schema, and AI search presence.', icon: '✨' }
+  { id: 'wix-seo', title: 'Wix SEO Expert', description: 'Advanced Wix SEO specialist services to optimize your architecture, Core Web Vitals, schema, and AI search presence.', icon: '✨' },
+  { id: 'squarespace-seo', title: 'Squarespace SEO Expert', description: 'Professional Squarespace SEO specialist campaigns to optimize your architecture, Core Web Vitals, and keyword authority.', icon: '📐' }
 ];
 
 export const SERVICE_DETAILS: Record<string, ServiceContent> = {
@@ -836,6 +837,36 @@ Ready to grow your Storyblok website? [Book Your Free SEO Strategy Call](/contac
       { question: 'Do I need to migrate from Wix to WordPress to rank?', answer: 'Absolutely not. Wix infrastructure handles hosting, security, and automated caching perfectly. It’s what you build on top of it that counts.' },
       { question: 'Can you implement custom schema on Wix?', answer: 'Yes, using advanced SEO Settings, we can override default presets with custom JSON-LD.' },
       { question: 'How do you handle 301 redirects during a migration to Wix?', answer: 'We utilize the bulk URL Redirect Manager to map up to 500 URLs simultaneously, preventing link equity loss.' }
+    ]
+  },
+  'squarespace-seo': {
+    id: 'squarespace-seo',
+    slug: 'squarespace-seo-expert',
+    permalink: '/services/cms-seo/squarespace-seo-expert',
+    title: 'Squarespace SEO Expert',
+    titleH1: 'Squarespace SEO Expert Services That Drive Rankings, Traffic & Leads',
+    icon: '📐',
+    description: 'Help your Squarespace website rank higher on Google with platform-specific SEO strategies, technical optimization, content systems, and conversion-focused growth campaigns tailored for service businesses, ecommerce brands, and local companies.',
+    seoTitle: 'Squarespace SEO Expert Services | Rank Your Site Higher on Google',
+    metaDescription: 'Gain a competitive edge with personalized Squarespace SEO plans. As a certified Squarespace SEO specialist, I offer custom schema, on-page optimization, and AI platform growth.',
+    keywords: 'Squarespace SEO expert, Squarespace SEO specialist, Squarespace technical SEO, Squarespace SEO consultant, advanced Squarespace SEO services, Squarespace Core Web Vitals, Squarespace structured data, Squarespace schema markup, Squarespace technical SEO, Squarespace SEO optimization, Squarespace SEO services, Squarespace page speed optimization, Squarespace SEO agency, Squarespace local SEO, Squarespace e-commerce SEO',
+    painPoint: 'Is your Squarespace site struggling to rank, generate leads, or pass Core Web Vitals?',
+    problem: 'Generic SEO agencies often struggle with Squarespace limitations, ignoring technical indexing, schema, or native blog configurations.',
+    solution: 'Platform-specific Squarespace SEO expertise combining customized schema architectures, XML sitemaps, Core Web Vitals fixes, and topical authority grids.',
+    importance: 'We optimize Squarespace websites not only for search engines, but for high-converting user experience and modern AI retrieval paths.',
+    features: [
+      'Technical Squarespace Optimization',
+      'Advanced Custom Schema Design',
+      'Core Web Vitals & Speed Tuning',
+      'Topical Authority Growth Map',
+      'SEO + CRO Conversion Focus',
+      'Organic Authority Link Building'
+    ],
+    contentBody: `I help companies turn stagnant Squarespace websites into high-converting, search-engine-ready lead generation hubs using platform-specific optimization frameworks.`,
+    faqs: [
+      { question: 'Can Squarespace rank well on Google?', answer: 'Yes. With proper technical setup and SEO strategy, Squarespace websites can compete effectively in search results.' },
+      { question: 'How long does Squarespace SEO take?', answer: 'Most websites see measurable improvements within 3–6 months depending on competition and website condition.' },
+      { question: 'Do you only work with Squarespace?', answer: 'Yes. We specialize in Squarespace SEO to provide deeper expertise and faster implementation.' }
     ]
   },
   'keyword-research': {
