@@ -337,7 +337,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
           </div>
 
           <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Blog</Link>
-          <Link to="/resources" onClick={() => setIsMobileMenuOpen(false)} className="text-orange-500 hover:text-orange-400 font-bold transition-colors">Resources</Link>
+          <Link to="/resources" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Resources</Link>
           <Link to="/locations" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Locations</Link>
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">About</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Contact</Link>
@@ -593,7 +593,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
             <div className="grid grid-cols-1 gap-3 pt-6">
               {[
                 { id: 'blog', label: 'Strategy Blog', color: 'text-blue-400', path: '/blog' },
-                { id: 'resources', label: 'Free Resources & Tools', color: 'text-orange-400', path: '/resources' },
+                { id: 'resources', label: 'Free Resources & Tools', color: 'text-gray-300', path: '/resources' },
                 { id: 'locations', label: 'Locations', color: 'text-gray-300', path: '/locations' },
                 { id: 'about', label: 'About Me', color: 'text-gray-300', path: '/about' },
                 { id: 'contact', label: 'Contact', color: 'text-gray-300', path: '/contact' },

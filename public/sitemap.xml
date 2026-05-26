@@ -308,6 +308,33 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Resources -->
+  <url>
+    <loc>https://ritehlyquimbo.com/resources</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ritehlyquimbo.com/resources/seo-audit-checklist</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ritehlyquimbo.com/resources/actionable-seo-templates</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ritehlyquimbo.com/resources/schema-generator</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ritehlyquimbo.com/resources/google-core-updates</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog -->
   <url>
     <loc>https://ritehlyquimbo.com/blog</loc>
