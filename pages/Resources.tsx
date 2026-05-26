@@ -30,23 +30,126 @@ const RESOURCES_SEO_SCHEMA = {
   }
 };
 
+interface GlossaryTerm {
+  term: string;
+  definition: string;
+  letter: string;
+  resourceId: 'checklist' | 'templates' | 'schema' | 'updates';
+  resourceName: string;
+}
+
+const GLOSSARY_TERMS: GlossaryTerm[] = [
+  {
+    term: "Alt Attribute (Alt Text)",
+    definition: "An HTML attribute applied to image tags to describe the graphic content. It helps search engines parse image subject matter and provides vital descriptions for screen readers.",
+    letter: "A",
+    resourceId: "checklist",
+    resourceName: "Checklist: On-Page Essentials"
+  },
+  {
+    term: "Algorithm Rollout",
+    definition: "The launch and propagation of a search ranking system update. Broad core updates alter core neural retrieval signals and generally take 1 to 2 weeks to settle.",
+    letter: "A",
+    resourceId: "updates",
+    resourceName: "Google Core Updates Timeline"
+  },
+  {
+    term: "Canonical Tag",
+    definition: "An HTML element (rel=\"canonical\") used to declare the original, master version of a page. It prevents duplication indexation issues across similar search paths.",
+    letter: "C",
+    resourceId: "checklist",
+    resourceName: "Checklist: Technical SEO"
+  },
+  {
+    term: "Content Brief",
+    definition: "A comprehensive operational blueprint guiding writers. It structures specified heading levels, core entities, keyword mapping targets, and visual placements before drafting.",
+    letter: "C",
+    resourceId: "templates",
+    resourceName: "Templates: Content Operations"
+  },
+  {
+    term: "Core Web Vitals",
+    definition: "Three speed and experience metrics compiled by Google: Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS).",
+    letter: "C",
+    resourceId: "checklist",
+    resourceName: "Checklist: Technical SEO"
+  },
+  {
+    term: "E-E-A-T",
+    definition: "An evaluative concept from Google's Guidelines meaning Experience, Expertise, Authoritativeness, and Trustworthiness. It determines human editorial value.",
+    letter: "E",
+    resourceId: "updates",
+    resourceName: "Google Core Updates Timeline"
+  },
+  {
+    term: "JSON-LD",
+    definition: "JavaScript Object Notation for Linked Data. A clean syntax used to write structural metadata easily processed by search crawlers.",
+    letter: "J",
+    resourceId: "schema",
+    resourceName: "JSON-LD Schema Markup Generator"
+  },
+  {
+    term: "Local Business Schema",
+    definition: "A localized structured data blueprint specifying address, geo-coordinates, hours of operation, phone, and brand details for map presentation.",
+    letter: "L",
+    resourceId: "schema",
+    resourceName: "JSON-LD Schema Markup Generator"
+  },
+  {
+    term: "NAP Consistency",
+    definition: "The exact matching alignment of your Name, Address, and Phone number profiles across business web properties and high-authority local directories.",
+    letter: "N",
+    resourceId: "checklist",
+    resourceName: "Checklist: Local & Off-Page"
+  },
+  {
+    term: "Robots.txt",
+    definition: "A standard instructions file uploaded to the root directory explaining which folders crawl engines may access and which are restricted.",
+    letter: "R",
+    resourceId: "checklist",
+    resourceName: "Checklist: Technical SEO"
+  },
+  {
+    term: "Schema Markup",
+    definition: "Specific vocabulary tags added to HTML schemas to alter the way search engines parse and display rich snippets within SERP components.",
+    letter: "S",
+    resourceId: "schema",
+    resourceName: "JSON-LD Schema Markup Generator"
+  },
+  {
+    term: "Topical Authority",
+    definition: "A status earned by coverages mapping entire niches and user search journeys. Google ranks sites with dense, structurally mapped topical hubs instead of isolated pages.",
+    letter: "T",
+    resourceId: "templates",
+    resourceName: "Templates: Topical Architecture"
+  },
+  {
+    term: "XML Sitemap",
+    definition: "A navigation list containing links to all vital canonical urls on a domain, guiding crawlers to find and index content quickly.",
+    letter: "X",
+    resourceId: "checklist",
+    resourceName: "Checklist: Technical SEO"
+  }
+];
+
 const ResourcesPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   // Map paths to tab IDs
-  const getTabFromPath = (pathname: string): 'checklist' | 'templates' | 'schema' | 'updates' => {
+  const getTabFromPath = (pathname: string): 'checklist' | 'templates' | 'schema' | 'updates' | 'index' => {
     if (pathname.includes('/resources/seo-audit-checklist')) return 'checklist';
     if (pathname.includes('/resources/actionable-templates')) return 'templates';
     if (pathname.includes('/resources/schema-generator')) return 'schema';
     if (pathname.includes('/resources/google-core-updates')) return 'updates';
-    return 'checklist'; // Fallback
+    return 'index';
   };
 
   const activeTab = getTabFromPath(location.pathname);
 
-  const setActiveTab = (tabId: 'checklist' | 'templates' | 'schema' | 'updates') => {
+  const setActiveTab = (tabId: 'checklist' | 'templates' | 'schema' | 'updates' | 'index') => {
     const paths = {
+      index: '/resources',
       checklist: '/resources/seo-audit-checklist',
       templates: '/resources/actionable-templates',
       schema: '/resources/schema-generator',
@@ -56,11 +159,13 @@ const ResourcesPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // When visiting the bare /resources endpoint, smoothly rewrite to the canonical /resources/seo-audit-checklist path
-    if (location.pathname === '/resources' || location.pathname === '/resources/') {
-      navigate('/resources/seo-audit-checklist', { replace: true });
-    }
-  }, [location.pathname, navigate]);
+    // Reset scroll when path changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
+  // --- TAB INDEX (GLOSSARY & SITEMAP) STATE ---
+  const [glossaryLetter, setGlossaryLetter] = useState<string>('All');
+  const [glossarySearch, setGlossarySearch] = useState<string>('');
 
   // --- TAB 4 STATE ---
   const [updatesYearFilter, setUpdatesYearFilter] = useState<string>('All');
@@ -700,8 +805,13 @@ const ResourcesPage: React.FC = () => {
     return updatesSortOrder === 'newest' ? idxB - idxA : idxA - idxB;
   });
 
-  const getSeoMetadata = (tab: 'checklist' | 'templates' | 'schema' | 'updates') => {
+  const getSeoMetadata = (tab: 'checklist' | 'templates' | 'schema' | 'updates' | 'index') => {
     const meta = {
+      index: {
+        title: "SEO Resources Directory & Search Growth Glossary Hub | Ritehly Quimbo",
+        description: "Official search marketing resource sitemap and SEO glossary curated by Ritehly Quimbo. Streamline content with templates, draft rich markup schemas, or track core update metrics.",
+        keywords: "seo sitemap, seo glossary, ranking resources, content templates, organic tools, ritehly quimbo"
+      },
       checklist: {
         title: "Direct SEO Audit Checklist & Core Ranking Benchmarks | Ritehly Quimbo",
         description: "Access Ritehly Quimbo's ultimate interactive SEO checklist. Audit your technical, on-page, keyword, and off-page structures to dominate Google ranking metrics.",
@@ -723,7 +833,7 @@ const ResourcesPage: React.FC = () => {
         keywords: "google algorithm updates, google core updates timeline, google medic update, march core update, rank tracking"
       }
     };
-    return meta[tab] || meta.checklist;
+    return meta[tab] || meta.index;
   };
 
   const seoData = getSeoMetadata(activeTab);
@@ -771,8 +881,9 @@ const ResourcesPage: React.FC = () => {
         </div>
 
         {/* Navigation Tabs - GLOWING COSMIC SLATE TABS */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-12 max-w-4xl mx-auto border border-white/5 bg-[#080c18]/80 p-2 rounded-2xl md:rounded-full backdrop-blur-md">
+        <div className="flex flex-wrap justify-center items-center gap-2 mb-12 max-w-5xl mx-auto border border-white/5 bg-[#080c18]/80 p-2 rounded-2xl md:rounded-full backdrop-blur-md">
           {[
+            { id: 'index', label: 'All Resources Hub', icon: <HelpCircle className="w-4 h-4" /> },
             { id: 'checklist', label: 'SEO Audit Checklist', icon: <CheckSquare className="w-4 h-4" /> },
             { id: 'templates', label: 'Actionable Templates', icon: <FileText className="w-4 h-4" /> },
             { id: 'schema', label: 'Schema Generator', icon: <Terminal className="w-4 h-4" /> },
@@ -797,6 +908,190 @@ const ResourcesPage: React.FC = () => {
         <div className="min-h-[500px]">
           <AnimatePresence mode="wait">
             
+            {/* INDEX VIEW: SITEMAP & GLOSSARY DIRECTORY */}
+            {activeTab === 'index' && (
+              <motion.div
+                key="index"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                className="space-y-16"
+              >
+                {/* 1. VISUAL SITEMAP MAP */}
+                <div className="space-y-6">
+                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/5 pb-6">
+                    <div>
+                      <span className="text-[10px] text-orange-500 font-extrabold uppercase tracking-widest italic block mb-1">Navigation Sitemap</span>
+                      <h2 className="text-2xl md:text-3xl font-black text-white uppercase italic tracking-tighter font-display">RESOURCE PILLARS</h2>
+                    </div>
+                    <p className="text-gray-400 text-xs md:text-sm max-w-md">
+                      A visual guide mapping out all specialized search marketing assets available on this domain. Select a pillar below to begin.
+                    </p>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      {
+                        title: "Interactive SEO Audit Checklist",
+                        desc: "Systematically scan and verify your core technical, on-page, keyword, and local setups with client-side state memory.",
+                        path: "checklist",
+                        items: ["Interactive Checklist Checker", "Markdown Audit Report Exporter", "Spreadsheet CSV Download", "Core Web Vitals Benchmarks"],
+                        icon: <CheckSquare className="w-5 h-5 text-orange-400" />
+                      },
+                      {
+                        title: "Actionable Content & Growth Templates",
+                        desc: "Get access to copy-ready layouts, outreach scripts, and content briefing schemas configured by Ritehly.",
+                        path: "templates",
+                        items: ["Topic Clustering & Master Sheet", "Enterprise Writing Content Brief", "Personalized Blogger Outreach", "B2B Lead Funnel Schema"],
+                        icon: <FileText className="w-5 h-5 text-blue-400" />
+                      },
+                      {
+                        title: "JSON-LD Schema Markup Generator",
+                        desc: "Create perfectly optimized structured data metadata scripts to enable rich snippet awards in SERPs.",
+                        path: "schema",
+                        items: ["Local Business Blueprint", "Corporate Organization Schema", "Professional Person Profiles", "Compliant Article Scripts"],
+                        icon: <Terminal className="w-5 h-5 text-amber-400" />
+                      },
+                      {
+                        title: "Google Core Updates Timeline",
+                        desc: "An exhaustive rolling reference log from 2018 onwards compiling rollout dates, community response, and fix methodologies.",
+                        path: "updates",
+                        items: ["Chronological Updates Feed", "E-E-A-T Compliance Guides", "Algorithmic Drift Mitigation Actions", "Community Reference Logs"],
+                        icon: <Globe className="w-5 h-5 text-teal-400" />
+                      }
+                    ].map((pillar, i) => (
+                      <div 
+                        key={i} 
+                        className="glass-morphism p-8 rounded-[2.5rem] border border-white/5 bg-[#080c18]/60 hover:border-orange-500/20 transition-all duration-300 flex flex-col justify-between"
+                      >
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
+                              {pillar.icon}
+                            </div>
+                            <h3 className="text-lg font-black text-white uppercase italic tracking-tight">{pillar.title}</h3>
+                          </div>
+                          
+                          <p className="text-gray-400 text-sm leading-relaxed">{pillar.desc}</p>
+                          
+                          <div className="space-y-2 pt-2">
+                            <span className="text-[9px] text-gray-500 font-extrabold uppercase tracking-widest block">Featured Sections</span>
+                            <div className="grid grid-cols-2 gap-2">
+                              {pillar.items.map((it, idx) => (
+                                <div key={idx} className="flex items-center gap-1.5 text-xs text-gray-300">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500/60 grow-0 shrink-0"></span>
+                                  <span className="truncate">{it}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="pt-6 border-t border-white/5 mt-6">
+                          <button
+                            onClick={() => setActiveTab(pillar.path as any)}
+                            className="w-full py-3.5 bg-white/5 border border-white/10 hover:border-orange-500/30 hover:bg-orange-500/10 hover:text-white text-gray-300 text-xs font-black uppercase tracking-widest transition-all rounded-xl flex items-center justify-center gap-2 italic cursor-pointer"
+                          >
+                            <span>Open {pillar.title}</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 2. SEO & GROWTH GLOSSARY */}
+                <div className="glass-morphism p-8 md:p-12 rounded-[3.5rem] border border-white/5 bg-[#080c18]/40 space-y-8">
+                  <div className="space-y-2">
+                    <span className="text-[10px] text-blue-500 font-extrabold uppercase tracking-widest italic block">Terminological index</span>
+                    <h2 className="text-2xl md:text-3xl font-black text-white uppercase italic tracking-tighter">
+                      SEO & GROWTH <span className="text-orange-500">GLOSSARY</span>
+                    </h2>
+                    <p className="text-gray-400 text-sm max-w-2xl leading-relaxed">
+                      A structured dictionary of essential organic marketing jargon and concepts. Each term is defined and mapped to client-side calculators or checklists where its strategy is directly executed.
+                    </p>
+                  </div>
+
+                  {/* Interactive search and letter filter row */}
+                  <div className="flex flex-col lg:flex-row gap-4 items-center border-t border-b border-white/5 py-6">
+                    {/* Search field */}
+                    <div className="relative w-full lg:w-80 shrink-0">
+                      <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                      <input
+                        type="text"
+                        placeholder="Search glossary terms..."
+                        value={glossarySearch}
+                        onChange={(e) => setGlossarySearch(e.target.value)}
+                        className="w-full bg-white/5 text-white border border-white/10 rounded-xl pl-11 pr-4 py-3 text-xs focus:outline-none focus:border-orange-500 font-medium placeholder-gray-500"
+                      />
+                    </div>
+
+                    {/* A-Z selectors */}
+                    <div className="flex flex-wrap items-center gap-1 w-full overflow-x-auto justify-start lg:justify-end py-1">
+                      {['All', 'A', 'C', 'E', 'J', 'L', 'N', 'R', 'S', 'T', 'X'].map((letter) => (
+                        <button
+                          key={letter}
+                          onClick={() => setGlossaryLetter(letter)}
+                          className={`w-8 h-8 rounded-lg text-[10px] font-bold transition-all shrink-0 cursor-pointer ${
+                            glossaryLetter === letter
+                              ? 'bg-orange-600 text-white shadow-lg shadow-orange-500/20'
+                              : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                          }`}
+                        >
+                          {letter}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Active glossary mapping list */}
+                  <div className="grid md:grid-cols-2 gap-6 pt-4">
+                    {GLOSSARY_TERMS.filter(item => {
+                      const matchesSearch = item.term.toLowerCase().includes(glossarySearch.toLowerCase()) || 
+                                           item.definition.toLowerCase().includes(glossarySearch.toLowerCase());
+                      const matchesLetter = glossaryLetter === 'All' || item.letter === glossaryLetter;
+                      return matchesSearch && matchesLetter;
+                    }).map((g, idx) => (
+                      <div key={idx} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-[#0c1224]/80 hover:border-white/10 transition-all duration-300 flex flex-col justify-between space-y-4">
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <span className="w-6 h-6 rounded-md bg-orange-600/10 border border-orange-500/20 flex items-center justify-center text-[10px] font-black text-orange-400 shrink-0 select-none">
+                              {g.letter}
+                            </span>
+                            <h4 className="text-sm font-black text-white uppercase tracking-tight">{g.term}</h4>
+                          </div>
+                          <p className="text-gray-400 text-xs leading-relaxed font-semibold">{g.definition}</p>
+                        </div>
+
+                        <div className="pt-4 border-t border-white/5 flex items-center justify-between mt-auto">
+                          <span className="text-[9px] text-gray-500 font-extrabold uppercase tracking-widest block font-mono">Reference</span>
+                          <button
+                            onClick={() => setActiveTab(g.resourceId)}
+                            className="inline-flex items-center gap-1 text-[10px] font-black text-orange-400 hover:text-orange-300 transition-colors uppercase tracking-wider italic cursor-pointer"
+                          >
+                            <span>{g.resourceName}</span>
+                            <ArrowRight className="w-3 h-3" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                    
+                    {GLOSSARY_TERMS.filter(item => {
+                      const matchesSearch = item.term.toLowerCase().includes(glossarySearch.toLowerCase()) || 
+                                           item.definition.toLowerCase().includes(glossarySearch.toLowerCase());
+                      const matchesLetter = glossaryLetter === 'All' || item.letter === glossaryLetter;
+                      return matchesSearch && matchesLetter;
+                    }).length === 0 && (
+                      <div className="col-span-2 text-center py-12 text-gray-500 text-xs">
+                        No glossary definitions match your search parameters.
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
             {/* TAB 1: INTERACTIVE AUDIT CHECKLIST */}
             {activeTab === 'checklist' && (
               <motion.div
