@@ -67,6 +67,20 @@ const ResourcesPage: React.FC = () => {
   const [updatesSearchQuery, setUpdatesSearchQuery] = useState<string>('');
   const [updatesSortOrder, setUpdatesSortOrder] = useState<'oldest' | 'newest'>('newest');
 
+  // --- GLOBAL SEJ RESOURCES STATE ---
+  const [resourcesSearch, setResourcesSearch] = useState<string>('');
+  const [filterCategory, setFilterCategory] = useState<'all' | 'checklist' | 'templates' | 'schema' | 'updates'>('all');
+
+  useEffect(() => {
+    setFilterCategory(activeTab);
+  }, [activeTab]);
+
+  useEffect(() => {
+    if (activeTab === 'updates') {
+      setUpdatesSearchQuery(resourcesSearch);
+    }
+  }, [resourcesSearch, activeTab]);
+
   // --- TAB 1: INTERACTIVE SEO CHECKLIST STATE ---
   const initialTasks: Task[] = [
     // Technical
@@ -138,8 +152,15 @@ const ResourcesPage: React.FC = () => {
   };
 
   const getFilteredTasks = () => {
-    if (checklistFilter === 'all') return initialTasks;
-    return initialTasks.filter(t => t.category === checklistFilter);
+    let tasks = initialTasks;
+    if (checklistFilter !== 'all') {
+      tasks = tasks.filter(t => t.category === checklistFilter);
+    }
+    if (resourcesSearch.trim()) {
+      const q = resourcesSearch.toLowerCase();
+      tasks = tasks.filter(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q));
+    }
+    return tasks;
   };
 
   const exportChecklistMarkdown = () => {
@@ -726,6 +747,76 @@ const ResourcesPage: React.FC = () => {
     return meta[tab] || meta.checklist;
   };
 
+  const SEJ_RESOURCES = [
+    {
+      id: 'checklist',
+      title: 'The Ultimate Enterprise Google Ranking Audit Checklist',
+      titleShort: 'SEO Checklist',
+      badge: 'Interactive E-Book',
+      badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+      coverBg: 'from-[#064e3b] to-[#01140f]',
+      desc: 'Deploy high-performance technical frameworks. Step-by-step interactive checklist tracker optimized to address core web vitals, metadata CTR formulations, indexation anomalies, and topical authority silos.',
+      stats: '24 Checkpoints • Interactive Checklist • CSV Exportable',
+      cta: 'Launch Checklist Tracker',
+      icon: <CheckSquare className="w-5 h-5 text-emerald-400" />,
+      accentColor: 'emerald'
+    },
+    {
+      id: 'templates',
+      title: 'Content Briefs & Topical Mapping Blueprint Matrix Bundle',
+      titleShort: 'SEO Templates',
+      badge: 'Google Sheets / CSV',
+      badgeColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      coverBg: 'from-[#1e3a8a] to-[#080d1a]',
+      desc: 'Formulate enterprise content strategies with ease. Full starter sheets mapping parent-child categorization, latent semantic intent parameters, outreach scripts, and GSC regex filter combinations.',
+      stats: '4 Pro Blueprints • Direct CSV Matrix Generation',
+      cta: 'Open Template Downloader',
+      icon: <FileText className="w-5 h-5 text-blue-400" />,
+      accentColor: 'blue'
+    },
+    {
+      id: 'schema',
+      title: 'JSON-LD Schema Structured Data Markup Playground',
+      titleShort: 'SEO Tools',
+      badge: 'Interactive Web Tool',
+      badgeColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      coverBg: 'from-[#581c87] to-[#12071f]',
+      desc: 'Leverage micro-formatted search entity structures. Build, validate and copy valid JSON-LD tags for Local Business, Organization, Article, and Website entities without manual coding cycles.',
+      stats: '4 Schema Playgrounds • Copy Script Tag Included',
+      cta: 'Launch Markup Builder',
+      icon: <Terminal className="w-5 h-5 text-purple-400" />,
+      accentColor: 'purple'
+    },
+    {
+      id: 'updates',
+      title: 'Google Broad Core Algorithm Updates Index Database Logs',
+      titleShort: 'SEO Google Updates',
+      badge: 'Algorithm Tracker',
+      badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
+      coverBg: 'from-[#7f1d1d] to-[#1f0505]',
+      desc: 'Understand algorithm shifts to preserve high-value organic positions. Read detailed reports on verified core developments since March 2018 with specific expert remediation tips.',
+      stats: 'Timeline Databases • Verified Remediation Manuals',
+      cta: 'Launch Volatility History',
+      icon: <Globe className="w-5 h-5 text-red-400" />,
+      accentColor: 'red'
+    }
+  ];
+
+  const filteredSejResources = SEJ_RESOURCES.filter(res => {
+    const matchesCategory = filterCategory === 'all' || res.id === filterCategory;
+    if (!matchesCategory) return false;
+
+    if (resourcesSearch.trim()) {
+      const q = resourcesSearch.toLowerCase();
+      return (
+        res.title.toLowerCase().includes(q) ||
+        res.desc.toLowerCase().includes(q) ||
+        res.titleShort.toLowerCase().includes(q)
+      );
+    }
+    return true;
+  });
+
   const seoData = getSeoMetadata(activeTab);
 
   return (
@@ -742,8 +833,8 @@ const ResourcesPage: React.FC = () => {
       />
 
       {/* Decorative Glow Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-orange-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-600/[0.03] blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/[0.03] blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -756,41 +847,164 @@ const ResourcesPage: React.FC = () => {
           Back to Home
         </button>
 
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest italic text-blue-400 mb-4 animate-pulse">
-            <Sparkles className="w-3 h-3 text-blue-400" />
-            Vetted Tools & Blueprints
+        {/* Search Engine Journal Inspired Top Header Section */}
+        <div className="border border-white/10 bg-[#080d1a] px-6 py-12 md:p-16 rounded-[2.5rem] mb-12 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/[0.02] blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider text-emerald-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              SEJ-Optimized Audit & Resource Library
+            </div>
+            
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-none uppercase tracking-tighter italic">
+              SEARCH ENGINE <span className="text-emerald-400">MARKETING RESOURCES</span>
+            </h1>
+            
+            <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Unlock Ritehly Quimbo’s premium digital library of professional SEO eBooks, interactive auditing checklists, structured schema tools, and Google Core algorithm recovery timelines.
+            </p>
+            
+            {/* SEJ-Style Search Bar */}
+            <div className="relative max-w-xl mx-auto mt-6">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+              <input
+                type="text"
+                placeholder="Search checklist chapters, premium spreadsheets, schema tools..."
+                value={resourcesSearch}
+                onChange={(e) => setResourcesSearch(e.target.value)}
+                className="w-full bg-[#111827]/80 border border-white/10 focus:border-emerald-500 rounded-2xl pl-12 pr-4 py-4 text-sm text-white font-medium placeholder-gray-500 transition-all focus:outline-none focus:ring-0 shadow-lg"
+              />
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase italic tracking-tighter leading-none mb-6">
-            GROWTH <span className="text-orange-500">RESOURCES</span>
-          </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Stop relying on generic, outdated advice. Access advanced tools, interactive audit checklists, ready-to-run schema generator wizards, and proven templates designed for pure search authority.
-          </p>
         </div>
 
-        {/* Navigation Tabs - GLOWING COSMIC SLATE TABS */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-12 max-w-4xl mx-auto border border-white/5 bg-[#080c18]/80 p-2 rounded-2xl md:rounded-full backdrop-blur-md">
+        {/* SEJ-Style Category Menu Bar with count badges */}
+        <div className="flex flex-wrap items-center gap-3 mb-10 border-b border-white/10 pb-6">
           {[
-            { id: 'checklist', label: 'SEO Audit Checklist', icon: <CheckSquare className="w-4 h-4" /> },
-            { id: 'templates', label: 'Actionable Templates', icon: <FileText className="w-4 h-4" /> },
-            { id: 'schema', label: 'Schema Generator', icon: <Terminal className="w-4 h-4" /> },
-            { id: 'updates', label: 'Google Core Updates', icon: <Globe className="w-4 h-4" /> },
-          ].map(tab => (
+            { id: 'all', label: 'All Resources', count: '4' },
+            { id: 'checklist', label: 'SEO Checklist', count: 'Active' },
+            { id: 'templates', label: 'SEO Templates', count: '4' },
+            { id: 'schema', label: 'SEO Tools', count: 'Sandbox' },
+            { id: 'updates', label: 'SEO Google Updates', count: '10+' }
+          ].map(tab => {
+            const isActive = filterCategory === tab.id || (filterCategory === 'all' && tab.id === 'all');
+            return (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  if (tab.id === 'all') {
+                    setFilterCategory('all');
+                  } else {
+                    setFilterCategory(tab.id as any);
+                    setActiveTab(tab.id as any);
+                  }
+                }}
+                className={`px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 flex items-center gap-2 border cursor-pointer ${
+                  isActive
+                    ? 'bg-emerald-500 text-black border-emerald-400 shadow-[0_4px_20px_rgba(16,185,129,0.2)]'
+                    : 'bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white border-white/5'
+                }`}
+              >
+                <span>{tab.label}</span>
+                <span className={`text-[9px] font-black px-1.5 py-0.5 rounded ${
+                  isActive
+                    ? 'bg-black/20 text-black'
+                    : 'bg-white/10 text-gray-400'
+                }`}>{tab.count}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* SEJ Resource Library Feed (E-books, Whitepapers, Tools catalog list) */}
+        {filteredSejResources.length > 0 && (
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {filteredSejResources.map(res => (
+              <div 
+                key={res.id} 
+                onClick={() => {
+                  setFilterCategory(res.id as any);
+                  setActiveTab(res.id as any);
+                }}
+                className={`group border rounded-3xl p-6 flex flex-col md:flex-row gap-6 bg-white/[0.02] cursor-pointer hover:bg-white/[0.04] transition-all relative overflow-hidden h-full justify-between select-none ${
+                  activeTab === res.id 
+                    ? 'border-emerald-500/40 bg-emerald-500/[0.01]' 
+                    : 'border-white/5 hover:border-white/20'
+                }`}
+              >
+                {/* Book / Document thumbnail cover */}
+                <div className={`relative aspect-[3/4] w-full md:w-36 rounded-2xl bg-gradient-to-br ${res.coverBg} border border-white/10 flex flex-col justify-between p-4 shrink-0 shadow-lg group-hover:scale-102 transition-transform duration-300`}>
+                  <div className="flex justify-between items-start">
+                    <span className="text-[7px] font-black font-mono tracking-widest text-emerald-400 uppercase bg-[#064e3b]/30 px-1.5 py-0.5 rounded border border-[#059669]/20">SEJ REPORT</span>
+                    <span className="text-white/20 font-bold font-mono text-[7px]">v2.6</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Ritehly Quimbo</div>
+                    <div className="text-xs font-black text-white uppercase italic tracking-tight leading-none group-hover:text-emerald-400 transition-colors">
+                      {res.titleShort}
+                    </div>
+                  </div>
+                  <div className="h-0.5 w-8 bg-emerald-500 rounded"></div>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className={`text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border ${res.badgeColor}`}>
+                        {res.badge}
+                      </span>
+                      <span className="text-[10px] text-gray-500 font-bold font-mono">{res.id === activeTab ? 'Active' : 'Unopened'}</span>
+                    </div>
+                    <h3 className="text-base font-black text-white hover:text-emerald-400 transition-colors leading-tight uppercase font-sans">
+                      {res.title}
+                    </h3>
+                    <p className="text-gray-400 text-xs leading-relaxed">
+                      {res.desc}
+                    </p>
+                  </div>
+
+                  <div className="space-y-3 pt-3 border-t border-white/5">
+                    <div className="text-[10px] text-gray-400 font-semibold font-mono flex items-center gap-1.5">
+                      <span className="w-1 h-1 bg-emerald-500 rounded-full"></span>
+                      {res.stats}
+                    </div>
+                    <button
+                      className={`w-full py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 italic leading-none transition-all ${
+                        activeTab === res.id 
+                          ? 'bg-emerald-500 text-black shadow-md' 
+                          : 'bg-white/5 hover:bg-white/10 text-white'
+                      }`}
+                    >
+                      {res.icon}
+                      <span>{activeTab === res.id ? 'Viewing Workbench Below' : res.cta}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {filteredSejResources.length === 0 && (
+          <div className="text-center py-16 border border-white/5 bg-white/[0.02] rounded-3xl mb-12">
+            <p className="text-gray-400">No resources matched your search filter query.</p>
             <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
-              className={`flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 pointer-events-auto cursor-pointer ${
-                activeTab === tab.id
-                  ? 'bg-orange-600 text-white shadow-[0_4px_20px_rgba(249,115,22,0.4)] hover:scale-102'
-                  : 'text-gray-400 hover:text-white hover:bg-white/5'
-              }`}
+              onClick={() => setResourcesSearch('')}
+              className="mt-4 px-6 py-2.5 bg-emerald-500 text-black font-black hover:bg-emerald-400 text-xs uppercase tracking-widest rounded-xl transition-all"
             >
-              {tab.icon}
-              {tab.label}
+              Reset Search Filter
             </button>
-          ))}
+          </div>
+        )}
+
+        {/* Section Divide Tag: WORKBENCH HEADLINE */}
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-px bg-white/10 flex-1"></div>
+          <div className="flex items-center gap-2 shrink-0 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest italic text-gray-400">
+            <span>Selected Resource workbench</span>
+          </div>
+          <div className="h-px bg-white/10 flex-1"></div>
         </div>
 
         {/* Dynamic Tab Panel Container */}
