@@ -858,7 +858,7 @@ const ResourcesPage: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10 px-2 sm:px-4 lg:px-6">
         
         {/* Back Button */}
-        {activeTab !== 'checklist' && activeTab !== 'templates' && (
+        {activeTab === 'index' && (
           <button 
             onClick={() => navigate('/')}
             className="group mb-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors cursor-pointer"
@@ -885,6 +885,24 @@ const ResourcesPage: React.FC = () => {
             </h1>
             <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
               Accelerate your campaign workflows and overall content execution speed with these verified organic resource blueprints. Download or duplicate production-tested templates for writing detailed briefs, managing blogger networks, and creating functional B2B funnels.
+            </p>
+          </div>
+        ) : activeTab === 'schema' ? (
+          <div className="text-center mb-8 px-4 sm:px-6 max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
+              SCHEMA MARKUP <span className="text-orange-500">GENERATOR</span>
+            </h1>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              Generate flawless, search-engine-ready JSON-LD schema markup for your pages, business listings, or profile data in real time. Boost your rich snippet potential and establish unmistakable semantic entity relevance with structured scripts that are perfectly compliant with official Schema.org standards.
+            </p>
+          </div>
+        ) : activeTab === 'updates' ? (
+          <div className="text-center mb-8 px-4 sm:px-6 max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
+              GOOGLE CORE <span className="text-orange-500">UPDATES</span>
+            </h1>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              Track the official history, rollout timelines, and ranking fluctuations of major search engine algorithm changes. Equip your business with precise recovery procedures and E-E-A-T compliance guides to preserve organic traffic integrity.
             </p>
           </div>
         ) : (
