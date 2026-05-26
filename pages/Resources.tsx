@@ -139,7 +139,7 @@ const ResourcesPage: React.FC = () => {
   // Map paths to tab IDs
   const getTabFromPath = (pathname: string): 'checklist' | 'templates' | 'schema' | 'updates' | 'index' => {
     if (pathname.includes('/resources/seo-audit-checklist')) return 'checklist';
-    if (pathname.includes('/resources/actionable-templates')) return 'templates';
+    if (pathname.includes('/resources/actionable-seo-templates')) return 'templates';
     if (pathname.includes('/resources/schema-generator')) return 'schema';
     if (pathname.includes('/resources/google-core-updates')) return 'updates';
     return 'index';
@@ -151,7 +151,7 @@ const ResourcesPage: React.FC = () => {
     const paths = {
       index: '/resources',
       checklist: '/resources/seo-audit-checklist',
-      templates: '/resources/actionable-templates',
+      templates: '/resources/actionable-seo-templates',
       schema: '/resources/schema-generator',
       updates: '/resources/google-core-updates',
     };
@@ -858,7 +858,7 @@ const ResourcesPage: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10 px-2 sm:px-4 lg:px-6">
         
         {/* Back Button */}
-        {activeTab !== 'checklist' && (
+        {activeTab !== 'checklist' && activeTab !== 'templates' && (
           <button 
             onClick={() => navigate('/')}
             className="group mb-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors cursor-pointer"
@@ -876,6 +876,15 @@ const ResourcesPage: React.FC = () => {
             </h1>
             <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
               Use this interactive audit checklist to systematically analyze, track, and optimize your website's search performance. Ensure your technical setup, content quality, and link architecture adhere to the latest search ranking benchmarks for maximum visibility.
+            </p>
+          </div>
+        ) : activeTab === 'templates' ? (
+          <div className="text-center mb-8 px-4 sm:px-6 max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
+              ACTIONABLE SEO <span className="text-orange-500">TEMPLATES</span>
+            </h1>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              Accelerate your campaign workflows and overall content execution speed with these verified organic resource blueprints. Download or duplicate production-tested templates for writing detailed briefs, managing blogger networks, and creating functional B2B funnels.
             </p>
           </div>
         ) : (
