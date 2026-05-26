@@ -6,7 +6,7 @@ import {
   Square, Calendar, HelpCircle, ArrowRight, ExternalLink, 
   Settings, CheckCircle2, ChevronRight, Info
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 
 // Structure of Checklist Task
@@ -32,7 +32,35 @@ const RESOURCES_SEO_SCHEMA = {
 
 const ResourcesPage: React.FC = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'checklist' | 'templates' | 'schema' | 'updates'>('checklist');
+  const location = useLocation();
+
+  // Map paths to tab IDs
+  const getTabFromPath = (pathname: string): 'checklist' | 'templates' | 'schema' | 'updates' => {
+    if (pathname.includes('/resources/seo-audit-checklist')) return 'checklist';
+    if (pathname.includes('/resources/actionable-templates')) return 'templates';
+    if (pathname.includes('/resources/schema-generator')) return 'schema';
+    if (pathname.includes('/resources/google-core-updates')) return 'updates';
+    return 'checklist'; // Fallback
+  };
+
+  const activeTab = getTabFromPath(location.pathname);
+
+  const setActiveTab = (tabId: 'checklist' | 'templates' | 'schema' | 'updates') => {
+    const paths = {
+      checklist: '/resources/seo-audit-checklist',
+      templates: '/resources/actionable-templates',
+      schema: '/resources/schema-generator',
+      updates: '/resources/google-core-updates',
+    };
+    navigate(paths[tabId]);
+  };
+
+  useEffect(() => {
+    // When visiting the bare /resources endpoint, smoothly rewrite to the canonical /resources/seo-audit-checklist path
+    if (location.pathname === '/resources' || location.pathname === '/resources/') {
+      navigate('/resources/seo-audit-checklist', { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   // --- TAB 4 STATE ---
   const [updatesYearFilter, setUpdatesYearFilter] = useState<string>('All');
@@ -672,13 +700,45 @@ const ResourcesPage: React.FC = () => {
     return updatesSortOrder === 'newest' ? idxB - idxA : idxA - idxB;
   });
 
+  const getSeoMetadata = (tab: 'checklist' | 'templates' | 'schema' | 'updates') => {
+    const meta = {
+      checklist: {
+        title: "Direct SEO Audit Checklist & Core Ranking Benchmarks | Ritehly Quimbo",
+        description: "Access Ritehly Quimbo's ultimate interactive SEO checklist. Audit your technical, on-page, keyword, and off-page structures to dominate Google ranking metrics.",
+        keywords: "seo checklist, seo audit checklist, technical seo checklist, onpage seo checklist, ritehly quimbo"
+      },
+      templates: {
+        title: "Proven SEO & Content Operations Templates | Ritehly Quimbo",
+        description: "Download real-world, high-performance SEO templates, content briefs, outreach formats, and topical mapping schemas to accelerate your organic growth pipelines.",
+        keywords: "seo templates, content briefs, blogger outreach templates, topical map templates, organic seo blueprints"
+      },
+      schema: {
+        title: "JSON-LD Schema Markup Generator Wizard | Ritehly Quimbo",
+        description: "Build perfectly compliant JSON-LD structured data for Local Business, Organization, and Professional Person profiles. Generate and copy schema instantly to boost SERP features.",
+        keywords: "schema generator, json-ld generator, local business schema, organization schema, rich snippets generator"
+      },
+      updates: {
+        title: "Google Broad Core Algorithm Updates Index | Ritehly Quimbo",
+        description: "Stay ahead of search trends. Explore the historical broad core algorithm update timeline from 2018 up to the active system rollout, with remediation guidelines.",
+        keywords: "google algorithm updates, google core updates timeline, google medic update, march core update, rank tracking"
+      }
+    };
+    return meta[tab] || meta.checklist;
+  };
+
+  const seoData = getSeoMetadata(activeTab);
+
   return (
     <div className="min-h-screen bg-[#030712] pt-32 pb-24 px-4 md:px-6">
       <SEO 
-        title="SEO Resources, Checklists & Tools | Ritehly Quimbo Growth Specialist" 
-        description="Dominate rankings with free interactive SEO checklists, schema generators, proven organic templates, and real-time updates tracker built by Ritehly Quimbo." 
-        keywords="seo resources, seo checklist, schema generator, seo templates, google algorithm history, ritehly quimbo resources"
-        schema={RESOURCES_SEO_SCHEMA}
+        title={seoData.title} 
+        description={seoData.description} 
+        keywords={seoData.keywords}
+        schema={{
+          ...RESOURCES_SEO_SCHEMA,
+          "name": seoData.title,
+          "description": seoData.description
+        }}
       />
 
       {/* Decorative Glow Elements */}

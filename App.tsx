@@ -266,6 +266,10 @@ const AppContent: React.FC = () => {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostSlugWrapper navigate={navigate} />} />
         <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/resources/seo-audit-checklist" element={<ResourcesPage />} />
+        <Route path="/resources/actionable-templates" element={<ResourcesPage />} />
+        <Route path="/resources/schema-generator" element={<ResourcesPage />} />
+        <Route path="/resources/google-core-updates" element={<ResourcesPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="*" element={<NotFound />} />
