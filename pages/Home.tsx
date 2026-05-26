@@ -234,7 +234,7 @@ const Home: React.FC<HomeProps> = ({
             </div>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {SERVICES.map((service, i) => (
+              {SERVICES.slice(0, 12).map((service, i) => (
                 <div 
                   key={i} 
                   className="glass-morphism p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all group flex flex-col h-full"
@@ -273,7 +273,7 @@ const Home: React.FC<HomeProps> = ({
                  to="/services"
                  className="px-10 py-4 bg-white/5 border border-white/10 text-white font-black rounded-xl hover:bg-white/10 transition-all uppercase tracking-widest text-xs italic inline-block"
                >
-                 View Complete Capabilities Map →
+                 View Complete Services
                </Link>
             </div>
           </div>
