@@ -839,7 +839,7 @@ const ResourcesPage: React.FC = () => {
   const seoData = getSeoMetadata(activeTab);
 
   return (
-    <div className="min-h-screen bg-[#030712] pt-32 pb-24 px-4 md:px-6">
+    <div className="min-h-screen bg-[#030712] pt-24 md:pt-32 pb-24 px-4 md:px-6">
       <SEO 
         title={seoData.title} 
         description={seoData.description} 
@@ -855,30 +855,43 @@ const ResourcesPage: React.FC = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-orange-600/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 px-2 sm:px-4 lg:px-6">
         
         {/* Back Button */}
-        <button 
-          onClick={() => navigate('/')}
-          className="group mb-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          Back to Home
-        </button>
+        {activeTab !== 'checklist' && (
+          <button 
+            onClick={() => navigate('/')}
+            className="group mb-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            Back to Home
+          </button>
+        )}
 
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest italic text-blue-400 mb-4 animate-pulse">
-            <Sparkles className="w-3 h-3 text-blue-400" />
-            Vetted Tools & Blueprints
+        {activeTab === 'checklist' ? (
+          <div className="text-center mb-8 px-4 sm:px-6 max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
+              SEO AUDIT <span className="text-orange-500">CHECKLIST</span>
+            </h1>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              Use this interactive audit checklist to systematically analyze, track, and optimize your website's search performance. Ensure your technical setup, content quality, and link architecture adhere to the latest search ranking benchmarks for maximum visibility.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase italic tracking-tighter leading-none mb-6">
-            GROWTH <span className="text-orange-500">RESOURCES</span>
-          </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Stop relying on generic, outdated advice. Access advanced tools, interactive audit checklists, ready-to-run schema generator wizards, and proven templates designed for pure search authority.
-          </p>
-        </div>
+        ) : (
+          <div className="text-center mb-16 px-4 sm:px-6">
+            <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest italic text-blue-400 mb-4 animate-pulse">
+              <Sparkles className="w-3 h-3 text-blue-400" />
+              Vetted Tools & Blueprints
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase italic tracking-tighter leading-none mb-6">
+              GROWTH <span className="text-orange-500">RESOURCES</span>
+            </h1>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+              Stop relying on generic, outdated advice. Access advanced tools, interactive audit checklists, ready-to-run schema generator wizards, and proven templates designed for pure search authority.
+            </p>
+          </div>
+        )}
 
         {/* Navigation Tabs - GLOWING COSMIC SLATE TABS */}
         <div className="flex flex-wrap justify-center items-center gap-2 mb-12 max-w-5xl mx-auto border border-white/5 bg-[#080c18]/80 p-2 rounded-2xl md:rounded-full backdrop-blur-md">
