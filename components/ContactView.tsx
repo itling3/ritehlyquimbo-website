@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, Mail, Phone, MapPin, MessageSquare, ExternalLink, Calendar, Send, Sparkles } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, MapPin, MessageSquare, ExternalLink, Calendar, Send, Sparkles, Loader2, CheckCircle2 } from 'lucide-react';
 import SEO from './SEO';
+import emailjs from '@emailjs/browser';
 
 interface ContactViewProps {
   onBack: () => void;
@@ -10,6 +11,50 @@ interface ContactViewProps {
 }
 
 const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userTitle, setUserTitle] = useState('');
+  const [userMessage, setUserMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    // Initialize EmailJS with Public Key
+    emailjs.init("2u38pcxlm3qFJZwF2");
+  }, []);
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    // Map fields exactly to your EmailJS template variables
+    const templateParams = {
+      name: userName,
+      email: userEmail,
+      title: userTitle,
+      message: userMessage
+    };
+
+    // Send the email via EmailJS
+    emailjs.send('service_5agas0d', 'template_4ueajd1', templateParams)
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        setSubmitStatus('success');
+        setUserName('');
+        setUserEmail('');
+        setUserTitle('');
+        setUserMessage('');
+        alert('Your message has been sent successfully!');
+      }, function(error) {
+        console.log('FAILED...', error);
+        setSubmitStatus('error');
+        alert('Failed to send the message. Please try again later.');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
   return (
     <div className="min-h-screen bg-[#030712] pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6">
       <SEO 
@@ -107,37 +152,131 @@ const ContactView: React.FC<ContactViewProps> = ({ onBack, onBook }) => {
             </motion.div>
           </div>
 
-          {/* Right: Form/CTA */}
+          {/* Right: Interactive Contact Form (EmailJS) */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
-            className="p-10 md:p-12 glass-morphism rounded-[3rem] border border-white/10 relative overflow-hidden flex flex-col justify-center"
+            className="p-8 md:p-10 glass-morphism rounded-[2.5rem] border border-white/10 relative overflow-hidden flex flex-col justify-center"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-[100px] rounded-full"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
             
-            <div className="relative z-10 text-center space-y-8">
-              <div className="w-20 h-20 bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center mx-auto mb-8">
-                <MessageSquare className="w-8 h-8 text-blue-500" />
-              </div>
-              
-              <div className="space-y-4">
-                <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter">Detailed Inquiry Form</h2>
-                <p className="text-gray-400 text-sm font-medium leading-relaxed max-w-sm mx-auto">
-                  For complex projects requiring AI tools or deep technical SEO, please use our detailed growth questionnaire.
+            <div className="relative z-10 space-y-6">
+              <div className="text-center">
+                <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter mb-2">Get in Touch</h2>
+                <p className="text-gray-400 text-xs font-semibold max-w-sm mx-auto mb-6">
+                  Fill out the form below to initiate organic search & AI platform scaling.
                 </p>
               </div>
 
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-6 bg-white/5 hover:bg-white/10 text-white font-black rounded-2xl uppercase tracking-widest text-sm italic transition-all border border-white/10 active:scale-95"
-              >
-                Complete Inquiry Form <ExternalLink className="w-4 h-4 text-blue-500" />
-              </a>
+              <form id="contact-form" onSubmit={handleSubmit} className="space-y-4">
+                <div className="form-group space-y-1.5">
+                  <label htmlFor="user_name" className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    Name
+                  </label>
+                  <input 
+                    type="text" 
+                    id="user_name" 
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    placeholder="e.g., Jane Doe" 
+                    required
+                    className="w-full bg-white/[0.03] border border-white/10 focus:border-blue-500 rounded-xl px-4 py-3 text-white text-sm outline-none transition-all placeholder:text-gray-600"
+                  />
+                </div>
 
-              <div className="pt-8 flex items-center justify-center gap-4 text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                <div className="form-group space-y-1.5">
+                  <label htmlFor="user_email" className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    Email
+                  </label>
+                  <input 
+                    type="email" 
+                    id="user_email" 
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
+                    placeholder="e.g., jane.doe@example.com" 
+                    required
+                    className="w-full bg-white/[0.03] border border-white/10 focus:border-blue-500 rounded-xl px-4 py-3 text-white text-sm outline-none transition-all placeholder:text-gray-600"
+                  />
+                </div>
+
+                <div className="form-group space-y-1.5">
+                  <label htmlFor="user_title" className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    Subject / Title
+                  </label>
+                  <input 
+                    type="text" 
+                    id="user_title" 
+                    value={userTitle}
+                    onChange={(e) => setUserTitle(e.target.value)}
+                    placeholder="What is this regarding?" 
+                    required
+                    className="w-full bg-white/[0.03] border border-white/10 focus:border-blue-500 rounded-xl px-4 py-3 text-white text-sm outline-none transition-all placeholder:text-gray-600"
+                  />
+                </div>
+
+                <div className="form-group space-y-1.5">
+                  <label htmlFor="user_message" className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    Message
+                  </label>
+                  <textarea 
+                    id="user_message" 
+                    value={userMessage}
+                    onChange={(e) => setUserMessage(e.target.value)}
+                    placeholder="Type your message here..." 
+                    required
+                    rows={4}
+                    className="w-full bg-white/[0.03] border border-white/10 focus:border-blue-500 rounded-xl px-4 py-3 text-white text-sm outline-none transition-all placeholder:text-gray-600 resize-y min-h-[100px]"
+                  />
+                </div>
+
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className={`w-full py-4 mt-2 bg-blue-600 hover:bg-blue-500 text-white font-black uppercase italic tracking-wider text-xs sm:text-sm rounded-xl transition-all shadow-lg hover:shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Sending Message...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
+
+              {submitStatus === 'success' && (
+                <div className="flex items-center gap-2.5 bg-green-500/10 border border-green-500/20 text-green-400 px-4 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-center justify-center">
+                  <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" />
+                  Sent successfully!
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider text-center justify-center">
+                  Failed to send. Please try again later.
+                </div>
+              )}
+
+              <div className="pt-4 border-t border-white/5 text-center">
+                <p className="text-[10px] text-gray-500 font-bold mb-2 uppercase tracking-wider">
+                  Or complete our detailed workbook
+                </p>
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdb7q2wXizC43nv4NnNxfwfGQ1xLhqNqcBQ24uu4VxJGz9E_A/viewform?usp=preview"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-white transition-colors uppercase font-black italic tracking-wider"
+                >
+                  Detailed Questionnaire Form <ExternalLink className="w-3.5 h-3.5 text-blue-500" />
+                </a>
+              </div>
+
+              <div className="pt-4 flex items-center justify-center gap-4 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
                 <Sparkles className="w-3 h-3 text-blue-500" />
                 <span>Response time: &lt; 24 Hours</span>
                 <Sparkles className="w-3 h-3 text-blue-500" />
