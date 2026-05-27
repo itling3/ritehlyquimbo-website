@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
                 onClick={onAuditClick}
                 className="animate-cta-pulse animate-shine px-8 md:px-10 py-4 md:py-5 bg-orange-600 hover:bg-orange-700 rounded-2xl font-black transition-all text-center text-white uppercase tracking-tighter shadow-xl shadow-orange-500/30 text-base md:text-lg whitespace-nowrap relative"
               >
-                Schedule Booking
+                Start Getting Leads
               </button>
               <button 
                 onClick={onFormClick}

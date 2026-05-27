@@ -221,7 +221,7 @@ const Home: React.FC<HomeProps> = ({
         <SectionCTA 
           onClick={onBook} 
           text="Join our elite network of growing brands" 
-          buttonText="Schedule Booking"
+          buttonText="Start Getting Leads"
         />
 
         {/* Services Section */}
@@ -335,7 +335,7 @@ const Home: React.FC<HomeProps> = ({
         <SectionCTA 
           onClick={onBook} 
           text="Don't settle for average SEO results" 
-          buttonText="Start Booking"
+          buttonText="Start Getting Leads"
         />
 
         {/* VERIFIED RESULTS MARQUEE */}

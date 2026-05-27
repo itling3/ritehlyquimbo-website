@@ -84,7 +84,7 @@ const AppContent: React.FC = () => {
 
   const handleBookConsultation = useCallback((e?: React.MouseEvent) => {
     e?.preventDefault();
-    setIsCalendarOpen(true);
+    setIsContactModalOpen(true);
     document.body.style.overflow = 'hidden';
   }, []);
 
