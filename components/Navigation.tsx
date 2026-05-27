@@ -8,9 +8,10 @@ import UrgentBanner from './UrgentBanner';
 interface NavigationProps {
   onNavigate: (target: string, isService?: boolean) => void;
   onBook: (e?: React.MouseEvent) => void;
+  onViewOffer?: (e?: React.MouseEvent) => void;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
+const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook, onViewOffer }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
@@ -76,7 +77,7 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook }) => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[100] flex flex-col w-full">
-      <UrgentBanner onAction={onBook} />
+      <UrgentBanner onAction={onViewOffer || onBook} />
       <nav className="glass-morphism border-b border-white/10 h-[72px] flex items-center px-4 md:px-6 w-full relative">
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full relative">
         {/* Logo */}

@@ -16,6 +16,7 @@ import AuditTool from './components/AuditTool';
 import SEOExpenseCalculator from './components/SEOExpenseCalculator';
 import SectionCTA from './components/SectionCTA';
 import Footer from './components/Footer';
+import ContactFormModal from './components/ContactFormModal';
 import ServiceDetailView from './components/ServiceDetailView';
 import CaseStudyDetailView from './components/CaseStudyDetailView';
 import ServicesOverview from './components/ServicesOverview';
@@ -79,10 +80,17 @@ const AppContent: React.FC = () => {
   const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const handleBookConsultation = useCallback((e?: React.MouseEvent) => {
     e?.preventDefault();
     setIsCalendarOpen(true);
+    document.body.style.overflow = 'hidden';
+  }, []);
+
+  const handleOpenContactModal = useCallback((e?: React.MouseEvent) => {
+    e?.preventDefault();
+    setIsContactModalOpen(true);
     document.body.style.overflow = 'hidden';
   }, []);
 
@@ -93,6 +101,11 @@ const AppContent: React.FC = () => {
 
   const closeCalendar = useCallback(() => {
     setIsCalendarOpen(false);
+    document.body.style.overflow = 'unset';
+  }, []);
+
+  const closeContactModal = useCallback(() => {
+    setIsContactModalOpen(false);
     document.body.style.overflow = 'unset';
   }, []);
 
@@ -179,7 +192,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation onNavigate={handleNavigate} onBook={handleBookConsultation} />
+      <Navigation onNavigate={handleNavigate} onBook={handleBookConsultation} onViewOffer={handleOpenContactModal} />
       <Breadcrumbs />
       
       <Routes>
@@ -280,6 +293,7 @@ const AppContent: React.FC = () => {
 
       <Footer onNavigate={handleNavigate} onBook={handleBookConsultation} />
       {isCalendarOpen && <CalendarModal onClose={closeCalendar} />}
+      <ContactFormModal isOpen={isContactModalOpen} onClose={closeContactModal} />
     </div>
   );
 };
