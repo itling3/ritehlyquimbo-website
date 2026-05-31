@@ -53,6 +53,7 @@ import ShopifySEOExpertPage from './pages/ShopifySEOExpert';
 import WebflowSEOExpertPage from './pages/WebflowSEOExpert';
 import WixSEOExpertPage from './pages/WixSEOExpert';
 import SquarespaceSEOExpertPage from './pages/SquarespaceSEOExpert';
+import VapeShopSEOPage from './pages/VapeShopSEO';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
@@ -248,6 +249,8 @@ const AppContent: React.FC = () => {
         <Route path="/services/cms-seo/webflow-seo-expert" element={<WebflowSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/wix-seo-expert" element={<WixSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/squarespace-seo-expert" element={<SquarespaceSEOExpertPage onBook={handleBookConsultation} />} />
+
+        <Route path="/seo-company-for-vape-shop" element={<VapeShopSEOPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 
