@@ -250,7 +250,7 @@ const AppContent: React.FC = () => {
         <Route path="/services/cms-seo/wix-seo-expert" element={<WixSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/squarespace-seo-expert" element={<SquarespaceSEOExpertPage onBook={handleBookConsultation} />} />
 
-        <Route path="/seo-company-for-vape-shop" element={<VapeShopSEOPage onBook={handleBookConsultation} />} />
+        <Route path="/industry/seo-company-for-vape-shop" element={<VapeShopSEOPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 

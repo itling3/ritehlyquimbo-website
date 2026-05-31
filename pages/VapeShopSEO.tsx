@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
   CheckCircle2, 
@@ -247,7 +248,11 @@ const VapeShopSEOList: React.FC<VapeShopSEOProps> = ({ onBook }) => {
     },
     {
       question: "Is SEO better than paid advertising for vape businesses?",
-      answer: "Because many advertising platforms restrict vape-related promotions, SEO often provides one of the most sustainable long-term marketing channels."
+      answer: (
+        <span>
+          Because many advertising platforms restrict vape-related promotions, SEO often provides one of the most sustainable long-term marketing channels. However, if you are advertising non-regulated product segments, you can compare other services like our <Link to="/pricing/google-ads-sem" className="text-orange-400 hover:underline">Google Ads and SEM pricing channels</Link>.
+        </span>
+      )
     },
     {
       question: "What keywords should a vape shop target?",
@@ -296,7 +301,7 @@ const VapeShopSEOList: React.FC<VapeShopSEOProps> = ({ onBook }) => {
             </p>
 
             <p className="text-sm md:text-base text-gray-400 font-normal leading-relaxed mb-8">
-              Running a vape shop is challenging enough without having to fight for visibility online. As a specialized SEO company for vape shop businesses, we help vape retailers, online vape stores, and eCommerce brands increase search rankings, attract qualified traffic, and generate more sales through proven organic search strategies.
+              Running a vape shop is challenging enough without having to fight for visibility online. As a specialized SEO company for vape shop businesses, we help vape retailers, online vape stores, and eCommerce brands increase search rankings, attract qualified traffic, and generate more sales through <Link to="/services" className="text-orange-400 hover:underline">proven organic search strategies</Link>.
               <br /><br />
               Whether you operate a local vape store, an online vape shop, or a multi-location vaping business, our SEO campaigns are designed to help you reach customers actively searching for vape products, disposable vapes, e-liquids, vape mods, vape accessories, and related products.
             </p>
@@ -362,7 +367,7 @@ const VapeShopSEOList: React.FC<VapeShopSEOProps> = ({ onBook }) => {
             Grow Your Vape Business Without Relying on Paid Ads
           </h2>
           <p className="text-gray-300 text-sm md:text-base max-w-3xl mx-auto mb-8 font-semibold leading-relaxed">
-            Many vape businesses face advertising restrictions across major platforms. SEO provides a sustainable way to attract customers without depending solely on paid advertising.
+            Many vape businesses face advertising restrictions across major platforms (see <a href="https://support.google.com/adspolicy/answer/6014299" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:underline font-bold">Google's tobacco and e-cigarette advertising policies</a>). SEO provides a sustainable way to attract customers without depending solely on paid advertising.
           </p>
           <button 
             onClick={onBook}
@@ -370,6 +375,11 @@ const VapeShopSEOList: React.FC<VapeShopSEOProps> = ({ onBook }) => {
           >
             Book Your Free SEO Consultation Today
           </button>
+          <div className="mt-4">
+            <Link to="/contact" className="text-xs text-orange-400 hover:underline uppercase tracking-tight font-black">
+              Or Visit Our Booking Consultation & Contact Portal Directly
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -449,59 +459,134 @@ const VapeShopSEOList: React.FC<VapeShopSEOProps> = ({ onBook }) => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {coreStrategies.map((strategy, index) => {
-              const IconComponent = strategy.icon;
-              return (
-                <div key={index} className="bg-[#0b0f19]/80 border border-white/15 hover:border-orange-500/30 transition-all rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="inline-flex p-4 bg-orange-500/10 rounded-2xl text-orange-500">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-2xl font-black uppercase italic tracking-tight text-white">{strategy.title}</h3>
-                    <p className="text-sm text-gray-400 leading-relaxed font-medium">{strategy.desc}</p>
-                    
-                    {strategy.benefits && (
-                      <div className="pt-4 space-y-2">
-                        <span className="text-[10px] text-gray-500 uppercase font-black tracking-widest block mb-2">Key Outcomes:</span>
-                        {strategy.benefits.map((b, i) => (
-                          <div key={i} className="flex items-center gap-2.5 text-xs text-gray-300">
-                            <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
-                            <span>{b}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {strategy.details && (
-                      <div className="pt-4 space-y-2">
-                        <span className="text-[10px] text-gray-500 uppercase font-black tracking-widest block mb-2">What we optimize:</span>
-                        <div className="flex flex-wrap gap-2">
-                          {strategy.details.map((d, i) => (
-                            <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white font-semibold">
-                              {d}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {strategy.examples && (
-                      <div className="pt-4 space-y-2">
-                        <span className="text-[10px] text-gray-500 uppercase font-black tracking-widest block mb-2">Authority content topics:</span>
-                        <div className="grid grid-cols-2 gap-2 mt-1">
-                          {strategy.examples.map((ex, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs text-gray-400 italic">
-                              <span className="text-orange-500 font-bold">✓</span>
-                              <span>{ex}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+            {/* Card 1: Local SEO Optimization */}
+            <div className="bg-[#0b0f19]/80 border border-white/15 hover:border-orange-500/30 transition-all rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="inline-flex p-4 bg-orange-500/10 rounded-2xl text-orange-500">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black uppercase italic tracking-tight text-white">Local SEO Optimization</h3>
+                <p className="text-sm text-gray-400 leading-relaxed font-medium">
+                  We improve your visibility in local search results, helping nearby customers find your vape shop when they're ready to purchase. Learn more about our custom <Link to="/pricing/local-seo-strategy" className="text-orange-400 hover:underline">Local SEO pricing models</Link> and discover how we map geographic visibility across strategic <Link to="/locations" className="text-orange-400 hover:underline">Location targets</Link>. Our optimization standards align fully with <a href="https://developers.google.com/search/docs/appearance/structured-data/local-business" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:underline font-bold">Google Search Central's local business guides</a>.
+                </p>
+                <div className="pt-4 space-y-2">
+                  <span className="text-[10px] text-gray-500 uppercase font-black tracking-widest block mb-2">Key Outcomes:</span>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Higher Google Maps visibility</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>More local traffic</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Increased store visits</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Better local keyword rankings</span>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
+
+            {/* Card 2: Ecommerce SEO */}
+            <div className="bg-[#0b0f19]/80 border border-white/15 hover:border-orange-500/30 transition-all rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="inline-flex p-4 bg-orange-500/10 rounded-2xl text-orange-500">
+                  <ShoppingBag className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black uppercase italic tracking-tight text-white">Ecommerce SEO</h3>
+                <p className="text-sm text-gray-400 leading-relaxed font-medium">
+                  For online vape stores, we optimize collections and inventory categories. If you operate on Shopify, our specialized <Link to="/services/cms-seo/shopify-seo-expert" className="text-orange-400 hover:underline">Shopify SEO expert strategies</Link> can scale your business, or WordPress, where our <Link to="/services/cms-seo/woocommerce-seo-expert" className="text-orange-400 hover:underline">WooCommerce SEO specialist setups</Link> are engineered for conversion. For boutique vape layouts, we also supply <Link to="/services/cms-seo/squarespace-seo-expert" className="text-orange-400 hover:underline">Squarespace SEO auditing workflows</Link>.
+                </p>
+                <div className="pt-4 space-y-2">
+                  <span className="text-[10px] text-gray-500 uppercase font-black tracking-widest block mb-2">What we optimize:</span>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white font-semibold">Product pages</span>
+                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white font-semibold">Category pages</span>
+                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white font-semibold">Collection pages</span>
+                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white font-semibold">Site architecture</span>
+                    <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white font-semibold">Internal linking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Content Authority Building */}
+            <div className="bg-[#0b0f19]/80 border border-white/15 hover:border-orange-500/30 transition-all rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="inline-flex p-4 bg-orange-500/10 rounded-2xl text-orange-500">
+                  <FileText className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black uppercase italic tracking-tight text-white">Content Authority Building</h3>
+                <p className="text-sm text-gray-400 leading-relaxed font-medium">
+                  We create educational content that answers customer questions and establishes your business as a trusted vaping resource, gaining high-quality rankings across all related categories.
+                </p>
+                <div className="pt-4 space-y-2">
+                  <span className="text-[10px] text-gray-500 uppercase font-black tracking-widest block mb-2">Authority content topics:</span>
+                  <div className="grid grid-cols-2 gap-2 mt-1">
+                    <div className="flex items-center gap-2 text-xs text-gray-400 italic">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Vape buying guides</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-gray-400 italic">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Disposable vape comparisons</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-gray-400 italic">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Vape maintenance tips</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-gray-400 italic">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>E-liquid guides</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-gray-400 italic">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Industry updates</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4: Technical SEO */}
+            <div className="bg-[#0b0f19]/80 border border-white/15 hover:border-orange-500/30 transition-all rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="inline-flex p-4 bg-orange-500/10 rounded-2xl text-orange-500">
+                  <Settings className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black uppercase italic tracking-tight text-white">Technical SEO</h3>
+                <p className="text-sm text-gray-400 leading-relaxed font-medium">
+                  We fix the underlying issues that often prevent vape websites from ranking effectively. For schema structures, we inject markup that respects <a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:underline font-bold">Schema.org LocalBusiness guidelines</a>.
+                </p>
+                <div className="pt-4 space-y-2">
+                  <span className="text-[10px] text-gray-500 uppercase font-black tracking-widest block mb-2">Key Outcomes:</span>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Site speed optimization</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Mobile usability improvements</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Crawlability enhancements</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Schema markup implementation</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full shrink-0" />
+                    <span>Indexing optimization</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -602,7 +687,7 @@ const VapeShopSEOList: React.FC<VapeShopSEOProps> = ({ onBook }) => {
             </h2>
             <h3 className="text-xl font-bold uppercase text-orange-400 italic">SEO Is More Than Rankings</h3>
             <p className="text-gray-400 text-sm font-semibold">
-              Many agencies focus solely on keyword rankings. We focus on business outcomes.
+              Many agencies focus solely on keyword rankings. We focus on business outcomes. You can review our client case studies inside our comprehensive <Link to="/portfolio" className="text-orange-400 hover:underline">SEO and growth marketing portfolio</Link> of results, and learn about our dedication on our <Link to="/about" className="text-orange-400 hover:underline">About Page</Link>.
             </p>
             <p className="text-gray-500 text-xs">
               A successful vape SEO campaign should generate:
