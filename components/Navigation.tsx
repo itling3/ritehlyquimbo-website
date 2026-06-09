@@ -75,8 +75,41 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, onBook, onViewOffer
     }
   ];
 
+  useEffect(() => {
+    const updateNavHeight = () => {
+      const navEl = document.getElementById('main-navbar-container');
+      if (navEl) {
+        document.documentElement.style.setProperty('--nav-height', `${navEl.offsetHeight}px`);
+      }
+    };
+
+    updateNavHeight();
+    
+    window.addEventListener('resize', updateNavHeight);
+    window.addEventListener('load', updateNavHeight);
+    
+    let observer: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      observer = new ResizeObserver(() => {
+        updateNavHeight();
+      });
+      const navEl = document.getElementById('main-navbar-container');
+      if (navEl) {
+        observer.observe(navEl);
+      }
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateNavHeight);
+      window.removeEventListener('load', updateNavHeight);
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
   return (
-    <div className="fixed top-0 left-0 right-0 z-[100] flex flex-col w-full">
+    <div id="main-navbar-container" className="fixed top-0 left-0 right-0 z-[100] flex flex-col w-full">
       <UrgentBanner onAction={onViewOffer || onBook} />
       <nav className="glass-morphism border-b border-white/10 h-[72px] flex items-center px-4 md:px-6 w-full relative">
       <div className="max-w-7xl mx-auto flex justify-between items-center w-full relative">

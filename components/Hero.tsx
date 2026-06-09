@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
   }, []);
 
   return (
-    <section className="pt-36 sm:pt-40 md:pt-40 lg:pt-44 xl:pt-48 pb-10 md:pb-16 px-4 md:px-6 overflow-visible lg:overflow-hidden min-h-[85vh] flex items-center">
+    <section className="pt-10 sm:pt-14 md:pt-16 lg:pt-20 pb-10 md:pb-16 px-4 md:px-6 overflow-visible lg:overflow-hidden min-h-[85vh] flex items-center">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-8 items-center w-full">
         {/* Left Column: Content */}
         <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">

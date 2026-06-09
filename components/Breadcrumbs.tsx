@@ -48,7 +48,7 @@ const Breadcrumbs: React.FC = () => {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-36 pb-4 md:pb-6 relative z-10">
+    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-4 md:px-6 pt-6 pb-2 relative z-10">
       <div className="inline-flex items-center glass-morphism px-4 py-2 rounded-xl border border-white/5 shadow-2xl">
         <ol className="flex items-center space-x-2 text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-500">
         <li className="flex items-center">

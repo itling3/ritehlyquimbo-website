@@ -196,11 +196,14 @@ const AppContent: React.FC = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Navigation onNavigate={handleNavigate} onBook={handleBookConsultation} onViewOffer={handleOpenContactModal} />
-      <Breadcrumbs />
       
-      <Routes>
+      <div className="flex-1 flex flex-col" style={{ paddingTop: 'var(--nav-height, 120px)' }}>
+        <Breadcrumbs />
+        
+        <div className="flex-1">
+          <Routes>
         <Route path="/" element={
           <Home 
             onNavigate={handleNavigate} 
@@ -301,8 +304,10 @@ const AppContent: React.FC = () => {
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+        </div>
 
-      <Footer onNavigate={handleNavigate} onBook={handleBookConsultation} />
+        <Footer onNavigate={handleNavigate} onBook={handleBookConsultation} />
+      </div>
       {isCalendarOpen && <CalendarModal onClose={closeCalendar} />}
       <ContactFormModal isOpen={isContactModalOpen} onClose={closeContactModal} />
     </div>
