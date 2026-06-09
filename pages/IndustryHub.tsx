@@ -111,6 +111,18 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-blue-500/30",
       keywords: ["Emergency roof repair", "Metal roofing installation", "Best commercial roofers near me"],
       stats: "Quote requests +125% avg."
+    },
+    {
+      title: "Financial Advisors & Wealth RIAs",
+      path: "/industry/seo-services-for-financial-advisors",
+      description: "YMYL compliant strategies, fiduciary branding, advanced retirement planning topic clusters, and direct wealthy investor lead generation.",
+      icon: BarChart3,
+      badge: "High Net Worth",
+      accent: "from-blue-600 via-sky-500 to-amber-400",
+      accentText: "text-blue-400",
+      borderHover: "hover:border-blue-500/30",
+      keywords: ["Wealth management services", "Retirement planning advisor", "Fiduciary financial planner"],
+      stats: "Lead conversions +165% avg."
     }
   ];
 
@@ -118,8 +130,8 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
     <div className="pt-24 md:pt-32 pb-12 md:pb-24 px-4 md:px-6 min-h-screen bg-[#020617] text-white">
       <SEO 
         title="SEO Services for Industries | Custom Growth Solutions" 
-        description="Rank higher in Google in your specific commercial niche. Explore custom SEO strategies for photographers, fashion, therapists, hotels, vape shops, and trades."
-        keywords="industry seo services, niche seo strategy, photography seo company, fashion brand agency, trade contractor local marketing"
+        description="Rank higher in Google in your specific commercial niche. Explore custom SEO strategies for financial advisors, therapists, photographers, and hotels."
+        keywords="industry seo services, financial advisor seo, photography seo company, fashion brand agency, trade contractor local marketing"
       />
       
       <div className="max-w-7xl mx-auto">
