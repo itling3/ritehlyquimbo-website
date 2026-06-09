@@ -6,8 +6,10 @@ import {
   Square, Calendar, HelpCircle, ArrowRight, ExternalLink, 
   Settings, CheckCircle2, ChevronRight, Info
 } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import ResumeView from '../components/ResumeView';
+import { BLOG_POSTS } from '../constants';
 
 // Structure of Checklist Task
 interface Task {
@@ -137,23 +139,27 @@ const ResourcesPage: React.FC = () => {
   const location = useLocation();
 
   // Map paths to tab IDs
-  const getTabFromPath = (pathname: string): 'checklist' | 'templates' | 'schema' | 'updates' | 'index' => {
+  const getTabFromPath = (pathname: string): 'checklist' | 'templates' | 'schema' | 'updates' | 'resume' | 'blog' | 'index' => {
     if (pathname.includes('/resources/seo-audit-checklist')) return 'checklist';
     if (pathname.includes('/resources/actionable-seo-templates')) return 'templates';
     if (pathname.includes('/resources/schema-generator')) return 'schema';
     if (pathname.includes('/resources/google-core-updates')) return 'updates';
+    if (pathname.includes('/resources/professional-resume')) return 'resume';
+    if (pathname.includes('/blog')) return 'blog';
     return 'index';
   };
 
   const activeTab = getTabFromPath(location.pathname);
 
-  const setActiveTab = (tabId: 'checklist' | 'templates' | 'schema' | 'updates' | 'index') => {
+  const setActiveTab = (tabId: 'checklist' | 'templates' | 'schema' | 'updates' | 'resume' | 'blog' | 'index') => {
     const paths = {
       index: '/resources',
       checklist: '/resources/seo-audit-checklist',
       templates: '/resources/actionable-seo-templates',
       schema: '/resources/schema-generator',
       updates: '/resources/google-core-updates',
+      resume: '/resources/professional-resume',
+      blog: '/blog',
     };
     navigate(paths[tabId]);
   };
@@ -805,7 +811,7 @@ const ResourcesPage: React.FC = () => {
     return updatesSortOrder === 'newest' ? idxB - idxA : idxA - idxB;
   });
 
-  const getSeoMetadata = (tab: 'checklist' | 'templates' | 'schema' | 'updates' | 'index') => {
+  const getSeoMetadata = (tab: 'checklist' | 'templates' | 'schema' | 'updates' | 'resume' | 'blog' | 'index') => {
     const meta = {
       index: {
         title: "SEO Resources Directory & Search Growth Glossary Hub | Ritehly Quimbo",
@@ -831,6 +837,16 @@ const ResourcesPage: React.FC = () => {
         title: "Google Broad Core Algorithm Updates Index | Ritehly Quimbo",
         description: "Stay ahead of search trends. Explore the historical broad core algorithm update timeline from 2018 up to the active system rollout, with remediation guidelines.",
         keywords: "google algorithm updates, google core updates timeline, google medic update, march core update, rank tracking"
+      },
+      resume: {
+        title: "SEO Specialist Resume | Growth Engineer Track Record | Ritehly Quimbo",
+        description: "View the professional trajectory and technical mastery of Ritehly Quimbo, a top-tier SEO specialist and growth marketing engineer.",
+        keywords: "seo specialist resume, ritehly quimbo cv, ritehly quimbo resume, professional seo, growth marketer"
+      },
+      blog: {
+        title: "SEO & Growth Marketing Blog | Ritehly Quimbo",
+        description: "Expert insights on SEO, Local SEO, and Growth Marketing to help businesses in the Philippines scale their organic visibility.",
+        keywords: "seo consultant blog, growth marketing insights, link building strategies, seo tips, local search trends"
       }
     };
     return meta[tab] || meta.index;
@@ -905,7 +921,16 @@ const ResourcesPage: React.FC = () => {
               Track the official history, rollout timelines, and ranking fluctuations of major search engine algorithm changes. Equip your business with precise recovery procedures and E-E-A-T compliance guides to preserve organic traffic integrity.
             </p>
           </div>
-        ) : (
+        ) : activeTab === 'blog' ? (
+          <div className="text-center mb-8 px-4 sm:px-6 max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
+              STRATEGY <span className="text-orange-500">BLOG</span>
+            </h1>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              Your go-to resource for simplified SEO strategies, technical marketing tips, and actionable insights to grow your online presence.
+            </p>
+          </div>
+        ) : activeTab === 'resume' ? null : (
           <div className="text-center mb-16 px-4 sm:px-6">
             <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest italic text-blue-400 mb-4 animate-pulse">
               <Sparkles className="w-3 h-3 text-blue-400" />
@@ -928,6 +953,8 @@ const ResourcesPage: React.FC = () => {
             { id: 'templates', label: 'Actionable Templates', icon: <FileText className="w-4 h-4" /> },
             { id: 'schema', label: 'Schema Generator', icon: <Terminal className="w-4 h-4" /> },
             { id: 'updates', label: 'Google Core Updates', icon: <Globe className="w-4 h-4" /> },
+            { id: 'blog', label: 'Strategy Blog', icon: <Globe className="w-4 h-4 text-orange-400" /> },
+            { id: 'resume', label: 'Professional Resume', icon: <FileText className="w-4 h-4 text-blue-400" /> },
           ].map(tab => (
             <button
               key={tab.id}
@@ -969,7 +996,7 @@ const ResourcesPage: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {[
                       {
                         title: "Interactive SEO Audit Checklist",
@@ -998,6 +1025,20 @@ const ResourcesPage: React.FC = () => {
                         path: "updates",
                         items: ["Chronological Updates Feed", "E-E-A-T Compliance Guides", "Algorithmic Drift Mitigation Actions", "Community Reference Logs"],
                         icon: <Globe className="w-5 h-5 text-teal-400" />
+                      },
+                      {
+                        title: "Strategy & Case Studies Blog",
+                        desc: "Expert insights, industry case studies, local search tips, and detailed walk-throughs in the SEO industry.",
+                        path: "blog",
+                        items: ["Local SEO Case Studies", "General SEO Practices", "Legal SEO Strategies", "Search Optimization Tips"],
+                        icon: <Globe className="w-5 h-5 text-orange-400" />
+                      },
+                      {
+                        title: "Professional Resume & Track Record",
+                        desc: "Inspect and download Ritehly Quimbo’s professional resume to verify core technical skills and past growth performance metrics.",
+                        path: "resume",
+                        items: ["PDF Resume Download", "Past Performance Audits", "Core Technical Experience", "Direct Verification Links"],
+                        icon: <FileText className="w-5 h-5 text-blue-400" />
                       }
                     ].map((pillar, i) => (
                       <div 
@@ -1732,6 +1773,81 @@ const ResourcesPage: React.FC = () => {
                   </div>
                 )}
 
+              </motion.div>
+            )}
+
+            {/* TAB: STRATEGY BLOG */}
+            {activeTab === 'blog' && (
+              <motion.div
+                key="blog"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                className="space-y-12 animate-fadeIn"
+              >
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
+                  {BLOG_POSTS.map((post, i) => (
+                    <motion.div
+                      key={post.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                      className="group flex flex-col h-full bg-[#080c18]/40 border border-white/5 rounded-[2.5rem] p-6 hover:border-orange-500/20 transition-all duration-300"
+                    >
+                      <Link to={`/blog/${post.slug}`} className="block relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 mb-6 shadow-2xl">
+                        <img 
+                          src={post.image} 
+                          alt={post.title} 
+                          className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <div className="absolute top-4 right-4">
+                          <span className="px-3 py-1 bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full text-[9px] font-black uppercase tracking-widest italic">
+                            {post.category}
+                          </span>
+                        </div>
+                      </Link>
+                      
+                      <div className="flex-1">
+                        <div className="text-[10px] font-bold text-blue-400 uppercase tracking-widest italic mb-2">
+                          {post.date}
+                        </div>
+                        <Link to={`/blog/${post.slug}`} className="block group-hover:text-blue-400 transition-colors">
+                          <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-tight mb-4 line-clamp-3">
+                            {post.title}
+                          </h2>
+                        </Link>
+                        <p className="text-gray-400 text-sm leading-relaxed line-clamp-3 font-medium mb-6">
+                          {post.description}
+                        </p>
+                      </div>
+                      
+                      <Link 
+                        to={`/blog/${post.slug}`}
+                        className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest italic text-white group-hover:gap-4 transition-all"
+                      >
+                        Read Full Strategy
+                        <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* TAB 5: PROFESSIONAL RESUME */}
+            {activeTab === 'resume' && (
+              <motion.div
+                key="resume"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                className="space-y-8 animate-fadeIn"
+              >
+                <ResumeView onBack={() => setActiveTab('index')} />
               </motion.div>
             )}
 
