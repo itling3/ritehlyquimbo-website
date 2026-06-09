@@ -60,6 +60,7 @@ import FashionSEOPage from './pages/FashionSEO';
 import TherapistsSEOPage from './pages/TherapistsSEO';
 import HotelSEOPage from './pages/HotelSEO';
 import PhotographerSEOPage from './pages/PhotographerSEO';
+import IndustryHubPage from './pages/IndustryHub';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
 import PrivacyPolicyPage from './pages/PrivacyPolicy';
@@ -258,6 +259,8 @@ const AppContent: React.FC = () => {
         <Route path="/services/cms-seo/webflow-seo-expert" element={<WebflowSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/wix-seo-expert" element={<WixSEOExpertPage onBook={handleBookConsultation} />} />
         <Route path="/services/cms-seo/squarespace-seo-expert" element={<SquarespaceSEOExpertPage onBook={handleBookConsultation} />} />
+
+        <Route path="/industry" element={<IndustryHubPage onBook={handleBookConsultation} />} />
 
         <Route path="/industry/seo-company-for-vape-shop" element={<VapeShopSEOPage onBook={handleBookConsultation} />} />
         <Route path="/industry/seo-services-for-electricians" element={<ElectricianSEOPage onBook={handleBookConsultation} />} />
