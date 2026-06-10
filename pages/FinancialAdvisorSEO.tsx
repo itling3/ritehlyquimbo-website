@@ -2,28 +2,30 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
-  Building2, 
-  Search, 
-  MapPin, 
-  FileText, 
-  CheckCircle2, 
-  ArrowRight, 
-  HelpCircle, 
-  Star, 
-  ChevronDown, 
   TrendingUp, 
-  Key, 
-  Compass, 
+  ShieldCheck, 
+  Award, 
+  HelpCircle, 
+  ArrowRight, 
+  Star, 
+  Search, 
+  ChevronDown, 
+  MapPin, 
   Globe, 
-  ExternalLink 
+  Lock, 
+  BarChart3, 
+  CheckCircle2, 
+  Users, 
+  FileText,
+  BadgeAlert
 } from 'lucide-react';
 import SEO from '../components/SEO';
 
-interface RealEstateSEOProps {
+interface FinancialAdvisorSEOProps {
   onBook: (e?: React.MouseEvent) => void;
 }
 
-const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
+const FinancialAdvisorSEOPage: React.FC<FinancialAdvisorSEOProps> = ({ onBook }) => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
@@ -33,15 +35,15 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
   return (
     <div className="min-h-screen bg-[#020617] text-white overflow-hidden font-sans pt-12">
       <SEO 
-        title="SEO Services for Real Estate Industry | Generate Listings & Leads"
-        description="Premium real estate SEO services to rank first-page on Google, attract commercial or residential buyers and sellers, and dominate local real estate map packs."
-        keywords="real estate seo, realtor search marketing, property developer lead generation, commercial real estate marketing, seo for listings"
+        title="SEO Services for Financial Advisors | Growth Assets"
+        description="Bespoke financial advisory SEO to drive high-net-worth client acquisition and rank on top of local searches. Fully compliant YoMyL strategies."
+        keywords="financial advisor seo, wealth manager ranking, ria search marketing, fiduciary seo consulting, local map pack advisors"
       />
 
       {/* Hero Section */}
       <section className="relative pt-12 md:pt-16 lg:pt-20 pb-24 px-4 md:px-6 overflow-hidden border-b border-white/5">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(16,185,129,0.1),transparent_70%)] pointer-events-none"></div>
-        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(59,130,246,0.1),transparent_70%)] pointer-events-none"></div>
+        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <motion.div 
@@ -50,44 +52,41 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wider uppercase mb-2">
-              <Building2 className="w-4 h-4 text-emerald-400" /> Real Estate Lead Generation SEO
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider uppercase mb-2">
+              <ShieldCheck className="w-4 h-4 text-blue-400" /> Wealth & Advisory Growth SEO
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-              SEO Services for <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Real Estate Industry</span> That Generate More Listings, Leads & Sales
+              SEO Services for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-amber-300">Financial Advisors</span> That Generate Qualified Leads and Grow Assets Under Management
             </h1>
             
-            <h2 className="text-lg sm:text-xl font-bold text-gray-200">
-              Dominate Local Search with Expert SEO Services for Real Estate Industry
-            </h2>
+            <p className="text-lg sm:text-xl font-bold text-gray-200">
+              Get Found by High-Net-Worth Prospects Searching for Financial Advice
+            </p>
             
-            <p className="text-base text-teal-400 font-semibold tracking-wide">
-              Get Found by Buyers, Sellers, Investors, and Property Developers Searching Online
+            <p className="text-base text-amber-400 font-semibold tracking-wide">
+              SEO Services for Financial Advisors Built to Increase Visibility, Trust, and Client Acquisition
             </p>
 
             <div className="space-y-4 text-gray-400 text-sm md:text-base leading-relaxed">
               <p>
-                The real estate market is more competitive than ever. If your agency, brokerage, property management company, or real estate investment business isn't appearing on page one of Google, you're losing valuable leads to competitors every day.
+                Your ideal clients are searching online for retirement planning, wealth management, investment advice, tax strategies, and financial planning services every day. If your firm isn't appearing prominently in search results, those prospects are finding your competitors instead.
               </p>
               <p>
-                Our SEO services for real estate industry businesses are designed to increase your online visibility, attract qualified local traffic, and generate consistent inquiries from motivated buyers and sellers.
-              </p>
-              <p>
-                Whether you're a local real estate agent, multi-location brokerage, commercial property firm, or property developer, we create customized SEO strategies that help your business rank higher, generate more leads, and close more deals.
+                Our specialized SEO services for financial advisors help RIAs, wealth managers, financial planners, and advisory firms rank higher on Google, attract qualified leads, and build long-term authority in their markets.
               </p>
             </div>
 
             <p className="font-bold text-white text-sm">
-              Get Your Free SEO Strategy Consultation Today
+              Ready to attract more qualified investors and financial planning clients?
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={onBook}
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl text-black bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-500 hover:to-teal-400 font-black tracking-wide shadow-lg shadow-emerald-500/20 transition-all duration-300 group hover:scale-[1.02]"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl text-black bg-gradient-to-r from-blue-400 to-sky-300 hover:from-blue-500 hover:to-sky-400 font-black tracking-wide shadow-lg shadow-blue-500/20 transition-all duration-300 group hover:scale-[1.02]"
               >
-                Book Your Free Consultation
+                Schedule Your Free SEO Strategy Consultation
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
@@ -100,28 +99,28 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:ml-6"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent rounded-3xl blur-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-3xl blur-2xl"></div>
             <div className="relative glass-morphism border border-white/5 rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl">
-              <div className="h-2 w-20 bg-teal-400 rounded-full"></div>
+              <div className="h-2 w-20 bg-amber-400 rounded-full"></div>
               <h3 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                <Compass className="text-teal-400 w-5 h-5" /> Market Authority Blueprint
+                <BarChart3 className="text-amber-400 w-5 h-5" /> Fiduciary Organic Dominance
               </h3>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Discover organic search visibility gaps, leverage location-specific landing frames, and expand your listing footprint. Link pages seamlessly using our specialized resources.
+                Discover organic deficiencies before regulatory shifts affect customer traffic profiles. Access our directory arrays.
               </p>
               
               <div className="pt-4 space-y-3">
                 <button 
                   onClick={onBook}
-                  className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 text-black font-black transition-all text-xs uppercase tracking-wider"
+                  className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-black font-black transition-all text-xs uppercase tracking-wider"
                 >
-                  Schedule Free Strategy Session
+                  Book Your Free Consultation
                 </button>
                 <div className="text-center text-[10px] text-gray-500">
-                  Are you checking other local industries? Review our{' '}
-                  <Link to="/industry" className="text-emerald-400 underline font-bold hover:text-emerald-300">
+                  Are you checking other local solutions? Review our{' '}
+                  <Link to="/industry" className="text-blue-400 underline font-bold hover:text-blue-300">
                     Industry Hub
-                  </Link> to explore specialized verticals.
+                  </Link>
                 </div>
               </div>
             </div>
@@ -129,81 +128,60 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* Why Real Estate Businesses Struggle */}
+      {/* Why Most Advisors Struggle */}
       <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-              The Challenge: Why Most Real Estate Businesses Struggle to Generate Organic Leads
+              Why Most Financial Advisors Struggle to Generate Consistent Leads Online
             </h2>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              The majority of real estate companies rely heavily on paid advertising, referral networks, third-party listing platforms, and social media marketing. While these channels can be effective, they often come with rising costs and inconsistent lead flow.
+              The financial services industry is one of the most competitive online markets. Standard commercial approaches usually fail due to search engines’ high standards for medical and monetary queries.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="glass-morphism border border-white/5 p-8 rounded-[2rem] space-y-6">
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                <Search className="w-5 h-5 text-emerald-400" /> Common challenges we see include:
+                <BadgeAlert className="w-5 h-5 text-red-400 animate-pulse" /> Many financial advisors face challenges such as:
               </h3>
               
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Low Website Traffic</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Many real estate websites receive minimal organic traffic due to poor SEO foundations. Evaluate your present layout with our professional <Link to="/resources/seo-audit-checklist" className="text-emerald-400 hover:underline font-bold">SEO Audit Checklist</Link>.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Lack of Local Visibility</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Businesses struggle to rank in Google Maps and local search results. Overcome this using geographical mapping built for specific territories.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Poor Lead Quality</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Marketing efforts attract unqualified visitors who never convert. Discover better options with pre-optimized landing pages.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">High Dependence on Paid Advertising</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Businesses become trapped in expensive PPC campaigns just to maintain lead volume. See a better long-term ROI alternative over at our agency-wide <Link to="/pricing" className="text-emerald-400 hover:underline font-bold">SEO packages & transparency pricing schemas</Link>.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Outdated Website Structure</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Many real estate websites are not optimized for modern SEO requirements, mobile users, or search intent. Check your layout compatibility utilizing the Google core criteria.
-                  </p>
-                </div>
+              <div className="space-y-4">
+                {[
+                  "Low visibility in Google search results",
+                  "Dependence on referrals alone",
+                  "Rising costs from paid advertising",
+                  "Difficulty building trust with online prospects",
+                  "Limited website traffic from qualified investors",
+                  "Competition from national firms and large financial institutions",
+                  "Regulatory concerns around marketing and content"
+                ].map((challenge, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span>
+                    <p className="text-xs text-gray-300 font-medium">{challenge}</p>
+                  </div>
+                ))}
               </div>
 
               <p className="text-xs text-gray-500 leading-relaxed pt-2">
-                Without a strategic SEO plan, growth becomes difficult and expensive.
+                Even highly experienced advisors often have websites that fail to generate meaningful organic traffic because they lack a strategic SEO foundation.
               </p>
             </div>
 
             <div className="space-y-6 lg:pl-6">
-              <h3 className="text-xl font-bold text-white uppercase tracking-wider text-teal-400">Prospect Search Intent</h3>
+              <h3 className="text-xl font-bold text-white uppercase tracking-wider text-amber-400">The Ultimate Result</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Meanwhile, potential clients are searching Google every day for high-commercial terms:
+                Potential clients searching for high-intent services like:
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
-                  "Real estate agents near me",
-                  "Homes for sale",
-                  "Property investment opportunities",
-                  "Commercial real estate services",
-                  "Property management companies",
-                  "Real estate consultants",
-                  "Luxury real estate agents"
+                  "Financial advisor near me",
+                  "Retirement planning advisor",
+                  "Wealth management services",
+                  "Fiduciary financial planner",
+                  "Investment advisor for retirees",
+                  "Tax-efficient retirement strategies"
                 ].map((term, i) => (
                   <div key={i} className="text-xs text-gray-200 bg-white/[0.02] border border-white/5 p-3 rounded-xl italic font-mono">
                     "{term}"
@@ -212,15 +190,15 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
               </div>
 
               <p className="text-xs text-gray-400 leading-relaxed">
-                If your competitors appear before you in search results, they're capturing those opportunities first. Without strong search visibility, growth becomes heavily dependent on manual referrals, slowing scalability.
+                never discover your business. Without strong search visibility, growth becomes heavily dependent on referrals and networking, limiting your firm's scalability.
               </p>
 
               <div className="pt-2">
                 <Link 
-                  to="/services" 
-                  className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 font-bold underline"
+                  to="/resources/seo-audit-checklist" 
+                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 font-bold underline"
                 >
-                  Learn about our full-scale digital search options <ArrowRight className="w-4 h-4" />
+                  Retrieve our interactive audit checklists <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -233,166 +211,243 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4">
-              Our Solution: SEO Services Built Specifically for the Real Estate Industry
+              SEO Services for Financial Advisors Designed to Drive Sustainable Growth
             </h2>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              We help real estate businesses increase visibility where buyers and sellers are actively searching. Our approach combines technical SEO, local SEO, content marketing, authority building, and conversion optimization into one comprehensive strategy.
+              Our approach focuses on attracting prospective clients actively searching for financial advice and planning services. Instead of interrupting people with ads, SEO positions your firm directly in front of individuals already looking for solutions.
             </p>
           </div>
 
-          <div className="bg-slate-900/40 p-8 rounded-3xl border border-white/5 max-w-4xl mx-auto space-y-6">
-            <h3 className="text-xl font-black uppercase text-center text-emerald-400 tracking-wider">
-              Our Goal Is Simple: Help your real estate business become the obvious choice in your target market.
-            </h3>
-            <p className="text-sm text-center text-gray-300 leading-relaxed">
-              With a customized SEO campaign, we focus on:
-            </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                "Increasing qualified organic traffic",
-                "Improving local search rankings",
-                "Generating more property inquiries",
-                "Growing seller leads",
-                "Enhancing brand authority",
-                "Reducing reliance on paid advertising"
-              ].map((focusItem, idx) => (
-                <div key={idx} className="flex items-center gap-2 bg-[#020617] border border-white/5 p-4 rounded-xl">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  <span className="text-xs font-bold text-gray-200">{focusItem}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-center text-gray-500 font-semibold italic">
-              Instead of chasing leads, your website becomes a consistent lead-generation asset.
-            </p>
-          </div>
-        </div>
-      </section>
+          <h3 className="text-xl font-black uppercase text-center text-white mb-10 tracking-widest text-blue-400">
+            Our Financial Advisor SEO Strategy Includes:
+          </h3>
 
-      {/* Real-World Experiece Section */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              Real-World Experience in Real Estate SEO
-            </h2>
-            <p className="text-gray-400 text-sm mt-3 leading-relaxed">
-              SEO for real estate is different from SEO in other industries. Property buyers, sellers, investors, and renters search differently depending on location, property type, and intent.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-emerald-400 font-black uppercase text-xs tracking-wider block">Local Search Behavior</span>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Users often search for highly specific geographic terms. We optimize your website around local buyer intent to capture these critical local searches:
-              </p>
-              <div className="space-y-1.5 font-mono italic text-[11px] text-gray-300 border-l-2 border-emerald-500/20 pl-3">
-                <p>• Homes for sale in [city]</p>
-                <p>• Real estate agent in [suburb]</p>
-                <p>• Luxury homes near me</p>
-                <p>• Commercial property for lease</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Strategy 1 */}
+            <div className="glass-morphism border border-white/5 p-6 rounded-2xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 font-extrabold text-sm">
+                01
               </div>
-              <p className="text-[11px] text-gray-500">
-                To capture regional and neighborhood flows, check out our customized territory blueprints across our extensive list of locations on the main{' '}
-                <Link to="/locations" className="text-emerald-400 underline font-bold">Locations Page</Link>.
+              <h4 className="text-lg font-bold text-white">Comprehensive SEO Audit</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                We analyze your website's technical performance, search visibility, user experience, content quality, competitor positioning, and conversion opportunities. Learn how we structure pages in our general{' '}
+                <Link to="/services" className="text-blue-400 hover:text-blue-300 underline font-semibold">
+                  SEO services overview
+                </Link>.
               </p>
             </div>
 
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-emerald-400 font-black uppercase text-xs tracking-wider block">Property-Specific Content</span>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                High-performing real estate websites provide valuable information beyond standard residential listings. Useful examples include:
-              </p>
-              <div className="space-y-1.5 font-mono text-[11px] text-gray-300 pl-1">
-                <p><strong>- Neighborhood Guides:</strong> Local demographic and transit analysis.</p>
-                <p><strong>- Market Reports:</strong> Quarterly pricing data and capital appreciation forecasts.</p>
-                <p><strong>- Buying Resources:</strong> Fiduciary guides, tax tips, and seller resources.</p>
+            {/* Strategy 2 */}
+            <div className="glass-morphism border border-white/5 p-6 rounded-2xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 font-extrabold text-sm">
+                02
               </div>
-              <div className="pt-2 border-t border-white/5">
-                <a 
-                  href="https://developers.google.com/search/docs/appearance/structured-data/real-estate-listing" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="text-[10px] text-teal-300 font-bold inline-flex items-center gap-1 hover:underline"
-                >
-                  Google Real Estate Metadata Guidelines <Globe className="w-3 h-3 text-teal-400" />
+              <h4 className="text-lg font-bold text-white">Financial Industry Keyword Research</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                We identify high-intent search terms including: retirement planning, wealth management, estate planning, investment management, tax planning, location keywords, and long-tail client acquisition phrases.
+              </p>
+            </div>
+
+            {/* Strategy 3 */}
+            <div className="glass-morphism border border-white/5 p-6 rounded-2xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 font-extrabold text-sm">
+                03
+              </div>
+              <h4 className="text-lg font-bold text-white">Content Marketing & Authority</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                We create content that demonstrates expertise and answers the questions your ideal clients are asking. (Examples: Retirement income strategies, Roth conversion guides, tax-saving investment approaches, wealth transfer planning, volatility insights, financial planning checklists).
+              </p>
+              <div className="pt-2">
+                <a href="https://developers.google.com/search/docs/appearance/experience-expertise-authoritativeness-trustworthiness" target="_blank" rel="noreferrer" className="text-[10px] text-amber-300 uppercase tracking-wider font-bold inline-flex items-center gap-1 hover:underline">
+                  Google E-E-A-T Quality Guidelines <Globe className="w-3 h-3" />
                 </a>
               </div>
             </div>
 
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-emerald-400 font-black uppercase text-xs tracking-wider block">Conversion Optimization</span>
+            {/* Strategy 4 */}
+            <div className="glass-morphism border border-white/5 p-6 rounded-2xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 font-extrabold text-sm">
+                04
+              </div>
+              <h4 className="text-lg font-bold text-white">Local SEO Optimization</h4>
               <p className="text-xs text-gray-400 leading-relaxed">
-                Traffic alone doesn't generate revenue. We optimize contact forms, landing pages, property inquiry modules, CTA placements, and mobile layouts to transform raw queries into genuine consultations.
+                For advisors serving specific geographic markets, we optimize Google Business Profiles, citations, geographic keyword targeting, review generation, and local authority signals. Check out our dedicated{' '}
+                <Link to="/pricing/local-seo-strategy" className="text-blue-400 hover:text-blue-300 underline font-semibold">
+                  Local SEO Strategy Packages
+                </Link>.
               </p>
-              <p className="text-[11px] text-gray-500">
-                Check our customized templates to automate lead capture pipelines at our interactive <Link to="/resources/actionable-seo-templates" className="text-emerald-400 underline font-bold">SEO Templates database</Link> page.
+            </div>
+
+            {/* Strategy 5 */}
+            <div className="glass-morphism border border-white/5 p-6 rounded-2xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 font-extrabold text-sm">
+                05
+              </div>
+              <h4 className="text-lg font-bold text-white">Technical SEO Improvements</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                We improve site speed, mobile usability, site architecture, crawlability, structured data, and security implementation. Compare options inside our{' '}
+                <Link to="/pricing" className="text-blue-400 hover:text-blue-300 underline font-semibold">
+                  agency pricing models
+                </Link>.
               </p>
+            </div>
+
+            {/* Strategy 6 */}
+            <div className="glass-morphism border border-white/5 p-6 rounded-2xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 font-extrabold text-sm">
+                06
+              </div>
+              <h4 className="text-lg font-bold text-white">Conversion Rate Optimization</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Traffic alone doesn't generate clients. We optimize your website to convert visitors into consultations through strategic calls-to-action, trust-building indicators, landing page structures, and booking portals.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-[#020617] border border-blue-500/20 p-6 rounded-[2rem] text-center max-w-3xl mx-auto block">
+            <h4 className="font-extrabold text-white text-base mb-2">The Outcome</h4>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              A stronger online presence that consistently generates qualified leads and supports long-term business growth.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* YMYL Experience & Compliance Section */}
+      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <div className="inline-block px-3 py-1 bg-amber-500 text-black text-[10px] font-black uppercase rounded-full tracking-wide">
+                Fiduciary Compliance First
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                Real-World Experience Helping Professional Service Firms Grow Online
+              </h2>
+              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                Financial advisory SEO differs significantly from other industries. Google applies particularly high standards to financial content because inaccurate financial information can directly impact people's lives and financial well-being.
+              </p>
+              
+              <div className="border border-white/10 p-6 rounded-2xl bg-slate-900/40 space-y-2">
+                <span className="text-red-400 font-bold block text-xs uppercase tracking-wider">Your Money or Your Life (YMYL) content category:</span>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Google expects maximum E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness). Miscalculating trust triggers can flag your advisory domain immediately. Review our insights in search guidelines.
+                </p>
+                <div className="pt-2 border-t border-white/5">
+                  <a href="https://searchengineland.com/ymyl-seo-your-money-or-your-life-explained" target="_blank" rel="noreferrer" className="text-[10px] text-orange-400 font-bold inline-flex items-center gap-1 hover:underline">
+                    YMYL Guidelines Explored on Search Engine Land <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {[
+                  "Demonstrated expertise",
+                  "Accurate content & advisory depth",
+                  "Strong E-E-A-T trust signals",
+                  "Authoritative website structure",
+                  "Compliance-conscious marketing"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-xs text-gray-300 font-bold">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-450 text-emerald-450 text-emerald-400 shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Practical Examples */}
+            <div className="space-y-8">
+              <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
+                <span className="text-amber-400 font-black uppercase text-xs tracking-wider block">Practical Example</span>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Consider a retirement-focused advisory firm serving pre-retirees aged 55–70. Rather than targeting broad terms like "financial advisor," we may focus on highly relevant searches such as:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono italic text-gray-300">
+                  <div>• Retirement income planning</div>
+                  <div>• Retirement tax strategies</div>
+                  <div>• Social Security optimization</div>
+                  <div>• Wealth preservation planning</div>
+                  <div className="sm:col-span-2">• Retirement advisor in specific locations</div>
+                </div>
+                <p className="text-[11px] text-gray-500 font-medium">
+                  These targeted searches often attract prospects much closer to scheduling a consultation. To compare geographic optimization, check our custom city strategies on our{' '}
+                  <Link to="/locations" className="text-blue-400 font-bold underline hover:text-blue-300">
+                    Locations Page
+                  </Link>.
+                </p>
+              </div>
+
+              <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
+                <span className="text-amber-400 font-black uppercase text-xs tracking-wider block">Another Example</span>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  A fiduciary wealth management firm may benefit from educational content comparing fee-only vs commission advisors, active vs passive investing, estate planning strategies, and tax-efficient portfolio management.
+                </p>
+                <p className="text-[11px] text-gray-500 font-medium">
+                  These comparisons build trust while attracting prospects earlier in the decision-making process. Similar structural patterns can be observed in our custom{' '}
+                  <Link to="/industry/seo-services-for-therapists" className="text-blue-400 font-bold underline hover:text-blue-300">
+                    SEO services for Therapists
+                  </Link>, which also navigate high-level E-E-A-T categories.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features & Benefits Component */}
+      {/* Features & Benefits Table */}
       <section className="py-24 px-4 md:px-6 relative border-b border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white">
-              Features & Benefits of Our SEO Services for Real Estate Industry
+              Features and Benefits of Our SEO Services for Financial Advisors
             </h2>
-            <p className="text-xs text-gray-500 mt-2">Highly aligned technical delivery and clear strategic goals.</p>
+            <p className="text-xs text-gray-500 mt-2">Maximum clarity in metrics and delivery.</p>
           </div>
 
-          <div className="space-y-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Comprehensive SEO Audit",
-                do: "We analyze your website's technical health, content, backlinks, user experience, and rankings.",
-                benefit: "Identify hidden issues preventing your website from reaching its full potential."
+                f: "Financial Industry SEO Strategy",
+                b: "Attracts prospects actively searching for financial advice rather than unqualified traffic."
               },
               {
-                title: "Keyword Research & Search Intent Analysis",
-                do: "We uncover high-value keywords used by buyers, sellers, landlords, investors, and commercial property clients.",
-                benefit: "Attract visitors who are actively looking for real estate services."
+                f: "Advanced Keyword Research",
+                b: "Targets search terms with genuine client acquisition potential."
               },
               {
-                title: "Local SEO Optimization",
-                do: "We optimize your Google Business Profile, local citations, location pages, and local content.",
-                benefit: "Increase visibility in local searches and Google Maps, as detailed on our dedicated pricing blueprint."
+                f: "High-Quality Content Creation",
+                b: "Builds authority and trust while improving search rankings."
               },
               {
-                title: "On-Page SEO",
-                do: "We optimize: page titles, meta descriptions, headers, internal linking, content structure, and schema markup.",
-                benefit: "Improve rankings and search engine understanding of your website. Generate pristine technical data with our schema tool."
+                f: "Local SEO Optimization",
+                b: "Helps advisors dominate local search results and map listings."
               },
               {
-                title: "Content Marketing",
-                do: "Create authoritative content tailored to your audience. Examples include area guides, housing market updates, investment articles, and buyer or seller resources.",
-                benefit: "Generate long-term traffic while building trust and authority."
+                f: "Technical SEO Improvements",
+                b: "Creates a faster, more user-friendly website that Google prefers."
               },
               {
-                title: "Link Building & Authority Development",
-                do: "Acquire relevant, high-quality backlinks from reputable websites.",
-                benefit: "Improve domain authority and competitive rankings."
+                f: "Competitor Analysis",
+                b: "Identifies opportunities to outperform competing advisors and firms."
               },
               {
-                title: "Technical SEO",
-                do: "Enhance site speed, mobile usability, crawlability, indexing, and structured data.",
-                benefit: "Provide a stronger foundation for sustainable ranking growth."
+                f: "Monthly Reporting",
+                b: "Provides full transparency into rankings, traffic, leads, and campaign performance."
+              },
+              {
+                f: "Conversion Optimization",
+                b: "Turns more website visitors into consultations and clients."
               }
-            ].map((f, i) => (
-              <div key={i} className="bg-slate-900/30 border border-white/5 rounded-2xl p-6 md:p-8 grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="text-sm font-black text-emerald-400 uppercase tracking-wider mb-2">{f.title}</h4>
-                  <div className="text-xs text-gray-300">
-                    <span className="text-[10px] uppercase font-black text-emerald-500 inline-block mr-1">What We Do:</span>
-                    {f.do}
-                  </div>
+            ].map((item, id) => (
+              <div key={id} className="bg-slate-900/30 border border-white/5 p-6 rounded-2xl space-y-4 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <span className="text-[10px] font-black uppercase text-amber-400 tracking-wider">Feature:</span>
+                  <h4 className="text-xs font-bold text-white uppercase">{item.f}</h4>
                 </div>
-                <div className="border-t md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0 md:pl-6 flex flex-col justify-center">
-                  <span className="text-[10px] uppercase font-black text-teal-400 mb-1">Benefit:</span>
-                  <p className="text-xs text-gray-400 leading-relaxed font-semibold">{f.benefit}</p>
+                <div className="space-y-1 border-t border-white/5 pt-3">
+                  <span className="text-[10px] font-black uppercase text-blue-400 tracking-wider">Benefit:</span>
+                  <p className="text-xs text-gray-400 leading-relaxed">{item.b}</p>
                 </div>
               </div>
             ))}
@@ -405,248 +460,201 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Why Expertise Matters in Real Estate SEO
+              Why Expertise Matters in Financial Advisor SEO
             </h2>
-            <div className="space-y-4 text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              <p>
-                Google increasingly rewards websites that demonstrate <strong>Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T)</strong>. 
-                A generic SEO strategy often fails because real estate search behavior is highly localized and competitive.
-              </p>
-            </div>
-            <div className="pt-2">
-              <a 
-                href="https://www.searchenginejournal.com/google-e-e-a-t-how-to-demonstrate-it/474149/" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-[10px] text-teal-400 font-bold inline-flex items-center gap-1 hover:underline"
-              >
-                Learn E-E-A-T Framework on Search Engine Journal <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+            <p className="text-gray-400 text-sm">
+              Not all SEO providers understand financial services marketing. The financial sector requires a target-centric process because search engines scrutinize financial content, trust signals are critical, compliance must be respected, and high-value clients perform extensive research before deciding.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <h4 className="text-sm font-black text-emerald-400 uppercase tracking-widest">Our Specialists Understand:</h4>
-              <ul className="space-y-2 text-xs text-gray-300 leading-relaxed">
-                <li>• Real estate buyer journeys & investment pathways</li>
-                <li>• Seller lead generation and commercial listing optimization</li>
-                <li>• Local property search intent</li>
-                <li>• Local market competition & bidding flows</li>
-                <li>• Geographic keyword targeting</li>
-                <li>• Lead conversion optimization strategies</li>
-              </ul>
-              <p className="text-[10px] text-gray-500 leading-relaxed pt-2">
-                This allows us to create campaigns that align with both search engine requirements and business objectives.
-              </p>
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-white uppercase tracking-wider text-amber-400">What We Focus On:</h3>
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "Demonstrating Expertise",
+                    desc: "We help position advisors as credible authorities through expert content development, thought leadership resources, educational articles, and topic clusters."
+                  },
+                  {
+                    title: "Building Authority",
+                    desc: "We strengthen your online authority through strategic content architecture, relevant backlink acquisition, and industry-specific SEO benchmarks."
+                  },
+                  {
+                    title: "Enhancing Trust",
+                    desc: "We emphasize trust-building elements such as advisor credentials, team profiles, client testimonials, professional affiliations, and compliance transparency."
+                  },
+                  {
+                    title: "Creating Sustainable Growth",
+                    desc: "Unlike short-term advertising, SEO continues generating valuable visibility long after content is published."
+                  }
+                ].map((focus, i) => (
+                  <div key={i} className="border-l-2 border-amber-400/40 pl-4 space-y-1">
+                    <h4 className="text-xs font-black uppercase text-white tracking-widest">{focus.title}</h4>
+                    <p className="text-xs text-gray-400 leading-relaxed">{focus.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl flex flex-col justify-between">
+            <div className="glass-morphism border border-white/5 p-8 rounded-[2rem] flex flex-col justify-between">
               <div className="space-y-4">
-                <h4 className="text-sm font-black text-white uppercase tracking-widest">Cross-Industry Authority</h4>
+                <h4 className="text-base font-bold text-white flex items-center gap-1.5">
+                  <Lock className="w-5 h-5 text-blue-400" /> Regulatory Regulatory Safeguards
+                </h4>
                 <p className="text-xs text-gray-400 leading-relaxed">
-                  Real estate firms need specialized local map optimization and content modeling models. Explore these same high-performing components inside our dedicated solutions for other domains:
+                  We guarantee absolute compliance coordination with your compliance officer or legal firm. We respect rules from the SEC, FINRA, and local financial advisory regulatory authorities.
                 </p>
-                <div className="grid grid-cols-2 gap-2 pt-2 text-[10px] text-gray-300 font-bold">
-                  <Link to="/industry/seo-services-for-roofers" className="hover:text-emerald-400 underline">• SEO for Roofers</Link>
-                  <Link to="/industry/seo-services-for-financial-advisors" className="hover:text-emerald-400 underline">• SEO for Financial Advisors</Link>
-                  <Link to="/industry/seo-company-for-photographers" className="hover:text-emerald-400 underline">• SEO for Photographers</Link>
-                  <Link to="/pricing/local-seo-strategy" className="hover:text-emerald-400 underline">• Local Web Campaign Pricing</Link>
+                <div className="pt-2 border-t border-white/5">
+                  <a href="https://www.sec.gov" target="_blank" rel="noreferrer" className="text-[10px] text-blue-400 font-bold inline-flex items-center gap-1 hover:underline">
+                    SEC Advisory Standards <Globe className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
-              <div className="pt-4 border-t border-white/5">
-                <Link to="/resources/schema-generator" className="text-xs text-emerald-400 font-bold underline inline-flex items-center gap-1.5 hover:text-emerald-300">
-                  Try our custom structural Schema Generator <ArrowRight className="w-4 h-4" />
-                </Link>
+              <div className="pt-6">
+                <p className="text-[10px] text-gray-500">
+                  Ready to optimize creative portfolios in other fields too? Review our dedicated{' '}
+                  <Link to="/industry/seo-company-for-photographers" className="text-amber-400 font-bold underline hover:text-amber-300">
+                    SEO Company for Photographers
+                  </Link>.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Difference: Generic vs Custom */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5">
+      {/* Comparison: Generic vs Special */}
+      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-2 leading-tight">
               What Makes Our SEO Services Different?
             </h2>
-            <p className="text-xs text-gray-500">Every single milestone is reinforced through factual market insights.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Industry-Focused Strategies</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We understand how people search for real estate services and properties online.
-              </p>
-            </div>
-
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Data-Driven Decisions</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Every recommendation is supported by keyword research, analytics, and competitive insights.
-              </p>
-            </div>
-
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Long-Term Growth</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We focus on sustainable rankings rather than short-term SEO tricks.
-              </p>
-            </div>
-
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2 lg:col-span-1">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Transparent Reporting</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                You'll receive clear reporting showing: traffic growth, keyword rankings, lead generation metrics, and conversion improvements.
-              </p>
-            </div>
-
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2 lg:col-span-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Conversion-Centered SEO</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We don't just increase traffic. We focus on attracting visitors likely to become clients and scheduling listing consultations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Signals Section */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white">Trust Signals That Give You Confidence</h2>
-            <p className="text-xs text-gray-500">Formulated on strict standards of professional integrity.</p>
+            <p className="text-gray-400 text-xs text-gray-400 font-medium">
+              Many SEO agencies apply the same generic strategy to every industry. Financial advisors need a more specialized approach.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-[10px] uppercase tracking-widest font-black text-amber-400">Client Testimonial</span>
-              <div className="flex gap-1 text-amber-400">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-              </div>
-              <p className="text-xs text-gray-200 italic leading-relaxed">
-                "Our organic leads increased significantly within months of implementing their SEO strategy. We now generate consistent inquiries without relying solely on paid advertising."
-              </p>
-              <div className="font-bold text-[10px] text-gray-400 uppercase tracking-wider block">
-                — Real Estate Agency Owner
-              </div>
+            <div className="bg-red-500/5 border border-red-500/10 p-8 rounded-[2rem] space-y-4">
+              <h4 className="text-base font-black text-red-400 uppercase tracking-wider">Generic SEO Agencies</h4>
+              <ul className="space-y-2 text-xs text-gray-400 leading-relaxed">
+                <li>• Focus primarily on raw, unrefined traffic</li>
+                <li>• Limited understanding of complex financial search intent</li>
+                <li>• Generic content strategies without advisory depth</li>
+                <li>• Weak trust-building frameworks lacking compliance alignment</li>
+              </ul>
             </div>
 
-            <div className="space-y-4 flex flex-col justify-center">
-              {[
-                { t: "Transparent Process", d: "No hidden tactics. No unrealistic promises. No black-hat SEO techniques. We provide honest recommendations and realistic growth expectations." },
-                { t: "White-Hat SEO Methodology", d: "Our campaigns follow industry best practices and Google's guidelines. This helps protect your website from future algorithm updates." },
-                { t: "Dedicated Support", d: "Our team is available to answer questions, explain strategies, and provide ongoing guidance throughout your campaign." }
-              ].map((sig, id) => (
-                <div key={id} className="border-l-2 border-emerald-500/30 pl-4 space-y-1">
-                  <h4 className="text-xs font-black uppercase text-white tracking-wider">{sig.t}</h4>
-                  <p className="text-xs text-gray-400">{sig.d}</p>
-                </div>
-              ))}
+            <div className="bg-emerald-500/5 border border-emerald-500/10 p-8 rounded-[2rem] space-y-4">
+              <h4 className="text-base font-black text-emerald-400 uppercase tracking-wider">Our Financial Advisor SEO Approach</h4>
+              <ul className="space-y-2 text-xs text-gray-300 leading-relaxed">
+                <li className="font-semibold text-white">• Focus on qualified, high-net-worth lead generation</li>
+                <li>• Financial-services-specific keyword mapping</li>
+                <li>• Absolute trust and E-E-A-T credentials optimization</li>
+                <li>• Conversion-focused advisor-centric content creation</li>
+                <li>• Long-term sustainable growth strategy with safe techniques</li>
+                <li>• Transparent reporting and full advisor accountability</li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Comparison: SEO vs Paid Ads */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white">SEO Services for Real Estate Industry vs Paid Advertising</h2>
-            <p className="text-xs text-gray-500 mt-2">See how compound growth compares to recurring monthly expenditures.</p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-xs md:text-sm">
-              <thead>
-                <tr className="border-b border-white/10 uppercase font-black text-teal-400">
-                  <th className="py-3 px-4">SEO Dimension</th>
-                  <th className="py-3 px-4 text-emerald-400">SEO Strategy</th>
-                  <th className="py-3 px-4 text-red-400">Paid Advertising (Ads)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5 text-gray-300">
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Asset Horizon</td>
-                  <td className="py-4 px-4">Long-term compound asset</td>
-                  <td className="py-4 px-4">Stops completely when daily budget ends</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Brand Influence</td>
-                  <td className="py-4 px-4">Builds natural marketplace authority</td>
-                  <td className="py-4 px-4">Limited organic brand trust and visibility</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Traffic Engine</td>
-                  <td className="py-4 px-4">Sustainable & compounding traffic growth</td>
-                  <td className="py-4 px-4">Demands ongoing, rising ad spend requirements</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Advisory ROI</td>
-                  <td className="py-4 px-4">Significantly higher long-term return</td>
-                  <td className="py-4 px-4">Experiencing increasing cost per lead year-over-year</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Equity Impact</td>
-                  <td className="py-4 px-4">Improves overall website asset value</td>
-                  <td className="py-4 px-4">Provides only temporary, immediate visibility</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-8 text-center bg-slate-900/30 p-6 rounded-2xl border border-white/5 max-w-2xl mx-auto">
-            <p className="text-xs text-gray-400">
-              The strongest marketing strategies often combine both, but SEO provides lasting value that compounds over time. Review details at our professional{' '}
-              <Link to="/resources/professional-resume" className="text-emerald-400 underline font-bold hover:text-emerald-300">
-                SEO Specialist CV & Track Record
-              </Link>.
+          <div className="mt-12 bg-slate-900/40 p-6 rounded-xl border border-white/5 text-center max-w-2xl mx-auto">
+            <p className="text-xs text-gray-400 text-gray-400">
+              We prioritize measurable business outcomes—not vanity metrics. The goal is simple: more qualified consultations, stronger visibility, and increased assets under management opportunities.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Frequently Asked Questions */}
+      {/* Client Testimonials */}
+      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white">Client Testimonials</h2>
+            <p className="text-xs text-gray-500">Don't take our word for it. Hear from leading wealth professionals.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                word: "The quality of leads improved dramatically.",
+                desc: "Within months of implementing the SEO strategy, we began receiving inquiries from prospects actively seeking retirement planning assistance.",
+                author: "RIA Practice Leader"
+              },
+              {
+                word: "Our website became a true lead-generation asset.",
+                desc: "Instead of relying solely on referrals, we now receive a consistent flow of qualified consultations from organic search results.",
+                author: "Fiduciary Wealth Partner"
+              },
+              {
+                word: "Clear reporting and excellent communication.",
+                desc: "We always know what's being done, why it's being done, and how it's impacting our growth. Highly recommended SEO team.",
+                author: "Retirement Advisory Group"
+              }
+            ].map((t, i) => (
+              <div key={i} className="bg-slate-900/40 border border-white/5 p-6 rounded-2xl flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="flex gap-1 text-amber-400">
+                    {[...Array(5)].map((_, idx) => (
+                      <Star key={idx} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <h4 className="text-xs font-bold text-white italic">"{t.word}"</h4>
+                  <p className="text-[11px] text-gray-400 leading-relaxed">"{t.desc}"</p>
+                </div>
+                <div className="border-t border-white/5 pt-3 mt-4 text-[10px] text-gray-500 font-bold uppercase">
+                  - {t.author}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-sm text-center mt-12 text-gray-400 font-medium">
+             Trust, Transparency, and Accountability are the structural foundations of our business.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
       <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/30">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white flex items-center justify-center gap-2.5">
-              <HelpCircle className="text-emerald-400 w-8 h-8 shrink-0" /> Frequently Asked Questions
+              <HelpCircle className="text-blue-400 w-8 h-8 shrink-0" /> Frequently Asked Questions
             </h2>
           </div>
 
           <div className="space-y-4">
             {[
               {
-                q: "How long does SEO take for real estate businesses?",
-                a: "Most businesses begin seeing measurable improvements within 3–6 months, although timelines depend on competition, location, and website condition."
+                q: "How long does SEO take for financial advisors?",
+                a: "Most firms begin seeing measurable improvements within 3–6 months, with stronger results typically occurring between 6–12 months depending on competition and market conditions."
               },
               {
-                q: "Do you work with local real estate agents?",
-                a: "Yes. We help individual agents, brokerages, property managers, developers, and commercial real estate firms reach home buying and selling prospects."
+                q: "Is SEO better than paid advertising for financial advisors?",
+                a: "SEO and paid advertising can complement each other. However, SEO often delivers stronger long-term ROI because organic visibility continues generating leads over time."
               },
               {
-                q: "Can SEO help generate seller leads?",
-                a: "Absolutely. Strategic content and local SEO can attract homeowners looking to sell their properties by answering high-value market queries."
+                q: "Can local financial advisors compete against large national firms?",
+                a: "Yes. Strategic local SEO and niche targeting often allow smaller advisory firms to outperform larger competitors in specific markets."
               },
               {
-                q: "Is local SEO important for real estate companies?",
-                a: "Yes. Most real estate searches have strong local intent, making local SEO essential for visibility and lead generation."
+                q: "Do you create content for financial advisors?",
+                a: "Yes. We develop high-quality, search-optimized content designed to educate prospects, demonstrate expertise, and improve rankings based on compliant educational arrays."
               },
               {
-                q: "Will I need new website content?",
-                a: "In most cases, yes. Quality content helps improve rankings, authority, and user engagement."
+                q: "Is SEO compliant with financial services marketing regulations?",
+                a: "SEO can be implemented in a compliance-conscious manner. We work closely with advisors to ensure content and messaging align with applicable SEC and local compliance requirements."
               },
               {
-                q: "Do you provide monthly reporting?",
-                a: "Yes. We provide detailed reports covering rankings, traffic, leads, and campaign progress."
+                q: "What metrics do you track?",
+                a: "We track rankings, organic traffic, lead generation, consultation requests, conversion rates, and other business-focused performance indicators."
               },
               {
-                q: "Are your SEO methods safe?",
-                a: "Yes. We use ethical, white-hat SEO practices aligned with Google's guidelines, strictly protecting your digital presence."
+                q: "Who are your SEO services for?",
+                a: "Our services are ideal for financial advisors, RIAs, wealth managers, retirement planners, fiduciary advisors, investment advisors, and financial planning firms seeking sustainable growth."
               }
             ].map((faq, index) => (
               <div 
@@ -660,7 +668,7 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
                   <span className="text-sm font-bold text-white pr-4">{faq.q}</span>
                   <ChevronDown 
                     className={`w-5 h-5 text-gray-500 transition-transform duration-300 shrink-0 ${
-                      activeFaq === index ? 'rotate-180 text-emerald-400' : ''
+                      activeFaq === index ? 'rotate-180 text-blue-400' : ''
                     }`} 
                   />
                 </button>
@@ -678,50 +686,45 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
 
       {/* Footer CTA */}
       <section className="py-24 px-4 md:px-6 relative bg-slate-950 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent_60%)] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.1),transparent_60%)] pointer-events-none"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
-          <div className="w-16 h-16 bg-emerald-500/15 border border-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <Building2 className="w-8 h-8" />
+          <div className="w-16 h-16 bg-blue-500/15 border border-blue-500/20 text-blue-450 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-400">
+            <ShieldCheck className="w-8 h-8" />
           </div>
           
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Ready to Grow Your Real Estate Business Online?
+            Ready to Attract More Qualified Financial Planning Clients?
           </h2>
 
           <div className="space-y-4 max-w-3xl mx-auto text-sm md:text-base text-gray-300 leading-relaxed">
-            <p className="font-bold text-white text-base">The real estate professionals who consistently appear at the top of Google capture more listings, more buyer inquiries, and more market share.</p>
+            <p className="font-bold text-white text-base">Your future clients are already searching online for the services you provide.</p>
+            <p>The question is whether they find your firm—or your competitors.</p>
             <p>
-              Our specialized SEO services for real estate industry businesses help you attract qualified prospects, build authority, and create a reliable source of long-term growth.
-            </p>
-            <p>
-              Whether you're an independent agent, growing brokerage, commercial property firm, or property developer, we can help you build a stronger online presence and generate more leads from organic search.
+              Our SEO services for financial advisors help you increase visibility, establish authority, build trust, and generate qualified leads that support long-term business growth.
             </p>
           </div>
 
           <div className="bg-slate-900/60 border border-white/5 p-6 rounded-2xl max-w-2xl mx-auto space-y-2">
-            <p className="text-xs text-secondary leading-relaxed">
-              Let's create a customized SEO strategy that helps your real estate business rank higher, attract better leads, and achieve sustainable growth. Inspect professional templates inside our resources collection at the{' '}
-              <Link to="/resources" className="text-emerald-400 font-bold underline hover:text-emerald-300">
-                SEO Resource Hub
-              </Link>.
+            <p className="text-xs text-gray-400 leading-relaxed">
+              We stand for full trust, transparency, and high performance. What we don't promise: #1 rankings overnight or instant results. We focus on strategies that align with search engine guidelines. Discover hidden gaps by reviewing our interactive <Link to="/resources" className="text-blue-400 font-bold underline hover:text-blue-300">Resources Hub</Link>.
             </p>
           </div>
 
           <div className="pt-4">
             <button
               onClick={onBook}
-              className="inline-flex items-center justify-center px-10 py-5 rounded-xl text-black bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-500 hover:to-teal-400 font-extrabold tracking-wider uppercase text-sm shadow-xl shadow-emerald-500/20 transition-all duration-300 hover:scale-[1.03]"
+              className="inline-flex items-center justify-center px-10 py-5 rounded-xl text-black bg-gradient-to-r from-blue-400 to-sky-300 hover:from-blue-500 hover:to-sky-400 font-extrabold tracking-wider uppercase text-sm shadow-xl shadow-blue-500/20 transition-all duration-300 hover:scale-[1.03]"
             >
-              Schedule Your Free SEO Consultation Today
+              Book Your Free Consultation
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
           </div>
 
           <div className="pt-4 text-center">
             <p className="text-xs text-gray-500">
-              Have immediate inquiries or custom needs? Contact our main consultation desk by visiting the{' '}
-              <Link to="/contact" className="text-emerald-400 underline font-bold hover:text-emerald-300">
-                Contact Page
+              Need immediate digital advisory consulting? Touch base directly with our main{' '}
+              <Link to="/contact" className="text-amber-400 underline font-bold hover:text-amber-300">
+                Contact Desk
               </Link>.
             </p>
           </div>
@@ -731,4 +734,4 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
   );
 };
 
-export default RealEstateSEOPage;
+export default FinancialAdvisorSEOPage;

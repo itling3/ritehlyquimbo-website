@@ -3,19 +3,21 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
   Building2, 
-  Search, 
   MapPin, 
-  FileText, 
-  CheckCircle2, 
-  ArrowRight, 
+  Home, 
+  Search, 
   HelpCircle, 
+  ArrowRight, 
   Star, 
   ChevronDown, 
-  TrendingUp, 
-  Key, 
-  Compass, 
   Globe, 
-  ExternalLink 
+  BarChart3, 
+  CheckCircle2, 
+  Users, 
+  FileText,
+  BadgeAlert,
+  Sparkles,
+  Link2
 } from 'lucide-react';
 import SEO from '../components/SEO';
 
@@ -34,14 +36,14 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
     <div className="min-h-screen bg-[#020617] text-white overflow-hidden font-sans pt-12">
       <SEO 
         title="SEO Services for Real Estate Industry | Generate Listings & Leads"
-        description="Premium real estate SEO services to rank first-page on Google, attract commercial or residential buyers and sellers, and dominate local real estate map packs."
-        keywords="real estate seo, realtor search marketing, property developer lead generation, commercial real estate marketing, seo for listings"
+        description="Dominate local real estate search queries. Grow website traffic, secure more seller listings, and rank on top of Google Maps with white-hat SEO."
+        keywords="seo services for real estate industry, real estate seo expert, realtor local search, property broker seo campaigns"
       />
 
       {/* Hero Section */}
       <section className="relative pt-12 md:pt-16 lg:pt-20 pb-24 px-4 md:px-6 overflow-hidden border-b border-white/5">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(16,185,129,0.1),transparent_70%)] pointer-events-none"></div>
-        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(249,115,22,0.1),transparent_70%)] pointer-events-none"></div>
+        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-orange-500/5 blur-[150px] rounded-full pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <motion.div 
@@ -50,19 +52,19 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wider uppercase mb-2">
-              <Building2 className="w-4 h-4 text-emerald-400" /> Real Estate Lead Generation SEO
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold tracking-wider uppercase mb-2">
+              <Building2 className="w-4 h-4 text-orange-400" /> Multi-Family & Commercial Property SEO
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-              SEO Services for <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Real Estate Industry</span> That Generate More Listings, Leads & Sales
+              SEO Services for <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-200">Real Estate Industry</span> That Generate More Listings, Leads & Sales
             </h1>
             
-            <h2 className="text-lg sm:text-xl font-bold text-gray-200">
+            <p className="text-lg sm:text-xl font-bold text-gray-200">
               Dominate Local Search with Expert SEO Services for Real Estate Industry
-            </h2>
+            </p>
             
-            <p className="text-base text-teal-400 font-semibold tracking-wide">
+            <p className="text-base text-orange-400 font-semibold tracking-wide">
               Get Found by Buyers, Sellers, Investors, and Property Developers Searching Online
             </p>
 
@@ -78,16 +80,12 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
               </p>
             </div>
 
-            <p className="font-bold text-white text-sm">
-              Get Your Free SEO Strategy Consultation Today
-            </p>
-
             <div className="pt-4 flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={onBook}
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl text-black bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-500 hover:to-teal-400 font-black tracking-wide shadow-lg shadow-emerald-500/20 transition-all duration-300 group hover:scale-[1.02]"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl text-black bg-gradient-to-r from-orange-400 to-amber-300 hover:from-orange-500 hover:to-amber-450 font-black tracking-wide shadow-lg shadow-orange-500/20 transition-all duration-300 group hover:scale-[1.02]"
               >
-                Book Your Free Consultation
+                Get Your Free SEO Strategy Consultation Today
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
@@ -100,28 +98,28 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:ml-6"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent rounded-3xl blur-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 to-transparent rounded-3xl blur-2xl"></div>
             <div className="relative glass-morphism border border-white/5 rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl">
-              <div className="h-2 w-20 bg-teal-400 rounded-full"></div>
+              <div className="h-2 w-20 bg-orange-400 rounded-full"></div>
               <h3 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                <Compass className="text-teal-400 w-5 h-5" /> Market Authority Blueprint
+                <Home className="text-orange-400 w-5 h-5" /> Local Mapping Authority
               </h3>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Discover organic search visibility gaps, leverage location-specific landing frames, and expand your listing footprint. Link pages seamlessly using our specialized resources.
+                Brokerages failing to establish consistent location arrays lose key territorial rankings. Maximize listings now. 
               </p>
               
               <div className="pt-4 space-y-3">
                 <button 
                   onClick={onBook}
-                  className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 text-black font-black transition-all text-xs uppercase tracking-wider"
+                  className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-550 hover:to-orange-600 text-black font-black transition-all text-xs uppercase tracking-wider"
                 >
-                  Schedule Free Strategy Session
+                  Book Your Free Consultation
                 </button>
                 <div className="text-center text-[10px] text-gray-500">
-                  Are you checking other local industries? Review our{' '}
-                  <Link to="/industry" className="text-emerald-400 underline font-bold hover:text-emerald-300">
-                    Industry Hub
-                  </Link> to explore specialized verticals.
+                  Are you checking other local solutions? Review our{' '}
+                  <Link to="/locations" className="text-blue-400 underline font-bold hover:text-blue-300">
+                    Coverage Locations Page
+                  </Link>
                 </div>
               </div>
             </div>
@@ -129,7 +127,7 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* Why Real Estate Businesses Struggle */}
+      {/* The Challenge */}
       <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -142,85 +140,71 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="glass-morphism border border-white/5 p-8 rounded-[2rem] space-y-6">
-              <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                <Search className="w-5 h-5 text-emerald-400" /> Common challenges we see include:
-              </h3>
+            <div className="glass-morphism border border-white/5 p-8 rounded-[2rem] space-y-4">
+              <span className="text-[10px] font-black uppercase text-orange-400 tracking-wider">Demand Gap</span>
+              <p className="text-sm text-gray-300 font-medium">
+                Meanwhile, potential clients are searching Google every day for:
+              </p>
               
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Low Website Traffic</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Many real estate websites receive minimal organic traffic due to poor SEO foundations. Evaluate your present layout with our professional <Link to="/resources/seo-audit-checklist" className="text-emerald-400 hover:underline font-bold">SEO Audit Checklist</Link>.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Lack of Local Visibility</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Businesses struggle to rank in Google Maps and local search results. Overcome this using geographical mapping built for specific territories.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Poor Lead Quality</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Marketing efforts attract unqualified visitors who never convert. Discover better options with pre-optimized landing pages.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">High Dependence on Paid Advertising</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Businesses become trapped in expensive PPC campaigns just to maintain lead volume. See a better long-term ROI alternative over at our agency-wide <Link to="/pricing" className="text-emerald-400 hover:underline font-bold">SEO packages & transparency pricing schemas</Link>.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase tracking-wider mb-1">Outdated Website Structure</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    Many real estate websites are not optimized for modern SEO requirements, mobile users, or search intent. Check your layout compatibility utilizing the Google core criteria.
-                  </p>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs italic text-gray-400">
+                <div>• Real estate agents near me</div>
+                <div>• Homes for sale</div>
+                <div>• Property investment opportunities</div>
+                <div>• Commercial real estate services</div>
+                <div>• Property management companies</div>
+                <div>• Real estate consultants</div>
+                <div className="sm:col-span-2">• Luxury real estate agents</div>
               </div>
 
-              <p className="text-xs text-gray-500 leading-relaxed pt-2">
-                Without a strategic SEO plan, growth becomes difficult and expensive.
+              <p className="text-xs text-gray-500 mt-4 leading-relaxed">
+                If your competitors appear before you in search results, they're capturing those opportunities first. Without strong visibility, you remain at the mercy of rising bidding costs on national booking channels. Learn why on-page standards matter inside our{' '}
+                <Link to="/services" className="text-blue-450 text-blue-400 hover:underline font-bold">
+                  comprehensive SEO services
+                </Link>.
               </p>
             </div>
 
-            <div className="space-y-6 lg:pl-6">
-              <h3 className="text-xl font-bold text-white uppercase tracking-wider text-teal-400">Prospect Search Intent</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                Meanwhile, potential clients are searching Google every day for high-commercial terms:
-              </p>
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                <BadgeAlert className="w-5 h-5 text-red-400 shrink-0" /> Common challenges we see include:
+              </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-5">
                 {[
-                  "Real estate agents near me",
-                  "Homes for sale",
-                  "Property investment opportunities",
-                  "Commercial real estate services",
-                  "Property management companies",
-                  "Real estate consultants",
-                  "Luxury real estate agents"
-                ].map((term, i) => (
-                  <div key={i} className="text-xs text-gray-200 bg-white/[0.02] border border-white/5 p-3 rounded-xl italic font-mono">
-                    "{term}"
+                  {
+                    t: "Low Website Traffic",
+                    d: "Many real estate websites receive minimal organic traffic due to poor SEO foundations."
+                  },
+                  {
+                    t: "Lack of Local Visibility",
+                    d: "Businesses struggle to rank in Google Maps and local pack queries."
+                  },
+                  {
+                    t: "Poor Lead Quality",
+                    d: "Marketing efforts attract generic, unqualified page visitors who never convert into listings."
+                  },
+                  {
+                    t: "High Dependence on Paid Advertising",
+                    d: "Businesses become trapped in expensive PPC ad campaigns just to maintain operational lead volume."
+                  },
+                  {
+                    t: "Outdated Website Structure",
+                    d: "Many real estate websites are not optimized for modern SEO requirements, mobile users, or search intent."
+                  }
+                ].map((challenge, idx) => (
+                  <div key={idx} className="border-l-2 border-red-500/30 pl-4 space-y-1">
+                    <h4 className="text-sm font-bold text-white uppercase">{challenge.t}</h4>
+                    <p className="text-xs text-gray-400 leading-relaxed">{challenge.d}</p>
                   </div>
                 ))}
               </div>
 
-              <p className="text-xs text-gray-400 leading-relaxed">
-                If your competitors appear before you in search results, they're capturing those opportunities first. Without strong search visibility, growth becomes heavily dependent on manual referrals, slowing scalability.
-              </p>
-
               <div className="pt-2">
                 <Link 
-                  to="/services" 
-                  className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 font-bold underline"
+                  to="/resources/seo-audit-checklist" 
+                  className="inline-flex items-center gap-1 text-xs text-orange-400 hover:text-orange-300 font-bold underline"
                 >
-                  Learn about our full-scale digital search options <ArrowRight className="w-4 h-4" />
+                  Retrieve our interactive real-time SEO checklists <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -228,11 +212,11 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* Sustainable Growth / Our Strategy */}
+      {/* Our Solution */}
       <section className="py-24 px-4 md:px-6 relative border-b border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
               Our Solution: SEO Services Built Specifically for the Real Estate Industry
             </h2>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
@@ -240,159 +224,137 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
             </p>
           </div>
 
-          <div className="bg-slate-900/40 p-8 rounded-3xl border border-white/5 max-w-4xl mx-auto space-y-6">
-            <h3 className="text-xl font-black uppercase text-center text-emerald-400 tracking-wider">
-              Our Goal Is Simple: Help your real estate business become the obvious choice in your target market.
-            </h3>
-            <p className="text-sm text-center text-gray-300 leading-relaxed">
-              With a customized SEO campaign, we focus on:
-            </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                "Increasing qualified organic traffic",
-                "Improving local search rankings",
-                "Generating more property inquiries",
-                "Growing seller leads",
-                "Enhancing brand authority",
-                "Reducing reliance on paid advertising"
-              ].map((focusItem, idx) => (
-                <div key={idx} className="flex items-center gap-2 bg-[#020617] border border-white/5 p-4 rounded-xl">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  <span className="text-xs font-bold text-gray-200">{focusItem}</span>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <span className="text-xs font-black uppercase text-orange-400 bg-orange-600/10 px-3 py-1.5 rounded-full border border-orange-500/20">The Main Objective</span>
+              <h3 className="text-2xl font-bold text-white leading-tight">
+                Help your real estate business become the obvious choice in your target market.
+              </h3>
+              <p className="text-gray-405 text-sm text-gray-400 leading-relaxed">
+                Instead of chasing leads, your website becomes a consistent, high-yield organic lead-generation asset. Check out similar models built for commercial assets in our{' '}
+                <Link to="/industry/seo-services-for-hotels" className="text-blue-400 underline font-semibold hover:text-blue-300">
+                  SEO for Hotels
+                </Link> directory segment.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <p className="text-xs font-black uppercase text-white tracking-widest">With a customized SEO campaign, we focus on:</p>
+                {[
+                  "Increasing qualified organic traffic",
+                  "Improving local search rankings",
+                  "Generating more property inquiries",
+                  "Growing seller leads",
+                  "Enhancing brand authority",
+                  "Reducing reliance on paid advertising"
+                ].map((item, id) => (
+                  <div key={id} className="flex items-center gap-2 text-xs text-gray-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Real-World Experience Breakdown */}
+            <div className="glass-morphism border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+              <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-orange-400" /> Real-World Experience in Real Estate SEO
+              </h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                SEO for real estate is different from other industries. Property buyers, sellers, investors, and renters search differently depending on location, property type, and intent. Successful campaigns require a hyper-local approach:
+              </p>
+
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <h5 className="text-xs font-black uppercase text-orange-400 tracking-wider">Local Search Behavior</h5>
+                  <p className="text-[11px] text-gray-400 leading-relaxed">
+                    Users often search geographically: "Homes for sale in [city]", "Real estate agent in [suburb]", "Luxury homes near me", or "Commercial property for lease". We target searches around direct buyer intent. Match listing requirements inside our specialized{' '}
+                    <Link to="/pricing/local-seo-strategy" className="text-blue-400 underline font-semibold">
+                      Local SEO strategy outlines
+                    </Link>.
+                  </p>
                 </div>
-              ))}
-            </div>
-            <p className="text-xs text-center text-gray-500 font-semibold italic">
-              Instead of chasing leads, your website becomes a consistent lead-generation asset.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Real-World Experiece Section */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              Real-World Experience in Real Estate SEO
-            </h2>
-            <p className="text-gray-400 text-sm mt-3 leading-relaxed">
-              SEO for real estate is different from SEO in other industries. Property buyers, sellers, investors, and renters search differently depending on location, property type, and intent.
-            </p>
-          </div>
+                <div className="space-y-1">
+                  <h5 className="text-xs font-black uppercase text-orange-400 tracking-wider">Property-Specific Content</h5>
+                  <p className="text-[11px] text-gray-400 leading-relaxed">
+                    Advising through high-value guides (neighborhood profiles, market reports, investment insights, home buying resources, seller advice, relocation tutorials) triggers high domain trust scores on Google.
+                  </p>
+                </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-emerald-400 font-black uppercase text-xs tracking-wider block">Local Search Behavior</span>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Users often search for highly specific geographic terms. We optimize your website around local buyer intent to capture these critical local searches:
-              </p>
-              <div className="space-y-1.5 font-mono italic text-[11px] text-gray-300 border-l-2 border-emerald-500/20 pl-3">
-                <p>• Homes for sale in [city]</p>
-                <p>• Real estate agent in [suburb]</p>
-                <p>• Luxury homes near me</p>
-                <p>• Commercial property for lease</p>
+                <div className="space-y-1">
+                  <h5 className="text-xs font-black uppercase text-orange-400 tracking-wider">Conversion Optimization</h5>
+                  <p className="text-[11px] text-gray-400 leading-relaxed">
+                    We optimize contact structures, landing structures, property inquiries, call-to-action segments, and mobile elements to shift general surfers into direct consultation requests.
+                  </p>
+                </div>
               </div>
-              <p className="text-[11px] text-gray-500">
-                To capture regional and neighborhood flows, check out our customized territory blueprints across our extensive list of locations on the main{' '}
-                <Link to="/locations" className="text-emerald-400 underline font-bold">Locations Page</Link>.
-              </p>
-            </div>
-
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-emerald-400 font-black uppercase text-xs tracking-wider block">Property-Specific Content</span>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                High-performing real estate websites provide valuable information beyond standard residential listings. Useful examples include:
-              </p>
-              <div className="space-y-1.5 font-mono text-[11px] text-gray-300 pl-1">
-                <p><strong>- Neighborhood Guides:</strong> Local demographic and transit analysis.</p>
-                <p><strong>- Market Reports:</strong> Quarterly pricing data and capital appreciation forecasts.</p>
-                <p><strong>- Buying Resources:</strong> Fiduciary guides, tax tips, and seller resources.</p>
-              </div>
-              <div className="pt-2 border-t border-white/5">
-                <a 
-                  href="https://developers.google.com/search/docs/appearance/structured-data/real-estate-listing" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="text-[10px] text-teal-300 font-bold inline-flex items-center gap-1 hover:underline"
-                >
-                  Google Real Estate Metadata Guidelines <Globe className="w-3 h-3 text-teal-400" />
-                </a>
-              </div>
-            </div>
-
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-emerald-400 font-black uppercase text-xs tracking-wider block">Conversion Optimization</span>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Traffic alone doesn't generate revenue. We optimize contact forms, landing pages, property inquiry modules, CTA placements, and mobile layouts to transform raw queries into genuine consultations.
-              </p>
-              <p className="text-[11px] text-gray-500">
-                Check our customized templates to automate lead capture pipelines at our interactive <Link to="/resources/actionable-seo-templates" className="text-emerald-400 underline font-bold">SEO Templates database</Link> page.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features & Benefits Component */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5">
+      {/* Features & Benefits Matrix */}
+      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
               Features & Benefits of Our SEO Services for Real Estate Industry
             </h2>
-            <p className="text-xs text-gray-500 mt-2">Highly aligned technical delivery and clear strategic goals.</p>
+            <p className="text-gray-400 text-xs mt-2">Our structured delivery modules aligned to your growth targets.</p>
           </div>
 
-          <div className="space-y-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Comprehensive SEO Audit",
+                t: "Comprehensive SEO Audit",
                 do: "We analyze your website's technical health, content, backlinks, user experience, and rankings.",
-                benefit: "Identify hidden issues preventing your website from reaching its full potential."
+                b: "Identify hidden issues preventing your website from reaching its full potential."
               },
               {
-                title: "Keyword Research & Search Intent Analysis",
-                do: "We uncover high-value keywords used by buyers, sellers, landlords, investors, and commercial property clients.",
-                benefit: "Attract visitors who are actively looking for real estate services."
+                t: "Keyword Research & Intent",
+                do: "We uncover high-value keywords used by buyers, sellers, landlords, investors, and commercial clients.",
+                b: "Attract visitors who are actively looking for real estate services."
               },
               {
-                title: "Local SEO Optimization",
+                t: "Local SEO Optimization",
                 do: "We optimize your Google Business Profile, local citations, location pages, and local content.",
-                benefit: "Increase visibility in local searches and Google Maps, as detailed on our dedicated pricing blueprint."
+                b: "Increase visibility in local searches and Google Maps rankings."
               },
               {
-                title: "On-Page SEO",
-                do: "We optimize: page titles, meta descriptions, headers, internal linking, content structure, and schema markup.",
-                benefit: "Improve rankings and search engine understanding of your website. Generate pristine technical data with our schema tool."
+                t: "On-Page SEO Strategy",
+                do: "We optimize page titles, meta descriptions, headers, internal linking, content structures, and property schemas.",
+                b: "Improve rankings and search engine understanding of your property listings."
               },
               {
-                title: "Content Marketing",
-                do: "Create authoritative content tailored to your audience. Examples include area guides, housing market updates, investment articles, and buyer or seller resources.",
-                benefit: "Generate long-term traffic while building trust and authority."
+                t: "Content Marketing",
+                do: "Create authoritative content tailored to your target audience like area guides and housing market updates.",
+                b: "Generate long-term traffic while building trust and property authority."
               },
               {
-                title: "Link Building & Authority Development",
-                do: "Acquire relevant, high-quality backlinks from reputable websites.",
-                benefit: "Improve domain authority and competitive rankings."
+                t: "Link Building & Authority",
+                do: "Acquire relevant, high-quality backlinks from reputable regional and industrial web domains.",
+                b: "Improve domain rating metrics and durable competitive keyword positioning."
               },
               {
-                title: "Technical SEO",
-                do: "Enhance site speed, mobile usability, crawlability, indexing, and structured data.",
-                benefit: "Provide a stronger foundation for sustainable ranking growth."
+                t: "Technical SEO Foundation",
+                do: "Enhance site speed parameters, core web vitals, mobile usability, crawlability, and schema implementations.",
+                b: "Provide a strong technical foundation for sustainable organic growth."
+              },
+              {
+                t: "Conversion-Centered Optimization",
+                do: "Analyze traffic patterns, test CTA placements, and improve property contact form flows.",
+                b: "Turn general website visitors into active consultations and property clients."
               }
-            ].map((f, i) => (
-              <div key={i} className="bg-slate-900/30 border border-white/5 rounded-2xl p-6 md:p-8 grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="text-sm font-black text-emerald-400 uppercase tracking-wider mb-2">{f.title}</h4>
-                  <div className="text-xs text-gray-300">
-                    <span className="text-[10px] uppercase font-black text-emerald-500 inline-block mr-1">What We Do:</span>
-                    {f.do}
-                  </div>
+            ].map((item, idx) => (
+              <div key={idx} className="bg-slate-900/30 border border-white/5 p-6 rounded-2xl space-y-4 flex flex-col justify-between hover:border-orange-500/10 transition-all">
+                <div className="space-y-2">
+                  <h4 className="text-sm font-bold text-white uppercase tracking-tight">{item.t}</h4>
+                  <p className="text-[11px] text-gray-500 leading-relaxed font-mono">What We Do: {item.do}</p>
                 </div>
-                <div className="border-t md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0 md:pl-6 flex flex-col justify-center">
-                  <span className="text-[10px] uppercase font-black text-teal-400 mb-1">Benefit:</span>
-                  <p className="text-xs text-gray-400 leading-relaxed font-semibold">{f.benefit}</p>
+                <div className="border-t border-white/5 pt-3 space-y-1">
+                  <span className="text-[10px] font-black uppercase text-orange-400 block tracking-wider">Benefit:</span>
+                  <p className="text-xs text-gray-400 leading-relaxed font-medium">{item.b}</p>
                 </div>
               </div>
             ))}
@@ -401,149 +363,159 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
       </section>
 
       {/* Why Expertise Matters */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
+      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
               Why Expertise Matters in Real Estate SEO
             </h2>
-            <div className="space-y-4 text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              <p>
-                Google increasingly rewards websites that demonstrate <strong>Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T)</strong>. 
-                A generic SEO strategy often fails because real estate search behavior is highly localized and competitive.
-              </p>
-            </div>
-            <div className="pt-2">
-              <a 
-                href="https://www.searchenginejournal.com/google-e-e-a-t-how-to-demonstrate-it/474149/" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-[10px] text-teal-400 font-bold inline-flex items-center gap-1 hover:underline"
-              >
-                Learn E-E-A-T Framework on Search Engine Journal <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+            <p className="text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto">
+              Google increasingly rewards websites that demonstrate E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness). A generic SEO strategy often fails because real estate search behavior is highly localized and competitive. Find out how web development syncs with SEO on our dedicated{' '}
+              <Link to="/portfolio" className="text-blue-400 font-bold underline hover:text-blue-300">
+                SEO Web Portfolio
+              </Link>.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <h4 className="text-sm font-black text-emerald-400 uppercase tracking-widest">Our Specialists Understand:</h4>
-              <ul className="space-y-2 text-xs text-gray-300 leading-relaxed">
-                <li>• Real estate buyer journeys & investment pathways</li>
-                <li>• Seller lead generation and commercial listing optimization</li>
-                <li>• Local property search intent</li>
-                <li>• Local market competition & bidding flows</li>
-                <li>• Geographic keyword targeting</li>
-                <li>• Lead conversion optimization strategies</li>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4">
+              <span className="text-xs font-black uppercase text-amber-400 tracking-wider">Our specialists thoroughly understand:</span>
+              <ul className="space-y-3">
+                {[
+                  "Real estate buyer journeys",
+                  "Seller lead generation tactics",
+                  "Property search intent trends",
+                  "Local market competitive dynamics",
+                  "Geographic keyword targeting",
+                  "Lead conversion optimization"
+                ].map((point, id) => (
+                  <li key={id} className="flex items-center gap-2 text-xs text-gray-300 font-bold">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-450 text-emerald-400" />
+                    {point}
+                  </li>
+                ))}
               </ul>
-              <p className="text-[10px] text-gray-500 leading-relaxed pt-2">
-                This allows us to create campaigns that align with both search engine requirements and business objectives.
+              <p className="text-[11px] text-gray-500 leading-relaxed pt-2">
+                This allows us to create campaigns that align with both search engine requirements and real estate business objectives. Explore more about compliance-conscious marketing setups in our{' '}
+                <Link to="/industry/seo-services-for-financial-advisors" className="text-blue-400 font-bold underline">
+                  Financial Advisors SEO
+                </Link> page.
               </p>
             </div>
 
-            <div className="glass-morphism border border-white/5 p-8 rounded-3xl flex flex-col justify-between">
-              <div className="space-y-4">
-                <h4 className="text-sm font-black text-white uppercase tracking-widest">Cross-Industry Authority</h4>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  Real estate firms need specialized local map optimization and content modeling models. Explore these same high-performing components inside our dedicated solutions for other domains:
-                </p>
-                <div className="grid grid-cols-2 gap-2 pt-2 text-[10px] text-gray-300 font-bold">
-                  <Link to="/industry/seo-services-for-roofers" className="hover:text-emerald-400 underline">• SEO for Roofers</Link>
-                  <Link to="/industry/seo-services-for-financial-advisors" className="hover:text-emerald-400 underline">• SEO for Financial Advisors</Link>
-                  <Link to="/industry/seo-company-for-photographers" className="hover:text-emerald-400 underline">• SEO for Photographers</Link>
-                  <Link to="/pricing/local-seo-strategy" className="hover:text-emerald-400 underline">• Local Web Campaign Pricing</Link>
-                </div>
-              </div>
-              <div className="pt-4 border-t border-white/5">
-                <Link to="/resources/schema-generator" className="text-xs text-emerald-400 font-bold underline inline-flex items-center gap-1.5 hover:text-emerald-300">
-                  Try our custom structural Schema Generator <ArrowRight className="w-4 h-4" />
-                </Link>
+            <div className="glass-morphism border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+              <h4 className="text-sm font-black uppercase text-orange-400 tracking-wider flex items-center gap-2">
+                <Link2 className="w-4 h-4" /> Recommended External Authority:
+              </h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Expert industry analyses point out how property layouts, schema models, and localized maps provide the true foundation for property ranking profiles:
+              </p>
+              
+              <div className="space-y-3 pt-2">
+                <a href="https://ahrefs.com/blog/real-estate-seo/" target="_blank" rel="noreferrer" className="block p-3 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] text-blue-400 font-bold hover:underline">
+                  Ahrefs Comprehensive Real Estate SEO Guide <Globe className="w-3.5 h-3.5 inline ml-1" />
+                </a>
+                <a href="https://www.nar.realtor/" target="_blank" rel="noreferrer" className="block p-3 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] text-blue-400 font-bold hover:underline">
+                  National Association of Realtors (NAR) Official Site <Globe className="w-3.5 h-3.5 inline ml-1" />
+                </a>
+                <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noreferrer" className="block p-3 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] text-blue-400 font-bold hover:underline">
+                  Google Search Central SEO Starter Guide <Globe className="w-3.5 h-3.5 inline ml-1" />
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Difference: Generic vs Custom */}
+      {/* What Makes Us Different */}
       <section className="py-24 px-4 md:px-6 relative border-b border-white/5">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
-              What Makes Our SEO Services Different?
-            </h2>
-            <p className="text-xs text-gray-500">Every single milestone is reinforced through factual market insights.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white">What Makes Our SEO Services Different?</h2>
+            <p className="text-xs text-gray-500 mt-2">Structured parameters and premium outcomes.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Industry-Focused Strategies</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We understand how people search for real estate services and properties online.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                t: "Industry-Focused Strategies",
+                d: "We understand how people search for real estate services and properties online."
+              },
+              {
+                t: "Data-Driven Decisions",
+                d: "Every recommendation is supported by keyword research, analytics, and competitive insights."
+              },
+              {
+                t: "Long-Term Growth Approach",
+                d: "We focus on sustainable rankings rather than short-term SEO tricks that risk search penalties."
+              },
+              {
+                t: "Transparent Reporting",
+                d: "You'll receive clear reporting showing traffic growth, keyword rankings, lead generation metrics, and conversion improvements."
+              }
+            ].map((diff, i) => (
+              <div key={i} className="glass-morphism border border-white/5 p-6 rounded-2xl space-y-2">
+                <h4 className="text-sm font-bold text-white uppercase">{diff.t}</h4>
+                <p className="text-xs text-gray-400 leading-relaxed">{diff.d}</p>
+              </div>
+            ))}
+          </div>
 
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Data-Driven Decisions</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Every recommendation is supported by keyword research, analytics, and competitive insights.
-              </p>
-            </div>
-
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Long-Term Growth</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We focus on sustainable rankings rather than short-term SEO tricks.
-              </p>
-            </div>
-
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2 lg:col-span-1">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Transparent Reporting</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                You'll receive clear reporting showing: traffic growth, keyword rankings, lead generation metrics, and conversion improvements.
-              </p>
-            </div>
-
-            <div className="border border-white/5 bg-slate-900/30 p-6 rounded-2xl space-y-2 lg:col-span-2">
-              <h4 className="text-xs font-black uppercase text-emerald-400 tracking-wider">Conversion-Centered SEO</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We don't just increase traffic. We focus on attracting visitors likely to become clients and scheduling listing consultations.
-              </p>
-            </div>
+          <div className="mt-12 bg-orange-600/5 border border-orange-500/10 p-6 rounded-2xl text-center">
+            <h4 className="text-xs font-black uppercase text-orange-400 tracking-widest mb-1">Conversion-Centered SEO:</h4>
+            <p className="text-xs text-gray-400 leading-relaxed font-medium">
+              We don't just increase traffic. We focus on attracting visitors likely to become clients. Analyze templates in our{' '}
+              <Link to="/resources/actionable-seo-templates" className="text-blue-400 font-bold underline">
+                Actionable SEO Templates
+              </Link> tab.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Trust Signals Section */}
+      {/* Trust Signals & Testimonial */}
       <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white">Trust Signals That Give You Confidence</h2>
-            <p className="text-xs text-gray-500">Formulated on strict standards of professional integrity.</p>
+            <p className="text-xs text-gray-500">Honesty, compliance, and white-hat guarantees.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
             <div className="glass-morphism border border-white/5 p-8 rounded-3xl space-y-4">
-              <span className="text-[10px] uppercase tracking-widest font-black text-amber-400">Client Testimonial</span>
-              <div className="flex gap-1 text-amber-400">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-              </div>
-              <p className="text-xs text-gray-200 italic leading-relaxed">
-                "Our organic leads increased significantly within months of implementing their SEO strategy. We now generate consistent inquiries without relying solely on paid advertising."
-              </p>
-              <div className="font-bold text-[10px] text-gray-400 uppercase tracking-wider block">
-                — Real Estate Agency Owner
+              <span className="text-xs font-black text-amber-400 block uppercase tracking-wider">Client Testimonials</span>
+              
+              <div className="space-y-4">
+                <div className="flex text-amber-400 gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                  ))}
+                </div>
+                <h4 className="text-xs font-bold text-white italic">
+                  "Our organic leads increased significantly within months of implementing their SEO strategy. We now generate consistent inquiries without relying solely on paid advertising."
+                </h4>
+                <p className="text-[10px] text-gray-500 uppercase font-bold">- Real Estate Agency Owner</p>
               </div>
             </div>
 
-            <div className="space-y-4 flex flex-col justify-center">
+            <div className="space-y-5">
               {[
-                { t: "Transparent Process", d: "No hidden tactics. No unrealistic promises. No black-hat SEO techniques. We provide honest recommendations and realistic growth expectations." },
-                { t: "White-Hat SEO Methodology", d: "Our campaigns follow industry best practices and Google's guidelines. This helps protect your website from future algorithm updates." },
-                { t: "Dedicated Support", d: "Our team is available to answer questions, explain strategies, and provide ongoing guidance throughout your campaign." }
-              ].map((sig, id) => (
-                <div key={id} className="border-l-2 border-emerald-500/30 pl-4 space-y-1">
-                  <h4 className="text-xs font-black uppercase text-white tracking-wider">{sig.t}</h4>
-                  <p className="text-xs text-gray-400">{sig.d}</p>
+                {
+                  t: "Transparent Process",
+                  d: "No hidden tactics. No unrealistic promises. No black-hat SEO techniques. We provide honest recommendations and realistic growth expectations."
+                },
+                {
+                  t: "White-Hat SEO Methodology",
+                  d: "Our campaigns follow industry best practices and Google's guidelines. This helps protect your website from future algorithm updates."
+                },
+                {
+                  t: "Dedicated Support",
+                  d: "Our team is available to answer questions, explain strategies, and provide ongoing guidance throughout your campaign."
+                }
+              ].map((item, id) => (
+                <div key={id} className="border-l-2 border-orange-500/30 pl-4 space-y-1">
+                  <h4 className="text-xs font-black uppercase text-white tracking-widest">{item.t}</h4>
+                  <p className="text-xs text-gray-400 leading-relaxed">{item.d}</p>
                 </div>
               ))}
             </div>
@@ -551,70 +523,56 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
         </div>
       </section>
 
-      {/* Comparison: SEO vs Paid Ads */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5">
+      {/* Real Estate SEO vs Paid Ads Table */}
+      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white">SEO Services for Real Estate Industry vs Paid Advertising</h2>
-            <p className="text-xs text-gray-500 mt-2">See how compound growth compares to recurring monthly expenditures.</p>
+            <p className="text-xs text-gray-500 mt-2">See how long-term positioning stacks up against pay-per-click models.</p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-xs md:text-sm">
+          <div className="overflow-x-auto rounded-2xl border border-white/5">
+            <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-white/10 uppercase font-black text-teal-400">
-                  <th className="py-3 px-4">SEO Dimension</th>
-                  <th className="py-3 px-4 text-emerald-400">SEO Strategy</th>
-                  <th className="py-3 px-4 text-red-400">Paid Advertising (Ads)</th>
+                <tr className="bg-slate-900/60 text-white font-bold uppercase tracking-wider">
+                  <th className="p-4 border-b border-white/5">Parameter</th>
+                  <th className="p-4 border-b border-white/5 text-orange-400">SEO Strategy</th>
+                  <th className="p-4 border-b border-white/5 text-gray-400">Paid Ad Campaigns</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5 text-gray-300">
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Asset Horizon</td>
-                  <td className="py-4 px-4">Long-term compound asset</td>
-                  <td className="py-4 px-4">Stops completely when daily budget ends</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Brand Influence</td>
-                  <td className="py-4 px-4">Builds natural marketplace authority</td>
-                  <td className="py-4 px-4">Limited organic brand trust and visibility</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Traffic Engine</td>
-                  <td className="py-4 px-4">Sustainable & compounding traffic growth</td>
-                  <td className="py-4 px-4">Demands ongoing, rising ad spend requirements</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Advisory ROI</td>
-                  <td className="py-4 px-4">Significantly higher long-term return</td>
-                  <td className="py-4 px-4">Experiencing increasing cost per lead year-over-year</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold text-white">Equity Impact</td>
-                  <td className="py-4 px-4">Improves overall website asset value</td>
-                  <td className="py-4 px-4">Provides only temporary, immediate visibility</td>
-                </tr>
+                {[
+                  { p: "Primary Asset", s: "Long-term compounding asset value", a: "Temporary visibility (Stops when budget ends)" },
+                  { p: "Brand Positioning", s: "Builds absolute market authority & trust", a: "Limited brand trust signals" },
+                  { p: "Traffic Continuity", s: "Sustainable, long-term traffic growth", a: "Ongoing, continuous ad spend required" },
+                  { p: "ROI Potential", s: "Exponentially higher long-term ROI", a: "Static or increasing cost per lead parameters" },
+                  { p: "Site Value Influence", s: "Improves overall domain and website value", a: "Temporary and transactional value only" }
+                ].map((row, i) => (
+                  <tr key={i} className="hover:bg-white/[0.01]">
+                    <td className="p-4 font-bold text-white">{row.p}</td>
+                    <td className="p-4 text-emerald-400 font-medium">{row.s}</td>
+                    <td className="p-4 font-medium">{row.a}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
 
-          <div className="mt-8 text-center bg-slate-900/30 p-6 rounded-2xl border border-white/5 max-w-2xl mx-auto">
-            <p className="text-xs text-gray-400">
-              The strongest marketing strategies often combine both, but SEO provides lasting value that compounds over time. Review details at our professional{' '}
-              <Link to="/resources/professional-resume" className="text-emerald-400 underline font-bold hover:text-emerald-300">
-                SEO Specialist CV & Track Record
-              </Link>.
-            </p>
-          </div>
+          <p className="text-center text-xs text-gray-500 mt-6 leading-relaxed">
+            The strongest marketing strategies often combine both models, but organic SEO provides absolute lasting value that compounds continually over time. Check pricing details in our{' '}
+            <Link to="/pricing" className="text-blue-400 underline font-bold">
+              Agency SEO Packages
+            </Link>.
+          </p>
         </div>
       </section>
 
-      {/* Frequently Asked Questions */}
-      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/30">
+      {/* FAQ */}
+      <section className="py-24 px-4 md:px-6 relative border-b border-white/5 bg-slate-950/40">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white flex items-center justify-center gap-2.5">
-              <HelpCircle className="text-emerald-400 w-8 h-8 shrink-0" /> Frequently Asked Questions
+              <HelpCircle className="text-orange-400 w-8 h-8 shrink-0" /> Frequently Asked Questions
             </h2>
           </div>
 
@@ -626,11 +584,11 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
               },
               {
                 q: "Do you work with local real estate agents?",
-                a: "Yes. We help individual agents, brokerages, property managers, developers, and commercial real estate firms reach home buying and selling prospects."
+                a: "Yes. We help individual agents, brokerages, property managers, developers, and commercial real estate firms."
               },
               {
                 q: "Can SEO help generate seller leads?",
-                a: "Absolutely. Strategic content and local SEO can attract homeowners looking to sell their properties by answering high-value market queries."
+                a: "Absolutely. Strategic content and local SEO can attract homeowners looking to sell their properties."
               },
               {
                 q: "Is local SEO important for real estate companies?",
@@ -646,7 +604,8 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
               },
               {
                 q: "Are your SEO methods safe?",
-                a: "Yes. We use ethical, white-hat SEO practices aligned with Google's guidelines, strictly protecting your digital presence."
+                a: "Yes. We use ethical, white-hat SEO practices aligned with Google's guidelines, which are optimized with custom markup. Learn more using our custom tools inside our " +
+                   "schema builder tab to safeguard code compliance parameters."
               }
             ].map((faq, index) => (
               <div 
@@ -660,14 +619,24 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
                   <span className="text-sm font-bold text-white pr-4">{faq.q}</span>
                   <ChevronDown 
                     className={`w-5 h-5 text-gray-500 transition-transform duration-300 shrink-0 ${
-                      activeFaq === index ? 'rotate-180 text-emerald-400' : ''
+                      activeFaq === index ? 'rotate-180 text-orange-400' : ''
                     }`} 
                   />
                 </button>
                 
                 {activeFaq === index && (
                   <div className="p-6 pt-0 border-t border-white/5 bg-slate-950/20 text-xs text-slate-300 leading-relaxed">
-                    <p>{faq.a}</p>
+                    <p>
+                      {faq.q.includes("safe") ? (
+                        <>
+                          Yes. We use ethical, white-hat SEO practices aligned with Google's guidelines, which are optimized with custom markup. Learn more using our custom tools inside our{' '}
+                          <Link to="/resources/schema-generator" className="text-blue-400 font-bold underline">
+                            Interactive Schema Generator
+                          </Link>{' '}
+                          to safeguard code compliance parameters.
+                        </>
+                      ) : faq.a}
+                    </p>
                   </div>
                 )}
               </div>
@@ -678,9 +647,9 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
 
       {/* Footer CTA */}
       <section className="py-24 px-4 md:px-6 relative bg-slate-950 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent_60%)] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(249,115,22,0.1),transparent_60%)] pointer-events-none"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
-          <div className="w-16 h-16 bg-emerald-500/15 border border-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-orange-500/15 border border-orange-500/20 text-orange-450 rounded-2xl flex items-center justify-center mx-auto mb-4 text-orange-400">
             <Building2 className="w-8 h-8" />
           </div>
           
@@ -698,11 +667,11 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
             </p>
           </div>
 
-          <div className="bg-slate-900/60 border border-white/5 p-6 rounded-2xl max-w-2xl mx-auto space-y-2">
-            <p className="text-xs text-secondary leading-relaxed">
-              Let's create a customized SEO strategy that helps your real estate business rank higher, attract better leads, and achieve sustainable growth. Inspect professional templates inside our resources collection at the{' '}
-              <Link to="/resources" className="text-emerald-400 font-bold underline hover:text-emerald-300">
-                SEO Resource Hub
+          <div className="bg-slate-900/60 border border-white/5 p-6 rounded-2xl max-w-2xl mx-auto text-xs text-gray-500 space-y-2">
+            <p className="leading-relaxed">
+              We stand for transparent ethics and robust organic systems. We do not provide false guarantees on ranking positions. We focus purely on white-hat procedures. Discover hidden indexing gaps by checking our online repository inside our unified{' '}
+              <Link to="/resources" className="text-orange-400 font-bold underline hover:text-orange-300">
+                Growth Resources Hub
               </Link>.
             </p>
           </div>
@@ -710,7 +679,7 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
           <div className="pt-4">
             <button
               onClick={onBook}
-              className="inline-flex items-center justify-center px-10 py-5 rounded-xl text-black bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-500 hover:to-teal-400 font-extrabold tracking-wider uppercase text-sm shadow-xl shadow-emerald-500/20 transition-all duration-300 hover:scale-[1.03]"
+              className="inline-flex items-center justify-center px-10 py-5 rounded-xl text-black bg-gradient-to-r from-orange-400 to-amber-300 hover:from-orange-500 hover:to-amber-450 font-extrabold tracking-wider uppercase text-sm shadow-xl shadow-orange-500/20 transition-all duration-300 hover:scale-[1.03]"
             >
               Schedule Your Free SEO Consultation Today
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -719,9 +688,9 @@ const RealEstateSEOPage: React.FC<RealEstateSEOProps> = ({ onBook }) => {
 
           <div className="pt-4 text-center">
             <p className="text-xs text-gray-500">
-              Have immediate inquiries or custom needs? Contact our main consultation desk by visiting the{' '}
-              <Link to="/contact" className="text-emerald-400 underline font-bold hover:text-emerald-300">
-                Contact Page
+              Need immediate technical consulting support? Contact our main{' '}
+              <Link to="/contact" className="text-amber-300 underline font-bold hover:text-amber-250">
+                Contact and Booking Desk
               </Link>.
             </p>
           </div>

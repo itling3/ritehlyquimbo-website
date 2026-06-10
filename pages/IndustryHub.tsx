@@ -8,6 +8,7 @@ import {
   Hotel, 
   Zap, 
   Home as HomeIcon, 
+  Building2,
   Wind, 
   ArrowRight, 
   Sparkles,
@@ -123,6 +124,18 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-blue-500/30",
       keywords: ["Wealth management services", "Retirement planning advisor", "Fiduciary financial planner"],
       stats: "Lead conversions +165% avg."
+    },
+    {
+      title: "Real Estate Brokers & Developers",
+      path: "/industry/seo-services-for-real-estate",
+      description: "Custom geographic indexing, advanced multi-unit structured property schema layouts, automated buyer/seller search arrays, and listing dominance.",
+      icon: Building2,
+      badge: "High Listing Conversion",
+      accent: "from-orange-500 via-amber-500 to-yellow-400",
+      accentText: "text-orange-400",
+      borderHover: "hover:border-orange-500/30",
+      keywords: ["Homes for sale", "Real estate agents near me", "Property management companies"],
+      stats: "Listing leads +145% avg."
     }
   ];
 
@@ -130,8 +143,8 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
     <div className="pt-24 md:pt-32 pb-12 md:pb-24 px-4 md:px-6 min-h-screen bg-[#020617] text-white">
       <SEO 
         title="SEO Services for Industries | Custom Growth Solutions" 
-        description="Rank higher in Google in your specific commercial niche. Explore custom SEO strategies for financial advisors, therapists, photographers, and hotels."
-        keywords="industry seo services, financial advisor seo, photography seo company, fashion brand agency, trade contractor local marketing"
+        description="Rank higher in Google in your specific commercial niche. Explore custom SEO strategies for financial advisors, real estate, therapists, photographers, and hotels."
+        keywords="industry seo services, real estate seo, financial advisor seo, photography seo company, trade contractor local marketing"
       />
       
       <div className="max-w-7xl mx-auto">
