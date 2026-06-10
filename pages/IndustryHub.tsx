@@ -174,6 +174,18 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-emerald-500/30",
       keywords: ["Landscaping company near me", "Lawn care services", "Landscape design contractor"],
       stats: "Service quotes +150% avg."
+    },
+    {
+      title: "Window Cleaners",
+      path: "/industry/seo-services-for-window-cleaners",
+      description: "Proven search campaign designs for glass washing, residential multi-crew route density, commercial monthly contracts, and local map pack dominance.",
+      icon: Sparkles,
+      badge: "Leads Generator",
+      accent: "from-sky-500 via-cyan-400 to-amber-200",
+      accentText: "text-sky-400",
+      borderHover: "hover:border-sky-500/30",
+      keywords: ["Window washing near me", "Commercial window cleaning", "Residential window cleaner"],
+      stats: "More calls & jobs +160% avg."
     }
   ];
 

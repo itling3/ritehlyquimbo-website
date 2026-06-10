@@ -351,6 +351,7 @@ async function startServer() {
         '/industry/seo-services-for-hvac-companies',
         '/industry/seo-services-for-moving-companies',
         '/industry/seo-services-for-landscapers',
+        '/industry/seo-services-for-window-cleaners',
         '/pricing',
         '/pricing/local-seo-strategy',
         '/pricing/ai-automation-plans',

@@ -65,6 +65,7 @@ import RealEstateSEOPage from './pages/RealEstateSEO';
 import HVACSEOPage from './pages/HVACSEO';
 import MovingSEOPage from './pages/MovingSEO';
 import LandscapingSEOPage from './pages/LandscapingSEO';
+import WindowCleaningSEOPage from './pages/WindowCleaningSEO';
 import IndustryHubPage from './pages/IndustryHub';
 import WebDevPortfolioPage from './pages/WebDevPortfolio';
 import LocationsPage from './pages/Locations';
@@ -278,6 +279,7 @@ const AppContent: React.FC = () => {
         <Route path="/industry/seo-services-for-hvac-companies" element={<HVACSEOPage onBook={handleBookConsultation} />} />
         <Route path="/industry/seo-services-for-moving-companies" element={<MovingSEOPage onBook={handleBookConsultation} />} />
         <Route path="/industry/seo-services-for-landscapers" element={<LandscapingSEOPage onBook={handleBookConsultation} />} />
+        <Route path="/industry/seo-services-for-window-cleaners" element={<WindowCleaningSEOPage onBook={handleBookConsultation} />} />
 
         <Route path="/services/:slug" element={<ServiceSlugWrapper navigate={navigate} handleBook={handleBookConsultation} handleNavigate={handleNavigate} />} />
 
