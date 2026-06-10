@@ -10,6 +10,8 @@ import {
   Home as HomeIcon, 
   Building2,
   Wind, 
+  Truck,
+  Sprout,
   ArrowRight, 
   Sparkles,
   BarChart3,
@@ -136,6 +138,42 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-orange-500/30",
       keywords: ["Homes for sale", "Real estate agents near me", "Property management companies"],
       stats: "Listing leads +145% avg."
+    },
+    {
+      title: "HVAC Companies & Mechanicals",
+      path: "/industry/seo-services-for-hvac-companies",
+      description: "Local search signals, emergency repair search mapping, GBP maps dominance, seasonal search traps, and robust service area visibility.",
+      icon: Wind,
+      badge: "High Call Rate",
+      accent: "from-sky-500 via-sky-300 to-amber-400",
+      accentText: "text-sky-400",
+      borderHover: "hover:border-sky-500/30",
+      keywords: ["HVAC repair", "AC installation near me", "Furnace maintenance"],
+      stats: "Service calls +155% avg."
+    },
+    {
+      title: "Moving Companies & Relocations",
+      path: "/industry/seo-services-for-moving-companies",
+      description: "Local search maps, long-distance territory funnels, service-area targeting, intent-driven keyword architecture, and organic booking engines.",
+      icon: Truck,
+      badge: "High Booking Rate",
+      accent: "from-blue-600 via-sky-400 to-amber-300",
+      accentText: "text-blue-400",
+      borderHover: "hover:border-blue-500/30",
+      keywords: ["Local movers near me", "Long-distance moving companies", "Office relocation services"],
+      stats: "Booked moves +140% avg."
+    },
+    {
+      title: "Landscapers & Gardeners",
+      path: "/industry/seo-services-for-landscapers",
+      description: "Green industry map-pack domination, multi-territory ranking configurations, seasonal keyword targeting, and conversion-optimized service pages.",
+      icon: Sprout,
+      badge: "High Intent",
+      accent: "from-emerald-500 via-teal-400 to-amber-300",
+      accentText: "text-emerald-450",
+      borderHover: "hover:border-emerald-500/30",
+      keywords: ["Landscaping company near me", "Lawn care services", "Landscape design contractor"],
+      stats: "Service quotes +150% avg."
     }
   ];
 

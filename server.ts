@@ -288,6 +288,15 @@ async function startServer() {
         description = "Increase foot traffic and local leads. We optimize your Google Business Profile and local citations for maximum neighborhood visibility.";
       } else if (['/audit', '/calculator', '/privacy'].includes(cleanPath)) {
         title = `${cleanPath.slice(1).charAt(0).toUpperCase() + cleanPath.slice(2)} | Ritehly Quimbo`;
+      } else if (cleanPath.startsWith('/industry') || cleanPath.startsWith('/locations/') || cleanPath.startsWith('/blog/')) {
+        // Dynamic title/description formatting for SSR
+        const segments = cleanPath.split('/');
+        const pageName = segments[segments.length - 1]
+          .split('-')
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
+        title = `${pageName === 'Industry' ? 'Industries' : pageName} SEO | Ritehly Quimbo Precision Search Engineering`;
+        description = `High-conversion search solutions and organic performance blueprints customized for ${pageName === 'Industry' ? 'Industries' : pageName}. Rank top of Google Maps & drive qualified inbound channels.`;
       } else if (cleanPath !== '/' && cleanPath !== '/index') {
          is404 = true;
       }
@@ -334,6 +343,14 @@ async function startServer() {
         '/services/cms-seo',
         '/portfolio',
         '/portfolio/web-development',
+        '/industry',
+        '/industry/seo-services-for-roofers',
+        '/industry/seo-services-for-electricians',
+        '/industry/seo-services-for-financial-advisors',
+        '/industry/seo-services-for-real-estate',
+        '/industry/seo-services-for-hvac-companies',
+        '/industry/seo-services-for-moving-companies',
+        '/industry/seo-services-for-landscapers',
         '/pricing',
         '/pricing/local-seo-strategy',
         '/pricing/ai-automation-plans',
