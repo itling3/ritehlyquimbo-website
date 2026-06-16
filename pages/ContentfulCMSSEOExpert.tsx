@@ -81,7 +81,7 @@ const ContentfulCMSSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) =>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-[10px] font-black uppercase tracking-widest mb-6">
                Headless CMS SEO Specialization
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
               Contentful CMS SEO Expert — <span className="text-purple-500">Turn Your Site Into a Traffic Engine</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8 max-w-xl">

@@ -22,7 +22,7 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-20 animate-fade-in">
-          <h1 className="text-6xl md:text-7xl font-black mb-4 md:mb-6 text-white uppercase italic tracking-tighter leading-none">
+          <h1 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-white uppercase italic tracking-tighter leading-none">
             Service <span className="text-blue-500">Locations</span>
           </h1>
           <div className="text-blue-500 font-bold text-sm mb-4 tracking-[0.4em] uppercase">Hyper-Local Dominance</div>

@@ -936,7 +936,7 @@ const ResourcesPage: React.FC = () => {
               <Sparkles className="w-3 h-3 text-blue-400" />
               Vetted Tools & Blueprints
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase italic tracking-tighter leading-none mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase italic tracking-tighter leading-none mb-6">
               GROWTH <span className="text-orange-500">RESOURCES</span>
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">

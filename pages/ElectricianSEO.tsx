@@ -187,7 +187,7 @@ const ElectricianSEOPage: React.FC<ElectricianSEOProps> = ({ onBook }) => {
               Local Service Domination
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
               SEO Services for <span className="text-orange-500">Electricians</span> That Generate More Calls, Leads & Booked Jobs
             </h1>
             

@@ -219,7 +219,7 @@ const WixSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               </span>
               Wix Performance Framework
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
               Wix SEO Expert: <span className="text-blue-500 hover:text-white transition-colors duration-500">Turn Your Wix Site Into a Lead-Generation Machine</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8 max-w-xl">

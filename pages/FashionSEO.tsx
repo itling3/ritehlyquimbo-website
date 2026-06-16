@@ -157,7 +157,7 @@ const FashionSEOPage: React.FC<FashionSEOProps> = ({ onBook }) => {
               Haute Couture Search Dominance
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-white">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] text-white">
               SEO Services for <span className="text-pink-550 text-pink-500 block sm:inline">Fashion Industry</span>
             </h1>
             

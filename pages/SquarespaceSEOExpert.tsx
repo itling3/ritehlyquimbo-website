@@ -141,7 +141,7 @@ const SquarespaceSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
                 Squarespace SEO Expert Services
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase italic tracking-tighter leading-none">
                 Squarespace SEO Expert Services That Drive <span className="text-orange-500">Rankings, Traffic & Leads</span>
               </h1>
 

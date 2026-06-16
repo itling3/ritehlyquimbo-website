@@ -56,7 +56,7 @@ const FinancialAdvisorSEOPage: React.FC<FinancialAdvisorSEOProps> = ({ onBook })
               <TrendingUp className="w-4 h-4 text-emerald-400" /> High-Net-Worth Lead Generation
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
               SEO Services for <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-250">Financial Advisors</span> & Wealth Planners
             </h1>
             

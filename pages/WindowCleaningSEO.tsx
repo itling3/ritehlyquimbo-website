@@ -56,7 +56,7 @@ const WindowCleaningSEOPage: React.FC<WindowCleaningSEOProps> = ({ onBook }) => 
               <Sparkles className="w-4 h-4 text-sky-400" /> Specialty Services & Window Cleaning SEO
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
               SEO Company for <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-amber-200">Window Cleaners</span> That Generates More Calls, Leads & Recurring Customers
             </h1>
             

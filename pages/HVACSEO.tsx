@@ -57,7 +57,7 @@ const HVACSEOPage: React.FC<HVACSEOProps> = ({ onBook }) => {
               <Wind className="w-4 h-4 text-sky-400 rotate-180 animate-pulse" /> Local Contractor & Mechanical SEO
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
               SEO Services for <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-amber-250">HVAC Companies</span> That Generate More Calls, Leads, and Booked Jobs
             </h1>
             

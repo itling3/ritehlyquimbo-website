@@ -67,7 +67,7 @@ const PhotographerSEOPage: React.FC<PhotographerSEOProps> = ({ onBook }) => {
               <Camera className="w-4 h-4 text-orange-400 animate-pulse" /> Dedicated SEO Company for Photographers
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
               SEO Company for <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Photographers</span> That Helps You Book More Clients
             </h1>
             

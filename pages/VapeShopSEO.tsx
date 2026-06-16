@@ -292,7 +292,7 @@ const VapeShopSEOList: React.FC<VapeShopSEOProps> = ({ onBook }) => {
               Industry-Specific Growth
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
               SEO Company for <span className="text-orange-500">Vape Shop</span>: Grow Organic Traffic, Increase Sales & Dominate Local Search
             </h1>
             

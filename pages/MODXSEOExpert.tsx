@@ -68,7 +68,7 @@ const MODXSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-[10px] font-black uppercase tracking-widest mb-6">
               MODX SEO Specialization
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
               MODX SEO Expert — <span className="text-blue-500">Rank Higher & Get Results</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8 max-w-xl italic">

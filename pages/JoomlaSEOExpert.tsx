@@ -80,7 +80,7 @@ const JoomlaSEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               </span>
               Technical Joomla Specialist
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
               Joomla SEO Expert — <span className="text-blue-500">Rank Higher on Google & AI Search</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8 max-w-xl">

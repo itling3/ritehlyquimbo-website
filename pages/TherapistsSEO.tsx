@@ -163,7 +163,7 @@ const TherapistsSEOPage: React.FC<TherapistsSEOProps> = ({ onBook }) => {
               Mindful Visibility Expansion
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-white">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] text-white">
               SEO Services for <span className="text-teal-400 block sm:inline">Therapists</span>
             </h1>
             

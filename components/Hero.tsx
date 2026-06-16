@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ onAuditClick, onFormClick }) => {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-4 md:mb-6 text-white uppercase italic tracking-tighter">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] mb-4 md:mb-6 text-white uppercase italic tracking-tighter">
             <div className="mb-2">
               <AnimatePresence mode="wait">
                 <motion.span

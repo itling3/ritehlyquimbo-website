@@ -32,7 +32,7 @@ const WebDevPortfolioPage: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
             Technical Showcase
           </div>
-          <h1 className="text-5xl md:text-8xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6 md:mb-8">
+          <h1 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6 md:mb-8">
             WEB <br />
             <span className="text-purple-500">ENGINEERING</span>
           </h1>

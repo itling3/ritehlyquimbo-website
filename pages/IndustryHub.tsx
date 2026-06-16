@@ -213,7 +213,7 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
               <Sparkles className="w-4 h-4 text-blue-400" /> Niche Search Engine Dominance
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">
+            <h1 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-none">
               Industry Specific <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-400">SEO Spokes</span>
             </h1>
             

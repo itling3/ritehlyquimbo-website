@@ -69,7 +69,7 @@ const HotelSEOPage: React.FC<HotelSEOProps> = ({ onBook }) => {
               <Hotel className="w-4 h-4" /> Hotel & Hospitality Specialist
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
               SEO Services for <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Hotels</span>
             </h1>
             

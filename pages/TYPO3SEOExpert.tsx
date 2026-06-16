@@ -85,7 +85,7 @@ const TYPO3SEOExpert: React.FC<{ onBook: () => void }> = ({ onBook }) => {
               </span>
               TYPO3 SEO Specialist
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6">
               TYPO3 SEO Expert — <span className="text-red-500">Rank Higher & Scale Growth</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 font-medium leading-relaxed mb-8 max-w-xl">
