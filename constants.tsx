@@ -1462,7 +1462,7 @@ Your website should be your hardest-working employee. [Contact me](/contact) tod
     solution: 'A hyper-local Cebu SEO dominance strategy. We optimize your Google Business Profile for the Cebu market, build local citations, and create content that speaks to the Cebuano audience.',
     importance: 'Cebu is the economic heart of the Visayas. Ranking for "near me" and specific Cebu-targeted keywords is the most direct way to capture high-intent local traffic and grow your revenue.',
     features: ['Hyper-Local Keyword Targeting', 'Cebu Google Maps Dominance', 'Local Citation & NAP Cleanup', 'Geo-Targeted Content Silos'],
-    landmarkImage: 'https://lh3.googleusercontent.com/gpms-cs-s/ABJJf52m8rcccRHVL6383PrLnUsfmlkATq1CzJf7Jny7yieHnDnzkzm_zatdrAlWGpCgcwVW9sYPhk4sjlv1az0gioZYIEmaEs-jAz9BMcdXPaY0iHzCpz8NhO_3-gQxJaiT_YqEa10Z=s680-w680-h510-rw',
+    landmarkImage: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125586.32273837285!2d123.76589178092061!3d10.37601886449907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x4c34030cdbd33507!2sCebu%20City%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777618502352!5m2!1sen!2sph',
     schema: [
       {
@@ -1642,7 +1642,7 @@ Don't let your competitors take the lead in one of the world's fastest-growing r
     solution: 'A strategic SEO Mandaue City campaign that focuses on improving Google search rankings, driving targeted traffic, and converting visitors into paying customers.',
     importance: 'Mandaue City is a thriving commercial hub. Appearing on Google search results when customers are actively looking for services can significantly increase inquiries, leads, and sales.',
     features: ['Keyword Research', 'On-Page SEO Optimization', 'Technical SEO Improvements', 'Local SEO Optimization', 'Content Strategy', 'Conversion Optimization'],
-    landmarkImage: 'https://triptheislands.com/wp-content/uploads/2015/03/sam_7095.jpg.webp',
+    landmarkImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62798.295329058266!2d123.90333116316248!3d10.350403481918535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99889680ceefd%3A0xa9f911a1f5dda572!2sMandaue%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777696859565!5m2!1sen!2sph',
     schema: [
       {
@@ -1766,7 +1766,7 @@ If you want your business to attract more customers online, investing in [profes
     solution: 'A strategic SEO Lapu-Lapu City campaign that focuses on three core objectives: Improve Google search rankings, Drive targeted website traffic, and Convert visitors into paying customers.',
     importance: 'Lapu-Lapu City is a major commercial and tourism hub. Appearing on Google search results when customers are actively looking for services can dramatically increase inquiries, leads, and sales.',
     features: ['Keyword Research', 'On-Page SEO Optimization', 'Technical SEO Improvements', 'Local SEO Optimization', 'Content Strategy', 'Conversion Optimization'],
-    landmarkImage: 'https://lh3.googleusercontent.com/grass-cs/ANxoTn39NvdHHuX0lnctvUi8Iw-zEZ6DWaJAwRR02yhHnVME6kT98xMlgikjkg9x6RRkBrilDZ4uoq5iIwhclXIR8x_StggMhu7YFGzhMubvXFy63brZYMU4i_1Q1jr-7KckDuduQh_8=s680-w680-h510-rw',
+    landmarkImage: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251258.88671905195!2d123.88200116442313!3d10.268021222735735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999fed973c41b%3A0x1ae9af03b1a02e2c!2sLapu-Lapu%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777698080925!5m2!1sen!2sph',
     schema: [
       {
@@ -1890,7 +1890,7 @@ If you want your business to attract more customers online, investing in profess
     solution: 'Our proprietary system focuses on three pillars to guarantee growth: Local Dominance (GBP optimization), Content Authority (localized high-quality content), and Technical & Off-Page Excellence (mobile speed and authority links).',
     importance: 'As real estate and commerce expand southward from Cebu City into Talisay, digital competition is heating up. Capturing the "South Shift" is crucial for businesses from Lawaan to Poblacion.',
     features: ['Google Business Profile Optimization', 'Local Citation Building', 'Mobile-First Website Optimization', 'Hyper-Local Content Creation', 'Review Generation & Management', 'White-Hat Link Building'],
-    landmarkImage: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFpWFwagFwsw6ZTn9EMh5_Q1fQ71dVxbrV6H8M78mRhKnhE4CCL6FH7SfSvtaKOMgzKEJFoW_oQZNk4Y2OfaC5DJz62lRmXVmjHNUe6UiGVAb4ekqhGkSOanzRtQj9_fC7-lWU=s680-w680-h510-rw',
+    landmarkImage: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62811.09023909512!2d123.78404103306944!3d10.286290000585334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99dadf0cb3aed%3A0x8464eb7a98416a00!2sTalisay%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777698973995!5m2!1sen!2sph', // Placeholder map embed
     schema: [
       {
@@ -1992,7 +1992,7 @@ Investing in professional SEO Talisay City services can significantly improve yo
     solution: 'A smarter SEO Manila strategy focused on Rankings, Leads, and Revenue. We focus on Technical SEO, Intent-based Keyword Strategy, and Conversion-Focused Content.',
     importance: 'The goal is not just more traffic. The goal is better traffic, stronger visibility, and more inquiries in the competitive Manila landscape.',
     features: ['Technical SEO Audit', 'Keyword Intent Mapping', 'On-Page Optimization', 'Local SEO & Maps', 'Conversion rate optimization'],
-    landmarkImage: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFp7PkxcOj9AnA5mqZsyGTCHvsndEDHUT40jdGlTO79ctM6tl5yorXZ0Hp4Jy_AXBKwxH0LWs1qvAB3IrGHCj8AjTFg62Ds5DglROwZVgBGjgd764HgVO3Q8fV71yS-RCM9GxpVEA=s680-w680-h510-rw',
+    landmarkImage: 'https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61775.938862536146!2d120.97948349999999!3d14.599293450000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca03571ec38b%3A0x69d1d5751069c11f!2sManila%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777788371566!5m2!1sen!2sph',
     schema: [
       {
@@ -2086,7 +2086,7 @@ Ready to Grow with SEO Manila Services That Focus on Real Results? If your websi
     solution: 'A smarter SEO Quezon City strategy for sustainable growth. We focus on high-intent keywords, technical precision, content quality, and local relevance.',
     importance: 'The goal is simple: help your business show up when your ideal customers are searching, then give them a strong reason to contact you.',
     features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Technical SEO Fixes', 'Local Relevance Signals', 'Performance Tracking'],
-    landmarkImage: 'https://upload.wikimedia.org/wikipedia/en/8/86/Quezon_Memorial_Shrine_monument_%28local_img%29.jpg',
+    landmarkImage: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123504.3582590839!2d121.06239464999999!3d14.683659150000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ba0942ef7375%3A0x4a9a32d9fe083d40!2sQuezon%20City%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777789935546!5m2!1sen!2sph',
     schema: [
       {
@@ -2176,7 +2176,7 @@ Ready to Grow With SEO Quezon City? If your website is not bringing in enough qu
     solution: 'Effective SEO Davao services built for real business growth. We focus on high-intent local keywords, technical accuracy, and conversion-focused optimization.',
     importance: 'SEO helps build a long-term channel that can continue generating traffic without paying for each visit, providing a competitive edge in Davao.',
     features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Local SEO & Maps', 'Technical SEO Audit', 'Conversion Optimization'],
-    landmarkImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpQOLeGuBLYbBFQoOcdyGSPoqhFy9bK3AxWETAsLWiFMNNjCDtL4jfcDXi-g_4CUqUhGMYb4M0Nu_xIT3cEwBJ12eU8_5YaMlmiVxAferycB0oQEFISwp-IXarSe5W0RRMuHlmDG3ZzIH8/s1600/Barangay+Baganihan.jpg',
+    landmarkImage: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d506598.2128436874!2d125.12259335037201!3d7.263754126931028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96d9f519e327f%3A0xb53a24589f79c573!2sDavao%20City%2C%20Davao%20del%20Sur!5e0!3m2!1sen!2sph!4v1777790906528!5m2!1sen!2sph',
     schema: [
       {
@@ -2262,7 +2262,7 @@ Ready to Grow With SEO Davao? If your website is not bringing in enough qualifie
     solution: 'Strategic SEO Makati City services built to improve rankings, increase qualified traffic, and turn website visitors into real leads and sales.',
     importance: 'The goal is to help your business show up when your ideal customers are searching, then give them a strong reason to contact you.',
     features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Technical SEO Audit', 'Local Relevance Signals', 'Conversion Optimization'],
-    landmarkImage: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ec/59/22/incrocio-tra-ayala-avenue.jpg?w=500&h=500&s=1',
+    landmarkImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15448.243555986895!2d121.0189914!3d14.5547291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90264a01431%3A0xad981a3297a7e11c!2sMakati%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777791880945!5m2!1sen!2sph',
     schema: [
       {
@@ -2353,7 +2353,7 @@ Ready to Dominate Search in Makati? If your business is ready for more visibilit
     solution: 'A stronger search presence built for rankings and conversions. We focus on intent-based research, technical precision, and people-first content.',
     importance: 'Taguig is a major business hub. Strong SEO helps your website become a steady source of qualified inquiries and long-term organic growth.',
     features: ['Keyword Intent Research', 'On-Page SEO Optimization', 'Local SEO & Maps', 'Technical SEO Improvements', 'Conversion-Focused Refinement'],
-    landmarkImage: 'https://ik.imagekit.io/tvlk/blog/2023/05/st-anne-parish-church.jpg?tr=q-70,c-at_max,w-1000,h-600',
+    landmarkImage: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61799.4209965272!2d121.02184159380501!3d14.515442198699143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cf4a54fe3001%3A0x2fae7af0a998d2ad!2sTaguig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777795363542!5m2!1sen!2sph',
     schema: [
       {
@@ -2445,7 +2445,7 @@ Ready to Grow With SEO Taguig? If your website is not bringing in enough qualifi
     solution: 'Effective SEO Pasig City services built to improve rankings, increase qualified traffic, and turn website visitors into real leads and sales.',
     importance: 'SEO provides businesses a long-term growth channel built on organic visibility, especially important in a city with active business registration and renewal activity.',
     features: ['Keyword Intent Mapping', 'On-Page SEO Optimization', 'Local SEO & Maps', 'Technical SEO Improvements', 'Conversion Optimization'],
-    landmarkImage: 'https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/vgm9gpuvopozgoporoo7.jpg',
+    landmarkImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61781.87261077601!2d121.03972649400302!3d14.57814946093772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7dc88f7b24f%3A0x4a592b2b4b34fd89!2sPasig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1777795976613!5m2!1sen!2sph',
     schema: [
       {
@@ -2535,7 +2535,7 @@ Ready to Grow With SEO Pasig City? If your website is not bringing in enough qua
     solution: 'The Proven SEO System That Puts Danao City on the Map: Local Dominance (GBP), Hyper-Targeted Keyword Optimization, Technical SEO, and Content Authority.',
     importance: 'In a digital-first world, invisibility on Google is the fastest way to stunt your business growth. Dominating Danao City search results translates directly to occupancy and revenue.',
     features: ['Comprehensive SEO Audit', 'Google Business Profile Optimization', 'Local Citation Building', 'Mobile-First Optimization', 'Monthly Performance Reporting'],
-    landmarkImage: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSOZ4Vj49DcJGS6BzrLsZeJhE4dpMMuNgbQFuXAf-u6XL_V1tqu0kGblg30jjv4S02L5DzpTLGIPEBPWVj-TZN5DxHSDmhDeulpUZa5_MJqvL2lNJU8aBnRbGLwqv226yfwOYmCw=s680-w680-h510-rw',
+    landmarkImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125519.9577361218!2d123.78219720387992!3d10.540094702247664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9b0815de34d3f%3A0xd546709e03f8ad12!2sDanao%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777701034401!5m2!1sen!2sph',
     schema: [
       {
@@ -2636,7 +2636,7 @@ Ready to Dominate Google in Danao City? Your competitors are actively trying to 
     solution: 'A professional SEO Minglanilla strategy focuses on three core objectives: Improve Google search rankings, Drive targeted website traffic, and Convert visitors into paying customers.',
     importance: 'With increasing competition along the south, appearing on Google search results when customers are actively searching for services can dramatically increase inquiries, leads, and sales.',
     features: ['Keyword Research', 'On-Page Optimization', 'Technical SEO', 'Local SEO', 'Content Strategy'],
-    landmarkImage: 'https://lh3.googleusercontent.com/p/AF1QipM8yQM1doeQ-fxYyVdHHyVST6hQdKEqOfyzAOpU=s680-w680-h510-rw',
+    landmarkImage: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=80',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125625.1454721677!2d123.69431209947986!3d10.278835846370152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a977e4598c638d%3A0xd2016057b1f9cd28!2sMinglanilla%2C%20Cebu!5e0!3m2!1sen!2sph!4v1777701978951!5m2!1sen!2sph',
     schema: [
       {

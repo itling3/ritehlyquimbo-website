@@ -36,9 +36,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://lh3.googleusercontent.com/gpms-cs-s/ABJJf52m8rcccRHVL6383PrLnUsfmlkATq1CzJf7Jny7yieHnDnzkzm_zatdrAlWGpCgcwVW9sYPhk4sjlv1az0gioZYIEmaEs-jAz9BMcdXPaY0iHzCpz8NhO_3-gQxJaiT_YqEa10Z=s680-w680-h510-rw" 
+                src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" 
                 alt="Cebu City Skyline" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -82,9 +83,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://triptheislands.com/wp-content/uploads/2015/03/sam_7095.jpg.webp" 
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
                 alt="Mandaue City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -128,9 +130,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://lh3.googleusercontent.com/grass-cs/ANxoTn39NvdHHuX0lnctvUi8Iw-zEZ6DWaJAwRR02yhHnVME6kT98xMlgikjkg9x6RRkBrilDZ4uoq5iIwhclXIR8x_StggMhu7YFGzhMubvXFy63brZYMU4i_1Q1jr-7KckDuduQh_8=s680-w680-h510-rw" 
+                src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" 
                 alt="Lapu-Lapu City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -174,9 +177,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFpWFwagFwsw6ZTn9EMh5_Q1fQ71dVxbrV6H8M78mRhKnhE4CCL6FH7SfSvtaKOMgzKEJFoW_oQZNk4Y2OfaC5DJz62lRmXVmjHNUe6UiGVAb4ekqhGkSOanzRtQj9_fC7-lWU=s680-w680-h510-rw" 
+                src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" 
                 alt="Talisay City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -220,9 +224,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSOZ4Vj49DcJGS6BzrLsZeJhE4dpMMuNgbQFuXAf-u6XL_V1tqu0kGblg30jjv4S02L5DzpTLGIPEBPWVj-TZN5DxHSDmhDeulpUZa5_MJqvL2lNJU8aBnRbGLwqv226yfwOYmCw=s680-w680-h510-rw" 
+                src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80" 
                 alt="Danao City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -266,9 +271,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://lh3.googleusercontent.com/p/AF1QipM8yQM1doeQ-fxYyVdHHyVST6hQdKEqOfyzAOpU=s680-w680-h510-rw" 
+                src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=80" 
                 alt="Minglanilla City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -312,9 +318,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFp7PkxcOj9AnA5mqZsyGTCHvsndEDHUT40jdGlTO79ctM6tl5yorXZ0Hp4Jy_AXBKwxH0LWs1qvAB3IrGHCj8AjTFg62Ds5DglROwZVgBGjgd764HgVO3Q8fV71yS-RCM9GxpVEA=s680-w680-h510-rw" 
+                src="https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&fit=crop&w=800&q=80" 
                 alt="Manila City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -358,9 +365,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/en/8/86/Quezon_Memorial_Shrine_monument_%28local_img%29.jpg" 
+                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" 
                 alt="Quezon City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -404,9 +412,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpQOLeGuBLYbBFQoOcdyGSPoqhFy9bK3AxWETAsLWiFMNNjCDtL4jfcDXi-g_4CUqUhGMYb4M0Nu_xIT3cEwBJ12eU8_5YaMlmiVxAferycB0oQEFISwp-IXarSe5W0RRMuHlmDG3ZzIH8/s1600/Barangay+Baganihan.jpg" 
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" 
                 alt="Davao City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -450,9 +459,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/ec/59/22/incrocio-tra-ayala-avenue.jpg?w=500&h=500&s=1" 
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
                 alt="Makati City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -496,9 +506,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://ik.imagekit.io/tvlk/blog/2023/05/st-anne-parish-church.jpg?tr=q-70,c-at_max,w-1000,h-600" 
+                src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80" 
                 alt="Taguig City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
@@ -542,9 +553,10 @@ const LocationsPage: React.FC<LocationsPageProps> = ({ onBook }) => {
           <div className="glass-morphism rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group group shadow-2xl">
             <div className="aspect-[16/9] relative overflow-hidden">
               <img 
-                src="https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/vgm9gpuvopozgoporoo7.jpg" 
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" 
                 alt="Pasig City" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-8 flex items-center gap-3">
