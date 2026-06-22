@@ -32,14 +32,18 @@ const MspSEOPage: React.FC<MspSEOProps> = ({ onBook }) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
-  const useCases = [
+  const useCases: { title: string; details: React.ReactNode }[] = [
     {
       title: "Regional MSP Growth (Multi-Vertical)",
       details: "A regional MSP targeting “managed IT services + city” increased inbound demo requests after optimizing service pages for industry-specific keywords (legal, healthcare, construction)."
     },
     {
       title: "Cybersecurity Positioning Shift",
-      details: "A cybersecurity-focused MSP improved lead quality by ranking for “cybersecurity compliance for small business” instead of generic IT terms."
+      details: (
+        <span>
+          A cybersecurity-focused MSP improved lead quality by ranking for compliance-driven terms, mimicking the high-conviction client acquisition tactics optimized specifically for <Link to="/industry/seo-services-for-financial-advisors" className="text-violet-400 hover:text-violet-300 underline font-semibold">financial advisors</Link>.
+        </span>
+      )
     },
     {
       title: "Hyper-Local Lead Capture",
@@ -47,7 +51,7 @@ const MspSEOPage: React.FC<MspSEOProps> = ({ onBook }) => {
     }
   ];
 
-  const features = [
+  const features: { num: string; title: string; description: React.ReactNode; benefit: React.ReactNode }[] = [
     {
       num: "01",
       title: "MSP Keyword Strategy Built for Buyer Intent",
@@ -57,7 +61,11 @@ const MspSEOPage: React.FC<MspSEOProps> = ({ onBook }) => {
     {
       num: "02",
       title: "Local SEO + Google Business Profile Optimization",
-      description: "We optimize your presence across Google Maps and local search to put your business in front of regional owners.",
+      description: (
+        <span>
+          We optimize your presence across Google Maps and local search to put your business in front of regional owners. Learn more via our regional <Link to="/locations" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">SEO locations folder</Link>.
+        </span>
+      ),
       benefit: "More calls from businesses near you actively searching for IT support."
     },
     {
@@ -69,13 +77,21 @@ const MspSEOPage: React.FC<MspSEOProps> = ({ onBook }) => {
     {
       num: "04",
       title: "Technical SEO for MSP Websites",
-      description: "We resolve crawling inefficiencies, optimize page speed, correct indexing, and align structure with search algorithms.",
+      description: (
+        <span>
+          We resolve crawling inefficiencies, optimize page speed, correct indexing, and configure content management structures, such as customized <Link to="/services/cms-seo/wordpress-seo-expert" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">WordPress technical optimization</Link>.
+        </span>
+      ),
       benefit: "Better rankings and improved user experience."
     },
     {
       num: "05",
       title: "Authority Building (Backlinks + Citations)",
-      description: "We construct industry-relevant authority signals, high-trust citations, and targeted business-to-business links.",
+      description: (
+        <span>
+          We construct industry-relevant authority signals, high-trust citations, and targeted business-to-business links that match the latest <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">Google Search Essentials guidelines</a>.
+        </span>
+      ),
       benefit: "Stronger trust with Google and improved rankings over time."
     },
     {
@@ -181,7 +197,7 @@ const MspSEOPage: React.FC<MspSEOProps> = ({ onBook }) => {
             </p>
             
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-              We help Managed Service Providers (MSPs) rank on Google, attract high-value business clients, and convert search traffic into recurring IT service contracts—without wasting budget on vanity SEO metrics.
+              We help Managed Service Providers (MSPs) rank on Google, expand visibility within our <Link to="/industry" className="text-violet-400 hover:text-violet-300 underline font-semibold">industry-focused segments</Link>, attract high-value business clients, and convert search traffic into recurring IT service contracts—without wasting budget on vanity SEO metrics.
             </p>
 
             <div className="pt-4">
@@ -343,17 +359,24 @@ const MspSEOPage: React.FC<MspSEOProps> = ({ onBook }) => {
                   What this means for you
                 </h3>
                 <div className="space-y-6">
-                  {[
-                    "More inbound IT support inquiries",
-                    "Higher-quality leads (SMBs with real budgets)",
-                    "Reduced dependence on referrals",
-                    "Steady monthly pipeline of new contracts"
-                  ].map((benefit, idx) => (
-                    <div key={idx} className="flex items-center gap-4 bg-black/30 p-4 rounded-xl border border-white/5">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                      <span className="text-sm font-semibold text-gray-200">{benefit}</span>
-                    </div>
-                  ))}
+                  <div className="flex items-center gap-4 bg-black/30 p-4 rounded-xl border border-white/5">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <span className="text-sm font-semibold text-gray-200">More inbound IT support inquiries</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-black/30 p-4 rounded-xl border border-white/5">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <span className="text-sm font-semibold text-gray-200">Higher-quality leads (SMBs with real budgets)</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-black/30 p-4 rounded-xl border border-white/5">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <span className="text-sm font-semibold text-gray-200">Reduced dependence on referrals</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-black/30 p-4 rounded-xl border border-white/5">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <span className="text-sm font-semibold text-gray-200">
+                      Steady monthly pipeline via our <Link to="/pricing" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">sustainable growth plans</Link>
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="pt-8 border-t border-white/5 text-center text-sm font-bold text-violet-300">
@@ -459,7 +482,7 @@ const MspSEOPage: React.FC<MspSEOProps> = ({ onBook }) => {
                 <ul className="space-y-2 text-gray-400">
                   <li className="flex gap-2"><span className="text-violet-400">✔</span> IT buyer behavior</li>
                   <li className="flex gap-2"><span className="text-violet-400">✔</span> B2B service funnels</li>
-                  <li className="flex gap-2"><span className="text-violet-400">✔</span> Local search intent patterns</li>
+                  <li className="flex gap-2"><span className="text-violet-400">✔</span> Structured B2B data schema according to <a href="https://schema.org" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">Schema.org vocabularies</a></li>
                   <li className="flex gap-2"><span className="text-violet-400">✔</span> High-ticket contract decision cycles</li>
                 </ul>
               </div>
