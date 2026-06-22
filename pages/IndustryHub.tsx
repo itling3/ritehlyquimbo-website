@@ -186,6 +186,18 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-sky-500/30",
       keywords: ["Window washing near me", "Commercial window cleaning", "Residential window cleaner"],
       stats: "More calls & jobs +160% avg."
+    },
+    {
+      title: "Managed Service Providers (MSPs)",
+      path: "/industry/seo-services-for-msps",
+      description: "Rank for high-intent B2B IT support keywords, attract high-value business clients, and convert search traffic into recurring managed IT service contracts.",
+      icon: Cpu,
+      badge: "Managed IT & MRR",
+      accent: "from-violet-500 via-indigo-500 to-cyan-400",
+      accentText: "text-violet-400",
+      borderHover: "hover:border-violet-500/30",
+      keywords: ["IT support for law firms", "Managed IT services near me", "Cybersecurity for small business"],
+      stats: "Booked contracts +130% avg."
     }
   ];
 

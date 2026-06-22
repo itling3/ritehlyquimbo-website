@@ -352,6 +352,7 @@ async function startServer() {
         '/industry/seo-services-for-moving-companies',
         '/industry/seo-services-for-landscapers',
         '/industry/seo-services-for-window-cleaners',
+        '/industry/seo-services-for-msps',
         '/pricing',
         '/pricing/local-seo-strategy',
         '/pricing/ai-automation-plans',
