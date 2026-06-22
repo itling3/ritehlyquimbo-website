@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
   Camera, 
+  Activity,
   ShoppingBag, 
   Heart, 
   Hotel, 
@@ -198,6 +199,18 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-violet-500/30",
       keywords: ["IT support for law firms", "Managed IT services near me", "Cybersecurity for small business"],
       stats: "Booked contracts +130% avg."
+    },
+    {
+      title: "Plastic Surgeons & Cosmetic Clinics",
+      path: "/industry/seo-services-for-plastic-surgeons",
+      description: "Rank for high-intent aesthetic procedure searches, build extreme E-E-A-T trust signals, and convert procedural searchers into high-value consultations.",
+      icon: Activity,
+      badge: "Healthcare & Aesthetics",
+      accent: "from-teal-500 via-emerald-500 to-cyan-400",
+      accentText: "text-teal-400",
+      borderHover: "hover:border-teal-500/30",
+      keywords: ["Rhinoplasty surgeon", "Plastic surgeon near me", "Breast augmentation specialist"],
+      stats: "Consultation sign-ups +184% avg."
     }
   ];
 
