@@ -211,6 +211,18 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-teal-500/30",
       keywords: ["Rhinoplasty surgeon", "Plastic surgeon near me", "Breast augmentation specialist"],
       stats: "Consultation sign-ups +184% avg."
+    },
+    {
+      title: "Orthodontists & Braces Specialists",
+      path: "/industry/seo-services-for-orthodontists",
+      description: "Get more Invisalign, braces, and retainer patients with targeted high-intent orthodontic SEO maps and keyword rankings.",
+      icon: Activity,
+      badge: "Aesthetics & Dentistry",
+      accent: "from-cyan-500 via-teal-500 to-emerald-450",
+      accentText: "text-cyan-400",
+      borderHover: "hover:border-cyan-500/30",
+      keywords: ["Invisalign near me", "Orthodontist in [City]", "Braces consultation"],
+      stats: "Invisalign bookings +168% avg."
     }
   ];
 

@@ -354,6 +354,7 @@ async function startServer() {
         '/industry/seo-services-for-window-cleaners',
         '/industry/seo-services-for-msps',
         '/industry/seo-services-for-plastic-surgeons',
+        '/industry/seo-services-for-orthodontists',
         '/pricing',
         '/pricing/local-seo-strategy',
         '/pricing/ai-automation-plans',
