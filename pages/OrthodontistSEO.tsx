@@ -37,7 +37,7 @@ import {
 } from 'recharts';
 import SEO from '../components/SEO';
 
-const orthodontistSeoImg = '/src/assets/images/orthodontist_seo_growth_1782094804532.jpg';
+const orthodontistSeoImg = '/assets/images/orthodontist_seo_growth_1782094804532.jpg';
 
 interface OrthodontistSEOProps {
   onBook: (e?: React.MouseEvent) => void;

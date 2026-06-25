@@ -39,7 +39,7 @@ import {
 } from 'recharts';
 import SEO from '../components/SEO';
 
-const pestControlSeoImg = '/src/assets/images/pest_control_seo_dashboard_1782371036699.jpg';
+const pestControlSeoImg = '/assets/images/pest_control_seo_dashboard_1782371036699.jpg';
 
 interface PestControlSEOProps {
   onBook: (e?: React.MouseEvent) => void;

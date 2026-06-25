@@ -38,7 +38,7 @@ import {
   Legend
 } from 'recharts';
 import SEO from '../components/SEO';
-const plasticSurgerySeoImg = '/src/assets/images/plastic_surgery_seo_1782093643558.jpg';
+const plasticSurgerySeoImg = '/assets/images/plastic_surgery_seo_1782093643558.jpg';
 
 interface PlasticSurgeonSEOProps {
   onBook: (e?: React.MouseEvent) => void;
