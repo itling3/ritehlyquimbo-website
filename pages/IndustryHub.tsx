@@ -223,6 +223,18 @@ const IndustryHubPage: React.FC<IndustryHubProps> = ({ onBook }) => {
       borderHover: "hover:border-cyan-500/30",
       keywords: ["Invisalign near me", "Orthodontist in [City]", "Braces consultation"],
       stats: "Invisalign bookings +168% avg."
+    },
+    {
+      title: "Pest Control & Exterminators",
+      path: "/industry/seo-services-for-pest-control-companies",
+      description: "Dominate local search results. Generate high-intent phone calls, termite/bedbug inquiries, and booked extermination jobs consistently.",
+      icon: HomeIcon,
+      badge: "Home & Commercial Services",
+      accent: "from-yellow-500 via-amber-500 to-orange-400",
+      accentText: "text-yellow-400",
+      borderHover: "hover:border-yellow-500/30",
+      keywords: ["Pest control near me", "Termite treatment", "Bed bug exterminator"],
+      stats: "Service inquiries +145% avg."
     }
   ];
 

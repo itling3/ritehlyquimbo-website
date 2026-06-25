@@ -355,6 +355,7 @@ async function startServer() {
         '/industry/seo-services-for-msps',
         '/industry/seo-services-for-plastic-surgeons',
         '/industry/seo-services-for-orthodontists',
+        '/industry/seo-services-for-pest-control-companies',
         '/pricing',
         '/pricing/local-seo-strategy',
         '/pricing/ai-automation-plans',
