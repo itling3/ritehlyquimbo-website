@@ -20,6 +20,7 @@ const CaseStudyDetailView: React.FC<CaseStudyDetailViewProps> = ({ study, onBack
         title={study.seoTitle || `${study.title.split('–')[0]} | ${study.industry} Growth Result`} 
         description={study.metaDescription || study.description} 
         keywords={study.keywords}
+        image={study.image}
       />
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16 md:mb-24">

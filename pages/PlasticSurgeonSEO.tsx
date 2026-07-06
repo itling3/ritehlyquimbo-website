@@ -132,6 +132,7 @@ const PlasticSurgeonSEOPage: React.FC<PlasticSurgeonSEOProps> = ({ onBook }) => 
         title="SEO Services for Plastic Surgeons | Cosmetic Surgery SEO Specialist"
         description="Dominate local cosmetic surgery searches. Specialized medical and plastic surgeon SEO services designed to increase high-value patient consultations."
         keywords="seo services for plastic surgeons, cosmetic surgery seo, plastic surgery marketing, healthcare seo marketing"
+        image={plasticSurgerySeoImg}
       />
 
       {/* Hero Section */}

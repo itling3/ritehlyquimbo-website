@@ -113,6 +113,7 @@ const OrthodontistSEOPage: React.FC<OrthodontistSEOProps> = ({ onBook }) => {
         title="SEO Services for Orthodontists | Invisalign & Braces Local SEO expert"
         description="Dominate local orthodontist searches. Attract Invisalign & Braces patients with medical-grade Orthodontic SEO services and high-intent rankings."
         keywords="seo services for orthodontists, pediatric orthodontist seo, invisalign doctor marketing, orthodontics local search optimization"
+        image={orthodontistSeoImg}
       />
 
       {/* Hero Section */}

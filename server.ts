@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 // Import constants safely for server use
 // Note: In ESM node, we might need a dynamic import if extensions are tricky
 // But tsx handles this well
-import { SERVICE_DETAILS, CASE_STUDIES } from './constants';
+import { SERVICE_DETAILS, CASE_STUDIES, BLOG_POSTS } from './constants';
 
 async function startServer() {
   console.log('--- SERVER STARTING ---');
@@ -168,6 +168,10 @@ async function startServer() {
         return cleanPath === p || cleanPath === sl || cleanPath.endsWith(s.slug.toLowerCase());
       });
 
+      const matchedBlogPost = BLOG_POSTS.find(p => {
+        return cleanPath === `/blog/${p.slug.toLowerCase()}`;
+      });
+
       // FORCED PRIORITY OVERRIDE
       if (cleanPath === '/services/local-seo-specialist-google-maps') {
         title = "Local SEO & Google Maps Specialist | Dominate Your Local Market and Get Found";
@@ -181,6 +185,13 @@ async function startServer() {
         title = matchedCaseStudy.seoTitle || `${matchedCaseStudy.title} | Ritehly Quimbo`;
         description = matchedCaseStudy.metaDescription || matchedCaseStudy.description;
         keywords = matchedCaseStudy.keywords || keywords;
+      } else if (matchedBlogPost) {
+        title = matchedBlogPost.seoTitle || `${matchedBlogPost.title} | Ritehly Quimbo`;
+        description = matchedBlogPost.metaDescription || matchedBlogPost.description;
+        keywords = matchedBlogPost.keywords || keywords;
+        if (matchedBlogPost.schema) {
+          schemaJson = matchedBlogPost.schema;
+        }
       } else if (cleanPath === '/about') {
         title = "Ritehly Quimbo SEO Specialist | Meet the Expert Behind Your Digital Growth";
         description = "Learn about Ritehly Quimbo’s journey and mission to provide high-impact SEO and digital marketing solutions for global brands.";
@@ -319,14 +330,36 @@ async function startServer() {
       
       html = html.replace('<meta charset="UTF-8">', `<meta charset="UTF-8">${injectedTags}`);
 
+      // Determine dynamic Open Graph / Twitter share image based on route path
+      const baseUrlForMeta = "https://ritehlyquimbo.com";
+      const defaultMetaImage = "https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo";
+      let finalMetaImage = defaultMetaImage;
+
+      if (matchedCaseStudy && matchedCaseStudy.image) {
+        finalMetaImage = matchedCaseStudy.image;
+      } else if (matchedBlogPost && matchedBlogPost.image) {
+        finalMetaImage = matchedBlogPost.image;
+      } else if (cleanPath === '/industry/seo-services-for-pest-control-companies') {
+        finalMetaImage = `${baseUrlForMeta}/assets/images/pest_control_seo_dashboard_1782371036699.jpg`;
+      } else if (cleanPath === '/industry/seo-services-for-plastic-surgeons') {
+        finalMetaImage = `${baseUrlForMeta}/assets/images/plastic_surgery_seo_1782093643558.jpg`;
+      } else if (cleanPath === '/industry/seo-services-for-orthodontists') {
+        finalMetaImage = `${baseUrlForMeta}/assets/images/orthodontist_seo_growth_1782094804532.jpg`;
+      } else if (cleanPath === '/about' || cleanPath === '/') {
+        finalMetaImage = "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_";
+      }
+
       const extraMeta = `
     <!-- SSR-INFO: ${cleanPath} | ${matchedService ? 'matched-service' : matchedCaseStudy ? 'matched-case' : 'static-route'} -->
     <meta name="keywords" content="${keywords}">
     <meta property="og:title" content="${finalTitle}">
     <meta property="og:description" content="${finalDesc}">
     <meta property="og:url" content="https://ritehlyquimbo.com${url}">
+    <meta property="og:image" content="${finalMetaImage}">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${finalTitle}">
     <meta name="twitter:description" content="${finalDesc}">
+    <meta name="twitter:image" content="${finalMetaImage}">
     <link rel="canonical" href="https://ritehlyquimbo.com${url}">
     <script id="ssr-debug">console.log("SSR DEBUG:", ${JSON.stringify({ path: cleanPath, title: finalTitle, desc: finalDesc.slice(0, 30) + '...', service: !!matchedService, case: !!matchedCaseStudy })});</script>
     ${schemaJson ? `<script type="application/ld+json">${JSON.stringify(schemaJson)}</script>` : ''}

@@ -19,6 +19,7 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, onBack }) => {
         title={post.seoTitle || post.title} 
         description={post.metaDescription || post.description} 
         keywords={post.keywords}
+        image={post.image}
       />
       {post.schema && (
         <script type="application/ld+json">

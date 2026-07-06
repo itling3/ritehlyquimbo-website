@@ -115,6 +115,7 @@ const PestControlSEOPage: React.FC<PestControlSEOProps> = ({ onBook }) => {
         title="SEO Services for Pest Control Companies | Local Exterminator SEO Expert"
         description="Dominate local pest control & exterminator searches. Generate more calls, leads & booked jobs with specialized SEO services for pest control companies."
         keywords="seo services for pest control companies, exterminator local seo, termite treatment digital marketing, commercial pest control rankings"
+        image={pestControlSeoImg}
       />
 
       {/* Hero Section */}

@@ -8,14 +8,27 @@ interface SEOProps {
   keywords?: string;
   canonical?: string;
   schema?: any;
+  image?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical, schema }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical, schema, image }) => {
   const siteName = "Ritehly Quimbo";
   const baseUrl = "https://ritehlyquimbo.com";
   
   const path = window.location.pathname === '/' ? '' : window.location.pathname;
   const finalCanonical = canonical || `${baseUrl}${path}`;
+
+  // Resolve image to absolute URL
+  const defaultImage = "https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo";
+  let finalImage = defaultImage;
+  if (image) {
+    if (image.startsWith('http://') || image.startsWith('https://')) {
+      finalImage = image;
+    } else {
+      const cleanImgPath = image.startsWith('/') ? image : `/${image}`;
+      finalImage = `${baseUrl}${cleanImgPath}`;
+    }
+  }
   
   return (
     <Helmet>
@@ -37,12 +50,12 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical, sche
       <meta data-rh="true" property="og:description" content={description} />
       <meta data-rh="true" property="og:url" content={finalCanonical} />
       <meta data-rh="true" property="og:site_name" content={siteName} />
-      <meta data-rh="true" property="og:image" content="https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo" />
+      <meta data-rh="true" property="og:image" content={finalImage} />
       
       <meta data-rh="true" name="twitter:card" content="summary_large_image" />
       <meta data-rh="true" name="twitter:title" content={title} />
       <meta data-rh="true" name="twitter:description" content={description} />
-      <meta data-rh="true" name="twitter:image" content="https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo" />
+      <meta data-rh="true" name="twitter:image" content={finalImage} />
     </Helmet>
   );
 };

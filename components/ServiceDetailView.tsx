@@ -22,6 +22,7 @@ const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({ service, onBack, 
         description={service.metaDescription || service.description} 
         keywords={service.keywords}
         schema={service.schema}
+        image={service.landmarkImage}
       />
       <div className="max-w-5xl mx-auto">
         <div className="grid lg:grid-cols-3 gap-8 md:gap-12 items-start mb-12 md:mb-20">
