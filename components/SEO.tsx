@@ -19,7 +19,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical, sche
   const finalCanonical = canonical || `${baseUrl}${path}`;
 
   // Resolve image to absolute URL
-  const defaultImage = "https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo";
+  const defaultImage = "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_";
   let finalImage = defaultImage;
   if (image) {
     if (image.startsWith('http://') || image.startsWith('https://')) {

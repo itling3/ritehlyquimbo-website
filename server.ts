@@ -332,13 +332,15 @@ async function startServer() {
 
       // Determine dynamic Open Graph / Twitter share image based on route path
       const baseUrlForMeta = "https://ritehlyquimbo.com";
-      const defaultMetaImage = "https://lh3.googleusercontent.com/d/1_UNdAwA40hce9EZ6i72RxVNCYAaLDAEo";
+      const defaultMetaImage = "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_";
       let finalMetaImage = defaultMetaImage;
 
       if (matchedCaseStudy && matchedCaseStudy.image) {
         finalMetaImage = matchedCaseStudy.image;
       } else if (matchedBlogPost && matchedBlogPost.image) {
         finalMetaImage = matchedBlogPost.image;
+      } else if (matchedService && (matchedService as any).landmarkImage) {
+        finalMetaImage = (matchedService as any).landmarkImage;
       } else if (cleanPath === '/industry/seo-services-for-pest-control-companies') {
         finalMetaImage = `${baseUrlForMeta}/assets/images/pest_control_seo_dashboard_1782371036699.jpg`;
       } else if (cleanPath === '/industry/seo-services-for-plastic-surgeons') {
