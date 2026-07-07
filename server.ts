@@ -330,8 +330,11 @@ async function startServer() {
       
       html = html.replace('<meta charset="UTF-8">', `<meta charset="UTF-8">${injectedTags}`);
 
-      // Determine dynamic Open Graph / Twitter share image based on route path
-      const baseUrlForMeta = "https://ritehlyquimbo.com";
+      // Dynamically resolve base URL to ensure full compatibility with the domain being requested
+      const requestHost = req.get('host') || 'ritehlyquimbo.com';
+      const requestProtocol = (requestHost.includes('localhost') || requestHost.includes('127.0.0.1')) ? 'http' : 'https';
+      const baseUrlForMeta = `${requestProtocol}://${requestHost}`;
+
       const defaultMetaImage = "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_";
       let finalMetaImage = defaultMetaImage;
 
@@ -351,18 +354,39 @@ async function startServer() {
         finalMetaImage = "https://lh3.googleusercontent.com/d/16MsRTezCaczZBh9aG6sz3HqZTDB62ve_";
       }
 
+      // Ensure finalMetaImage is fully qualified absolute URL
+      if (finalMetaImage && !finalMetaImage.startsWith('http://') && !finalMetaImage.startsWith('https://')) {
+        const cleanImgPath = finalMetaImage.startsWith('/') ? finalMetaImage : `/${finalMetaImage}`;
+        finalMetaImage = `${baseUrlForMeta}${cleanImgPath}`;
+      }
+
+      const canonicalUrl = `${baseUrlForMeta}${cleanPath === '/' ? '' : cleanPath}`;
+
       const extraMeta = `
     <!-- SSR-INFO: ${cleanPath} | ${matchedService ? 'matched-service' : matchedCaseStudy ? 'matched-case' : 'static-route'} -->
     <meta name="keywords" content="${keywords}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Ritehly Quimbo">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
     <meta property="og:title" content="${finalTitle}">
     <meta property="og:description" content="${finalDesc}">
-    <meta property="og:url" content="https://ritehlyquimbo.com${url}">
+    <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${finalMetaImage}">
+    <meta property="og:image:secure_url" content="${finalMetaImage}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${finalTitle}">
     <meta name="twitter:description" content="${finalDesc}">
     <meta name="twitter:image" content="${finalMetaImage}">
-    <link rel="canonical" href="https://ritehlyquimbo.com${url}">
+    
+    <!-- Canonical Link -->
+    <link rel="canonical" href="${canonicalUrl}">
+    
     <script id="ssr-debug">console.log("SSR DEBUG:", ${JSON.stringify({ path: cleanPath, title: finalTitle, desc: finalDesc.slice(0, 30) + '...', service: !!matchedService, case: !!matchedCaseStudy })});</script>
     ${schemaJson ? `<script type="application/ld+json">${JSON.stringify(schemaJson)}</script>` : ''}
 `;
